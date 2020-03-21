@@ -1,0 +1,45 @@
+header{
+  position: absolute;
+  display: block;
+  width: 100%;
+  z-index: 10;
+  @include transition();
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 90px;
+  background-color: transparent;
+  margin: 0 auto;
+}
+
+.logo {
+  padding: 10px 0;
+}
+
+.logo img {
+  width: 90px;
+
+  @include transition();
+
+  &:hover{            
+    transform: scale(1.1);
+    @include transition();
+  }
+}
+
+li{
+    display: inline-flex;
+    margin: 10px;
+    
+    a{
+        color: white;
+        @include transition();
+        &:hover{            
+          transform: scale(1.1);
+          @include transition();
+        }
+    }
+}

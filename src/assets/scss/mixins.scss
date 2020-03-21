@@ -1,0 +1,36 @@
+@mixin padding() {
+  width: 100%;
+  display: block;
+  padding: 5% 10%;
+
+  @include breakpoint(smartphones){
+    padding: 10px;
+  }
+}
+
+@mixin transition($args: all 800ms ease) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin background($bg) {
+  background: url($bg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  background-size: cover;
+}
+
+// functions
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}

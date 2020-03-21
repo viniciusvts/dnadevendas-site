@@ -1,0 +1,20 @@
+@mixin breakpoint($point) {
+    @if $point == smartphones {
+      @media (max-width: $smartphones) { @content ; }
+   }
+    @else if $point == tablets {
+      @media (max-width: $tablets) { @content ; }
+   }
+     @else if $point == desktops {
+      @media (max-width: $desktops) { @content ; }
+   }
+    @else if $point == largeDesktops {
+      @media (max-width: $largeDesktops)  { @content ; }
+   }
+    @else if $point == hdDesktops {
+      @media (max-width: $hdDesktops)  { @content ; }
+    }
+    @else if $point == fullHdDesktops {
+      @media (max-width: $fullHdDesktops)  { @content ; }
+    }
+  }

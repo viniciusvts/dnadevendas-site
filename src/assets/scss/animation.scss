@@ -1,0 +1,44 @@
+/*Efeitos de animação*/
+.esconder{
+    display: none;
+    @include transition(0.2s all ease-out);
+}
+
+.animar{
+    opacity: 0.1;
+    transform: scale(0.8);
+    @include transition(0.8s all ease);
+}
+
+.animar.fade-in{
+    opacity: 1;
+    transform: scale(1);
+    @include transition(0.8s all ease);
+}
+  
+
+@mixin verticalAnimation($timeAnimation:2s, $delay:0){
+    animation-delay: $delay;
+    animation: $timeAnimation cubic-bezier(0.55, 0.085, 0, 0.99)  animationVertical;
+    transform: translateX(0);
+    @keyframes animationVertical {
+        0% {
+        opacity: 0;
+        transform: translateY(-10%);
+        }
+        100% {
+        transform: translateY(0);
+        }
+    }
+
+    @-webkit-keyframes animationVertical {
+        0% {
+        opacity: 1;
+        }
+        100% {
+        transform: translateY(0);
+        }
+    }
+}
+
+/*Efeitos de animação*/

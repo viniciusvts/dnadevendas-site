@@ -1,0 +1,50 @@
+.whatsapp {
+    background-color: #08c65b;
+    right: -137px;
+    top: 50%;
+    cursor: pointer;
+    z-index: 9;
+    position: fixed;
+    line-height: 20px;
+    width: 190px;
+    z-index: 10;
+
+    -webkit-transition: all 400ms ease;
+    -moz-transition: all 400ms ease;
+    -ms-transition: all 400ms ease;
+    -o-transition: all 400ms ease;
+    transition: all 400ms ease
+}
+
+.whatsapp svg {
+    width: 30px;
+    margin: 10px 15px;
+    float: left
+}
+
+.whatsapp:hover {
+    right: 0px;
+    -webkit-transition: all 400ms ease;
+    -moz-transition: all 400ms ease;
+    -ms-transition: all 400ms ease;
+    -o-transition: all 400ms ease;
+    transition: all 400ms ease
+}
+
+.whatsapp .icone {
+    float: left;
+    clear: none
+}
+
+.whatsapp .texto {
+    margin-top: 7px
+}
+
+.whatsapp .texto span {
+    color: #fff;
+    font-size: 17px;
+}
+
+.whatsapp .texto a:hover {
+    text-decoration: none
+}

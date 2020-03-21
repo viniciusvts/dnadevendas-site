@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+ul,
+li,
+h1,
+h2,
+p {
+  padding: 0px;
+  margin: 0px;
+}
+
+html{
+  font-family: 'Montserrat', sans-serif;
+}
+
+body{
+  background: $baseColor;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: #345;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1{
+  font-size: 20px;
+  @include font-size(30px);
+  b{
+    font-weight: 800;
+    font-size: 48px;
+    display: block;
+    @include font-size(48px);
+  }
+}
+
+h2{
+  font-weight: 800;
+  text-transform: uppercase;
+  display: block;
+  position: relative;
+  width: fit-content;
+  span{
+    &::after{
+      display: block;
+      position: absolute;
+      content: "";
+      background-image: url("../assets/svg/line.svg");
+      background-size: 100px;
+      height: 1px;
+      width: 110px;
+      left: 160px;
+      top: 16px;
+      z-index: 9;
+    }
+  }
+}
+
+h1,h3{
+  font-weight: 100;
+}
+
+.section{
+  padding: 90px;
+  @include breakpoint(smatphones){
+    padding: 10px;
+  }
+}
+
+
+button {
+  background: linear-gradient(to right, #C8AC78 0%, #B08961 100%);  
+  &:hover {
+    background-position: right center;
+  }
+  color: white;
+  border: none;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding: 15px 25px;
+  margin: 40px 0;
+  cursor: pointer;
+  @include transition();
+
+  &:hover{            
+    transform: scale(1.1);
+    @include transition();
+  }
+
+  a{
+    color: white;
+
+    &:hover{
+      color: white;
+    }
+  }
+}

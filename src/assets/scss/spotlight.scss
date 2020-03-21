@@ -1,0 +1,44 @@
+.spotlight{
+    display: block;
+    position: relative;
+    height: 100%;
+    .image{
+        filter: brightness(0.7);
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    h1{        
+        margin-bottom: 40px;
+    }
+
+    .text{
+        position: absolute;
+        top: 30%;
+        z-index: 1;
+        color: white;
+    }
+
+    .see-more{
+        display: block;
+        width: 100%;
+        bottom: 40px;
+        position: absolute;
+        z-index: 9;
+        
+        .container{
+            display: block;
+            position: relative;
+            margin: 0 auto;
+            color: white;
+            width: 90px;
+
+            img{
+                width: 20px;
+                height: auto;
+                margin: 10px auto;
+            }
+        }
+    }
+}
