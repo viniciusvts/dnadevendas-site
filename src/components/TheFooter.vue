@@ -139,5 +139,6 @@ export default {
 <style lang="scss">
   @import '@/assets/scss/variables.scss';
   @import '@/assets/scss/mixins.scss';
+  @import '@/assets/scss/breakpoint.scss';
   @import '@/assets/scss/footer.scss';
 </style>

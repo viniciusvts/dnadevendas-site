@@ -6,6 +6,10 @@ footer{
     background-attachment: fixed;
     text-align: left;
 
+    .section{
+        padding-bottom: 0px;
+    }
+
     .footer{
         h3{
             font-weight: bold;
@@ -25,7 +29,13 @@ footer{
 
         .top{
             .columns {
-                grid-template-columns: minmax(200px, 200px) minmax(200px, 250px) 3fr 2fr;
+                grid-template-columns: minmax(200px, 300px) minmax(200px, 300px) minmax(200px, 500px) minmax(200px, 500px);
+                margin: 0 auto;
+                width: fit-content;
+
+                @include breakpoint(largeDesktops) {        
+                    grid-template-columns: minmax(200px, 300px) minmax(200px, 300px);
+                }
             }
 
             ul{
@@ -63,6 +73,10 @@ footer{
         .politicas{
             .columns{
                 grid-template-columns: 1fr max-content;
+
+                @include breakpoint(largeDesktops) {        
+                    grid-template-columns: 1fr;
+                }
             }
         }
 
@@ -85,11 +99,11 @@ footer{
             }
             input[type="submit"]{
                 border: 2px solid $golden;
-                padding: 10px;
+                padding: 10px 20px;
                 text-align: center;
                 background-color: transparent;
                 color: white;
-                min-width: 50%;
+                width: fit-content;
                 font-weight: bold;
                 cursor: pointer;
                 text-transform: uppercase;

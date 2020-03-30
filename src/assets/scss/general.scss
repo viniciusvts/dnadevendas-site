@@ -101,7 +101,6 @@ p{
 hr{
   width: 100%;
   border: 1px solid #393C65;
-  margin: 40px auto;
 }
 
 form{
@@ -141,7 +140,7 @@ form{
 }
 
 .section{
-  padding: 120px 90px;
+  padding: 90px;
   position: relative;
   display: block;
 
@@ -153,7 +152,7 @@ form{
 
 .columns {
   display: grid;
-  grid-gap: 40px;
+  grid-gap: 10px 40px;
   position: relative;
   height: fit-content;
   align-items: start;
