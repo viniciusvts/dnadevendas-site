@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap" rel="stylesheet">
     <TheHeader/>
     <main id="main">
       <transition mode="out-in">
@@ -26,6 +26,3 @@
     },
   };
 </script>
-
-<style lang="scss">
-</style>

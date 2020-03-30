@@ -8,7 +8,7 @@
   }
 }
 
-@mixin transition($args: all 800ms ease) {
+@mixin transition($args: all 400ms ease) {
   -webkit-transition: $args;
   -moz-transition: $args;
   -ms-transition: $args;

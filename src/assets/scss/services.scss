@@ -22,22 +22,21 @@
         max-width: 25%;
         min-width: 10%;
         border-right: 0.5px solid #fffffff2;
-        
 
-        &:hover{    
-            max-width: 40% !important;
-            flex-grow: 2;
-            color: #fff;
-            cursor: pointer;
-            @include transition();            
-            .text p{
-              display: block;           
-              @include transition();
-            }
-
-            .text::before{
-                transform: rotateZ(180deg);
-            }
+        &:last-child{
+            &::before{
+                display: block;
+                position: absolute;
+                content: "";
+                background-image: url("../assets/svg/waves.svg");
+                background-size: 200px;
+                height: 200px;
+                width: 200px;
+                right: -90px;
+                top: -90px;
+                z-index: -1;
+            }            
+            border-right: 0px;
         }
 
         &:nth-child(1){
@@ -55,20 +54,22 @@
             }
         }
 
-        &:last-child{
-            &::before{
-                display: block;
-                position: absolute;
-                content: "";
-                background-image: url("../assets/svg/waves.svg");
-                background-size: 200px;
-                height: 200px;
-                width: 200px;
-                right: -90px;
-                top: -90px;
-                z-index: -1;
-            }            
-            border-right: 0px;
+        &:hover{    
+            max-width: 50% !important;
+            flex-grow: 3;
+            color: #fff;
+            min-width: 10%;
+            cursor: pointer;
+            @include transition(all 800ms ease);            
+            .text p{       
+              display: block;
+              @include transition(all 800ms ease);
+            }
+
+            .text::before{
+                display: none;
+                @include transition(all 800ms ease);
+            }
         }
     }
 
@@ -80,6 +81,8 @@
         padding: 20px;
         z-index: 9;
 
+        @include transition(all 800ms ease);
+
         &::before{
             display: block;
             position: absolute;
@@ -90,7 +93,9 @@
             width: 12px;
             left: 40px;
             bottom: 0px;
-            z-index: 9;            
+            z-index: 9;
+            display: block;   
+            @include transition();        
         }      
 
         .label{
@@ -118,7 +123,7 @@
             font-size: 20px;
             line-height: 30px;
             display: none;
-            @include transition();
+            @include transition(all 800ms ease);
         }
     }
 

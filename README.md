@@ -22,3 +22,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Documentation to do requests with ACF Rest
+https://github.com/airesvsg/acf-to-rest-api/

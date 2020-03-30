@@ -38,7 +38,7 @@
         </li>
 
         <li>
-          <router-link to="/">Contato
+          <router-link to="/contato">Contato
           </router-link>
         </li>
       </ul>      
@@ -50,10 +50,13 @@
   export default {
     name: "TheHeader",
     created(){
+      const html = document.documentElement // returns the html tag
+      html.setAttribute('lang', 'pt-BR');
+
       window.onscroll = function(){
         let menuFixed = document.getElementById("menu-fixed");
-        if(this.scrollY > 150){
-          menuFixed.setAttribute("style", "background-color: #212438; position: fixed");
+        if(this.scrollY > 91){
+          menuFixed.setAttribute("style", "background-color: #1a213b; position: fixed");
         }else{
           menuFixed.removeAttribute("style");
         }

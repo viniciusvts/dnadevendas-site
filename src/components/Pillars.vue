@@ -26,10 +26,10 @@
 
             <div class="column">
                 <img src="@/assets/svg/people.svg" alt="Pessoas">
-                <p>Pessoas</p>
-                
+                <p>Pessoas</p>                
             </div>
         </div>
+        <hr>
     </div>
 </template>
 
@@ -40,5 +40,6 @@
 </script>
 
 <style lang="scss">
+    @import '@/assets/scss/mixins.scss';
     @import '@/assets/scss/pillars.scss';
 </style>

@@ -1,0 +1,108 @@
+footer{
+    color: white;    
+    background-image: url('../assets/bg-roger.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: left;
+
+    .footer{
+        h3{
+            font-weight: bold;
+        }
+        p{
+            margin-bottom: 18px;
+        }
+
+        a{
+            color: white;
+            @include transition();
+            &:hover{
+                color: $spotlight;
+                @include transition();
+            }
+        }
+
+        .top{
+            .columns {
+                grid-template-columns: minmax(200px, 200px) minmax(200px, 250px) 3fr 2fr;
+            }
+
+            ul{
+                display: block;
+                li{
+                    list-style: none;
+                    position: relative;
+                    line-height: 30px;
+                    padding-top: 0;
+                    margin-top: 0;
+                    display: block;
+                    &::before{
+                        display: block;
+                        position: absolute;
+                        content: "";
+                        background-image: url("../assets/svg/separator.svg");
+                        background-size: 10px;
+                        height: 10px;
+                        width: 10px;
+                        left: -19px;
+                        top: 8px;
+                        z-index: 9;
+                    }
+                }
+            }
+        }
+
+        .bottom{
+            margin-top: 40px;
+            p{
+                font-size: 16px;
+            }
+        }
+
+        .politicas{
+            .columns{
+                grid-template-columns: 1fr max-content;
+            }
+        }
+
+        form{
+            input{
+                height: 50px;
+                margin-bottom: 20px;
+            }
+
+            input::placeholder{
+                color: white;
+            }
+
+            input[type="text"],input[type="email"]{
+                border: 2px solid #8B97BB;
+                background-color: #323554;
+                width: 100%;
+                color: white;
+                padding: 5px 15px;
+            }
+            input[type="submit"]{
+                border: 2px solid $golden;
+                padding: 10px;
+                text-align: center;
+                background-color: transparent;
+                color: white;
+                min-width: 50%;
+                font-weight: bold;
+                cursor: pointer;
+                text-transform: uppercase;
+
+                @include transition();
+
+                &:hover{
+                    border: 2px solid white;
+                    background-color: white;
+                    color: $baseColor;
+                    @include transition();
+                }
+            }
+        }
+    }
+}

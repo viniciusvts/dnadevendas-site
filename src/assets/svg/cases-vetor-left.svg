@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8.346" height="91.578" viewBox="0 0 8.346 91.578">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.139" y1="0.833" x2="8.016" y2="-6.434" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#c8ac78"/>
+      <stop offset="0.506" stop-color="#bb9a6c"/>
+      <stop offset="1" stop-color="#b08961"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-1.37" y1="2.225" x2="6.506" y2="-5.042" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="-2.879" y1="3.618" x2="4.997" y2="-3.649" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="-4.389" y1="5.011" x2="3.488" y2="-2.256" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-5" x1="-5.898" y1="6.403" x2="1.978" y2="-0.864" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-6" x1="-7.408" y1="7.796" x2="0.469" y2="0.529" xlink:href="#linear-gradient"/>
+  </defs>
+  <g id="Grupo_9716" data-name="Grupo 9716" transform="translate(-47.061 45.789) rotate(-45)">
+    <g id="Grupo_9710" data-name="Grupo 9710" transform="translate(0.82 59.833)">
+      <rect id="Retângulo_641" data-name="Retângulo 641" width="8.346" height="8.121" transform="translate(5.822 0.08) rotate(45)" fill="url(#linear-gradient)"/>
+    </g>
+    <g id="Grupo_9711" data-name="Grupo 9711" transform="translate(12.622 48.03)">
+      <rect id="Retângulo_642" data-name="Retângulo 642" width="8.346" height="8.121" transform="translate(5.822 0.08) rotate(45)" fill="url(#linear-gradient-2)"/>
+    </g>
+    <g id="Grupo_9712" data-name="Grupo 9712" transform="translate(24.425 36.227)">
+      <rect id="Retângulo_643" data-name="Retângulo 643" width="8.346" height="8.121" transform="translate(5.822 0.08) rotate(45)" fill="url(#linear-gradient-3)"/>
+    </g>
+    <g id="Grupo_9713" data-name="Grupo 9713" transform="translate(36.227 24.425)">
+      <rect id="Retângulo_644" data-name="Retângulo 644" width="8.346" height="8.121" transform="translate(5.822 0.08) rotate(45)" fill="url(#linear-gradient-4)"/>
+    </g>
+    <g id="Grupo_9714" data-name="Grupo 9714" transform="translate(48.03 12.622)">
+      <rect id="Retângulo_645" data-name="Retângulo 645" width="8.346" height="8.121" transform="translate(5.822 0.08) rotate(45)" fill="url(#linear-gradient-5)"/>
+    </g>
+    <g id="Grupo_9715" data-name="Grupo 9715" transform="translate(59.833 0.82)">
+      <rect id="Retângulo_646" data-name="Retângulo 646" width="8.346" height="8.121" transform="translate(5.822 0.08) rotate(45)" fill="url(#linear-gradient-6)"/>
+    </g>
+  </g>
+</svg>

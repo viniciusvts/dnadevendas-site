@@ -3,7 +3,7 @@
     position: relative;
     width: 100%;
     color: white;
-    background: linear-gradient(to bottom, #393C65 0%, #212438 100%);
+    background: linear-gradient(to bottom, #393C65 0%, #1a213b 60%, #1a213b 100%);
 
     h3{
         font-size: 30px;
@@ -45,6 +45,13 @@
         img{
             width: auto;
             height: 80px;
+            transform: scale(1);
+            @include transition();
+
+            &:hover{
+                transform: scale(1.1);
+                @include transition();
+            }
         }
 
         p{

@@ -2,6 +2,10 @@
 node_modules
 /dist
 
+#plugins
+/api/wp-content/plugins
+/api/wp-content/uploads
+
 # local env files
 .env.local
 .env.*.local

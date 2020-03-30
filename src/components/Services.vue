@@ -1,6 +1,9 @@
 <template>
     <div class="services section">
-        <h2>Serviços <span></span></h2>
+        <div class="title">
+            <h2>Serviços</h2>
+            <span></span>
+        </div>  
         <div class="columns">
             <div class="column">
                 <div class="text"><div class="label">Palestra</div></div>

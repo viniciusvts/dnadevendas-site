@@ -1,0 +1,178 @@
+.feedblog{
+    color: white;
+
+    h2{
+        b{
+            font-weight: 100;
+        }
+    }
+
+    h3{
+        font-size: 20px;
+        font-weight: bold;
+        display: inline;
+        position: relative;
+        span{
+            &::after{
+              display: block;
+              position: absolute;
+              content: "";
+              background-image: url("../assets/svg/line.svg");
+              background-size: 100px;
+              height: 1px;
+              width: 40px;
+              right:-60px;
+              top: 10px;
+              z-index: 9;
+            }
+          }
+    }
+
+    .top{
+        .columns {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-gap: 20px;
+            position: relative;
+            align-items: start;
+        
+            @media screen and (max-width: 500px) {        
+                grid-template-columns: 1fr;
+                grid-gap: 10px;          
+            }
+        
+            .column{
+                display: block;
+                position: relative;
+            }
+        }
+
+        ul{
+            li{
+                font-size: 18px;
+                list-style: none;
+                border: 1px solid white;
+                padding: 10px;
+                display: block;
+                width: max-content;                
+                cursor: pointer;
+
+                @include transition();
+                &:hover{
+                    background-color: white;
+                    color: $baseColor;
+                    @include transition();
+                }
+            }
+        }
+    }
+
+    .bottom{
+        .columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: start;
+            grid-gap: 50px;
+            position: relative;
+            margin: 50px auto;
+        
+            @media screen and (max-width: 500px) {        
+                grid-template-columns: 1fr;
+                grid-gap: 10px;          
+            }
+        
+            .column{
+                display: block;
+                position: relative;
+                margin: 30px auto;
+                cursor: pointer;
+
+                @include transition();
+
+                &:hover{
+                    transform: scale3d(1.05, 1.05, 1);
+                    @include transition();
+                }
+
+                .top{
+                    width: 100%;
+                    z-index: 1;
+                    img{
+                        width: 100%;
+                        max-width: 100%;
+                        height: auto;
+                        object-fit: cover;
+                        transform: scale3d(1, 1, 1);
+                    }
+
+                    &::after{
+                        content: "";
+                        width: 150px;
+                        height: 150px;
+                        position: absolute;
+                        top: -10px;
+                        right: -10px;
+                        z-index: -1;
+                        background: $golden;
+                        background-size: 100px;
+                    }
+                }
+                .bottom{
+                    background-color: white;                    
+                    color: $baseColor;
+                    padding: 20px;
+
+                    h3{
+                        display: block;
+                        text-transform: uppercase;
+                        margin-bottom: 30px;
+                        line-height: 30px;
+                    }
+                }
+
+                .signature{
+                    display: grid;
+                    grid-template-columns: 1fr 90px;
+                    align-items: center;
+                    .author{
+                        display: grid;
+                        grid-template-columns: 50px 1fr;
+                        align-items: center;
+                        p{
+                            padding: 10px;
+                            line-height: 20px;
+                        }
+                        img{
+                            border-radius: 50px;
+                            width: 50px;
+                            height: 50px;
+                            object-fit: cover;
+                            display: grid;
+                            
+                        }
+                    }
+
+                    .views{
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        align-items: center;
+                        span{
+                            margin: 0 auto;
+                        }
+                        img{
+                            width: auto;
+                            height: 19px;
+                            margin: 10px;
+                            margin: 0 auto;
+                        }
+                    }
+                }
+            }
+        }        
+    }
+
+    button{
+        margin: 0 auto;
+        display: block;
+    }
+}
