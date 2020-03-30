@@ -1,0 +1,96 @@
+.contato{
+    color: white;    
+    padding-top: 150px;
+
+    .columns{
+        grid-template-columns: 2fr 1fr;
+        max-width: 1300px;
+        margin: 90px auto;
+    }
+
+    h1{
+        text-align: center;
+        position: relative;
+        padding-top: 5px;
+        width: fit-content;
+        margin: 0 auto;
+        font-weight: bold;
+
+        &::before{
+            display: block;
+            position: absolute;
+            content: "";
+            background-image: url("../assets/svg/pinmap.svg");
+            background-size: 37px;
+            background-repeat: no-repeat;
+            height: 47px;
+            width: 37px;
+            left: -80px;
+            top: 0px;
+            z-index: -1;
+        }
+    }
+
+    form{
+        background: linear-gradient(to bottom, #1a213b 0%, #27415a 100%);
+        padding: 60px;
+        margin-bottom: 40px;
+
+        input[type="submit"]{
+            background: linear-gradient(to right, #C8AC78 0%, #B08961 100%);           
+            width: max-content;
+            color: white;
+        }
+
+        &::before{
+            display: block;
+            position: absolute;
+            content: "";
+            background-image: url("../assets/svg/cases-vetor-left.svg");
+            height: 92px;
+            width: 8px;
+            left: -30px;
+            top: 0;
+            z-index: 1;
+        } 
+    }
+
+    .local{
+        margin-bottom: 60px;
+    }
+
+    a{
+        color: $golden;
+    }
+
+    b{
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    b, a{
+        display: block;
+    }
+
+    &::after{
+        display: block;
+        position: absolute;
+        content: "";
+        background-image: url("../assets/svg/cases-vetor-right.svg");
+        height: 800px;
+        width: 190px;
+        right: 0;
+        top: 500px;
+        z-index: 1;
+    }
+
+    @media screen and (max-width: 1200px) {        
+        .columns{
+            grid-template-columns: 1fr;
+            grid-gap: 10px;     
+        }     
+        .local{
+            text-align: center;
+        }
+    }
+}
