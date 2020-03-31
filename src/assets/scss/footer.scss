@@ -5,6 +5,8 @@ footer{
     background-size: cover;
     background-attachment: fixed;
     text-align: left;
+    z-index: 8;
+    position: relative;
 
     .section{
         padding-bottom: 0px;
@@ -35,6 +37,10 @@ footer{
 
                 @include breakpoint(largeDesktops) {        
                     grid-template-columns: minmax(200px, 300px) minmax(200px, 300px);
+                }
+
+                @include breakpoint(smartphones) {        
+                    grid-template-columns: 1fr;
                 }
             }
 
@@ -77,6 +83,11 @@ footer{
                 @include breakpoint(largeDesktops) {        
                     grid-template-columns: 1fr;
                 }
+            }
+
+            ul li{
+                display: inline-block;
+                margin: 0 10px;
             }
         }
 

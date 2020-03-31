@@ -33,7 +33,7 @@
         </li>
 
         <li>
-          <router-link to="/">Conteúdo
+          <router-link to="/blog">Conteúdo
           </router-link>
         </li>
 

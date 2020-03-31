@@ -1,5 +1,15 @@
 <template>
-  <div class="blog section">
-    <h1>This is an about page</h1>
-  </div>
+  <section class="blog container">
+    
+  </section>
 </template>
+
+<script>
+export default {
+  name: 'Blog'
+}
+</script>
+
+<style lang="scss">
+  @import '@/assets/scss/blog.scss';
+</style>

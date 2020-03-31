@@ -13,6 +13,20 @@ nav {
   padding: 15px 90px;
   background-color: transparent;
   margin: 0 auto;
+
+  li{
+    display: inline-flex;
+    margin: 10px;
+    
+    a{
+        color: white;
+        @include transition();
+        &:hover{            
+          transform: scale(1.1);
+          @include transition();
+        }
+    }
+  }
 }
 
 .logo {
@@ -28,18 +42,4 @@ nav {
     transform: scale(1.1);
     @include transition();
   }
-}
-
-li{
-    display: inline-flex;
-    margin: 10px;
-    
-    a{
-        color: white;
-        @include transition();
-        &:hover{            
-          transform: scale(1.1);
-          @include transition();
-        }
-    }
 }
