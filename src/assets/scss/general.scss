@@ -21,30 +21,37 @@ body{
 }
 
 h1{
-  font-size: 30px;
-  @include font-size(30px);
+  @include fontSize(30px);
+  line-height:30px; 
   b{
     font-weight: bold;
     font-size: 48px;
     display: block;
-    @include font-size(48px);
+    @include fontSize(48px);
   }
 }
 
-h1, h2, h3, h4{
+h1, h2, h3{
   font-weight: 100;
 }
 
+h2{
+  @include fontSize(23px);  
+  line-height:30px;   
+}
+
 h3{
-  font-size: 28px;
+  @include fontSize(19px);
+  line-height:30px; 
 }
 
 h4{
-  font-size: 20px;
+  @include fontSize(17px);
+  font-weight: bold;
 }
 
 h5{
-  font-size: 15px;
+  @include fontSize(15px);
 }
 
 ul {
@@ -66,10 +73,8 @@ img {
   grid-template-columns: max-content minmax(40px, 100px);
   align-items: center;
   gap: 20px;
-  margin-bottom: 40px;
 
   h2{
-    font-size: 25px;  
     text-transform: uppercase;
     font-weight: bold;
     position: relative; 
@@ -121,7 +126,7 @@ form{
     cursor: pointer;
     text-transform: uppercase;
     font-weight: bold;
-    margin-top: 60px;
+    margin-top: 30px;
     border: none;
     transform: scale(1);
 
@@ -152,22 +157,24 @@ form{
 
 .columns {
   display: grid;
-  grid-gap: 10px 40px;
+  gap: 10px 40px;
   position: relative;
   height: fit-content;
   align-items: start;
   max-width: 1920px;
   z-index: 8;
 
-  @media screen and (max-width: 1200px) {        
+  @include breakpoint(largeDesktops){
     grid-template-columns: 1fr;
-    grid-gap: 10px;          
+    gap: 20px;
   }
 
   .column{
     display: block;
     position: relative;
-    padding: 20px;
+    @include breakpoint(smartphones){
+      margin: 0 auto;
+    }
   }
 }
 
@@ -185,6 +192,7 @@ button, input[type="submit"] {
   font-size: 20px;
   padding: 15px 25px;
   margin: 40px 0;
+  width: fit-content;
   cursor: pointer;
   @include transition();
 

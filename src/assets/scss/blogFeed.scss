@@ -28,63 +28,15 @@
           }
     }
 
-    .top{
-        .columns {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            grid-gap: 20px;
-            position: relative;
-            align-items: start;
-        
-            @media screen and (max-width: 500px) {        
-                grid-template-columns: 1fr;
-                grid-gap: 10px;          
-            }
-        
-            .column{
-                display: block;
-                position: relative;
-            }
-        }
-
-        ul{
-            li{
-                font-size: 18px;
-                list-style: none;
-                border: 1px solid white;
-                padding: 10px;
-                display: block;
-                width: max-content;                
-                cursor: pointer;
-
-                @include transition();
-                &:hover{
-                    background-color: white;
-                    color: $baseColor;
-                    @include transition();
-                }
-            }
-        }
-    }
-
     .bottom{
         .columns {
-            display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            align-items: start;
-            grid-gap: 50px;
-            position: relative;
-            margin: 50px auto;
         
             @media screen and (max-width: 500px) {        
-                grid-template-columns: 1fr;
-                grid-gap: 10px;          
+                grid-template-columns: 1fr;        
             }
         
             .column{
-                display: block;
-                position: relative;
-                margin: 30px auto;
                 cursor: pointer;
 
                 @include transition();
@@ -172,7 +124,7 @@
     }
 
     button{
-        margin: 0 auto;
+        margin: 30px auto;
         display: block;
     }
 }

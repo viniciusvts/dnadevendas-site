@@ -8,7 +8,7 @@
     <Clients/>
     <Methodology/>
     <Depoiments/>
-    <Feedblog/>
+    <BlogFeed/>
   </section>
 </template>
 
@@ -29,11 +29,10 @@ import Differential from "@/components/Differential.vue";
 import Clients from "@/components/Clients.vue";
 import Methodology from "@/components/Methodology.vue";
 import Depoiments from "@/components/Depoiments.vue";
-import Feedblog from "@/components/Feedblog.vue";
-
+import BlogFeed from "@/components/BlogFeed.vue";
 
 export default {
-  name: "home",
+  name: "Home",
   components: {
     Spotlight,
     Pillars,
@@ -43,12 +42,10 @@ export default {
     Clients,
     Methodology,
     Depoiments,
-    Feedblog
+    BlogFeed
   },
   created() {
     document.title = "Dna de Vendas";
   },
 };
 </script>
-
-

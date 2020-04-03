@@ -1,50 +1,6 @@
 <template>
   <div class="feedblog section">
-      <div class="top">
-        <div class="columns">
-            <div class="column">
-                <div class="title">
-                    <h2><b>Conteúdos <br> direcionados</b> <br> para você</h2>
-                    <span></span>
-                </div>
-            </div>
-
-            <div class="column">
-                <div class="title">
-                    <h3>Para gestores</h3>
-                    <span></span>
-                </div>
-                <ul>
-                    <li>RH Estratégico</li>
-                    <li>Estratégia de Vendas</li>
-                    <li>Liderança de equipe</li>
-                </ul>
-            </div> 
-
-            <div class="column">
-                <div class="title">
-                    <h3>Times de Vendas</h3>
-                    <span></span>
-                </div>
-                <ul>
-                    <li>Cases de sucesso</li>
-                    <li>Competência de Vendas</li>
-                    <li>CRM de Vendas</li>
-                </ul>
-            </div> 
-
-            <div class="column">
-                <div class="title">
-                    <h3>Times de RH</h3>
-                    <span></span>
-                </div>
-                <ul>
-                    <li>Educação Corporativa</li>
-                    <li>Treinamento de Vendas</li>
-                </ul>
-            </div>           
-        </div>
-      </div>
+      <BlogFilter/>
 
       <div class="bottom">
           <div class="columns">
@@ -111,13 +67,21 @@
 </template>
 
 <script>
+
+    import BlogFilter from "@/components/BlogFilter.vue";
+
   export default {
     name: 'Feedblog',
+    components: {
+        BlogFilter
+    }
   }
 </script>
 
 <style lang="scss">
     @import '@/assets/scss/variables.scss';
     @import '@/assets/scss/mixins.scss';
-    @import '@/assets/scss/feedblog.scss';
+    @import '@/assets/scss/breakpoint.scss';
+    @import '@/assets/scss/blogFilter.scss';
+    @import '@/assets/scss/blogFeed.scss';
 </style>

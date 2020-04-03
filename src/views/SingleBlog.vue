@@ -1,5 +1,5 @@
 <template>
-  <section class="singleBlog section">
+  <section class="blogSingle section">
     <div class="container">
       <div class="columns">
           <div class="column">
@@ -84,47 +84,7 @@
           </div>
 
           <div class="column">
-            <div class="categories">
-              <div class="title">
-                <h2>Categorias</h2>
-                <span></span>
-              </div>
-              <ul>
-                <li> <router-link to="/blog">Blog</router-link> </li>
-                <li> <router-link to="/cases-de-sucesso">Cases de Sucesso</router-link> </li>
-                <li>Competência de Vendas</li>
-                <li>Consultoria de vendas</li>
-                <li>CRM de Vendas</li>
-                <li>Dicas de Vendas</li>
-                <li>Educação Corporativa</li>
-                <li>Estratégia de Vendas</li>
-                <li>Liderança de Equipe</li>
-                <li>Marketing</li>
-                <li>Negociação</li>
-                <li>Processos de vendas</li>
-                <li>Produtividade de Vendas</li>
-                <li>RH estratégico</li>
-                <li>Sem categoria</li>
-                <li>Técnicas de vendas</li>
-                <li>Treinamento em vendas</li>
-              </ul>              
-            </div>
-
-            <div class="banner">
-              <router-link to="/">
-                <img src="https://www.dnadevendas.com.br/wp-content/uploads/palestras-sales.jpg" alt="">
-              </router-link>
-            </div>
-
-            <div class="newsletter">
-              <form action="">
-                <h3>Assine nossa Newsletter</h3>
-                <p>Cadastre seu e-mail aqui e receba dicas de como vender mais!</p>
-                <input type="text" name="nome" id="nome" placeholder="Seu nome*">
-                <input type="email" name="email" id="" placeholder="E-mail">
-                <input type="submit" value="Cadastrar">
-              </form>
-            </div>
+            <Sidebar/>
           </div>
       </div>
     </div>
@@ -133,8 +93,14 @@
 
 
 <script>
+
+  import Sidebar from "@/components/Sidebar.vue";
+  
   export default {
     name: "Contato",
+    components: {
+      Sidebar
+    },
     props: ["slug"],
     created() {
       document.title = `Dna de Vendas - Blog | ${this.slug}` ;
@@ -145,5 +111,5 @@
 <style lang="scss">
   @import '@/assets/scss/variables.scss';
   @import '@/assets/scss/breakpoint.scss';
-  @import '@/assets/scss/singleBlog.scss';
+  @import '@/assets/scss/blogSingle.scss';
 </style>

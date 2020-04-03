@@ -1,24 +1,29 @@
-.singleBlog{
+.blogSingle{
     color: $baseColor;
     background-color: white;
     z-index: 1;
 
-    ul{
-        list-style: disc;
-        li{
-            display: block;
-            line-height: 28px;
-            margin-bottom: 20px;
-            margin-left: 0;
+    .sumary{
+        ul{
+            list-style: disc;
+            li{
+                display: block;
+                line-height: 28px;
+                margin-bottom: 20px;
+                margin-left: 0;
+            }
+            margin: 30px auto;
         }
     }
 
     .columns{
-        grid-template-columns: minmax(200px, 300px) 3fr 1fr;
+        grid-template-columns: minmax(200px, 200px) 1fr minmax(250px, 300px);
         margin: 30px auto 90px auto;
+        gap: 90px;
 
         @include breakpoint(hdDesktops) {
-            grid-template-columns: minmax(200px, 250px) 3fr minmax(200px, 250px);
+            grid-template-columns: minmax(200px, 200px) 3fr minmax(200px, 300px);
+            gap: 50px;
         }
     }
 
@@ -45,10 +50,10 @@
             &::after{
                 content: "";
                 width: 50%;
-                height: 110%;
+                height: 104%;
                 position: absolute;
-                top: -5%;
-                right: -3%;
+                top: -2%;
+                right: -1%;
                 z-index: -1;
                 background: $golden;
             }
@@ -100,46 +105,15 @@
         }
     } // end content
 
-    .categories, .newsletter, .banner{
-        margin-bottom: 60px;
-        display: block;
-    }
+    
 
-    .breadcrumb, .sumary, .categories{
+    .breadcrumb, .sumary{
         a{
             &:hover{
                 color: $golden;
             }
         }
     }
-    
-    a.router-link-active{                
-        font-weight: bold;
-        color: $golden;
-        &:hover{
-            color: $baseColor;
-        }                
-    }
-
-    .banner img{
-        width: 100%;
-        height: auto;
-    }
-
-    .newsletter{
-        h3{
-            text-align: center;
-        }
-        form{
-            background-color: $baseColor;
-            padding: 20px;
-            color: white;
-        }
-        p{
-            margin-bottom: 20px;
-        }
-    }
-
     
     @media screen and (max-width: 1200px) {        
         .columns{
@@ -150,13 +124,4 @@
             text-align: center;
         }
     }
-}
-
-
-header{
-    position: relative;
-}
-
-.section{
-    padding-top: 60px;
 }

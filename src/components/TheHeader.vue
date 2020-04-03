@@ -1,5 +1,5 @@
 <template>
-  <header id="menu-fixed">
+  <header id="menu-fixed" :class="matchRoute">
     <nav>
       <div class="logo">
         <router-link to="/">
@@ -49,6 +49,11 @@
 <script>
   export default {
     name: "TheHeader",
+    data() {
+      return {
+        blog: false
+      }
+    },
     created(){
       const html = document.documentElement // returns the html tag
       html.setAttribute('lang', 'pt-BR');
@@ -60,6 +65,12 @@
         }else{
           menuFixed.removeAttribute("style");
         }
+      }
+    },
+    computed:{
+      matchRoute(){
+        let rota = this.$route.name;
+        return rota === 'Blog' || rota === 'SingleBlog' ? 'darkMenu' : 'defaultMenu';
       }
     }
   };

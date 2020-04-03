@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from './views/Home.vue'
+import Blog from './views/Blog.vue'
 import SingleBlog from './views/SingleBlog.vue'
 import Contato from './views/Contato.vue'
 
@@ -11,6 +12,16 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/blog',
+    name: 'Blog',
+    component: Blog
+  },
+  {
+    path: '/o-melhor-blog-de-vendas',
+    name: 'Blog',
+    component: Blog
   },
   {
     path: '/blog/:slug',

@@ -1,0 +1,119 @@
+.sidebar{
+    h3{
+        font-weight: bold;
+    }
+    border-left: 1px solid #e4e4e4;
+    padding-left: 40px;
+
+    @include breakpoint(tablets){       
+        padding-left: 10px;  
+        border: none;       
+    } 
+
+    .categories, .banner, .newsletter, .visited{
+        margin-bottom: 60px;
+        display: block;
+    }
+
+    .categories{
+        a{
+            &:hover{
+                color: $golden;
+            }
+        }
+    }
+
+    a.router-link-active{                
+        font-weight: bold;
+        color: $golden;
+        &:hover{
+            color: $baseColor;
+        }                
+    }
+
+    .banner{
+        position: relative;
+        &::after{
+            content: "";
+            width: 98%;
+            height: 105%;
+            position: absolute;
+            top: -3%;
+            right: -4%;
+            z-index: -1;
+            border: 1px solid $golden;
+
+            @include breakpoint(tablets){
+                display: none;
+            }
+        }
+        img{
+            width: 100%;
+            height: auto;
+            @include transition();
+
+            &:hover{
+                transform: scale(1.03);
+                @include transition();
+            }
+        }
+    }
+
+    .newsletter{
+        h3{
+            text-align: center;
+        }
+        form{
+            background-color: $baseColor;
+            padding: 20px;
+            color: white;
+        }
+        p{
+            margin-bottom: 20px;
+        }
+    }
+
+    ul{
+        list-style: disc;
+        margin: 30px auto;
+        li{
+            display: block;
+            line-height: 28px;
+            margin-bottom: 20px;
+            margin-left: 0;
+        }
+    }
+
+    .visited{
+        a{
+            color: $baseColor;
+            font-weight: 400;
+
+            @include transition();
+            &:hover{
+                transform: scale(1.05);
+                color: $golden;
+                @include transition();
+            }
+        }
+        .columns{
+            grid-template-columns: 1fr 3fr;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .post{            
+            margin: 30px auto;
+
+        }
+
+        .left{
+            img{
+                width: 60px;
+                height: 60px;
+                object-fit: cover;
+                border-radius: 100px;
+            }
+        }
+    }
+}
