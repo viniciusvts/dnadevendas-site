@@ -1,3 +1,2 @@
 <?php
-    include_once 'custom-posts/spotlight.php';
-?>
+  include_once 'api/index.php';
