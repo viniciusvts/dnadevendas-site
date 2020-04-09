@@ -8,7 +8,7 @@
       </div>
       <ul>
         <li>
-          <router-link to="/">Quem somos
+          <router-link :to="{ name: 'Home' }">Quem somos
           </router-link>
         </li>
 
@@ -33,12 +33,12 @@
         </li>
 
         <li>
-          <router-link to="/blog">Conteúdo
+          <router-link :to="{ name: 'Blog' }">Conteúdo
           </router-link>
         </li>
 
         <li>
-          <router-link to="/contato">Contato
+          <router-link :to="{ name: 'Contato' }">Contato
           </router-link>
         </li>
       </ul>      

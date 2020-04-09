@@ -14,20 +14,21 @@ const routes = [
     component: Home
   },
   {
-    path: '/blog',
-    name: 'Blog',
-    component: Blog
-  },
-  {
     path: '/o-melhor-blog-de-vendas',
     name: 'Blog',
     component: Blog
   },
   {
+    path: '/o-melhor-blog-de-vendas/page/:page',
+    name: 'Blog',
+    component: Blog,
+    props: {default: true}
+  },
+  {
     path: '/blog/:slug',
     name: 'SingleBlog',
     component: SingleBlog,
-    props: true
+    props: {default: true, post: false}
   },
   {
     path: '/contato',
