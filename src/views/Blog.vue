@@ -1,19 +1,21 @@
 <template>
   <section class="blog">
-    <div class="section">
+    <div class="container-fluid">
       <BlogFilter/>
       <div class="content">
-        <div class="columns">
-          <div class="column">
-            <router-link to="/">
-              <div class="cards"> 
-                <div class="columns">
-                  <div class="column">
-                    <div class="card">
-                      <div class="columns">
+        <div class="row">
+          <div class="col-md-9">
+            <router-link to="/blog/dasds">
+              <div class="row"> 
+                <div class="col-12 col-md-6 col-lg-6">
+                  <div class="card">
+                    <div class="row">
+                      <div class="col-6 col-md-12 col-lg-12">
                         <div class="left">
                           <img src="https://www.dnadevendas.com.br/wp-content/uploads/consultoria-online-de-vendas.jpg" alt="">
                         </div>
+                      </div>
+                      <div class="col-6 col-md-12 col-lg-12">
                         <div class="right">
                           <div class="categories">
                             <ul>
@@ -25,15 +27,35 @@
                           <h2>Consultoria online de vendas: vantagens para pequenas e médias empresas</h2>
 
                           <div class="bottom">
-                            <div class="signature">
-                              <div class="author">
-                                <img src="https://www.dnadevendas.com.br/wp-content/uploads/lucia-150x150.jpg" alt="">
-                                <p>Lucia Haracemiv</p>
-                              </div>
-                              <div class="views">
-                                <span>200</span>
-                                <img src="@/assets/svg/book.svg" alt="">
-                              </div>
+                            <div class="row no-gutters">
+                              <!--author-->
+                              <div class="col">
+                                <div class="author">
+                                  <div class="row no-gutters">
+                                    <div class="col-auto">
+                                      <img src="https://www.dnadevendas.com.br/wp-content/uploads/lucia-150x150.jpg" alt="">
+                                    </div>
+                                    
+                                    <div class="col">
+                                      <p>Lucia Haracemiv</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div><!--author-->
+
+                              <!--views-->
+                              <div class="col-auto">
+                                <div class="views">
+                                  <div class="row no-gutters">
+                                    <div class="col">
+                                      <span>200</span>
+                                    </div>
+                                    <div class="col">
+                                      <img src="@/assets/svg/book.svg" alt="">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div><!--views-->
                             </div>
                           </div>
 
@@ -41,13 +63,17 @@
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  <div class="column">
-                    <div class="card">
-                      <div class="columns">
+                <div class="col-12 col-md-6 col-lg-6">
+                  <div class="card">
+                    <div class="row">
+                      <div class="col-6 col-md-12 col-lg-12">
                         <div class="left">
                           <img src="https://www.dnadevendas.com.br/wp-content/uploads/consultoria-online-de-vendas.jpg" alt="">
                         </div>
+                      </div>
+                      <div class="col-6 col-md-12 col-lg-12">
                         <div class="right">
                           <div class="categories">
                             <ul>
@@ -59,15 +85,35 @@
                           <h2>Consultoria online de vendas: vantagens para pequenas e médias empresas</h2>
 
                           <div class="bottom">
-                            <div class="signature">
-                              <div class="author">
-                                <img src="https://www.dnadevendas.com.br/wp-content/uploads/lucia-150x150.jpg" alt="">
-                                <p>Lucia Haracemiv</p>
-                              </div>
-                              <div class="views">
-                                <span>200</span>
-                                <img src="@/assets/svg/book.svg" alt="">
-                              </div>
+                            <div class="row no-gutters">
+                              <!--author-->
+                              <div class="col">
+                                <div class="author">
+                                  <div class="row no-gutters">
+                                    <div class="col-auto">
+                                      <img src="https://www.dnadevendas.com.br/wp-content/uploads/lucia-150x150.jpg" alt="">
+                                    </div>
+                                    
+                                    <div class="col">
+                                      <p>Lucia Haracemiv</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div><!--author-->
+
+                              <!--views-->
+                              <div class="col-auto">
+                                <div class="views">
+                                  <div class="row no-gutters">
+                                    <div class="col">
+                                      <span>200</span>
+                                    </div>
+                                    <div class="col">
+                                      <img src="@/assets/svg/book.svg" alt="">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div><!--views-->
                             </div>
                           </div>
 
@@ -75,14 +121,14 @@
                       </div>
                     </div>
                   </div>
-                </div> <!--end cards columns-->
+                </div>
               </div>
             </router-link>
 
             <Pagination/>
           </div>
 
-          <div class="column">
+          <div class="col-md-3">
             <Sidebar/>
           </div>
         </div>
@@ -108,8 +154,5 @@
 </script>
 
 <style lang="scss">
-  @import '@/assets/scss/variables.scss';
-  @import '@/assets/scss/mixins.scss';
-  @import '@/assets/scss/breakpoint.scss';
   @import '@/assets/scss/blog.scss';
 </style>

@@ -1,10 +1,7 @@
 .blogFilter{
-    .columns {
-        grid-template-columns: 2fr 1fr 1fr 1fr;    
-        @include breakpoint(largeDesktops){       
-            grid-template-columns: 1fr;         
-        }
-        margin: 40px auto;
+
+    .title{
+        margin-bottom: 0;
     }
 
     ul{

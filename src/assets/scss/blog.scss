@@ -1,3 +1,8 @@
+@import '@/assets/scss/variables.scss';
+@import '@/assets/scss/mixins.scss';
+@import '@/assets/scss/breakpoint.scss';
+@import '@/assets/scss/cards.scss';
+
 .blog{
     background-color: white;
 
@@ -5,126 +10,16 @@
         max-width: 1600px;
         margin: 0 auto;
     }
+
+    .bottom{
+        .row{
+            align-items: center;
+        }
+        margin-top: 20px;
+    }
     
     .content{       
-        margin-top: 60px;         
-        .columns {
-            grid-template-columns: 1fr minmax(300px, 300px);
-            gap: 40px;
-
-            @include breakpoint(largeDesktops){       
-                grid-template-columns: 1fr;         
-            }  
-
-            .cards{
-                .columns{
-                    grid-template-columns: 1fr;
-                    gap: 20px;
-                    margin-bottom: 50px;
-                }
-            }
-
-            .card{
-                @include transition();
-                &:hover{
-                    transform: scale(1.05);
-                    @include transition();
-                }
-
-                .columns{
-                    grid-template-columns: 1fr 1fr;
-                    gap: 20px;
-
-                    @include breakpoint(tablets){       
-                        grid-template-columns: 1fr;         
-                    } 
-                }
-                .left{
-                    display: block;
-                    position: relative;
-                    &::after{
-                        content: "";
-                        width: 50%;
-                        height: 108%;
-                        position: absolute;
-                        top: -4%;
-                        right: -2%;
-                        z-index: -1;
-                        background: $golden;
-                    }
-                    img{
-                        width: 100%;
-                        height: auto;
-                    }
-                }
-        
-                .right{
-                    display: grid;
-                    grid-template-columns: 1fr;
-                    grid-template-rows: 50px 1fr 60px;
-                    grid-template-rows: auto 1fr auto;
-                    align-items: center;
-
-                    padding: 20px 40px;
-                    box-shadow: 1px 4px 11px #e0e0e0;
-                    height: 100%;
-                    h2{
-                        font-weight: bold;                           
-                        margin-top: 20px;
-                    }
-                    ul{                  
-                        li{
-                            display: inline;
-                            padding: 5px 10px;
-                            margin-right: 10px;
-                            cursor: pointer;
-                        }
-                    }                    
-                }
-            }
-
-            .signature{
-                @include breakpoint(hdDesktops){
-                    display: none;
-                }
-                display: grid;
-                grid-template-columns: 1fr 90px;
-                align-items: center;
-                .author{
-                    display: grid;
-                    grid-template-columns: 50px 1fr;
-                    align-items: center;
-                    p{
-                        padding: 10px;
-                        line-height: 20px;
-                    }
-                    img{
-                        border-radius: 50px;
-                        width: 50px;
-                        height: 50px;
-                        object-fit: cover;
-                        display: grid;
-                        
-                    }
-                }
-
-                .views{
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    align-items: center;
-                    span{
-                        margin: 0 auto;
-                    }
-                    img{
-                        width: auto;
-                        height: 19px;
-                        margin: 10px;
-                        margin: 0 auto;
-                    }
-                }
-            }
-        
-        }
+        margin-top: 60px;   
     }
     
 }

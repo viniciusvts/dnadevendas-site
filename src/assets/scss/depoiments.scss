@@ -4,26 +4,11 @@
     background-size: 100%;
     background-position: bottom center;
     background-repeat: no-repeat;
-    .columns {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 50px;
-        position: relative;
-        align-items: start;
-        text-align: center;
-        max-width: 1200px;
-        margin: 0 auto;
-    
-        @media screen and (max-width: 500px) {        
-            grid-template-columns: 1fr;
-            grid-gap: 10px;          
-        }
-    
-        .column{
-            display: block;
-            position: relative;
-            margin: 40px auto;
-        }
+
+    text-align: center;
+
+    .row{        
+        margin: 40px auto;
     }
 
     .box{
@@ -39,7 +24,7 @@
                 background-size: 30px;
                 height: 28px;
                 width: 30px;
-                left:10px;
+                left:30px;
                 top: 20px;
                 z-index: 9;
             }

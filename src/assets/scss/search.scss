@@ -1,0 +1,92 @@
+@import "@/assets/scss/variables.scss";
+@import "@/assets/scss/mixins.scss";
+
+#searching{
+    background-color: white;
+    color: $baseColor;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;    
+    overflow-y: auto;
+    z-index: 999999999;
+
+    h2{
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 80px;
+    }
+    
+
+    opacity: 0;
+    transform: translateY(-100%);
+    @include transition();
+
+    .container{
+        top: 10%;
+        position: relative;
+    }
+
+    #exit{
+        position: absolute;
+        right: 30px;
+        top: 30px;
+
+        img{
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            opacity: 0.7;
+
+            @include transition();
+
+            &:hover{
+                transform: scale(1.05);
+                opacity: 1;
+                @include transition();
+            }
+        }
+    }
+
+    form{
+        input{
+            border-top: none;
+            border-right: none;
+            border-bottom: 1px solid;
+            border-left: none;
+
+            &::placeholder{
+                opacity: 0.5;
+            }
+        }
+
+        p{
+            margin-bottom: 30px;
+        }
+    }
+
+    #resultPosts{
+        span{
+            font-weight: bold;
+        }
+        ul{
+            margin-top: 40px;        
+            li{
+                margin-bottom: 20px;
+            }
+        }
+
+        a{
+            &:hover{
+                color: $golden;
+            }
+        }
+    }
+}
+
+.active#searching{
+    opacity: 0.97;
+    transform: translateY(0);
+    @include transition();
+}

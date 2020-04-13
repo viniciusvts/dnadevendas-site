@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="107" height="600" viewBox="0 0 107 600">
+  <g id="Grupo_9615" data-name="Grupo 9615" transform="translate(-60 -2358.5)">
+    <line id="Linha_102" data-name="Linha 102" y2="600" transform="translate(113.5 2358.5)" fill="none" stroke="#707070" stroke-width="1" opacity="0.3"/>
+    <rect id="Retângulo_594" data-name="Retângulo 594" width="107" height="199" transform="translate(60 2559)" fill="#fff"/>
+    <g id="list" transform="translate(89 2628)">
+      <path id="Caminho_120" data-name="Caminho 120" d="M39.411,0H6.5V71.55H54.22V17.394Zm.595,4.071L50.754,16.7H40.006ZM8.531,69.165V2.385H37.975v16.7H52.19V69.165Z" transform="translate(-6.5)" fill="#393c65"/>
+      <path id="Caminho_121" data-name="Caminho 121" d="M42.76,21H26.515a1.208,1.208,0,0,0,0,2.385H42.76a1.208,1.208,0,0,0,0-2.385Z" transform="translate(-6.209 4.043)" fill="#fccc78"/>
+      <path id="Caminho_122" data-name="Caminho 122" d="M22.988,18.261l-4.367,4.1-1.388-1.63a.912.912,0,0,0-1.436,0,1.343,1.343,0,0,0,0,1.686l2.031,2.385a.943.943,0,0,0,.718.349.92.92,0,0,0,.634-.261l5.077-4.77a1.338,1.338,0,0,0,.158-1.677A.916.916,0,0,0,22.988,18.261Z" transform="translate(-6.362 3.465)" fill="#fccc78"/>
+      <path id="Caminho_123" data-name="Caminho 123" d="M42.76,32H26.515a1.208,1.208,0,0,0,0,2.385H42.76a1.208,1.208,0,0,0,0-2.385Z" transform="translate(-6.209 6.16)" fill="#fccc78"/>
+      <path id="Caminho_124" data-name="Caminho 124" d="M22.988,29.261l-4.367,4.1-1.388-1.63a.912.912,0,0,0-1.436,0,1.343,1.343,0,0,0,0,1.686l2.031,2.385a.943.943,0,0,0,.718.349.919.919,0,0,0,.634-.261l5.077-4.77a1.338,1.338,0,0,0,.158-1.677A.916.916,0,0,0,22.988,29.261Z" transform="translate(-6.362 5.583)" fill="#fccc78"/>
+      <path id="Caminho_125" data-name="Caminho 125" d="M42.76,43H26.515a1.208,1.208,0,0,0,0,2.385H42.76a1.208,1.208,0,0,0,0-2.385Z" transform="translate(-6.209 8.278)" fill="#fccc78"/>
+      <path id="Caminho_126" data-name="Caminho 126" d="M22.988,40.261l-4.367,4.1-1.388-1.63a.912.912,0,0,0-1.436,0,1.343,1.343,0,0,0,0,1.686l2.031,2.385a.943.943,0,0,0,.718.349.92.92,0,0,0,.634-.261l5.077-4.77a1.338,1.338,0,0,0,.158-1.677A.916.916,0,0,0,22.988,40.261Z" transform="translate(-6.362 7.7)" fill="#fccc78"/>
+    </g>
+  </g>
+</svg>
