@@ -4,84 +4,17 @@
       <BlogFilter/>
       <div class="content">
         <div class="columns">
-          <div class="column">
-            <router-link to="/">
+          <div class="column" v-if="posts.length > 0">
               <div class="cards"> 
                 <div class="columns">
-                  <div class="column">
-                    <div class="card">
-                      <div class="columns">
-                        <div class="left">
-                          <img src="https://www.dnadevendas.com.br/wp-content/uploads/consultoria-online-de-vendas.jpg" alt="">
-                        </div>
-                        <div class="right">
-                          <div class="categories">
-                            <ul>
-                              <li>Cases</li>
-                              <li>Gestão</li>
-                            </ul>
-                          </div>
-
-                          <h2>Consultoria online de vendas: vantagens para pequenas e médias empresas</h2>
-
-                          <div class="bottom">
-                            <div class="signature">
-                              <div class="author">
-                                <img src="https://www.dnadevendas.com.br/wp-content/uploads/lucia-150x150.jpg" alt="">
-                                <p>Lucia Haracemiv</p>
-                              </div>
-                              <div class="views">
-                                <span>200</span>
-                                <img src="@/assets/svg/book.svg" alt="">
-                              </div>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="column">
-                    <div class="card">
-                      <div class="columns">
-                        <div class="left">
-                          <img src="https://www.dnadevendas.com.br/wp-content/uploads/consultoria-online-de-vendas.jpg" alt="">
-                        </div>
-                        <div class="right">
-                          <div class="categories">
-                            <ul>
-                              <li>Cases</li>
-                              <li>Gestão</li>
-                            </ul>
-                          </div>
-
-                          <h2>Consultoria online de vendas: vantagens para pequenas e médias empresas</h2>
-
-                          <div class="bottom">
-                            <div class="signature">
-                              <div class="author">
-                                <img src="https://www.dnadevendas.com.br/wp-content/uploads/lucia-150x150.jpg" alt="">
-                                <p>Lucia Haracemiv</p>
-                              </div>
-                              <div class="views">
-                                <span>200</span>
-                                <img src="@/assets/svg/book.svg" alt="">
-                              </div>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
+                  <div v-for="post in posts" :key="post.id" >
+                    <BlogCard v-bind:post="post"/>
                   </div>
                 </div> <!--end cards columns-->
               </div>
-            </router-link>
-
             <Pagination/>
           </div>
-
+          <div v-else>{{message}}</div>
           <div class="column">
             <Sidebar/>
           </div>
@@ -94,15 +27,40 @@
 <script>
 
   import BlogFilter from "@/components/BlogFilter.vue";
+  import BlogCard from "@/components/BlogCard.vue";
   import Pagination from "@/components/Pagination.vue"; 
   import Sidebar from "@/components/Sidebar.vue"; 
+  import Api from "@/services/ApiRest.js"; 
 
   export default {
     name: 'Blog',
     components: {
       BlogFilter,
+      BlogCard,
       Pagination,
       Sidebar
+    },
+    data() {
+      return {
+        posts: [],
+        message: 'Carregando'
+      }
+    },
+    mounted() {
+      this.getPosts();
+    },
+    methods: {
+      getPosts() {
+        let page = this.$route.params.page;
+        Api.getPosts(page)
+        .then(res=>{
+          this.posts = res.data;
+        })
+        .catch(err=>{
+          this.message = 'Erro ao consultar os posts';
+          console.warn('error =>', err);
+        });
+      }
     }
   }
 </script>
