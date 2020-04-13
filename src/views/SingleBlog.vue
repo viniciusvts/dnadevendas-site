@@ -26,12 +26,8 @@
             </p>
             <article v-html="post.content.rendered"></article>
           </div>
-<<<<<<< HEAD
 
           <div class="col-md-3">
-=======
-          <div class="column">
->>>>>>> 54806a61b90907ecb42f7290142046513d4861c5
             <Sidebar/>
           </div>
       </div>
