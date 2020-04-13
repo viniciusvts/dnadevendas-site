@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="107" height="600" viewBox="0 0 107 600">
+  <g id="Grupo_9612" data-name="Grupo 9612" transform="translate(-60 -1249.5)">
+    <line id="Linha_101" data-name="Linha 101" y2="600" transform="translate(113.5 1249.5)" fill="none" stroke="#707070" stroke-width="1"/>
+    <rect id="Retângulo_593" data-name="Retângulo 593" width="107" height="199" transform="translate(60 1450)" fill="#212438"/>
+    <g id="bar-chart" transform="translate(83 1517)">
+      <g id="Grupo_9040" data-name="Grupo 9040" transform="translate(0 18.851)">
+        <g id="Grupo_9039" data-name="Grupo 9039">
+          <path id="Caminho_109" data-name="Caminho 109" d="M72.943,191.046H70.2V150.11a3.413,3.413,0,0,0-3.36-3.456H60.715a3.413,3.413,0,0,0-3.36,3.456v40.937H50.395V168.657a3.412,3.412,0,0,0-3.36-3.456H40.908a3.413,3.413,0,0,0-3.36,3.456v22.389H30.587v-11.6A3.413,3.413,0,0,0,27.227,176H21.1a3.413,3.413,0,0,0-3.36,3.456v11.6H14.851a1.286,1.286,0,0,0,0,2.571H72.943a1.286,1.286,0,0,0,0-2.571Zm-44.856,0H20.24v-11.6a.874.874,0,0,1,.86-.885h6.127a.874.874,0,0,1,.86.885v11.6Zm19.808,0H40.047V168.657a.874.874,0,0,1,.86-.885h6.127a.874.874,0,0,1,.86.885Zm19.808,0H59.855V150.11a.874.874,0,0,1,.86-.885h6.127a.874.874,0,0,1,.86.885Z" transform="translate(-13.601 -146.654)" fill="#fff"/>
+        </g>
+      </g>
+      <g id="Grupo_9042" data-name="Grupo 9042" transform="translate(10.717)">
+        <g id="Grupo_9041" data-name="Grupo 9041">
+          <path id="Caminho_110" data-name="Caminho 110" d="M145.228,1.352a1.3,1.3,0,0,0-.363-.975A1.226,1.226,0,0,0,143.916,0c-.02,0-.04,0-.061,0h-7.562a1.268,1.268,0,0,0-1.25,1.285,1.268,1.268,0,0,0,1.25,1.285h4.669L128.608,15.278l-4.659-4.792a1.225,1.225,0,0,0-1.768,0L99.712,33.595a1.312,1.312,0,0,0,0,1.818,1.226,1.226,0,0,0,1.768,0l21.585-22.2,4.659,4.792a1.226,1.226,0,0,0,1.768,0L142.731,4.389V8.735a1.25,1.25,0,1,0,2.5,0V1.414C145.231,1.393,145.228,1.373,145.228,1.352Z" transform="translate(-99.346)" fill="#fccc78"/>
+        </g>
+      </g>
+      <g id="Grupo_9044" data-name="Grupo 9044" transform="translate(6.504 37.703)">
+        <g id="Grupo_9043" data-name="Grupo 9043" transform="translate(0)">
+          <ellipse id="Elipse_37" data-name="Elipse 37" cx="1.25" cy="1.285" rx="1.25" ry="1.285" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

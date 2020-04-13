@@ -1,16 +1,20 @@
+@import "variables.scss";
+@import "breakpoint.scss";
+
 .spotlight{
     display: block;
     position: relative;
-    height: 100%;
+    height: 100vh;
+    min-height: 600px;
     .image{
-        filter: brightness(0.7);
+        filter: brightness(0.9);
         height: 100%;
         width: 100%;
         object-fit: cover;
     }
 
-    h1{        
-        margin-bottom: 40px;
+    button{
+        margin-top: 40px;
     }
 
     .text{
@@ -18,12 +22,16 @@
         top: 30%;
         z-index: 1;
         color: white;
+
+        @include breakpoint(tablets){
+            top: 10%;
+        }
     }
 
     .see-more{
         display: block;
         width: 100%;
-        bottom: 40px;
+        bottom: 10px;
         position: absolute;
         z-index: 9;
         
@@ -32,10 +40,10 @@
             position: relative;
             margin: 0 auto;
             color: white;
-            width: 90px;
+            width: fit-content;
 
             img{
-                width: 20px;
+                width: fit-content;
                 height: auto;
                 margin: 10px auto;
             }

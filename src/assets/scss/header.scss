@@ -1,52 +1,198 @@
+@import '@/assets/scss/variables.scss';  
+@import '@/assets/scss/mixins.scss';
+@import '@/assets/scss/breakpoint.scss';
+@import '@/assets/scss/general.scss';
+
 header{
-  position: absolute;
+  position: relative;
   display: block;
   width: 100%;
   z-index: 10;
+  background-color: white;
+  color: $baseColor;
+
   @include transition();
-}
 
-.darkMenu{
-  background-color: $baseColor;
-}
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 90px;
+    margin: 0 auto;   
 
-.defaultMenu{  
-  background-color: transparent;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 90px;
-  margin: 0 auto;
-
-  li{
-    display: inline-flex;
-    margin: 10px;
+    @include breakpoint(tablets){
+      display: block;
+      padding: 0px 10px;
+    };  
     
+    #burgerMenu{
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      display: none;
+    
+      @include breakpoint(tablets){
+        display: block;
+      };
+    
+      img{
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+      }
+    }
+
     a{
-        color: white;
+      @include transition();
+      &:hover{            
+        color: $golden;
+        transform: scale(1.1);
+        @include transition();
+      }
+    }
+
+    .router-link-exact-active{
+      color: $golden;
+    }
+
+    .menuDesktop{
+      display: block;
+      @include transition();
+      @include breakpoint(tablets){
+        display: none;
+      };
+    }
+
+    .menuMobile{
+      @include transition();
+      @include breakpoint(tablets){
+        display: block;
+      };
+    }
+
+    #menuItems{
+      li{
+        display: inline-block;
+        position: relative;
+        height: 100%;
+        padding: 20px;
+        cursor: pointer;
+
+        span{
+          font-size: 10px;
+        }
+
+        @include breakpoint(tablets){
+          display: block;
+          margin: 0 auto;
+          text-align: center;
+        };
+
+        &:hover{
+          .submenu{
+            display: block;
+          }
+        }
+      }
+    }
+    #searchBtn{
+      @include breakpoint(tablets){    
+        width: 50px;
+        height: 50px;
+        padding: 10px;
+        top: 10px;
+        right: 55px;      
+        margin: 0 auto;
+        position: absolute;
+
+        p{
+          display: none;
+        }
+      }
+
+      div{
+        display: flex;        
+        cursor: pointer;   
+        img{
+          width: 20px;
+          margin: 0 5px;
+        }
+        p{
+          @include fontSize(16px);
+        }
+      }
+    }
+
+    .logo {
+      padding: 10px 0;
+    }
+
+    .logo img {
+      width: 90px;
+      margin: 0 auto;
+      @include transition();
+
+      &:hover{            
+        transform: scale(1.1);
+        @include transition();
+      }
+    }
+
+    .submenu{
+      display: none;
+      position: absolute;
+      background-color: white;
+      color: $baseColor;
+      padding: 10px;
+      box-shadow: 0px 4px 11px #6f6f6f2e;
+      border-top: 3px solid $golden;
+      top: 40px;
+      margin: 20px auto;
+      width: max-content;
+      max-width: 250px;
+      @include fontSize(15px);
+
+      @include breakpoint(tablets){
+        top: 0;
+        position: relative;
+        width: 100%;
+      };
+
+      &:hover{            
+        display: block;
+      }
+
+      li{
+        display: block !important;
+        padding: 20px;
+        border-bottom: 1px solid #6f6f6f2e;
+        &:last-child{
+          border-bottom: none;
+        }
+      }
+
+      a{
         @include transition();
         &:hover{            
+          color: $golden;
           transform: scale(1.1);
           @include transition();
         }
+      }
     }
   }
 }
 
-.logo {
-  padding: 10px 0;
-}
-
-.logo img {
-  width: 90px;
-
-  @include transition();
-
-  &:hover{            
-    transform: scale(1.1);
-    @include transition();
+.darkMenu{
+  background-color: $baseColor;
+  color: white;
+  a{
+    color: white;
+  }
+  .submenu{
+    a{
+      color: $baseColor;
+    }
   }
 }

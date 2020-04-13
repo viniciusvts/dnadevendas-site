@@ -1,15 +1,71 @@
 <template>
-  <section>
-    <Spotlight/>
-    <Pillars/>
+  <div>
+    <Spotlight>
+      <div class="text section">
+        <h1>A mais completa <b>Consultoria de Vendas</b> para aumento de produtividade</h1>
+        <button class="btn-grad">
+          <router-link to="/contato">
+            Falar com um consultor
+          </router-link>
+        </button>
+      </div>
+      <div class="see-more">
+        <div class="container">
+          <span>Saiba mais</span>
+          <img src="@/assets/svg/fast-forward.svg"/>
+        </div>
+      </div>
+      <img class="image" src="@/assets/hero-home.jpg"/>
+    </Spotlight>
+    
+    <Pillars>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Melhoramos expressivamente os <b>resultados da sua empresa</b> através do alinhamento de:</h3>
+                </div>
+
+                <div class="col-md-1 d-none d-lg-block d-xl-block">
+                    <img src="@/assets/svg/big-arrow.svg" alt="">
+                </div>
+
+                <div class="col-md-2 pillar">
+                    <img src="@/assets/svg/process.svg" alt="Processo">
+                    <p>Processos</p>
+                </div>
+
+                <div class="col-md-2 pillar">
+                    <img src="@/assets/svg/management.svg" alt="Gestão">
+                    <p>Gestão</p>
+                </div>
+
+                <div class="col-md-2 pillar">
+                    <img src="@/assets/svg/tecnology.svg" alt="Tecnologia">
+                    <p>Tecnologia</p>
+                </div>
+
+                <div class="col-md-2">
+                    <img src="@/assets/svg/people.svg" alt="Pessoas">
+                    <p>Pessoas</p>                
+                </div>
+            </div>
+        </div>
+    </Pillars>
+
     <Services/>
+
     <Cases/>
+
     <Differential/>
+
     <Clients/>
+
     <Methodology/>
+    
     <Depoiments/>
+    
     <BlogFeed/>
-  </section>
+  </div>
 </template>
 
 <script>

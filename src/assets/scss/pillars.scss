@@ -2,62 +2,55 @@
     display: block;
     position: relative;
     width: 100%;
-    color: white;
-    background: linear-gradient(to bottom, #393C65 0%, #1a213b 60%, #1a213b 100%);
+    color: $baseColor;
+    background: white;
 
     h3{
         font-size: 30px;
+        margin-top: 0;
+        margin-bottom: 0px;
     }
 
-    .columns {
-        display: grid;
-        grid-template-columns: 2fr minmax(100px, 100px) 1fr 1fr 1fr 1fr;
-        grid-gap: 20px;
-        position: relative;
-        align-items: center;
+    .row{
+        align-items: start;
+    }
 
-        @media screen and (max-width: 500px) {        
-            grid-template-columns: 1fr;
-            grid-gap: 10px;          
-        }
-
-        .column{
+    .pillar{
+        &::before{
             display: block;
-            position: relative;
-            margin: 0 auto;
-        }
+            position: absolute;
+            content: "";
+            background-image: url("../assets/svg/separator.svg");
+            background-size: 10px;
+            height: 10px;
+            width: 10px;
+            right: 0;
+            top: 60px;
+            z-index: 9;
 
-        .pillar{
-            &::before{
-                display: block;
-                position: absolute;
-                content: "";
-                background-image: url("../assets/svg/separator.svg");
-                background-size: 10px;
-                height: 10px;
-                width: 10px;
-                right: -100px;
-                top: 60px;
-                z-index: 9;
+            @include breakpoint(tablets){
+                display: none;
             }
-        }
-
-        img{
-            width: auto;
-            height: 80px;
-            transform: scale(1);
-            @include transition();
-
-            &:hover{
-                transform: scale(1.1);
-                @include transition();
-            }
-        }
-
-        p{
-            text-align: center;
-            margin: 30px auto;
-            text-transform: uppercase;
         }
     }
+
+    img{
+        width: auto;
+        margin: 0 auto;
+        height: 80px;
+        transform: scale(1);
+        @include transition();
+
+        &:hover{
+            transform: scale(1.1);
+            @include transition();
+        }
+    }
+
+    p{
+        text-align: center;
+        @include fontSize(15px);
+        margin: 30px auto;
+        text-transform: uppercase;
+    }    
 }

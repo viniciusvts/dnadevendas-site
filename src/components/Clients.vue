@@ -1,48 +1,50 @@
 <template>
-    <div class="clients section">
+    <div class="clientsComponent section">
         <div class="title">
             <h2>Clientes</h2>
             <span></span>
         </div>
 
-        <div class="columns">
-            <div class="column">
-                <img src="@/assets/mrv-logo.png" alt="">
-            </div>
-            <div class="column">
-                <img src="@/assets/mrv-logo.png" alt="">
-            </div>
-            <div class="column">
-                <img src="@/assets/mrv-logo.png" alt="">
-            </div>
-            <div class="column">
-                <img src="@/assets/mrv-logo.png" alt="">
-            </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
+                </div>
 
-            <div class="column">
-                <img src="@/assets/mrv-logo.png" alt="">
-            </div>
-            <div class="column">
-                <img src="@/assets/mrv-logo.png" alt="">
-            </div>
-            <div class="column">
-                <img src="@/assets/mrv-logo.png" alt="">
-            </div>
-            <div class="column">
-                <img src="@/assets/mrv-logo.png" alt="">
-            </div>
+                <div class="col-md-3">
+                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
+                </div>
 
-            <div class="column">
-                <img src="@/assets/mrv-logo.png" alt="">
-            </div>
-            <div class="column">
-                <img src="@/assets/mrv-logo.png" alt="">
-            </div>
-            <div class="column">
-                <img src="@/assets/mrv-logo.png" alt="">
-            </div>
-            <div class="column">
-                <img src="@/assets/mrv-logo.png" alt="">
+                <div class="col-md-3">
+                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
+                </div>
             </div>
         </div>
               

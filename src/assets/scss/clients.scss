@@ -1,29 +1,117 @@
-.clients{
+@import "@/assets/scss/variables.scss";
+@import "@/assets/scss/mixins.scss";
 
-    color: white;
-    .columns {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-gap: 50px;
-        position: relative;
-        align-items: center;
-        height: fit-content;
-        max-width: 1200px;
-        margin: 60px auto;
-    
-        @media screen and (max-width: 500px) {        
-            grid-template-columns: 1fr;
-            grid-gap: 10px;          
+.clients{
+    color: $baseColor;
+    background: white;
+    h1{
+        text-align: center;
+        font-weight: bold;
+    }
+
+    hr{
+        border: 0.5px solid #dedede;
+        margin-bottom: 40px;
+    }
+
+    .menu{
+        margin: 40px auto 20px auto;
+        text-align: center;
+        text-transform: uppercase;
+        padding-bottom: 10px;
+       
+        > [class*="col-"] {
+            text-align: center;
+            margin: 10px 20px;
         }
+
+        
+    }
+
+    .active.tooltip{
+        background-color: $lightBase;
+        padding: 10px 20px;
+        border-radius: 4px;
+        color: white;
+    }
+
+    .tooltip {
+        position: relative;       
+        cursor: pointer;
+        padding: 10px;
+        @include transition();
+
+        &:hover{
+            background-color: $lightBase;
+            border-radius: 4px;
+            color: white;
+            @include transition();
+        }
+      }
+      
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        @include transition();
+
+        transition-property: opacity;
+        transition-duration: 0.5s;
+        transition-delay: 0.5s;
+    }
     
-        .column{
-            display: block;
-            position: relative;
-            margin: 40px auto;
-            padding: 10px;
+    .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+    
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .logos{
+        img{
+            @include transition();
+            &:hover{
+                transform: scale(1.05);
+                @include transition();
+            }
         }
     }
 
+    .logoClient{
+        position: absolute;
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    .active.logoClient{
+        position: relative;
+        opacity: 1; 
+        transform: scale(1);
+        @include transition(800ms ease all);
+    }
+}
+
+.clientsComponent{
+    color: white;    
     button{
         margin: 0 auto;
         position: relative;
@@ -36,6 +124,8 @@
     }
 
     img{
+        margin: 60px auto;
+        max-width: 220px;
         @include transition();
         transform: scale(1);
 

@@ -2,11 +2,7 @@
     display: block;
     width: 100%;
     text-align: center;
-    margin: 30px auto;
-
-    .columns{
-        grid-template-columns: 50px 1fr 50px !important;
-    }
+    margin-top: 40px;
 
     p{
         font-size: 14px;
@@ -57,5 +53,46 @@
 
     .next{
         border-right: 1px solid $baseColor;
+    }
+
+    .bullets{
+        font-size: 90px;
+        line-height: 30px;
+        color: grey;
+        margin: 0;
+        padding: 0;
+        
+        span{
+            img{
+                opacity: 0.4;
+            }
+        }
+        .active{
+            img{
+                opacity: 1;
+            }
+        }
+
+        .col,
+        > [class*="col-"]{
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+    }
+}
+
+.talkDark{
+    .btn{
+        background-color: $baseColor;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+    }
+
+    .prev{
+        border-left: 1px solid white;
+    }
+
+    .next{
+        border-right: 1px solid white;
     }
 }

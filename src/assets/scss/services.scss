@@ -13,6 +13,7 @@
 
     .column{
         display: grid;
+        display: block;
         margin: auto;
         position: relative;
         flex: 1;
@@ -29,12 +30,16 @@
                 position: absolute;
                 content: "";
                 background-image: url("../assets/svg/waves.svg");
-                background-size: 200px;
-                height: 200px;
-                width: 200px;
-                right: -90px;
-                top: -90px;
+                background-size: 120px;
+                height: 120px;
+                width: 120px;
+                right: -60px;
+                top: -60px;
                 z-index: -1;
+
+                @include breakpoint(tablets){
+                    display: none;
+                }
             }            
             border-right: 0px;
         }
@@ -51,6 +56,10 @@
                 left: -16px;
                 top: -16px;
                 z-index: 1;
+
+                @include breakpoint(tablets){
+                    display: none;
+                }
             }
         }
 
@@ -60,10 +69,14 @@
             color: #fff;
             min-width: 10%;
             cursor: pointer;
-            @include transition(all 800ms ease);            
-            .text p{       
-              display: block;
-              @include transition(all 800ms ease);
+            @include transition(all 1200ms ease);            
+            .text p{      
+                background: white;
+                color: black;
+                width: 100%;
+                padding: 20px; 
+                display: block;
+                @include transition(all 800ms ease);
             }
 
             .text::before{
@@ -76,9 +89,9 @@
     .text{
         display: block;
         position: absolute;
-        bottom: 40px;
+        bottom: 0px;
         width: 100%;        
-        padding: 20px;
+        padding: 0px;
         z-index: 9;
 
         @include transition(all 800ms ease);
@@ -92,7 +105,7 @@
             height: 20px;
             width: 12px;
             left: 40px;
-            bottom: 0px;
+            bottom: 40px;
             z-index: 9;
             display: block;   
             @include transition();        
@@ -131,12 +144,6 @@
         object-fit: cover;
         height: fit-content;
         width: 100%;
-        filter: brightness(0.7);
         @include transition();
-
-        &:hover{
-            filter: brightness(1);
-            @include transition();
-        } 
     }
 }

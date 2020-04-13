@@ -5,14 +5,14 @@
                 <h2>Cases de sucesso</h2>
                 <span></span>
             </div>
-            <div class="columns">
-                <div class="column">
+            <div class="row">
+                <div class="col-md-7">
                     <div class="video">
                         <iframe src="https://www.youtube.com/embed/HDgjlOPDFsk" frameborder="0" width="100%"></iframe>
                     </div>
                 </div>
 
-                <div class="column">
+                <div class="col-md-5">
                     <img src="@/assets/mrv-logo.png" alt="">
                     <h3>AUMENTAMOS EM <b>30%</b> O FATURAMENTO</h3>
                     <p>Atuamos com uma abordagem sistêmica para a correção dos fatores operacionais que impactam na produtividade de vendas. Implantamos uma metodologia de vendas integrada ao processo, estratégia e sistemas de gestão da empresa colocar </p>
@@ -23,17 +23,17 @@
 
         <div class="bottom">
             <h4>Veja outros cases</h4>
-            <div class="columns">
-                <div class="column">
-                    <img src="@/assets/mrv-logo.png" alt="">
+            <div class="row justify-content-start">
+                <div class="col-2">
+                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
                 </div>
-                <div class="column">
-                    <img src="@/assets/mrv-logo.png" alt="">
+                <div class="col-2">
+                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
                 </div>
-                <div class="column">
-                    <img src="@/assets/mrv-logo.png" alt="">
+                <div class="col-2">
+                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
                 </div>
-                <div class="column">
+                <div class="col-auto">
                     <button>ver todos os cases</button>
                 </div>
             </div>

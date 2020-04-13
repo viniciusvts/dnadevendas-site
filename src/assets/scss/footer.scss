@@ -30,20 +30,6 @@ footer{
         }
 
         .top{
-            .columns {
-                grid-template-columns: minmax(200px, 300px) minmax(200px, 300px) minmax(200px, 500px) minmax(200px, 500px);
-                margin: 0 auto;
-                width: fit-content;
-
-                @include breakpoint(largeDesktops) {        
-                    grid-template-columns: minmax(200px, 300px) minmax(200px, 300px);
-                }
-
-                @include breakpoint(smartphones) {        
-                    grid-template-columns: 1fr;
-                }
-            }
-
             ul{
                 display: block;
                 li{
@@ -76,16 +62,9 @@ footer{
             }
         }
 
-        .politicas{
-            .columns{
-                grid-template-columns: 1fr max-content;
-
-                @include breakpoint(largeDesktops) {        
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            ul li{
+        .social{
+            float: right;
+            li{
                 display: inline-block;
                 margin: 0 10px;
             }

@@ -1,12 +1,9 @@
-.contato{
+
+@import '@/assets/scss/variables.scss';
+
+.contact{
     color: white;    
     padding-top: 150px;
-
-    .columns{
-        grid-template-columns: 2fr 1fr;
-        max-width: 1300px;
-        margin: 90px auto;
-    }
 
     h1{
         text-align: center;
@@ -15,6 +12,7 @@
         width: fit-content;
         margin: 0 auto;
         font-weight: bold;
+        margin-bottom: 80px;
 
         &::before{
             display: block;
@@ -82,15 +80,5 @@
         right: 0;
         top: 500px;
         z-index: 1;
-    }
-
-    @media screen and (max-width: 1200px) {        
-        .columns{
-            grid-template-columns: 1fr;
-            grid-gap: 10px;     
-        }     
-        .local{
-            text-align: center;
-        }
     }
 }
