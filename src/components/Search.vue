@@ -62,6 +62,9 @@ export default {
             loader: false
         }
     },
+    mounted(){
+        this.exitSearch();
+    },
     methods:{        
         getPosts(){
             if (this.term) {
@@ -82,6 +85,26 @@ export default {
                 }
             }                
         },
+        exitSearch(){            
+            let searching  = document.querySelector('#searching');
+            let resultPosts  = document.querySelector('#resultPosts');
+            let exit  = document.querySelector('#exit'); 
+            let searchBtn  = document.querySelector('#searchBtn');
+
+            searchBtn.onclick = () =>{
+            searching.classList.add('active');
+            }
+
+            resultPosts.onclick = () =>{
+                searching.classList.remove('active');
+            }
+
+            exit.onclick = () =>{
+                searching.classList.remove('active');
+                this.terms = null;
+                this.posts = [];
+            }
+        }
     },
 }
 </script>

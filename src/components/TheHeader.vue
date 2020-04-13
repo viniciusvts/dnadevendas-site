@@ -134,13 +134,7 @@
       searching: () => {
         let searchBtn  = document.querySelector('#searchBtn');
         let searching  = document.querySelector('#searching');
-        let exit  = document.querySelector('#exit');
-
-        let resultPosts  = document.querySelector('#resultPosts');
-
-        resultPosts.onclick = () =>{
-          searching.classList.remove('active');
-        }
+        let exit  = document.querySelector('#exit');        
 
         exit.onclick = () =>{
           searching.classList.remove('active');
