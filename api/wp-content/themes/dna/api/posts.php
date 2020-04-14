@@ -21,7 +21,7 @@ function dnaapi_get_postsList($object){
 }
 
 function dnaapi_get_postCount($req) {
-  $postId = $req->get_param('id');
+  $postID = $req->get_param('id');
   $count = get_post_meta($postID, POST_META_COUNT, true);
   if($count==''){
       $count = 1;
@@ -31,6 +31,8 @@ function dnaapi_get_postCount($req) {
       $count++;
       update_post_meta($postID, POST_META_COUNT, $count);
   }
+  $postCount = array($postID => $count);
+  return $postCount;
 }
 
 /**
