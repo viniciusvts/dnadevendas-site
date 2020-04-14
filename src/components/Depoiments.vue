@@ -7,8 +7,8 @@
 
         <div class="container">
             <div class="row">
-                <div class="col col-md-12 col-lg-4" v-for="(depoiment, index) in depoiments.acf.depoimentos" :key="index">
-                    <div class="box" v-if="index <= 2">
+                <div class="col col-md-12 col-lg-4" v-for="(depoiment, index) in depoiments.depoimentos.slice(0, 3)" :key="index">
+                    <div class="box">
                         <div class="top">
                             <p>{{depoiment.mensagem}}</p>
                         </div>
@@ -39,7 +39,7 @@ export default {
     },
     methods:{
         getDepoiments(){
-            fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}`)
+            fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}/depoimentos`)
             .then(r => r.json())
             .then(r => {
             this.depoiments = r;
@@ -50,7 +50,5 @@ export default {
 </script>
 
 <style lang="scss">
-    @import '@/assets/scss/variables.scss';
-    @import '@/assets/scss/mixins.scss';
     @import '@/assets/scss/depoiments.scss';
 </style>
