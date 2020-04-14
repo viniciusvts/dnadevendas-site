@@ -1,0 +1,21 @@
+@import "@/assets/scss/variables.scss";
+@import "@/assets/scss/mixins.scss";
+
+.metrics{
+    background-color: white;
+    text-align: center;
+    span{
+        @include fontSize(50px);
+        font-weight: bold;
+        color: $golden;
+    }
+
+    h3{
+        @include fontSize(22px);
+    }
+    img{
+        max-width: 200px;
+        height: 70px;
+        margin: 10px auto 30px auto;
+    }
+}

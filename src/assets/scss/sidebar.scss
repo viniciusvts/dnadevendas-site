@@ -1,4 +1,6 @@
 .sidebar{
+    max-width: 300px;
+    margin: 0 auto;
     h3{
         font-weight: bold;
     }
@@ -96,14 +98,13 @@
                 @include transition();
             }
         }
-        .columns{
-            grid-template-columns: 1fr 3fr;
-            align-items: center;
-            gap: 15px;
-        }
 
         .post{            
             margin: 30px auto;
+
+            .right{
+                padding: 0 10px;
+            }
 
         }
 

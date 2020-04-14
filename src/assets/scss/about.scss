@@ -1,0 +1,69 @@
+@import "@/assets/scss/variables.scss";
+@import "@/assets/scss/breakpoint.scss";
+
+.about{
+    background-color: white;
+    color: $lightBase;
+    h1{        
+        text-align: center;
+        font-weight: bold;
+        b{
+            font-weight: 100;
+        }
+    }
+
+    h1, p{
+        margin-bottom: 30px;
+    }
+
+    h2{
+        margin-bottom: 30px;
+        font-weight: bold;
+        color: $golden;
+    }
+
+    h3{
+        margin-bottom: 0;
+        margin-top: 0;      
+    }
+
+    .left, .right{
+        margin-top: 40px;
+        padding: 0 40px;
+    }
+
+    .left{
+        p, h2{
+            text-align: right;
+        }
+
+        border-right: 1px solid #e4e4e4;
+
+        @include breakpoint(tablets){
+            p, h2{
+                text-align: left;
+            }
+
+            border-right: none;
+        }
+    }
+
+    .right{
+
+        img{
+            max-width: 40px;
+            width: fit-content;
+            max-height: 50px;
+        }
+    }
+
+    .galery{
+        .col-md-3{
+            margin-bottom: 20px;
+        }
+
+        img{
+            border-radius: 4px;
+        }
+    }
+}

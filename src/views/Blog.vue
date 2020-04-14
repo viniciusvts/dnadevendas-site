@@ -1,6 +1,6 @@
 <template>
   <section class="blog">
-    <div class="section">
+    <div class="container-fluid">
       <BlogFilter/>
       <div class="content">
         <div class="columns">
@@ -10,7 +10,7 @@
                   <div v-for="post in posts" :key="post.id" >
                     <BlogCard v-bind:post="post"/>
                   </div>
-                </div> <!--end cards columns-->
+                </div>
               </div>
             <Pagination/>
           </div>
@@ -66,8 +66,5 @@
 </script>
 
 <style lang="scss">
-  @import '@/assets/scss/variables.scss';
-  @import '@/assets/scss/mixins.scss';
-  @import '@/assets/scss/breakpoint.scss';
   @import '@/assets/scss/blog.scss';
 </style>

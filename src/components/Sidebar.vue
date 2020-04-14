@@ -7,10 +7,10 @@
                 <span></span>
             </div>
             <div class="post">
-                <router-link to="/">
-                    <div class="columns">
-                        <div class="left"><img src="https://www.dnadevendas.com.br/wp-content/uploads/consultoria-online-de-vendas.jpg" alt=""></div>
-                        <div class="right">Consultoria online de vendas: vantagens para pequenas e médias empresas</div>
+                <router-link to="/blog/dasdasd">
+                    <div class="row no-gutters">
+                        <div class="left col-auto"><img src="https://www.dnadevendas.com.br/wp-content/uploads/consultoria-online-de-vendas.jpg" alt=""></div>
+                        <div class="right col">Consultoria online de vendas: vantagens para pequenas e médias empresas</div>
                     </div>   
                 </router-link>
             </div>          

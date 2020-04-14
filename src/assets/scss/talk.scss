@@ -1,0 +1,251 @@
+@import '@/assets/scss/variables.scss';
+@import '@/assets/scss/mixins.scss';
+@import '@/assets/scss/breakpoint.scss';
+
+.talk{
+    .slider{
+        position: relative;
+        display: block;
+        z-index: 8;
+        margin: 0 30px;
+    }
+
+    .flex-row-reverse{
+        &::after{
+            display: none;
+        }
+    }
+
+    .slides{
+        display: flex;
+        overflow-x: hidden;
+        position: relative;
+        height: 100%;
+
+        img{
+            width: 100%;
+        }
+    }
+
+    h2{
+        text-transform: uppercase;
+        font-weight: bold;
+        @include fontSize(30px);
+    }
+
+    p{
+        margin: 20px auto;
+    }
+
+    .text{
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .iframe{   
+        display: block;     
+        img{
+            height: 500px;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    iframe{
+        overflow:hidden;
+        height:500px;
+        width:100%;           
+    }
+
+    .slider, .iframe, .card{
+        &::after{
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 4%;
+            right: 0;
+            left: 2%;
+            z-index: -1;
+            border: 1px solid $golden;
+
+            @include breakpoint(tablets){
+                display: none;
+            }
+        }
+    }
+}
+
+.talkDefault{
+    color: $baseColor;
+    background: white;
+}
+
+.talkDark{
+    background: $baseColor;
+    color: white;
+}
+
+.talkers{
+    .video{
+        height: 100%;
+        position: relative;
+        z-index: 9;
+
+        iframe{
+            margin-right: -80px;
+            position: relative;
+            display: block;
+        }
+    }
+
+    .right{
+        height: 100%;
+        color: $baseColor;
+        padding: 60px;
+        background-color: white;
+        z-index: 8;
+        display: block;
+        position: relative;
+
+        &:before{
+            background-color: white;
+            position: absolute;
+            z-index: 1;
+            width: 30px;
+            height: 100%;
+            content: "";
+            top: 0;
+            left: -30px;
+        }
+
+        &::after{
+            display: block;
+            position: absolute;
+            content: "";
+            background-image: url("../assets/svg/waves.svg");
+            background-size: 120px;
+            height: 120px;
+            width: 120px;
+            right: -60px;
+            bottom: -60px;
+            z-index: 1;
+
+            @include breakpoint(tablets){
+                display: none;
+            }
+        }      
+
+        hr{
+            width: 100%;
+            border: 0.5px solid $baseColor;
+        }
+
+        img{
+            max-width: 100%;
+            width: 200px;
+            margin: 30px auto 0 auto;
+            padding: 0 20px;
+        }
+
+        .col-4 {
+            margin: 20px auto;
+            &::before{
+                display: block;
+                position: absolute;
+                content: "";
+                background-image: url("../assets/svg/separator.svg");
+                background-size: 10px;
+                height: 10px;
+                width: 10px;
+                right: 0;
+                top: 50%;
+                z-index: 9;
+            }
+    
+            &:last-child, &:nth-child(3){
+                &::before{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .bio{        
+        h3, h4{
+            color: $golden;
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        h3{
+            @include fontSize(35px);
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        h4{
+            @include fontSize(25px);
+            font-weight: 100;
+        }
+    }
+}
+
+.themes{
+    color: white;
+
+    .card{
+        display: block;
+        position: relative;
+        margin-bottom: 80px;
+        z-index: 1;
+
+        &:hover .description{
+            z-index: 1;
+            height: 100%;
+            opacity: 1;
+            @include transition();
+        }
+    }
+
+    img{
+        max-height: 250px;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        object-position: top;
+    }
+    
+    p{
+        text-align: center;
+        margin: 20px auto;
+    }
+
+    .description{
+        background-color: $golden;
+        width: 100%;
+        height: 100px;
+
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+        @include transition();
+
+        p{
+            text-align: center;
+            padding: 20px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .details{
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+    }
+
+    a{
+        margin: 40px auto 20px auto;
+    }
+}
