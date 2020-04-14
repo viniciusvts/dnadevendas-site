@@ -4,8 +4,19 @@
  * Função a ser usada no rest api para retornar a lista de clientes no portifolio
  * @author Vinicius de Santana
  */
-function dnaapi_get_portfolio(){
-  $query = new WP_Query('post_type=portfolio');
+function dnaapi_get_portfolio($req){
+  // pega os parametros
+  $post_per_page = $req->get_param('post_per_page');
+  $page = $req->get_param('page');
+  // verifica se os parametros são válidos, senão, seta default
+  $post_per_page = isset($post_per_page) ? $post_per_page : 10;
+  $page = isset($page) ? $page : 1;
+  $args = array(
+    'post_type' => 'portfolio',
+    'posts_per_page' => $post_per_page,
+    'paged' => $page
+  );
+  $query = new WP_Query($args);
   $dataResp = array();
   foreach ($query->posts as $post) {
     $post_api['thumb']['thumbnail'] = get_the_post_thumbnail_url($post->ID, 'thumbnail');
@@ -38,7 +49,21 @@ function dnaapi_register_portfolio(){
     array(
       'methods' => 'GET',
       'callback' => 'dnaapi_get_portfolio',
-      'description' => 'recupera a lista de clientes no portifólio'
+      'description' => 'recupera a lista de clientes no portifólio',
+      'args' => array(
+        'post_per_page' => array(
+          'required' => false,
+          'validate_callback' => 'dna_validate_isNumeric',
+          'description' => 'Valor irá indicar quantos itens por página será entregue',
+          'default' => 10
+        ),
+        'page' => array(
+          'required' => false,
+          'validate_callback' => 'dna_validate_isNumeric',
+          'description' => 'Valor irá indicar qual página será entregue',
+          'default' => 1
+        )
+      )
     )
   );
 }
