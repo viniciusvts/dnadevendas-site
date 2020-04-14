@@ -48,6 +48,5 @@
 </script>
 
 <style lang="scss">
-    @import '@/assets/scss/mixins.scss';
     @import '@/assets/scss/clients.scss';
 </style>
