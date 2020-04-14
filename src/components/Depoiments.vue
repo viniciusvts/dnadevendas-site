@@ -1,5 +1,5 @@
 <template>
-    <div class="depoiments section">
+    <div class="depoiments section" v-if="depoiments">
         <div class="title">
             <h2>Depoimentos</h2>
             <span></span>
@@ -7,44 +7,16 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="box">
+                <div class="col-md-4" v-for="(depoiment, index) in depoiments.acf.depoimentos" :key="index">
+                    <div class="box" v-if="index <= 2">
                         <div class="top">
-                            <p>Nosso projeto tem como objetivo ganhar produtividade e maior eficiência em Vendas. Contamos não só com uma consultoria, mas com um parceiro estratégico que literalmente mergulhou no nosso DNA. Todo o acompanhamento, seja de campo ou remoto, sempre acompanha muita energia, bom humor e muito profissionalismo e competência, nos apoiando para sustentar nosso crescimento empresarial projetado.</p>
+                            <p>{{depoiment.mensagem}}</p>
                         </div>
                         <div class="bottom">
-                            <img src="https://www.dnadevendas.com.br/wp-content/uploads/Marilia-Sebrae.jpg" alt="">
-                            <h3>Márcia Vieira</h3>
-                            <h4>Gestora</h4>
-                            <h5>Aministração Comercial</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="box">
-                        <div class="top">
-                            <p>O grande insight que a DNA de Vendas trouxe para gente foi de simplificar e acelerar muitas coisas que estávamos tentando aprender, melhorar a parte mais técnica de vendas. Isso foi muito importante para alcançar os resultados que a RD teve durante o ano de consultoria.</p>
-                        </div>
-                        <div class="bottom">
-                            <img src="https://www.dnadevendas.com.br/wp-content/uploads/Marilia-Sebrae.jpg" alt="">
-                            <h3>Márcia Vieira</h3>
-                            <h4>Gestora</h4>
-                            <h5>Aministração Comercial</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="box">
-                        <div class="top">
-                            <p>Nosso projeto tem como objetivo ganhar produtividade e maior eficiência em Vendas. Contamos não só com uma consultoria, mas com um parceiro estratégico que literalmente mergulhou no nosso DNA. Todo o acompanhamento, seja de campo ou remoto, sempre acompanha muita energia, bom humor e muito profissionalismo e competência, nos apoiando para sustentar nosso crescimento empresarial projetado.</p>
-                        </div>
-                        <div class="bottom">
-                            <img src="https://www.dnadevendas.com.br/wp-content/uploads/Marilia-Sebrae.jpg" alt="">
-                            <h3>Márcia Vieira</h3>
-                            <h4>Gestora</h4>
-                            <h5>Aministração Comercial</h5>
+                            <img :src="depoiment.foto" alt="">
+                            <h3>{{depoiment.nome}}</h3>
+                            <h4>{{depoiment.cargo}}</h4>
+                            <h5>{{depoiment.empresa}}</h5>
                         </div>
                     </div>
                 </div>
@@ -55,7 +27,25 @@
 
 <script>
 export default {
-    name: 'Depoiments'
+    name: 'Depoiments',
+    data(){
+        return {
+            pageID: 37,
+            depoiments: null
+        }
+    },
+    created(){
+        this.getDepoiments();
+    },
+    methods:{
+        getDepoiments(){
+            fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}`)
+            .then(r => r.json())
+            .then(r => {
+            this.depoiments = r;
+            });
+        }
+    }
 }
 </script>
 

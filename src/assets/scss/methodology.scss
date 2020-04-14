@@ -30,7 +30,7 @@
     }
 
 
-    .col-md-3{ 
+    .col, [class*="col-"] { 
         span{
             font-size: 140px;
             color: $golden;
@@ -44,8 +44,8 @@
             background-size: 20px;
             height: 34px;
             width: 20px;
-            right: -40px;
-            top: 190px;
+            right: -10px;
+            top: 90px;
             z-index: 9;
 
             @include breakpoint(tablets){

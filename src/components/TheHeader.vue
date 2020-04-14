@@ -108,7 +108,6 @@
     },
     mounted(){
       this.expandMenu();
-      this.searching();
     },
     computed:{
       matchRoute(){
@@ -130,19 +129,6 @@
             menuItems.classList.remove('menuMobile');
           }
         };
-      },
-      searching: () => {
-        let searchBtn  = document.querySelector('#searchBtn');
-        let searching  = document.querySelector('#searching');
-        let exit  = document.querySelector('#exit');        
-
-        exit.onclick = () =>{
-          searching.classList.remove('active');
-        }
-
-        searchBtn.onclick = () =>{
-          searching.classList.add('active');
-        }
       }
     },
     watch:{
