@@ -77,10 +77,10 @@
         });
       },
       updateMetaAndTitle() {
-        this.metaInfo().title = this.post.yoast_title;
-        this.metaInfo().meta = []; // metaTags é Array
-        this.metaInfo().meta = this.post.yoast_meta;
-        this.metaInfo().meta.push({ description: this.post.yoast_title});
+        this.$route.meta.title = this.post.yoast_title;
+        this.$route.meta.metaTags = []; // metaTags é Array
+        this.$route.meta.metaTags = this.post.yoast_meta;
+        this.$route.meta.metaTags.push({ description: this.post.yoast_title});
       },
       getPost(slug) {
         if (typeof slug == 'undefined') throw new TypeError("É necessário definir slug");
