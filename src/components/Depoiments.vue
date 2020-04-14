@@ -7,7 +7,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-4" v-for="(depoiment, index) in depoiments.acf.depoimentos" :key="index">
+                <div class="col col-md-12 col-lg-4" v-for="(depoiment, index) in depoiments.acf.depoimentos" :key="index">
                     <div class="box" v-if="index <= 2">
                         <div class="top">
                             <p>{{depoiment.mensagem}}</p>
