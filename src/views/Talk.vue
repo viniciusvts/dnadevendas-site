@@ -52,88 +52,52 @@
       </div>
     </Pillars>
 
-    <section class="talkDark">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-1">
-            <img src="@/assets/aspas.png" alt="">
-          </div>
-          <div class="col-6">
-            <div class="slider">
-              <div class="slides">
-                <img src="@/assets/spotlight-video.jpg" alt="">
-                <img src="@/assets/spotlight-video.jpg" alt="">
-                <img src="@/assets/spotlight-video.jpg" alt="">
-              </div>
-              
-            </div>
-            <Pagination/>
-          </div>
-          <div class="col-5">
-            <div class="right">
-              <div class="title">
-                <h2><b>Workshops</b> de Vendas</h2>
-                <span></span>
-              </div>
-              <div class="text">
-                <p>Somos a mais completa consultoria para o aumento de produtividade em vendas do Brasil, temos mais de 10 anos de experiência auxiliando empresas a aumentar a performance em vendas de forma concreta. </p>
+    <div  v-if="objections" >
+      <div v-for="(objection, index) in objections.objecoes" :key="index">
+        <section :class="[index % 2 == 0 ? 'talkDark': 'talkDefault']">
+          <div class="container-fluid">
+            <div class="row align-items-center" :class="[index % 2 == 0 ? 'flex-row-reverse': '']">
 
-                <p>O nosso time de palestrantes é altamente capacitado, com ex-diretores comerciais e profissionais com ampla experiência em vendas. Temos palestras técnicas e motivacionais para a sua equipe. Ideais para Eventos, Convenções de Vendas e Treinamentos In Company.</p>
+              <div class="col-md-1 d-none d-lg-block d-xl-block" v-if="objection.icone">
+                <img class="lazy mr-auto ml-auto" src="@/assets/loading.gif"  :data-src="objection.icone.sizes.normal" :alt="objection.icone.title">
               </div>
-              <button> Solicite uma proposta </button>
+
+              <div class="col-md-5">
+                <div class="slider">
+                  <div class="slides">
+                    <img class="lazy" src="@/assets/loading.gif"  :data-src="objection.imagem.sizes.medium" :alt="objection.objecao">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="right">
+                  <div class="title">
+                    <h2>{{objection.objecao}}</h2>
+                    <span></span>
+                  </div>
+                  <div class="text" v-html="objection.texto"></div>
+                  <router-link to="/contato">
+                    <button> Solicite uma proposta </button>
+                  </router-link>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
-    </section>
+    </div>    
 
-    <section class="talkDefault">
-      <div class="container-fluid">
-        <div class="row flex-row-reverse">
-          <div class="col-1">
-            <img src="@/assets/aspas.png" alt="">
-          </div>
-          <div class="col-6">
-            <div class="slider">
-              <div class="slides">
-                <img src="@/assets/spotlight-video.jpg" alt="">
-                <img src="@/assets/spotlight-video.jpg" alt="">
-                <img src="@/assets/spotlight-video.jpg" alt="">
-              </div>
-              
-            </div>
-            <Pagination/>
-          </div>
-          <div class="col-5">
-            <div class="right">
-              <div class="title">
-                <h2><b>Workshops</b> de Vendas</h2>
-                <span></span>
-              </div>
-              <div class="text">
-                <p>Somos a mais completa consultoria para o aumento de produtividade em vendas do Brasil, temos mais de 10 anos de experiência auxiliando empresas a aumentar a performance em vendas de forma concreta. </p>
-
-                <p>O nosso time de palestrantes é altamente capacitado, com ex-diretores comerciais e profissionais com ampla experiência em vendas. Temos palestras técnicas e motivacionais para a sua equipe. Ideais para Eventos, Convenções de Vendas e Treinamentos In Company.</p>
-              </div>
-              <button> Solicite uma proposta </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="talkers talkDark">
+    <section class="talkers talkDark" v-if="talkers">
       <div class="title">
         <h2><b>Conheça nossos</b> palestrantes</h2>
         <span></span>
       </div>
 
-      <div class="row align-items-center">
-        <div class="col-md-6">
+      <div class="row align-items-center" v-for="(talker, index) in talkers.palestrante.slice(0,1)" :key="index">
+        <div class="col-12 col-lg-6 col-sm-12">
           <div class="row video">
             <div class="col-12">
-              <div class="iframe">
-                <img src="@/assets/service.jpg" alt="">
+              <div class="iframe" v-html="talker.video">
               </div>
             </div>
             <div class="col-12">
@@ -141,13 +105,12 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-12 col-lg-6 col-sm-12">
           <div class="row align-items-center right">
             <div class="col-12 bio">
-              <h3>Lucia Haracemiv</h3>
-              <h4>CEO</h4>
-
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <h3>{{talker.nome_palestrante}}</h3>
+              <h4>{{talker.cargo}}</h4>
+              <p>{{talker.bio}}</p>
             </div>
             <div class="col-12 portfolio">
               <div class="row align-items-center">
@@ -159,26 +122,9 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-4">
-                  <img src="@/assets/mrv-logo.png" alt="">
+                <div class="col-md-4 col-sm-6" v-for="(empresa, index) in talker.onde_palestrou.slice(0,6)" :key="index">
+                  <img class="lazy" src="@/assets/loading.gif"  :data-src="empresa.sizes.medium" :alt="empresa.name">
                 </div>
-                <div class="col-4">
-                  <img src="@/assets/mrv-logo.png" alt="">
-                </div>
-                <div class="col-4">
-                  <img src="@/assets/mrv-logo.png" alt="">
-                </div>
-
-                <div class="col-4">
-                  <img src="@/assets/mrv-logo.png" alt="">
-                </div>
-                <div class="col-4">
-                  <img src="@/assets/mrv-logo.png" alt="">
-                </div>
-                <div class="col-4">
-                  <img src="@/assets/mrv-logo.png" alt="">
-                </div>
-
               </div>
             </div>
           </div>
@@ -186,107 +132,29 @@
       </div>
     </section>
 
-    <section class="themes">
+    <section class="themes" v-if="themes">
       <div class="title">
         <h2><b>Principais</b> temas</h2>
         <span></span>
       </div>
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-6 col-sm-12 col-lg-3" v-for="(theme, index) in themes.temas" :key="index">
           <div class="card">
             <div class="description">
               <div class="details">
-                <p>Melhorar a performance de vendas com conteúdos técnicos e desenvolvimento comportamental.</p>
+                <p>{{theme.descricao}}</p>
               </div>
             </div>
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/palestras-a-ciencia-da-venda.jpg" alt="Ciência da Venda">
-            <p>Ciência da Venda</p>
+            <img class="lazy" src="@/assets/loading.gif" :data-src="theme.imagem.sizes.medium" :alt="theme.tema">
+            <p>{{theme.tema}}</p>
           </div>
         </div>
-        <div class="col-md-3">
-          <div class="card">
-            <div class="description">
-              <div class="details">
-                <p>Aumentar a produtividade de vendas com técnicas específicas B2B.</p>
-              </div>
-            </div>
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/palestras-tecnicas-de-vendas-consultivas0A.jpg" alt="Técnicas de Vendas Consultivas">
-            <p>Técnicas de Vendas Consultivas</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <div class="description">
-              <div class="details">
-                <p>Preparar profissionais de vendas sobre a arte da persuasão, para que aumentem suas conversões.</p>
-              </div>
-            </div>
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/palestras-a-arte-da-negociacao.jpg" alt="A Arte da negociação">
-            <p>A Arte da negociação</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <div class="description">
-              <div class="details">
-                <p>Os principais passos para executar uma estratégia de vendas e obter os resultados esperados.</p>
-              </div>
-            </div>
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/palestras-da-estrategia-a-execucao-em-vendas.jpg">
-            <p>Sales: da estratégia à execução</p>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="card">
-            <div class="description">
-              <div class="details">
-                <p>Os 4 Pilares que interferem na produtividade de vendas e como são capazes de mudar resultados.</p>
-              </div>
-            </div>
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/palestras-produtividade-de-vendas.jpg" alt="Produtividade de Vendas">
-            <p>Produtividade de Vendas</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <div class="description">
-              <div class="details">
-                <p>Como executar uma estratégia de Inbound Sales de alto impacto para empresas.</p>
-              </div>
-            </div>
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/palestras-vendas-no-mundo-pos-google.jpg" alt="Inbound Sales">
-            <p>Inbound Sales</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <div class="description">
-              <div class="details">
-                <p>Como escolher as métricas certas de vendas e melhorar o desempenho do seu time.</p>
-              </div>
-            </div>
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/palestras-metricas-de-vendas.jpg" alt="A Arte da negociação">
-            <p>A Arte da negociação</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <div class="description">
-              <div class="details">
-                <p>Construímos conteúdos direcionados à necessidade do seu evento.</p>
-              </div>
-            </div>
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/palestras-customizadas.jpg" alt="Palestras customizadas">
-            <p>Palestras customizadas</p>
-          </div>
-        </div>
-
-        <router-link to="/contato">
-          <button>Solicite uma proposta</button>
-        </router-link>
+        <div class="col-12">
+          <router-link to="/contato">
+            <button>Solicite uma proposta</button>
+          </router-link>
+        </div>        
       </div>
-
     </section>
     
     <Metrics/>
@@ -307,6 +175,45 @@
       Pillars,
       Pagination,
       Metrics
+    },
+    data(){
+      return {
+        pageID: 439,
+        talkers: null,
+        themes: null,
+        objections: null
+      }
+    },
+    created(){
+      this.getTalkers();
+      this.getThemes();
+      this.getObjections();
+      document.title = "Dna de Vendas | Palestras de Venda";
+    },
+    methods:{
+      getTalkers(){
+        fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}/palestrante`)
+        .then(r => r.json())
+        .then(r => {
+        this.talkers = r;
+        });
+      },
+
+      getThemes(){
+        fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}/temas`)
+        .then(r => r.json())
+        .then(r => {
+        this.themes = r;
+        });
+      },
+
+      getObjections(){
+        fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}/objecoes`)
+        .then(r => r.json())
+        .then(r => {
+        this.objections = r;
+        });
+      }
     }
   }
 </script>

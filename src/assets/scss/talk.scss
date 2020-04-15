@@ -7,7 +7,7 @@
         position: relative;
         display: block;
         z-index: 8;
-        margin: 0 30px;
+        margin: 30px auto;
     }
 
     .flex-row-reverse{
@@ -24,6 +24,8 @@
 
         img{
             width: 100%;
+            object-fit: cover;
+            max-height: 400px;
         }
     }
 
@@ -33,28 +35,35 @@
         @include fontSize(30px);
     }
 
-    p{
-        margin: 20px auto;
-    }
 
     .text{
-        margin-top: 40px;
         margin-bottom: 40px;
     }
 
     .iframe{   
-        display: block;     
+        display: block;    
         img{
             height: 500px;
             width: 100%;
             object-fit: cover;
         }
+
+        @include breakpoint(hdDesktops){
+            height: 300px;
+            &::after{
+                display: none;
+            }
+        }
     }
 
     iframe{
         overflow:hidden;
-        height:500px;
-        width:100%;           
+        height: 500px;
+        width: 100%;   
+        
+        @include breakpoint(hdDesktops){
+            height: 300px;
+        }
     }
 
     .slider, .iframe, .card{
@@ -68,12 +77,13 @@
             left: 2%;
             z-index: -1;
             border: 1px solid $golden;
-
-            @include breakpoint(tablets){
-                display: none;
-            }
         }
     }
+}
+
+.talkDefault,.talkDark{
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .talkDefault{
@@ -102,11 +112,12 @@
     .right{
         height: 100%;
         color: $baseColor;
-        padding: 60px;
+        padding: 40px;
         background-color: white;
         z-index: 8;
         display: block;
         position: relative;
+        margin-top: 40px; 
 
         &:before{
             background-color: white;
@@ -116,7 +127,7 @@
             height: 100%;
             content: "";
             top: 0;
-            left: -30px;
+            left: -28px;
         }
 
         &::after{
@@ -142,10 +153,11 @@
         }
 
         img{
-            max-width: 100%;
-            width: 200px;
-            margin: 30px auto 0 auto;
-            padding: 0 20px;
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+            margin: 10px auto;
+            padding: 0 5px;
         }
 
         .col-4 {
@@ -198,14 +210,26 @@
         display: block;
         position: relative;
         margin-bottom: 80px;
+        margin: 20px auto;
         z-index: 1;
 
         &:hover .description{
             z-index: 1;
             height: 100%;
             opacity: 1;
+            cursor: pointer;
             @include transition();
         }
+    }
+
+    @include breakpoint(tablets){
+        max-width: 300px;
+        margin: 30px auto;
+    }
+
+    button{
+        display: block;
+        margin: 30px auto;
     }
 
     img{
@@ -218,7 +242,8 @@
     
     p{
         text-align: center;
-        margin: 20px auto;
+        padding: 10px;
+        @include fontSize(15px);
     }
 
     .description{
