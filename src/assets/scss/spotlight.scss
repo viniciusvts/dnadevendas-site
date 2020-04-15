@@ -1,4 +1,5 @@
 @import "variables.scss";
+@import "mixins.scss";
 @import "breakpoint.scss";
 
 .spotlight{
@@ -6,6 +7,27 @@
     position: relative;
     height: 100vh;
     min-height: 600px;
+
+
+
+    h1 {
+        @include fontSize(40px);
+        font-weight: bold;
+        text-transform: uppercase;
+        max-width: 560px; 
+        position: relative;
+        animation-name: enterLeft;
+        animation-duration: 2s;
+    }
+
+    h2{
+        @include fontSize(30px);
+        position: relative;
+        animation-name: enterLeft;
+        animation-duration: 4s;
+    }
+      
+
     .image{
         filter: brightness(0.9);
         height: 100%;
@@ -15,6 +37,9 @@
 
     button{
         margin-top: 40px;
+        position: relative;
+        animation-name: enterLeft;
+        animation-duration: 6s;
     }
 
     .text{
@@ -38,14 +63,22 @@
         .container{
             display: block;
             position: relative;
-            margin: 0 auto;
+            margin: 0px auto;
             color: white;
             width: fit-content;
 
             img{
                 width: fit-content;
                 height: auto;
-                margin: 10px auto;
+                margin: 30px auto 0 auto;
+                position: relative;
+
+                animation: mymove 1s cubic-bezier(0.1,0.25,0.1,1) 0s infinite;
+
+                @keyframes mymove {
+                    from {bottom: 10px;}
+                    to {bottom: 20px; box-shadow: 0px 50px 30px #8489e7;}
+                }
             }
         }
     }

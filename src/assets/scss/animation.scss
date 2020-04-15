@@ -61,3 +61,19 @@
 }
 
 /*Efeitos de animação*/
+
+
+@keyframes enterLeft {
+  0%   { left:-100px; }
+  50%  {left:0;}
+}
+
+@keyframes enterTop {
+  0%   { top:-100px; }
+  50%  {top:0;}
+}
+
+@keyframes enterBottom {
+  0%   { bottom:-100px; }
+  50%  {bottom:0;}
+}
