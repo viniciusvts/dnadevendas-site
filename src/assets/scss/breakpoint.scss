@@ -1,3 +1,4 @@
+@import '@/assets/scss/variables.scss';
 @mixin breakpoint($point) {
     @if $point == smartphones {
       @media (max-width: $smartphones) { @content ; }
