@@ -6,32 +6,34 @@
         <div class="col-md-8">
             <form action="">
                 <label for="nome">Nome*</label>
-                <input type="text" name="nome" id="">
+                <input type="text" name="nome" v-model="formData[0].nome" id="">
 
                 <label for="nome">E-mail*</label>
-                <input type="text" name="nome" id="">
+                <input type="text" v-model="formData[0].from" name="nome" id="">
 
                 <label for="nome">Quero falar com*</label>
-                <select name="setor" id="setor">
-                    <option value="">Selecionar setor</option>
-                    <option value="">Comercial</option>
-                    <option value="">Administrativo</option>
-                    <option value="">Comercial</option>
-                    <option value="">Comercial</option>
+                <select name="setor" v-model="formData[0].setor" id="setor">
+                    <option value="Não Selecionado">Selecionar setor</option>
+                    <option value="Comercial">Comercial</option>
+                    <option value="Administrativo">Administrativo</option>
+                    <option value="Comercial 1">Comercial</option>
+                    <option value="Comercial 2">Comercial</option>
                 </select>
 
                 <label for="assunto">Telefone*</label>
-                <input type="text" name="telefone" id="">
+                <input type="text" v-model="formData[0].tell" name="telefone" id="">
 
                 <label for="assunto">Assunto*</label>
-                <input type="text" name="assunto" id="">
+                <input type="text" v-model="formData[0].subject" name="assunto" id="">
 
                 <label for="assunto">Mensagem</label>
-                <textarea name="mensagem" id="mensagem" cols="90" rows="5"></textarea>
+                <textarea name="mensagem" v-model="formData[0].mensagem" id="mensagem" cols="90" rows="5"></textarea>
 
               <p>* Campos obrigatórios</p>
-
-                <input type="submit" value="Enviar mensagem">
+                <button @click.prevent="sendMail">
+                  Enviar mensagem
+                </button>
+                <!-- <input type="submit" value="Enviar mensagem"> -->
             </form>
         </div>
 
@@ -68,10 +70,32 @@
 
 
 <script>
+// import send from '../services/Sendgrid.js';
 export default {
   name: "Contact",
+  // mixins: [send],
+  data() {
+    return {
+      formData: [
+        {
+          to: 'pedro@dnadevendas.com.br',
+          nome: null,
+          from: null,
+          setor: null,
+          tell: null,
+          subject: null,
+          mensagem: null,
+        },
+      ],
+    };
+  },
   created() {
     document.title = "Dna de Vendas | Contato";
+  },
+  methods: {
+    sendMail() {
+      
+    }
   },
 };
 </script>
