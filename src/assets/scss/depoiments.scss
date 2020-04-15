@@ -1,14 +1,52 @@
 @import '@/assets/scss/variables.scss';
 @import '@/assets/scss/mixins.scss';
+@import '@/assets/scss/breakpoint.scss';
 
 .depoiments{
-    color: white;
-    background-image: url("../assets/svg/graphism.svg");
+    color: $baseColor;
+    background-color: #f3f3f3;
+    // background-image: url("../assets/svg/graphism.svg");
     background-size: 100%;
     background-position: bottom center;
     background-repeat: no-repeat;
 
     text-align: center;
+
+    &::before{
+        display: block;
+        position: absolute;
+        content: "";
+        background-image: url("../assets/svg/cases-vetor-right.svg");
+        background-attachment: fixed;
+        height: 860px;
+        width: 140px;
+        left: 0;
+        top: 0px;
+        z-index: 9;
+        transform: rotate(180deg);
+
+        @include breakpoint(tablets){
+            display: none;
+        }
+    }
+
+    &::after{
+        display: block;
+        position: absolute;
+        content: "";
+        background-image: url("../assets/svg/cases-vetor-right.svg");
+        height: 800px;
+        width: 140px;
+        right: 0;
+        top: 300px;
+        z-index: 9;
+        transform: rotate(180deg);
+        background-position-x: 140px;
+
+        @include breakpoint(tablets){
+            display: none;
+        }
+    }
 
     .row{        
         margin: 40px auto;
@@ -20,9 +58,15 @@
     }
 
     .box{
+        color: white;
         .top{
             background-color: #2E3152;
             padding: 80px 20px 40px 20px;
+            min-height: 510px;
+
+            @include breakpoint(tablets){
+                min-height: unset;
+            }
 
             &::before{
                 display: block;
