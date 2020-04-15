@@ -62,3 +62,11 @@
     }
   };
 </script>
+
+<style lang="scss">
+  .section {
+    h2 {
+      color: white;
+    }
+  }
+</style>
