@@ -56,6 +56,7 @@
     <Cases/>
     <Depoiments/>
     <Clients/>
+    <pricing-table></pricing-table>
 
 
   </div>
@@ -68,6 +69,7 @@
     import Cases from '@/components/Cases.vue';
     import Depoiments from '@/components/Depoiments.vue';
     import Clients from '@/components/Clients.vue';
+    import PricingTable from '@/components/PricingTable.vue';
 
   export default {
     name: "Talk",
@@ -76,7 +78,8 @@
       Pillars,
       Cases,
       Depoiments,
-      Clients
+      Clients,
+      'pricing-table': PricingTable,
     }
   }
 </script>
