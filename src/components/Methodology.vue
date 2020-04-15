@@ -7,7 +7,7 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg col-md col-sm-12" v-for="(methodology, index) in methodologys.acf.metodologia.slice(0, 4)" :key="index">
+                <div class="col-lg col-md col-sm-12" v-for="(methodology, index) in methodologys.acf.metodologia.slice(0, 5)" :key="index">
                     <span>{{index + 1}}</span>
                     <h3>{{methodology.titulo}}</h3>
                     
