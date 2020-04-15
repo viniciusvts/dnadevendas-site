@@ -1,11 +1,12 @@
 <template>
   <div>
-    <Spotlight>
+    <Spotlight v-if="customFields">
       <div class="text section">
-        <h1>A mais completa <b>Consultoria de Vendas</b> para aumento de produtividade</h1>
+        <h1>{{customFields.acf.chamada}}</h1>
+        <h2>{{customFields.acf.subtitulo}}</h2>
         <button class="btn-grad">
           <router-link to="/contato">
-            Falar com um consultor
+            {{customFields.acf.cta}}
           </router-link>
         </button>
       </div>
@@ -15,7 +16,7 @@
           <img src="@/assets/svg/fast-forward.svg"/>
         </div>
       </div>
-      <img class="image" src="@/assets/hero-home.jpg"/>
+      <img class="image" :src="customFields.acf.imagem.sizes.medium_large" :alt="customFields.acf.chamada">
     </Spotlight>
     
     <Pillars>
@@ -100,8 +101,24 @@ export default {
     Depoiments,
     BlogFeed
   },
-  created() {
-    document.title = "Dna de Vendas";
+  data(){
+    return {
+      pageID: 37,
+      customFields: null
+    }
   },
+  created(){
+    this.getAcf();
+    document.title = "Dna de Vendas | Consultoria de Vendas e Treinamento de Vendas";
+  },
+  methods:{
+    getAcf(){
+      fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}`)
+      .then(r => r.json())
+      .then(r => {
+      this.customFields = r;
+      });
+    }
+  }
 };
 </script>
