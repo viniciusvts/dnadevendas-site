@@ -18,9 +18,10 @@
       </div>
       <img class="image" :src="customFields.acf.imagem.sizes.medium_large" :alt="customFields.acf.chamada">
     </Spotlight>
+    <PaginaCarregando v-else/>
 
-    <Pillars>
-      <div class="container-fluid" v-if="customFields">
+    <Pillars v-if="customFields">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
             <h3 v-html="customFields.acf.secao_pilares.titulo"></h3>
@@ -37,6 +38,7 @@
         </div>
       </div>
     </Pillars>
+    <PaginaCarregando v-else/>
 
     <div  v-if="customFields" >
       <div v-for="(objection, index) in customFields.acf.objecoes" :key="index">
@@ -71,7 +73,8 @@
           </div>
         </section>
       </div>
-    </div>    
+    </div>   
+    <PaginaCarregando v-else/> 
 
     <section class="talkers talkDark" v-if="customFields">
       <div class="title">
@@ -117,6 +120,7 @@
         </div>
       </div>
     </section>
+    <PaginaCarregando v-else/>
 
     <section class="themes" v-if="customFields">
       <div class="title">
@@ -142,6 +146,7 @@
         </div>        
       </div>
     </section>
+    <PaginaCarregando v-else/>
     
     <Metrics v-if="customFields">
       <div class="col-md-3" v-for="(metric, index) in customFields.acf.metricas" :key="index">
@@ -150,6 +155,7 @@
         <h3>{{metric.titulo}}</h3>
       </div>
     </Metrics>
+    <PaginaCarregando v-else/>
   </div>
 </template>
 
@@ -159,6 +165,7 @@
   import Pillars from '@/components/Pillars.vue';
   import Pagination from '@/components/Pagination.vue';
   import Metrics from '@/components/Metrics.vue';
+  import PaginaCarregando from '@/components/PaginaCarregando.vue';
 
   export default {
     name: "Talk",
@@ -166,7 +173,8 @@
       Spotlight,
       Pillars,
       Pagination,
-      Metrics
+      Metrics,
+      PaginaCarregando
     },
     data(){
       return {
