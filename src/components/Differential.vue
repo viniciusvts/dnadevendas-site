@@ -1,47 +1,16 @@
 <template>
-    <div class="differential section">
+    <div class="differential section" v-if="diferentials">
         <div class="title">
             <h2>Diferenciais</h2>
             <span></span>
         </div>  
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <img src="@/assets/svg/abordagem-sistemica.svg" alt="">
-                    <h3>Abordagem Sistêmica</h3>
-                    <p>Nossos projetos de consultoria alinham elementos estratégicos como: objetivos, posicionamento, estrutura, critérios de R&S, remuneração à disciplina na execução, visando a excelência operacional.</p>                
-                </div>
-
-                <div class="col-md-4">
-                    <img src="@/assets/svg/abordagem-sistemica.svg" alt="">
-                    <h3>Abordagem Sistêmica</h3>
-                    <p>Nossos projetos de consultoria alinham elementos estratégicos como: objetivos, posicionamento, estrutura, critérios de R&S, remuneração à disciplina na execução, visando a excelência operacional.</p>                
-                </div>
-
-                <div class="col-md-4">
-                    <img src="@/assets/svg/abordagem-sistemica.svg" alt="">
-                    <h3>Abordagem Sistêmica</h3>
-                    <p>Nossos projetos de consultoria alinham elementos estratégicos como: objetivos, posicionamento, estrutura, critérios de R&S, remuneração à disciplina na execução, visando a excelência operacional.</p>                
-                </div>
-
-                <div class="col-md-4">
-                    <img src="@/assets/svg/abordagem-sistemica.svg" alt="">
-                    <h3>Abordagem Sistêmica</h3>
-                    <p>Nossos projetos de consultoria alinham elementos estratégicos como: objetivos, posicionamento, estrutura, critérios de R&S, remuneração à disciplina na execução, visando a excelência operacional.</p>                
-                </div>
-
-                <div class="col-md-4">
-                    <img src="@/assets/svg/abordagem-sistemica.svg" alt="">
-                    <h3>Abordagem Sistêmica</h3>
-                    <p>Nossos projetos de consultoria alinham elementos estratégicos como: objetivos, posicionamento, estrutura, critérios de R&S, remuneração à disciplina na execução, visando a excelência operacional.</p>                
-                </div>
-
-                <div class="col-md-4">
-                    <img src="@/assets/svg/abordagem-sistemica.svg" alt="">
-                    <h3>Abordagem Sistêmica</h3>
-                    <p>Nossos projetos de consultoria alinham elementos estratégicos como: objetivos, posicionamento, estrutura, critérios de R&S, remuneração à disciplina na execução, visando a excelência operacional.</p>                
-                </div>
-                
+                <div class="col-md-4" v-for="(diferenciais, index) in diferentials.diferenciais.slice(0,6)" :key="index">
+                    <img :src="diferenciais.icone.sizes.thumbnail" :alt="diferenciais.titulo">
+                    <h3>{{diferenciais.titulo}}</h3>
+                    <p>{{diferenciais.texto}}</p>                
+                </div>                
             </div>
         </div>
     </div>
@@ -49,7 +18,25 @@
 
 <script>
 export default {
-    name: 'Differential'
+    name: 'Differential',
+    data(){
+        return {
+            pageID: 37,
+            diferentials: null
+        }
+    },
+    created(){
+        this.getDiferentials();
+    },
+    methods:{
+        getDiferentials(){
+            fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}/diferenciais`)
+            .then(r => r.json())
+            .then(r => {
+            this.diferentials = r;
+            });
+        }
+    }
 }
 </script>
 

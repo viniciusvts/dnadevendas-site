@@ -1,4 +1,5 @@
 @import "@/assets/scss/variables.scss";
+@import '@/assets/scss/breakpoint.scss';
 @import "@/assets/scss/mixins.scss";
 
 .clients{
@@ -111,10 +112,12 @@
 }
 
 .clientsComponent{
-    color: white;    
+    color: $baseColor;
+    background-color: white;
     button{
         margin: 0 auto;
         position: relative;
+        display: block;
     }
 
     p{
@@ -124,10 +127,14 @@
     }
 
     img{
-        margin: 60px auto;
+        margin: 30px auto;
         max-width: 220px;
         @include transition();
         transform: scale(1);
+
+        @include breakpoint(tablets){
+            margin: 10px auto;
+        }
 
         &:hover{
             transform: scale(1.1);
@@ -135,17 +142,26 @@
         }
     }
 
+    a{
+        text-align: center;
+        margin: 0 auto;
+    }
+
     &::before{
         display: block;
         position: absolute;
         content: "";
         background-image: url("../assets/svg/cases-vetor-right.svg");
-        height: 800px;
-        width: 190px;
+        height: 860px;
+        width: 140px;
         left: 0;
         top: 0px;
         z-index: 9;
         transform: rotate(180deg);
+
+        @include breakpoint(tablets){
+            display: none;
+        }
     }
 
     &::after{
@@ -154,12 +170,16 @@
         content: "";
         background-image: url("../assets/svg/cases-vetor-right.svg");
         height: 800px;
-        width: 190px;
+        width: 140px;
         right: 0;
         top: 300px;
         z-index: 9;
         transform: rotate(180deg);
-        background-position-x: 190px;
+        background-position-x: 140px;
+
+        @include breakpoint(tablets){
+            display: none;
+        }
     }
 
     .count{

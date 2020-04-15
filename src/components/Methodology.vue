@@ -1,5 +1,5 @@
 <template>
-    <div class="methodology section">        
+    <div class="methodology section" v-if="methodologys">        
         <div class="title">
             <h2>Metodologia</h2>
             <span></span>
@@ -7,68 +7,45 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3">
-                    <span>1</span>
-                    <h3>Métodos customizados</h3>
-                    <ul>
-                        <li>Entrevistas</li>
-                        <li>Laboratório de Vendas</li>
-                        <li>Check-up de Vendas</li>
-                        <li>Imersão Comercial</li>
-                        <li>Estatísticas de Vendas</li>
-                        <li>Análise dos Processos</li>
-                    </ul>
-                </div>
-
-                <div class="col-md-3">
-                    <span>2</span>
-                    <h3>Métodos customizados</h3>
-                    <ul>
-                        <li>Entrevistas</li>
-                        <li>Laboratório de Vendas</li>
-                        <li>Check-up de Vendas</li>
-                        <li>Imersão Comercial</li>
-                        <li>Estatísticas de Vendas</li>
-                        <li>Análise dos Processos</li>
-                    </ul>
-                </div>
-
-                <div class="col-md-3">
-                    <span>3</span>
-                    <h3>Métodos customizados</h3>
-                    <ul>
-                        <li>Entrevistas</li>
-                        <li>Laboratório de Vendas</li>
-                        <li>Check-up de Vendas</li>
-                        <li>Imersão Comercial</li>
-                        <li>Estatísticas de Vendas</li>
-                        <li>Análise dos Processos</li>
-                    </ul>
-                </div>
-
-                <div class="col-md-3">
-                    <span>4</span>
-                    <h3>Métodos customizados</h3>
-                    <ul>
-                        <li>Entrevistas</li>
-                        <li>Laboratório de Vendas</li>
-                        <li>Check-up de Vendas</li>
-                        <li>Imersão Comercial</li>
-                        <li>Estatísticas de Vendas</li>
-                        <li>Análise dos Processos</li>
+                <div class="col-lg col-md col-sm-12" v-for="(methodology, index) in methodologys.acf.metodologia.slice(0, 4)" :key="index">
+                    <span>{{index + 1}}</span>
+                    <h3>{{methodology.titulo}}</h3>
+                    
+                    <ul v-for="(text, index) in methodology.textos" :key="index">
+                        <li>{{text.texto}}</li>
                     </ul>
                 </div>
             </div> 
         </div>
 
         <h4>Vamos conversar como como aumentar suas vendas? </h4>
-        <button>Falar com um consultor</button>
+        <router-link to="/contato">
+            <button>Falar com um consultor</button>
+        </router-link>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Clients'
+    name: 'Clients',
+    data(){
+        return {
+            pageID: 37,
+            methodologys: null
+        }
+    },
+    created(){
+        this.getMethodology();
+    },
+    methods:{
+        getMethodology(){
+            fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}`)
+            .then(r => r.json())
+            .then(r => {
+            this.methodologys = r;
+            });
+        }
+    }
 }
 </script>
 

@@ -26,12 +26,8 @@
             </p>
             <article v-html="post.content.rendered"></article>
           </div>
-<<<<<<< HEAD
 
           <div class="col-md-3">
-=======
-          <div class="column">
->>>>>>> 54806a61b90907ecb42f7290142046513d4861c5
             <Sidebar/>
           </div>
       </div>
@@ -43,6 +39,7 @@
 <script>
 
   import Sidebar from "@/components/Sidebar.vue";
+  import Api from "@/services/ApiRest.js";
   
   export default {
     name: "Contato",
@@ -51,14 +48,55 @@
     },
     data() {
       return {
-        post: this.$route.params.post
+        post: this.$route.params.post,
+        subtitulos: []
       }
     },
     mounted() {
-      document.title = `Dna de Vendas - Blog | ${this.$route.params.slug}`;
-      console.log('params =>', this.$route.params);
+      if(typeof this.$route.params.post == 'undefined'){
+        this.getPost(this.$route.params.slug);
+      }else{
+        this.updateMetaAndTitle();
+      }
+      this.loadSumario();
+      console.log('route =>', this.$route);
       console.log('this =>', this);
     },
+    methods: {
+      loadSumario(val) {
+        let content = document.createElement('div');
+        if(typeof val != 'undefined') {
+          content.innerHTML = val;
+        } else {
+          content.innerHTML = this.post.content.rendered;
+        }
+        let h2List = content.getElementsByTagName('h2');
+        //de posse da lista apago o conteúdo atual
+        this.subtitulos = []
+        h2List.forEach(elem => {
+          this.subtitulos.push(elem.innerText);
+        });
+      },
+      updateMetaAndTitle() {
+        this.$route.meta.title = this.post.yoast_title;
+        this.$route.meta.metaTags = []; // metaTags é Array
+        this.$route.meta.metaTags = this.post.yoast_meta;
+        this.$route.meta.metaTags.push({ description: this.post.yoast_title});
+      },
+      getPost(slug) {
+        if (typeof slug == 'undefined') throw new TypeError("É necessário definir slug");
+        Api.getPost(slug)
+        .then(response => {
+          this.post = response.data[0];
+          this.updateMetaAndTitle();
+        });
+      },
+    },
+    watch: {
+      'post.content.rendered': function(val) {
+        this.loadSumario(val);
+      }
+    }
   };
 </script>
 
