@@ -18,7 +18,7 @@
       </div>
       <img class="image" :src="customFields.acf.imagem.sizes.medium_large" :alt="customFields.acf.chamada">
     </Spotlight>
-    
+
     <Pillars>
         <div class="container-fluid">
             <div class="row">
@@ -53,7 +53,17 @@
         </div>
     </Pillars>
 
-    <Services/>
+    <Services v-if="customFields">
+      <div class="column" v-for="(service, index) in customFields.acf.servicos" :key="index">
+        <div class="text">
+          <div class="label">{{service.servico}}</div>
+        </div>
+        <div class="text">
+          <p>{{service.descricao}}</p>
+        </div>
+        <img class="lazy" src="@/assets/loading.gif" :data-src="service.imagem.sizes.large" :alt="service.servico">
+      </div>
+    </Services>
 
     <Cases/>
 
