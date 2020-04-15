@@ -11,6 +11,9 @@ header{
   background-color: white;
   color: $baseColor;
 
+  animation-name: enterTop;
+  animation-duration: 4s;
+
   @include transition();
 
   nav {

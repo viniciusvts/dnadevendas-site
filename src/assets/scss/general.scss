@@ -207,7 +207,6 @@ button, input[type="submit"] {
   @include fontSize(18px);
   padding: 15px 25px;
   width: fit-content;
-  max-width: 300px;
   cursor: pointer;
   @include transition();
 
@@ -222,6 +221,10 @@ button, input[type="submit"] {
     &:hover{
       color: white;
     }
+  }
+
+  @include breakpoint(tablets){
+    max-width: 300px;
   }
 }
 
