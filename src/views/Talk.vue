@@ -53,7 +53,7 @@
               <div class="col-md-5">
                 <div class="slider">
                   <div class="slides">
-                    <img class="lazy" src="@/assets/loading.gif"  :data-src="objection.imagem.sizes.medium" :alt="objection.objecao">
+                    <img class="lazy" src="@/assets/loading.gif"  :data-src="objection.imagem.sizes.large" :alt="objection.objecao">
                   </div>
                 </div>
               </div>
