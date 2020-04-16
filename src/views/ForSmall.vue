@@ -57,6 +57,7 @@
     <Depoiments/>
     <Clients/>
     <pricing-table></pricing-table>
+    <fale-conosco></fale-conosco>
 
 
   </div>
@@ -70,6 +71,7 @@
     import Depoiments from '@/components/Depoiments.vue';
     import Clients from '@/components/Clients.vue';
     import PricingTable from '@/components/PricingTable.vue';
+    import FaleConosco from '@/components/FaleConosco.vue';
 
   export default {
     name: "Talk",
@@ -80,6 +82,7 @@
       Depoiments,
       Clients,
       'pricing-table': PricingTable,
+      'fale-conosco': FaleConosco,
     }
   }
 </script>

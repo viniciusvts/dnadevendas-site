@@ -121,6 +121,8 @@
         </div>
       </div>
     </section>
+
+    <fale-conosco></fale-conosco>
     
   </div>
 </template>
@@ -130,6 +132,7 @@
   import Spotlight from '@/components/Spotlight.vue';
   import Pillars from '@/components/Pillars.vue';
   import Pagination from '@/components/Pagination.vue';
+  import FaleConosco from '@/components/FaleConosco.vue';
 
   export default {
     name: "Workshops",
@@ -137,6 +140,7 @@
       Spotlight,
       Pillars,
       Pagination,
+      'fale-conosco': FaleConosco,
     }
   }
 </script>

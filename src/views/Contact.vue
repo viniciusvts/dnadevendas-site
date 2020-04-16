@@ -70,15 +70,14 @@
 
 
 <script>
-// import send from '../services/Sendgrid.js';
+import send from '../services/Contact.js';
 export default {
   name: "Contact",
-  // mixins: [send],
+  mixins: [send],
   data() {
     return {
       formData: [
         {
-          to: 'pedro@dnadevendas.com.br',
           nome: null,
           from: null,
           setor: null,
@@ -91,11 +90,7 @@ export default {
   },
   created() {
     document.title = "Dna de Vendas | Contato";
-  },
-  methods: {
-    sendMail() {
-      
-    }
+    console.log(process.env.VUE_USER_LOGIN_CONTACT);
   },
 };
 </script>

@@ -56,8 +56,8 @@
           <div class="col-md-4">
             <h3>Receba conteúdos exclusivos</h3>
             <form action="">
-              <input type="text" name="Nome" placeholder="Insira seu nome*" id="nome">
-              <input type="email" placeholder="Seu e-mail*" nome="email" id="email">
+              <input type="text" v-model="newsSignup[0].nome" name="Nome" placeholder="Insira seu nome*" id="nome">
+              <input type="email" v-model="newsSignup[0].from" placeholder="Seu e-mail*" nome="email" id="email">
               <p>* Campos obrigatórios</p>
               <input type="submit" value="Quero me inscrever">
             </form>
@@ -128,8 +128,20 @@
 </template>
 
 <script>
+import news from '../services/Newsletter.js';
 export default {
-  name: "TheFooter"
+  name: "TheFooter",
+  mixins: [news],
+  data() {
+    return {
+      newsSignup: [
+        {
+          nome: null,
+          from: null,
+        },
+      ],
+    };
+  },
 };
 </script>
 
