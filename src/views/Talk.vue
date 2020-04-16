@@ -158,6 +158,7 @@
     </section>
     
     <Metrics/>
+    <fale-conosco></fale-conosco>
   </div>
 </template>
 
@@ -167,6 +168,7 @@
   import Pillars from '@/components/Pillars.vue';
   import Pagination from '@/components/Pagination.vue';
   import Metrics from '@/components/Metrics.vue';
+  import FaleConosco from '@/components/FaleConosco.vue';
 
   export default {
     name: "Talk",
@@ -174,7 +176,8 @@
       Spotlight,
       Pillars,
       Pagination,
-      Metrics
+      Metrics,
+      'fale-conosco': FaleConosco,
     },
     data(){
       return {
