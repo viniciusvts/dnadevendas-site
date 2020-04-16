@@ -65,5 +65,38 @@ const apiRest = {
     });
   },
 
+  /**
+   * Resgata a lista de portfólio com parametros
+   * @param {[]} args - args da pagina a ser requisitada
+   * @param {number} args.post_per_page - quantos posts por página -1 sem limite
+   * @param {number} args.page - número da písitada
+   */
+  getPortfolio(args) {
+    let urlArgs = "";
+    if (typeof args != 'undefined'){
+      if (!Array.isArray(args))  throw new TypeError("O parametro precisa ser array");
+      for (const key in args) {
+        urlArgs += key + "=" + args[key] + "&";
+      }
+    }
+    let url = '/api/wp-json/dna_theme/v1/portfolio';
+    if (urlArgs.length > 0){
+      url += "?" + urlArgs;
+    }
+    return axios.get(url, {
+      headers: { 'Content-type': 'application/json' },
+    });
+  },
+
+  /**
+   * Resgata a lista da taxonomia do portfólio
+   */
+  getTaxonomyPortfolio() {
+    let url = '/api/wp-json/dna_theme/v1/portfolio-taxonomy';
+    return axios.get(url, {
+      headers: { 'Content-type': 'application/json' },
+    });
+  },
+
 };
 export default apiRest;
