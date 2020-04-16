@@ -41,6 +41,27 @@ function dnaapi_get_portfolio($req){
 }
 
 /**
+ * Função a ser usada no rest api para retornar a lista de taxonomia no portifolio
+ * @author Vinicius de Santana
+ */
+function dnaapi_get_portfolioTaxonomyList(){
+  $dataResp = array();
+  $query = get_terms( array(
+    'taxonomy' => 'portfolio_category',
+    )
+  );
+  $taxs = $query;
+  foreach ($taxs as $key => $tax) {
+    /* pq essa condicional e não hide_empty?
+    pq tem uma categoria mae chamada "Clientes" que é mãe de TODAS as categorias
+    nenhum cliente está cadastrado diretamente nessa categoria
+    mas o wordpress entende que ela não está vazia pq seus filhos possuem clientes cadastrados*/
+    if ($tax->count > 0) $dataResp[] = $tax;
+  }
+  return $dataResp;
+}
+
+/**
  * Função registra os endpoints relacionados a portfolio na api
  * @author Vinicius de Santana
  */
@@ -65,6 +86,15 @@ function dnaapi_register_portfolio(){
           'default' => 1
         )
       )
+    )
+  );
+
+  register_rest_route('dna_theme/v1',
+    '/portfolio-taxonomy',
+    array(
+      'methods' => 'GET',
+      'callback' => 'dnaapi_get_portfolioTaxonomyList',
+      'description' => 'recupera a lista de da taxonomia do portfolio'
     )
   );
 }
