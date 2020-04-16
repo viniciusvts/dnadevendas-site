@@ -23,6 +23,7 @@ function dnaapi_get_portfolio($req){
     $post_api['thumb']['medium'] = get_the_post_thumbnail_url($post->ID, 'medium');
     $post_api['thumb']['large'] = get_the_post_thumbnail_url($post->ID, 'large');
     $post_api['thumb']['full'] = get_the_post_thumbnail_url($post->ID, 'full');
+    $post_api['thumb']['alt'] = get_post_meta( get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true );
     $post_api['post_title'] = $post->post_title;
     $post_api['post_content'] = $post->post_content;
     $post_api['post_excerpt'] = $post->post_excerpt;
