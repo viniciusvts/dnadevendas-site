@@ -21,7 +21,6 @@ const Blog = () => import('./views/Blog.vue')
 const SingleBlog = () => import('./views/SingleBlog.vue')
 const Talk = () => import('./views/Talk.vue')
 const Workshops = () => import('./views/Workshops.vue')
-const Trainning = () => import('./views/Trainning.vue')
 const Categories = () => import('./views/Categories.vue')
 const About = () => import('./views/About.vue')
 const Videos = () => import('./views/Videos.vue')
@@ -30,6 +29,7 @@ const Contact = () => import('./views/Contact.vue')
 const Search = () => import('./views/Search.vue')
 const Clients = () => import('./views/Clients.vue')
 const ForSmall = () => import('./views/ForSmall.vue')
+const Page = () => import('./views/Page.vue')
 
 Vue.use(VueRouter)
 
@@ -72,11 +72,6 @@ const routes = [
     component: Clients
   },
   {
-    path: '/treinamentos',
-    name: 'Trainning',
-    component: Trainning
-  },
-  {
     path: '/materiais-de-vendas',
     name: 'Materials',
     component: Materials
@@ -94,7 +89,6 @@ const routes = [
   },
   {
     path: '/palestras-de-vendas',
-    alias: ['/fabrica-de-conteudo', '/treinamento-de-vendas', '/programas-de-lideranca', '/formacao-de-trainees', '/multiplicadores-internos'],
     name: 'Talk',
     component: Talk
   },
@@ -110,6 +104,12 @@ const routes = [
     name: 'Contact',
     component: Contact
   },  
+  {
+    path: '/:slug',
+    name: 'Page',
+    component: Page,
+    props: true
+  }
 ]
 
 const router = new VueRouter({
