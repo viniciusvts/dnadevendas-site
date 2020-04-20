@@ -24,6 +24,13 @@ yarn-error.log*
 *.sln
 *.sw?
 
+#compiled files
+/js/
+/img/
+/css/
+favicon.ico
+index.html
+
 #servidor 
 .htaccess
 dna_site
