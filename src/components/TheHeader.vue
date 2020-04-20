@@ -47,7 +47,27 @@
           </li>
 
           <li>
-            <router-link to="/treinamentos">Treinamento</router-link>
+            Treinamentos
+            <span>&#x25bc;</span>
+            <div class="submenu">
+              <ul>
+                <li>
+                  <router-link to="/fabrica-de-conteudo">Fábrica de Conteúdo</router-link>
+                </li>
+                <li>
+                  <router-link to="/treinamento-de-vendas">Treinamento de Vendas</router-link>
+                </li>
+                <li>
+                  <router-link to="/programas-de-liderança">Programas de Liderança</router-link>
+                </li>
+                <li>
+                  <router-link to="/formacao-de-trainees">Formação de Trainees</router-link>
+                </li>
+                <li>
+                  <router-link to="/multiplicadores-internos">Multiplicadores Internos</router-link>
+                </li>
+              </ul>
+            </div>
           </li>
 
           <li>

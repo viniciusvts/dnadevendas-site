@@ -17,11 +17,11 @@
         data(){
             return {
                 pageContent: null,
-                slug: this.$route.params.slug
+                
             }
         },
-        mounted(){
-            this.getPage()
+        created(){
+            this.getPage();
         },
         methods:{
             getPage(){
@@ -31,6 +31,17 @@
                 this.pageContent = r;
                 document.title = `DNA de Vendas | ${this.pageContent[0].title.rendered}`;
                 });
+            }
+        },
+        computed: {
+            slug() {
+                let slug = this.$route.params.slug;
+                return slug;
+            }
+        },
+        watch: {
+            slug() {
+                this.getPage();
             }
         }
     }
