@@ -26,38 +26,48 @@
           <div class="col-md-2">
             <h3>Saiba Mais</h3>
             <ul>
-              <li>Consultoria de Vendas</li>
-              <li>Treinamento de Vendas</li>
-              <li>Workshop de Vendas</li>
-              <li>Palestra de Vendas</li>
-              <li>Produtividade de Vendas</li>
-              <li>Materiais de Vendas</li>
-              <li>Processo de Vendas</li>
-              <li>Blog de Vendas</li>
-              <li>Consultoria Comercial</li>
-              <li>DNA For Marketing</li>
-              <li>Playbook de Vendas</li>
+              <li>
+                <router-link :to="{ name: 'ForSmall' }">Consultoria de Vendas</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'Trainning' }">Treinamento de Vendas</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'Workshops' }">Workshop de Vendas</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'ForSmall' }">Consultoria de Vendas</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'Talk' }">Palestra de Vendas</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'Materials' }">Materiais de Vendas</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'Blog' }">Blog de Vendas</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'ForSmall' }">Consultoria Comercial</router-link>
+              </li>
             </ul>
           </div>
 
           <div class="col-md-4">
             <h3>Últimos Posts</h3>
             <ul>
-              <li>Case de sucesso: confira como o Acade Lotear aumentou seu faturamento em 40% após consultoria com a DNA de Vendas For Small;</li>
-
-              <li>Case de Sucesso: Como a DNAfor Small ajudou a Escola EDTI a ter um negócio escalável de forma sustentável;</li>
-
-              <li>Playbook de vendas: o que é? Para que serve? E como construir um?</li>
-
-              <li>Playbook de vendas: o que é? Para que serve? E como construir um?</li>
+              <li v-for="post in ultPosts" :key="post.id" >
+                <router-link :to="{ name: 'SingleBlog', params: { slug: post.slug, post: post } }">{{post.title.rendered}}</router-link>
+              </li>
             </ul>
           </div>
 
           <div class="col-md-4">
             <h3>Receba conteúdos exclusivos</h3>
-            <form action="">
-              <input type="text" v-model="newsSignup[0].nome" name="Nome" placeholder="Insira seu nome*" id="nome">
-              <input type="email" v-model="newsSignup[0].from" placeholder="Seu e-mail*" nome="email" id="email">
+            <form name="dna_newsletter" action="#" v-on:submit="sendForm">
+              <input type="text" v-model="formData.nome" name="Nome" placeholder="Insira seu nome*" id="nome">
+              <input type="email" v-model="formData.email" placeholder="Seu e-mail*" nome="email" id="email">
+              <p>{{formMessage}}</p>
               <p>* Campos obrigatórios</p>
               <input type="submit" value="Quero me inscrever">
             </form>
@@ -128,20 +138,45 @@
 </template>
 
 <script>
-import news from '../services/Newsletter.js';
+import Api from "@/services/ApiRest.js";
+
 export default {
   name: "TheFooter",
-  mixins: [news],
   data() {
     return {
-      newsSignup: [
-        {
-          nome: null,
-          from: null,
-        },
-      ],
-    };
+      formMessage: null,
+      ultPosts: [],
+      formData: {
+        nome: null,
+        email: null,
+      }
+    }
   },
+  created() {
+    this.getPosts();
+  },
+  methods: {
+    getPosts() {
+      let args = [];
+      args['per_page'] = 5;
+      Api.getPosts(args)
+      .then(res=>{
+        this.ultPosts = res.data;
+      })
+      .catch(err=>{
+        this.message = 'Erro ao consultar os posts';
+        console.warn('error =>', err);
+      });
+    },
+    sendForm(evt) {
+      evt.preventDefault();
+      Api.sendToCF7(3795, this.formData)
+      .then(response => {
+        this.formMessage = response.data.message;
+        console.log('response =>', response);
+      });
+    }
+  }
 };
 </script>
 
