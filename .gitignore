@@ -23,3 +23,15 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+#servidor 
+.htaccess
+dna_site
+fix.php
+gulpfile.js
+info.php
+nrc-ferragens
+prestes  
+prototypes  
+robots.txt  
+yarn.lock
