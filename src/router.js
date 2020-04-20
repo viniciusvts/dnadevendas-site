@@ -1,20 +1,6 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-/*
-import Blog from './views/Blog.vue'
-import SingleBlog from './views/SingleBlog.vue'
-import Talk from './views/Talk.vue'
-import Workshops from './views/Workshops.vue'
-import Trainning from './views/Trainning.vue'
-import Categories from './views/Categories.vue'
-import About from './views/About.vue'
-import Videos from './views/Videos.vue'
-import Materials from './views/Materials.vue'
-import Contact from './views/Contact.vue'
-import Search from './views/Search.vue'
-import Clients from './views/Clients.vue'
-import ForSmall from './views/ForSmall.vue'*/
 
 const Home = () => import('./views/Home.vue')
 const Blog = () => import('./views/Blog.vue')

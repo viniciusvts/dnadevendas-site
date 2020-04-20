@@ -8,8 +8,6 @@ header{
   display: block;
   width: 100%;
   z-index: 10;
-  background-color: white;
-  color: $baseColor;
   box-shadow: 5px 5px 10px rgba(0,0,0,.05);
 
   animation-name: enterTop;
@@ -24,7 +22,7 @@ header{
     padding: 0px 90px;
     margin: 0 auto;   
 
-    @include breakpoint(tablets){
+    @include breakpoint(largeDesktops){
       display: block;
       padding: 0px 10px;
     };  
@@ -36,7 +34,7 @@ header{
       cursor: pointer;
       display: none;
     
-      @include breakpoint(tablets){
+      @include breakpoint(largeDesktops){
         display: block;
       };
     
@@ -63,14 +61,14 @@ header{
     .menuDesktop{
       display: block;
       @include transition();
-      @include breakpoint(tablets){
+      @include breakpoint(largeDesktops){
         display: none;
       };
     }
 
     .menuMobile{
       @include transition();
-      @include breakpoint(tablets){
+      @include breakpoint(largeDesktops){
         display: block;
       };
     }
@@ -87,7 +85,7 @@ header{
           font-size: 10px;
         }
 
-        @include breakpoint(tablets){
+        @include breakpoint(largeDesktops){
           display: block;
           margin: 0 auto;
           text-align: center;
@@ -101,7 +99,7 @@ header{
       }
     }
     #searchBtn{
-      @include breakpoint(tablets){    
+      @include breakpoint(largeDesktops){    
         width: 50px;
         height: 50px;
         padding: 10px;
@@ -157,7 +155,7 @@ header{
       max-width: 250px;
       @include fontSize(15px);
 
-      @include breakpoint(tablets){
+      @include breakpoint(largeDesktops){
         top: 0;
         position: relative;
         width: 100%;
@@ -191,6 +189,39 @@ header{
 .darkMenu{
   background-color: $baseColor;
   color: white;
+  a{
+    color: white;
+  }
+  .submenu{
+    a{
+      color: $baseColor;
+    }
+  }
+}
+
+.defaultMenu{  
+  background-color: white;
+  color: grey;
+
+  a{
+    color: grey;
+  }
+  .submenu{
+    a{
+      color: $baseColor;
+    }
+  }
+
+  img{
+    filter: grayscale(1);
+    opacity: 0.7;
+  }
+}
+
+.darkTransparent{  
+  background-color: #151515a3;
+  color: white;
+
   a{
     color: white;
   }
