@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Spotlight v-if="customFields">
+    <Spotlight v-if="customFields" class="home">
       <div class="text section">
-        <h1>{{customFields.acf.chamada}}</h1>
-        <h2>{{customFields.acf.subtitulo}}</h2>
+        <h1>{{customFields.acf.chamada}} {{customFields.acf.subtitulo}}</h1>
+
         <button class="btn-grad">
           <router-link to="/contato">
             {{customFields.acf.cta}}
@@ -13,10 +13,11 @@
       <div class="see-more">
         <div class="container">
           <span>Saiba mais</span>
-          <img src="@/assets/svg/fast-forward.svg"/>
+          <img src="@/assets/svg/fast-forward-black.svg"/>
         </div>
       </div>
-      <img class="image" :src="customFields.acf.imagem.sizes.medium_large" :alt="customFields.acf.chamada">
+      <img class="image" src="https://www.dnadevendas.com.br/wp-content/uploads/capa-home-1.jpg" :alt="customFields.acf.chamada">
+      <!-- <img class="image" :src="customFields.acf.imagem.sizes.medium_large" :alt="customFields.acf.chamada"> -->
     </Spotlight>
 
     <Pillars>

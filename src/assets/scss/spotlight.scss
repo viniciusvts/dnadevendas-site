@@ -2,6 +2,7 @@
 @import "mixins.scss";
 @import "breakpoint.scss";
 
+
 .spotlight{
     display: block;
     position: relative;
@@ -9,13 +10,18 @@
     min-height: 600px;
 
     h1 {
-        @include fontSize(40px);
-        font-weight: bold;
-        text-transform: uppercase;
-        max-width: 560px; 
+        @include fontSize(50px);
+        line-height: 60px;
+        max-width: 860px; 
         position: relative;
         animation-name: enterLeft;
         animation-duration: 2s;
+
+        @include breakpoint(tablets){
+            @include fontSize(40px);
+            line-height: 50px;
+            text-align: center;
+        }
     }
 
     h2{
@@ -38,6 +44,11 @@
         position: relative;
         animation-name: enterLeft;
         animation-duration: 6s;
+
+        @include breakpoint(tablets){
+            margin: 40px auto 20px auto;
+            display: block;
+        }
     }
 
     .text{
@@ -54,10 +65,16 @@
     .see-more{
         display: block;
         width: 100%;
-        bottom: 10px;
+        bottom: 50px;
         position: absolute;
         z-index: 9;
+        text-transform: uppercase;
         
+        @include breakpoint(smartphones){
+           display: none;
+        }
+
+
         .container{
             display: block;
             position: relative;
@@ -71,13 +88,22 @@
                 margin: 30px auto 0 auto;
                 position: relative;
 
-                animation: mymove 1s cubic-bezier(0.1,0.25,0.1,1) 0s infinite;
+                animation: mymove 0.7s cubic-bezier(0.1,0.25,0.1,1) 0s infinite;
 
                 @keyframes mymove {
                     from {bottom: 10px;}
-                    to {bottom: 20px; box-shadow: 0px 50px 30px #8489e7;}
+                    to {bottom: 22px;}
                 }
             }
         }
+    }
+}
+
+.home{
+    .text{
+        color: $baseColor;
+    }
+    .see-more span{
+        color: $baseColor;
     }
 }
