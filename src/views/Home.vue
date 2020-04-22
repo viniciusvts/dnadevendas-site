@@ -80,7 +80,8 @@ import PaginaCarregando from '../components/PaginaCarregando.vue';
 
 //segunda dobra em diante, carregar com lazyload
 import Pillars from "@/components/Pillars.vue";
-import Cases from "@/components/Cases.vue";
+// import Cases from "@/components/Cases.vue";
+import Cases from "@/components/CasesNewLayout.vue";
 import Differential from "@/components/Differential.vue";
 import Clients from "@/components/Clients.vue";
 import Methodology from "@/components/Methodology.vue";
