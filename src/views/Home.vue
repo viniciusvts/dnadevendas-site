@@ -55,11 +55,9 @@
     </Pillars>
 
     <Services v-if="customFields">
-      <div class="column" v-for="(service, index) in customFields.acf.servicos" :key="index">
+      <div class="col-md-3" v-for="(service, index) in customFields.acf.servicos" :key="index">
         <div class="text">
-          <div class="label">{{service.servico}}</div>
-        </div>
-        <div class="text">
+          <h3>{{service.servico}}</h3>
           <p>{{service.descricao}}</p>
         </div>
         <img class="lazy" src="@/assets/loading.gif" :data-src="service.imagem.sizes.large" :alt="service.servico">

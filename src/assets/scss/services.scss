@@ -2,114 +2,29 @@
     color: white;
     display: block;
     position: relative;
+    background: white;
 
-    .columns{
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        align-items: center;
-        margin: 90px auto;
+    h2{
+        color: $baseColor;
     }
 
-    .column{
-        display: grid;
-        display: block;
-        margin: auto;
-        position: relative;
-        flex: 1;
-        text-align: center;
-        color: white;
-        transition: .3s;
-        max-width: 25%;
-        min-width: 10%;
-        border-right: 0.5px solid #fffffff2;
-
-        &:last-child{
-            &::before{
-                display: block;
-                position: absolute;
-                content: "";
-                background-image: url("../assets/svg/waves.svg");
-                background-size: 120px;
-                height: 120px;
-                width: 120px;
-                right: -60px;
-                top: -60px;
-                z-index: -1;
-
-                @include breakpoint(tablets){
-                    display: none;
-                }
-            }            
-            border-right: 0px;
-        }
-
-        &:nth-child(1){
-            &::before{
-                display: block;
-                position: absolute;
-                content: "";
-                background-image: url("../assets/svg/aresta.svg");
-                background-size: 200px;
-                height: 200px;
-                width: 200px;
-                left: -16px;
-                top: -16px;
-                z-index: 1;
-
-                @include breakpoint(tablets){
-                    display: none;
-                }
-            }
-        }
-
-        &:hover{    
-            max-width: 50% !important;
-            flex-grow: 3;
-            color: #fff;
-            min-width: 10%;
-            cursor: pointer;
-            @include transition(all 1200ms ease);            
-            .text p{      
-                background: white;
-                color: black;
-                width: 100%;
-                padding: 20px; 
-                display: block;
-                @include transition(all 800ms ease);
-            }
-
-            .text::before{
-                display: none;
-                @include transition(all 800ms ease);
-            }
-        }
+    .col,
+    > [class*="col-"], .col-md-3 {
+        margin-bottom: 70px !important;
     }
 
     .text{
         display: block;
         position: absolute;
-        bottom: 0px;
-        width: 100%;        
+        bottom: -20px;
         padding: 0px;
         z-index: 9;
-
-        @include transition(all 800ms ease);
-
-        &::before{
-            display: block;
-            position: absolute;
-            content: "";
-            background-image: url("../assets/svg/arrow.svg");
-            background-size: 12px;
-            height: 20px;
-            width: 12px;
-            left: 40px;
-            bottom: 40px;
-            z-index: 9;
-            display: block;   
-            @include transition();        
-        }      
+        background: white;
+        margin-left: 15px;
+        margin-right: 15px;
+        width: 80%; 
+        min-height: 430px;
+        box-shadow: 5px 5px 10px rgba(0,0,0,.08);
 
         .label{
             background: linear-gradient(to right, #C8AC78 0%, #B08961 100%);
@@ -133,16 +48,29 @@
 
         p{
             text-align: center;
-            font-size: 20px;
+            font-size: 15px;
             line-height: 30px;
-            display: none;
+            display: block;     
+            color: black;
+            padding: 20px;  
             @include transition(all 800ms ease);
+            margin: 0 auto;                
+            position: relative;
+            opacity: 0.6;
+        }
+
+        h3{
+            text-align: center;
+            @include fontSize(25px);
+            text-transform: uppercase;
+            color: $golden;
+            font-weight: bold;
         }
     }
 
     img{
         object-fit: cover;
-        height: fit-content;
+        height: 100%;
         width: 100%;
         @include transition();
     }
