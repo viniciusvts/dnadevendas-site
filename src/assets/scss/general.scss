@@ -16,10 +16,6 @@ html{
   font-family: 'Open Sans', sans-serif;
 }
 
-body{
-  background: $baseColor;
-}
-
 h1{
   @include fontSize(30px);
   line-height:50px; 
@@ -32,12 +28,8 @@ h1{
   }
 }
 
-h1, h2, h3{
-  font-weight: 400;
-}
-
 h2{
-  @include fontSize(23px);
+  @include fontSize(33px);
 }
 
 h3{

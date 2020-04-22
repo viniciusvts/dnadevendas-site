@@ -18,10 +18,10 @@
             </div> 
         </div>
 
-        <h4>Vamos conversar como como aumentar suas vendas? </h4>
+        <!-- <h4>Vamos conversar como como aumentar suas vendas? </h4>
         <router-link to="/contato">
             <button>Falar com um consultor</button>
-        </router-link>
+        </router-link> -->
     </div>
 </template>
 
