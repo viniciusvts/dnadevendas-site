@@ -51,8 +51,11 @@
     },
     methods: {
       getPosts() {
-        let page = this.$route.params.page;
-        Api.getPosts(page)
+        let args = [];
+        if (typeof this.$route.params.page != 'undefined') {
+          args['page'] = this.$route.params.page;
+        }
+        Api.getPosts(args)
         .then(res=>{
           this.posts = res.data;
         })

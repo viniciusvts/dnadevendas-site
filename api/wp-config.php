@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * As configurações básicas do WordPress
  *
@@ -18,24 +20,74 @@
  * @package WordPress
  */
 
+/* Não Alterar o código abaixo */
+$dbhost = ''; /* Deixar em branco para utilizar o padrão (automático) */
+$dbuser = ''; /* Deixar em branco para utilizar o padrão (automático) */
+$dbpassword = ''; /* Deixar em branco para utilizar o padrão (automático) */
+
+$server_addr = $_SERVER['SERVER_ADDR'];
+switch ($server_addr) {
+    case '::1':
+    case '127.0.0.1':
+        $dbhost_default = 'localhost';
+        $dbname = 'wp_dnadevendas';
+        $dbuser_default = 'root';
+        $dbpassword_default = 'root';
+        define('DEV_MODE', true);
+        define('WP_DEBUG', true);
+        define('WP_DEBUG_DISPLAY', true );
+        define('WP_HOME','http://localhost/api/');
+        define('WP_SITEURL','http://localhost/api/');
+        break;
+
+    case '172.31.29.159':
+        $dbhost_default = 'pro-ciapipe.c6kc9wk9fak1.us-west-2.rds.amazonaws.com';
+        $dbname = 'wp_dnadevendas';
+        $dbuser_default = 'root';
+        $dbpassword_default = 'fZBy8NhelGwQNS';
+        define('DEV_MODE', false);
+        define('WP_HOME','https://dnaformarketing.com.br/api/');
+        define('WP_SITEURL','https://dnaformarketing.com.br/api/');
+        break;
+
+    case '198.199.88.130':
+        $dbhost_default = 'ddb-mysql-nyc1-74097-do-user-787860-0.db.ondigitalocean.com:25060';
+        $dbname = 'wp_dnadevendas';
+        $dbuser_default = 'wordpressuser';
+        $dbpassword_default = '53kmqydsxob789a'; 
+        define('DEV_MODE', true);
+        // define('WP_DEBUG', true);
+        // define('WP_DEBUG_DISPLAY', true );
+        define('WP_HOME','https://novo.dnadevendas.com.br/api/');
+        define('WP_SITEURL','https://novo.dnadevendas.com.br/api/');
+        break;
+    
+    default:
+		$dbhost_default = 'ddb-mysql-nyc1-74097-do-user-787860-0.db.ondigitalocean.com:25060';
+		$dbname = 'wp_dnadevendas';
+		$dbuser_default = 'wordpressuser';
+		$dbpassword_default = '53kmqydsxob789a'; 
+		define('DEV_MODE', true);
+		// define('WP_DEBUG', true);
+		// define('WP_DEBUG_DISPLAY', true );
+		define('WP_HOME','https://www.dnadevendas.com.br/api/');
+		define('WP_SITEURL','https://www.dnadevendas.com.br/api/');
+		break;
+}
+
 // ** Configurações do MySQL - Você pode pegar estas informações com o serviço de hospedagem ** //
-/** O nome do banco de dados do WordPress */
-define( 'DB_NAME', 'dnadevendas' );
-
+define('DB_NAME', $dbname);
 /** Usuário do banco de dados MySQL */
-define( 'DB_USER', 'root' );
-
+define('DB_USER', ($dbuser != '') ? $dbuser : $dbuser_default);
 /** Senha do banco de dados MySQL */
-define( 'DB_PASSWORD', 'root' );
-
-/** Nome do host do MySQL */
-define( 'DB_HOST', 'localhost' );
-
-/** Charset do banco de dados a ser usado na criação das tabelas. */
-define( 'DB_CHARSET', 'utf8mb4' );
-
-/** O tipo de Collate do banco de dados. Não altere isso se tiver dúvidas. */
+define('DB_PASSWORD', ($dbpassword != '') ? $dbpassword : $dbpassword_default);
+/** nome do host do MySQL */
+define('DB_HOST', ($dbhost != '') ? $dbhost : $dbhost_default);
+/** Conjunto de caracteres do banco de dados a ser usado na criação das tabelas. */
+define('DB_CHARSET', 'utf8mb4');
+/** O tipo de collate do banco de dados. Não altere isso se tiver dúvidas. */
 define('DB_COLLATE', '');
+define( 'FS_METHOD', 'direct' );
 
 /**#@+
  * Chaves únicas de autenticação e salts.
@@ -69,20 +121,6 @@ define( 'NONCE_SALT',       'U_:?5_*fT9mugJF,G4Ta|CAwkx!GFghI2<7S{}#cl9)!2)3}q}i
  */
 $table_prefix = 'wp_';
 
-/**
- * Para desenvolvedores: Modo de debug do WordPress.
- *
- * Altere isto para true para ativar a exibição de avisos
- * durante o desenvolvimento. É altamente recomendável que os
- * desenvolvedores de plugins e temas usem o WP_DEBUG
- * em seus ambientes de desenvolvimento.
- *
- * Para informações sobre outras constantes que podem ser utilizadas
- * para depuração, visite o Codex.
- *
- * @link https://codex.wordpress.org/pt-br:Depura%C3%A7%C3%A3o_no_WordPress
- */
-define('WP_DEBUG', false);
 
 /* Isto é tudo, pode parar de editar! :) */
 
