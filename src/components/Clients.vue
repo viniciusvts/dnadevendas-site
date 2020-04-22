@@ -5,26 +5,33 @@
             <span></span>
         </div>
 
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-3" v-for="(client, index) in clients.clientes.slice(0,9)" :key="index">
-                    <img class="lazy" src="@/assets/loading.gif" :data-src="client" alt="">
-                </div>
+        <div class="container-fluid">
+            <div class="row align-items-center no-gutters">
+                <div class="col-md-6">
+                    <div class="row no-gutters align-items-center justify-content-center logos">
+                        <div class="col-md-4" v-for="(client, index) in clients.clientes.slice(0,12)" :key="index">
+                            <img class="lazy" src="@/assets/loading.gif" :data-src="client" alt="">
+                        </div>
 
-                <div class="col-12">
-                    <p class="count">300</p>
-                </div>
-        
-                <div class="col-12">
-                    <router-link to="/clientes">
-                        <button>Ver todos os clientes</button>
-                    </router-link>
-                </div>
+                        <div class="col-12">
+                            <div class="counter">
+                                <p>300</p>
+                                <p class="count">300</p>
+                                <p>301</p>
+                            </div>
+                        </div>
                 
+                        <div class="col-12">
+                            <router-link to="/clientes">
+                                <button>Ver todos os clientes</button>
+                            </router-link>
+                        </div>                
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/VÍDEO-LÚCIA-min.jpg" :alt="Clientes">
+                </div>
             </div>
-
-            
-            
         </div>
     </div>
 </template>
