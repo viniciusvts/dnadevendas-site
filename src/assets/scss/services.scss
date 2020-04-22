@@ -49,7 +49,11 @@
 
         &:hover{
             @include transition();
-            height: 50%;
+            height: 40%;
+            @include breakpoint(hdDesktops){
+                @include transition();
+                height: 100%;
+            }
             p{
                 height: 100%;
                 @include transition();
