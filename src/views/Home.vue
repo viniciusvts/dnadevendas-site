@@ -59,6 +59,7 @@
         <div class="text">
           <h3>{{service.servico}}</h3>
           <p>{{service.descricao}}</p>
+          <div class="see-more"><span>Ler mais</span></div>
         </div>
         <img class="lazy" src="@/assets/loading.gif" :data-src="service.imagem.sizes.large" :alt="service.servico">
       </div>
