@@ -67,9 +67,6 @@ export default {
       max-width: 500px;
       margin: 0 auto;
     }
-    .fsmall-btn {
-      background: linear-gradient(to right, $pink-fsmall 0%, $pink-fsmall 100%);
-    }
     .sub-title {
       position: relative;
       width: 100%;
