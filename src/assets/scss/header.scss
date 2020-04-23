@@ -21,6 +21,7 @@ header{
     justify-content: space-between;
     padding: 0px 90px;
     margin: 0 auto;   
+    text-transform: uppercase;
 
     @include breakpoint(largeDesktops){
       display: block;
@@ -201,6 +202,7 @@ header{
 
 .defaultMenu{  
   background-color: white;
+  opacity: 0.8;
   color: grey;
 
   a{
