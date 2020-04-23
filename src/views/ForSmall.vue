@@ -54,6 +54,7 @@
     </Pillars>
 
     <Cases/>
+    <hd-sucesso></hd-sucesso>
     <Depoiments/>
     <Clients/>
     <pricing-table></pricing-table>
@@ -67,7 +68,8 @@
 
     import Spotlight from '@/components/Spotlight.vue';
     import Pillars from '@/components/Pillars.vue';
-    import Cases from '@/components/Cases.vue';
+    import Cases from '@/components/CasesNewLayout.vue';
+    import HistoriasDeSucesso from '@/components/HistoriasDeSucesso.vue';
     import Depoiments from '@/components/Depoiments.vue';
     import Clients from '@/components/Clients.vue';
     import PricingTable from '@/components/PricingTable.vue';
@@ -83,10 +85,17 @@
       Clients,
       'pricing-table': PricingTable,
       'fale-conosco': FaleConosco,
+      'hd-sucesso': HistoriasDeSucesso,
     }
   }
 </script>
 
 <style lang="scss">
   @import '@/assets/scss/talk.scss';
+  .fsmall-btn {
+      background: linear-gradient(to right, $pink-fsmall 0%, $pink-fsmall 100%);
+    }
+    .centered {
+      text-align: center;
+    }
 </style>
