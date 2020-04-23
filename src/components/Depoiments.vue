@@ -51,4 +51,14 @@ export default {
 
 <style lang="scss">
     @import '@/assets/scss/depoiments.scss';
+    @import '@/assets/scss/variables.scss';
+    .depoiments {
+        background-color: white;
+        h2 {
+            color: $baseColor;
+        }
+        h5 {
+            color: $pink-fsmall !important;
+        }
+    }
 </style>
