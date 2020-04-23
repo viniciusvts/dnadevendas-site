@@ -147,7 +147,7 @@ export default {
     #scroll {
         @include breakpoint(smartphones){
             overflow-x: auto;
-            width: 100vw;
+            width: 90vw;
         }
     }
     .tabela {

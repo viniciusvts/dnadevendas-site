@@ -30,12 +30,17 @@ export default {
 </script>
 
 <style lang="scss">
+  @import '@/assets/scss/variables.scss';
+  @import '@/assets/scss/breakpoint.scss';
   .content-client {
     position: relative;
     .infos {
       position: absolute;
       top: 180px;
       left: -150px;
+      @include breakpoint(smartphones) {
+        position: unset;
+      }
       img {
         margin: 10px 0;
       }
