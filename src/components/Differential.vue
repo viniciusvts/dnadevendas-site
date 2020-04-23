@@ -6,11 +6,20 @@
         </div>  
         <div class="container">
             <div class="row">
-                <div class="col-md-4" v-for="(diferenciais, index) in diferentials.diferenciais.slice(0,6)" :key="index">
-                    <img :src="diferenciais.icone.sizes.thumbnail" :alt="diferenciais.titulo">
-                    <h3>{{diferenciais.titulo}}</h3>
-                    <p>{{diferenciais.texto}}</p>                
+                <div class="col-12 col-md-4" v-for="(diferenciais, index) in diferentials.diferenciais.slice(0,6)" :key="index">
+                    <div class="row blue-box" @click="changeDestaq(diferenciais)">
+                        <img :src="diferenciais.icone.sizes.thumbnail" :alt="diferenciais.titulo">
+                        <h3>{{diferenciais.titulo}}</h3>
+                    </div>
                 </div>                
+            </div>
+            <div class="row destaq" v-if="diferentialsdestaq.title">
+                <div class="col-4">
+                    <h2>{{diferentialsdestaq.title}}</h2>
+                </div>
+                <div class="col-8 destaq-text">
+                    <p>{{diferentialsdestaq.text}}</p>
+                </div>
             </div>
         </div>
     </div>
@@ -22,7 +31,11 @@ export default {
     data(){
         return {
             pageID: 37,
-            diferentials: null
+            diferentials: [],
+            diferentialsdestaq: {
+                title: null,
+                text: null
+            }
         }
     },
     created(){
@@ -30,11 +43,15 @@ export default {
     },
     methods:{
         getDiferentials(){
-            fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}/diferenciais`)
+            fetch(`/api/wp-json/acf/v3/pages/${this.pageID}/diferenciais`)
             .then(r => r.json())
             .then(r => {
             this.diferentials = r;
             });
+        },
+        changeDestaq(diferenciais) {
+            this.diferentialsdestaq.title = diferenciais.titulo;
+            this.diferentialsdestaq.text = diferenciais.texto;
         }
     }
 }

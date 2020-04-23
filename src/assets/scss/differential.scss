@@ -1,9 +1,7 @@
+@import './variables.scss';
 .differential{
 
-    background-image: url('../assets/bg-roger.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: white;
 
     text-align: center;
     color: white;
@@ -12,12 +10,63 @@
         margin-bottom: 40px;
     }
 
+    h2{
+        color: $baseColor;
+    }
+
     h3{
-        font-weight: bold;
+        padding: 0 10px;
+        margin: 0;
     }
 
     img{
-        margin: 0 auto;
+        margin: 10px;
+        height: 25px;
     }
 
+    .blue-box{
+        background-color: $baseColor;
+        color: white;
+        margin: 20px;
+        cursor: pointer;
+        &:hover{
+            background: linear-gradient(to right, $golden 0%, #B08961 100%);
+        }
+    }
+    .destaq{
+        margin-top: 50px;
+        h2{
+            color: $golden;
+            font-size: 35px;
+            padding: 25%;
+            text-align: left;
+        }
+        p{
+            color: $baseColor;
+            font-size: 25px;
+            padding: 35px 70px 35px 35px;
+            text-align: left;
+            line-height: 50px;
+        }
+        .destaq-text{
+            max-height: 250px;
+            overflow-y: scroll;
+            &::-webkit-scrollbar{ // a barra de rolagem inteira.
+                width: 20px;
+            }
+            &::-webkit-scrollbar-track { // a faixa (barra de progresso) da barra de rolagem.
+                // background: $baseColor;
+                box-shadow: inset 0 0 6px $baseColor;
+                border-left: 9px solid white;
+                border-right: 9px solid white;
+            }
+            &::-webkit-scrollbar-thumb{ // a alça de rolagem arrastável.
+                background: $golden;
+                border-radius: 5px;
+            }
+            &::-webkit-scrollbar-thumb:hover{ // a alça de rolagem arrastável.
+                background: #B08961;
+            }
+        }
+    }
 }

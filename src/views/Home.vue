@@ -1,23 +1,25 @@
 <template>
   <div>
-    <Spotlight>
+    <Spotlight v-if="customFields" class="home">
       <div class="text section">
-        <h1>A mais completa <b>Consultoria de Vendas</b> para aumento de produtividade</h1>
+        <h1>{{customFields.acf.chamada}} {{customFields.acf.subtitulo}}</h1>
+
         <button class="btn-grad">
           <router-link to="/contato">
-            Falar com um consultor
+            {{customFields.acf.cta}}
           </router-link>
         </button>
       </div>
       <div class="see-more">
         <div class="container">
           <span>Saiba mais</span>
-          <img src="@/assets/svg/fast-forward.svg"/>
+          <img src="@/assets/svg/fast-forward-black.svg"/>
         </div>
       </div>
-      <img class="image" src="@/assets/hero-home.jpg"/>
+      <img class="image" src="https://www.dnadevendas.com.br/wp-content/uploads/capa-home-1.jpg" :alt="customFields.acf.chamada">
+      <!-- <img class="image" :src="customFields.acf.imagem.sizes.medium_large" :alt="customFields.acf.chamada"> -->
     </Spotlight>
-    
+
     <Pillars>
         <div class="container-fluid">
             <div class="row">
@@ -52,7 +54,16 @@
         </div>
     </Pillars>
 
-    <Services/>
+    <Services v-if="customFields">
+      <div class="col-md-3" v-for="(service, index) in customFields.acf.servicos" :key="index">
+        <div class="text">
+          <h3>{{service.servico}}</h3>
+          <p>{{service.descricao}}</p>
+          <div class="see-more"><span>Ler mais</span></div>
+        </div>
+        <img class="lazy" src="@/assets/loading.gif" :data-src="service.imagem.sizes.large" :alt="service.servico">
+      </div>
+    </Services>
 
     <Cases/>
 
@@ -101,8 +112,24 @@ export default {
     Depoiments,
     BlogFeed
   },
-  created() {
-    document.title = "Dna de Vendas";
+  data(){
+    return {
+      pageID: 37,
+      customFields: null
+    }
   },
+  created(){
+    this.getAcf();
+    document.title = "Dna de Vendas | Consultoria de Vendas e Treinamento de Vendas";
+  },
+  methods:{
+    getAcf(){
+      fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}`)
+      .then(r => r.json())
+      .then(r => {
+      this.customFields = r;
+      });
+    }
+  }
 };
 </script>

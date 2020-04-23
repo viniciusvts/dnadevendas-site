@@ -1,11 +1,12 @@
 <template>
   <div class="talk">
-    <Spotlight>
+    <Spotlight v-if="customFields">
       <div class="text section">
-        <h1><b>Palesras de Vendas <br>de Alto Impacto</b> Técnico e comportamental</h1>
+        <h1>{{customFields.acf.chamada}}</h1>
+        <h2>{{customFields.acf.subtitulo}}</h2>
         <button class="btn-grad">
           <router-link to="/contato">
-            Vamos pensar no seu evento?
+            {{customFields.acf.cta}}
           </router-link>
         </button>
       </div>
@@ -15,45 +16,32 @@
           <img src="@/assets/svg/fast-forward.svg"/>
         </div>
       </div>
-      <img class="image" src="@/assets/spotlight.jpg"/>
+      <img class="image" :src="customFields.acf.imagem.sizes.medium_large" :alt="customFields.acf.chamada">
     </Spotlight>
+    <PaginaCarregando v-else/>
 
-    <Pillars>
+    <Pillars v-if="customFields">
       <div class="container-fluid">
-          <div class="row">
-              <div class="col-md-3">
-                  <h3>Veja <b>por que </b> escolher nossas palestras</h3>
-              </div>
-
-              <div class="col-md-1 d-none d-lg-block d-xl-block">
-                  <img src="@/assets/svg/big-arrow.svg" alt="">
-              </div>
-
-              <div class="col-md-2 pillar">
-                  <img src="@/assets/svg/bar-chart.svg" alt="Processo">
-                  <p>Aumentam a produtividade do seu time</p>
-              </div>
-
-              <div class="col-md-2 pillar">
-                  <img src="@/assets/svg/lightbulb.svg" alt="Gestão">
-                  <p>Geram insights significativos</p>
-              </div>
-
-              <div class="col-md-2 pillar">
-                  <img src="@/assets/svg/telescope.svg" alt="Tecnologia">
-                  <p>Ampliam a visão das oportunidades de vendas</p>
-              </div>
-
-              <div class="col-md-2">
-                  <img src="@/assets/svg/list.svg" alt="Pessoas">
-                  <p>Garamtem a excelência do seu evento</p>                
-              </div>
+        <div class="row">
+          <div class="col-md-3">
+            <h3 v-html="customFields.acf.secao_pilares.titulo"></h3>
           </div>
+
+          <div class="col-md-1 d-none d-lg-block d-xl-block">
+            <img src="@/assets/svg/big-arrow.svg" alt="">
+          </div>
+
+          <div class="col-md-2 pillar" v-for="(pilar, index) in customFields.acf.secao_pilares.pilares" :key="index">
+            <img class="lazy" src="@/assets/loading.gif" :data-src="pilar.icone.sizes.thumbnail" alt="pilar.pilar">
+            <p>{{pilar.pilar}}</p>
+          </div>
+        </div>
       </div>
     </Pillars>
+    <PaginaCarregando v-else/>
 
-    <div  v-if="objections" >
-      <div v-for="(objection, index) in objections.objecoes" :key="index">
+    <div  v-if="customFields" >
+      <div v-for="(objection, index) in customFields.acf.objecoes" :key="index">
         <section :class="[index % 2 == 0 ? 'talkDark': 'talkDefault']">
           <div class="container-fluid">
             <div class="row align-items-center" :class="[index % 2 == 0 ? 'flex-row-reverse': '']">
@@ -65,7 +53,7 @@
               <div class="col-md-5">
                 <div class="slider">
                   <div class="slides">
-                    <img class="lazy" src="@/assets/loading.gif"  :data-src="objection.imagem.sizes.medium" :alt="objection.objecao">
+                    <img class="lazy" src="@/assets/loading.gif"  :data-src="objection.imagem.sizes.large" :alt="objection.objecao">
                   </div>
                 </div>
               </div>
@@ -85,15 +73,16 @@
           </div>
         </section>
       </div>
-    </div>    
+    </div>   
+    <PaginaCarregando v-else/> 
 
-    <section class="talkers talkDark" v-if="talkers">
+    <section class="talkers talkDark" v-if="customFields">
       <div class="title">
         <h2><b>Conheça nossos</b> palestrantes</h2>
         <span></span>
       </div>
 
-      <div class="row align-items-center" v-for="(talker, index) in talkers.palestrante.slice(0,1)" :key="index">
+      <div class="row align-items-center" v-for="(talker, index) in customFields.acf.palestrante.slice(0,1)" :key="index">
         <div class="col-12 col-lg-6 col-sm-12">
           <div class="row video">
             <div class="col-12">
@@ -131,14 +120,15 @@
         </div>
       </div>
     </section>
+    <PaginaCarregando v-else/>
 
-    <section class="themes" v-if="themes">
+    <section class="themes" v-if="customFields">
       <div class="title">
         <h2><b>Principais</b> temas</h2>
         <span></span>
       </div>
       <div class="row">
-        <div class="col-md-6 col-sm-12 col-lg-3" v-for="(theme, index) in themes.temas" :key="index">
+        <div class="col-md-6 col-sm-12 col-lg-3" v-for="(theme, index) in customFields.acf.temas" :key="index">
           <div class="card">
             <div class="description">
               <div class="details">
@@ -156,6 +146,7 @@
         </div>        
       </div>
     </section>
+    <PaginaCarregando v-else/>
     
     <Metrics/>
     <fale-conosco></fale-conosco>
@@ -182,39 +173,19 @@
     data(){
       return {
         pageID: 439,
-        talkers: null,
-        themes: null,
-        objections: null
+        customFields: null
       }
     },
     created(){
-      this.getTalkers();
-      this.getThemes();
-      this.getObjections();
+      this.getAcf();
       document.title = "Dna de Vendas | Palestras de Venda";
     },
     methods:{
-      getTalkers(){
-        fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}/palestrante`)
+      getAcf(){
+        fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}`)
         .then(r => r.json())
         .then(r => {
-        this.talkers = r;
-        });
-      },
-
-      getThemes(){
-        fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}/temas`)
-        .then(r => r.json())
-        .then(r => {
-        this.themes = r;
-        });
-      },
-
-      getObjections(){
-        fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}/objecoes`)
-        .then(r => r.json())
-        .then(r => {
-        this.objections = r;
+        this.customFields = r;
         });
       }
     }

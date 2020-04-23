@@ -1,11 +1,9 @@
-.methodology{
-    color: white;
-    text-align: center;
+@import "variables.scss";
 
-    background-image: url('../assets/bg-roger.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+.methodology{
+    background: white;
+    color: $baseColor;
+    text-align: center;
 
     h3, span{
         font-weight: bold;
@@ -26,6 +24,7 @@
             list-style: none;
             display: block;
             margin-bottom: 10px;
+            opacity: 0.7;
         }
     }
 

@@ -1,11 +1,12 @@
 <template>
   <div class="talk">
-    <Spotlight>
+    <Spotlight v-if="customFields">
       <div class="text section">
-        <h1><b>Workshops de Vendas <br>de Alto Impacto</b> Técnico e comportamental</h1>
+        <h1>{{customFields.acf.chamada}}</h1>
+        <h2 v-if="customFields.acf.subtitulo">{{customFields.acf.subtitulo}}</h2>
         <button class="btn-grad">
           <router-link to="/contato">
-            Vamos pensar no seu Workshop?
+            {{customFields.acf.cta}}
           </router-link>
         </button>
       </div>
@@ -15,112 +16,51 @@
           <img src="@/assets/svg/fast-forward.svg"/>
         </div>
       </div>
-      <img class="image" src="@/assets/spotlight.jpg"/>
+      <img class="image" src="https://www.dnadevendas.com.br/wp-content/uploads/workshops.jpg" :alt="customFields.acf.chamada">
     </Spotlight>
 
-    <Pillars>
-      <div class="container-fluid">
-          <div class="row">
-              <div class="col-md-3">
-                  <h3>Veja <b>por que </b> escolher nossos workshops</h3>
+    <div  v-if="customFields" >
+      <div v-for="(objection, index) in customFields.acf.objecoes" :key="index">
+        <section :class="[index % 2 == 0 ? 'talkDark': 'talkDefault']">
+          <div class="container-fluid">
+            <div class="row align-items-center" :class="[index % 2 == 0 ? 'flex-row-reverse': '']">
+
+              <div class="col-md-1 d-none d-lg-block d-xl-block" v-if="objection.icone">
+                <img class="lazy mr-auto ml-auto" src="@/assets/loading.gif"  :data-src="objection.icone.sizes.normal" :alt="objection.icone.title">
               </div>
 
-              <div class="col-md-1 d-none d-lg-block d-xl-block">
-                  <img src="@/assets/svg/big-arrow.svg" alt="">
+              <div class="col-md-5">
+                <div class="slider">
+                  <div class="slides">
+                    <img class="lazy" src="@/assets/loading.gif"  :data-src="objection.imagem.sizes.large" :alt="objection.objecao">
+                  </div>
+                </div>
               </div>
-
-              <div class="col-md-2 pillar">
-                  <img src="@/assets/svg/bar-chart.svg" alt="Processo">
-                  <p>Aumentam a produtividade do seu time</p>
+              <div class="col-md-6">
+                <div class="right">
+                  <div class="title">
+                    <h2>{{objection.objecao}}</h2>
+                    <span></span>
+                  </div>
+                  <div class="text" v-html="objection.texto"></div>
+                  <router-link to="/contato">
+                    <button> Solicite uma proposta </button>
+                  </router-link>
+                </div>
               </div>
-
-              <div class="col-md-2 pillar">
-                  <img src="@/assets/svg/lightbulb.svg" alt="Gestão">
-                  <p>Geram insights significativos</p>
-              </div>
-
-              <div class="col-md-2 pillar">
-                  <img src="@/assets/svg/telescope.svg" alt="Tecnologia">
-                  <p>Ampliam a visão das oportunidades de vendas</p>
-              </div>
-
-              <div class="col-md-2">
-                  <img src="@/assets/svg/list.svg" alt="Pessoas">
-                  <p>Garamtem a excelência do seu evento</p>                
-              </div>
+            </div>
           </div>
+        </section>
       </div>
-    </Pillars>
-
-    <section class="talkDark">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-1">
-            <img src="@/assets/svg/Grupo 9612.svg" alt="">
-          </div>
-          <div class="col-6">
-            <div class="slider">
-              <div class="slides">
-                <img src="@/assets/spotlight-video.jpg" alt="">
-                <img src="@/assets/spotlight-video.jpg" alt="">
-                <img src="@/assets/spotlight-video.jpg" alt="">
-              </div>
-              
-            </div>
-            <Pagination/>
-          </div>
-          <div class="col-5">
-            <div class="right">
-              <div class="title">
-                <h2><b>Workshops</b> de Vendas</h2>
-                <span></span>
-              </div>
-              <div class="text">
-                <p>Somos a mais completa consultoria para o aumento de produtividade em vendas do Brasil, temos mais de 10 anos de experiência auxiliando empresas a aumentar a performance em vendas de forma concreta. </p>
-
-                <p>O nosso time de palestrantes é altamente capacitado, com ex-diretores comerciais e profissionais com ampla experiência em vendas. Temos palestras técnicas e motivacionais para a sua equipe. Ideais para Eventos, Convenções de Vendas e Treinamentos In Company.</p>
-              </div>
-              <button> Solicite uma proposta </button>
-            </div>
-          </div>
-        </div>
+    </div> 
+    
+    <Metrics v-if="customFields">
+      <div class="col-md-3" v-for="(metric, index) in customFields.acf.metricas" :key="index">
+        <img class="lazy" src="@/assets/loading.gif" :data-src="metric.icone.sizes.medium" :alt="metric.metrica">
+        <span>{{metric.metrica}}</span>
+        <h3>{{metric.titulo}}</h3>
       </div>
-    </section>
-
-    <section class="talkDefault">
-      <div class="container-fluid">
-        <div class="row flex-row-reverse">
-          <div class="col-1">
-            <img src="@/assets/svg/Grupo 9614.svg" alt="">
-          </div>
-          <div class="col-6">
-            <div class="slider">
-              <div class="slides">
-                <img src="@/assets/spotlight-video.jpg" alt="">
-                <img src="@/assets/spotlight-video.jpg" alt="">
-                <img src="@/assets/spotlight-video.jpg" alt="">
-              </div>
-              
-            </div>
-            <Pagination/>
-          </div>
-          <div class="col-5">
-            <div class="right">
-              <div class="title">
-                <h2><b>Workshops</b> de Vendas</h2>
-                <span></span>
-              </div>
-              <div class="text">
-                <p>Somos a mais completa consultoria para o aumento de produtividade em vendas do Brasil, temos mais de 10 anos de experiência auxiliando empresas a aumentar a performance em vendas de forma concreta. </p>
-
-                <p>O nosso time de palestrantes é altamente capacitado, com ex-diretores comerciais e profissionais com ampla experiência em vendas. Temos palestras técnicas e motivacionais para a sua equipe. Ideais para Eventos, Convenções de Vendas e Treinamentos In Company.</p>
-              </div>
-              <button> Solicite uma proposta </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </Metrics>
 
     <fale-conosco></fale-conosco>
     
@@ -130,16 +70,12 @@
 <script>
 
   import Spotlight from '@/components/Spotlight.vue';
-  import Pillars from '@/components/Pillars.vue';
-  import Pagination from '@/components/Pagination.vue';
   import FaleConosco from '@/components/FaleConosco.vue';
 
   export default {
-    name: "Workshops",
+    name: "WorkShops",
     components: {
       Spotlight,
-      Pillars,
-      Pagination,
       'fale-conosco': FaleConosco,
     }
   }

@@ -114,8 +114,14 @@
 .clientsComponent{
     color: $baseColor;
     background-color: white;
+    position: relative;
+
+    .row{
+        background: #f9f9f9;
+    }
+
     button{
-        margin: 0 auto;
+        margin: 0px auto 30px auto;
         position: relative;
         display: block;
     }
@@ -123,22 +129,23 @@
     p{
         text-align: center;
         font-size: 30px;
-        margin-bottom: 30px;
+        margin-bottom: 0px;
+        opacity: 0.4;
+        transform: scale(0.7);
     }
 
-    img{
-        margin: 30px auto;
-        max-width: 220px;
-        @include transition();
-        transform: scale(1);
-
-        @include breakpoint(tablets){
-            margin: 10px auto;
-        }
-
-        &:hover{
-            transform: scale(1.1);
+    .logos{
+        img{
+            margin: 40px auto;
+            max-width: 120px;
+            max-height: 70px;
             @include transition();
+            transform: scale(1);
+
+            &:hover{
+                transform: scale(1.1);
+                @include transition();
+            }
         }
     }
 
@@ -147,45 +154,17 @@
         margin: 0 auto;
     }
 
-    &::before{
-        display: block;
-        position: absolute;
-        content: "";
-        background-image: url("../assets/svg/cases-vetor-right.svg");
-        height: 860px;
-        width: 140px;
-        left: 0;
-        top: 0px;
-        z-index: 9;
-        transform: rotate(180deg);
-
-        @include breakpoint(tablets){
-            display: none;
-        }
-    }
-
-    &::after{
-        display: block;
-        position: absolute;
-        content: "";
-        background-image: url("../assets/svg/cases-vetor-right.svg");
-        height: 800px;
-        width: 140px;
-        right: 0;
-        top: 300px;
-        z-index: 9;
-        transform: rotate(180deg);
-        background-position-x: 140px;
-
-        @include breakpoint(tablets){
-            display: none;
-        }
+    .counter{
+        margin: 40px auto;
     }
 
     .count{
         position: relative;
         width: max-content;
-        margin: 30px auto;
+        margin: 0px auto;
+        color: $golden;
+        opacity: 1;
+        transform: scale(1);
         &::after{
             display: block;
             position: absolute;
