@@ -31,7 +31,7 @@
 
               <p>* Campos obrigatórios</p>
                 <button @click.prevent="sendMail">
-                  Enviar mensagem
+                  Falar com um consultor
                 </button>
                 <!-- <input type="submit" value="Enviar mensagem"> -->
             </form>
@@ -59,6 +59,11 @@
             <b>Salvador</b>
             R. Carlos Alberto Santos, nº7 Ed. Mais Empresarial, 5º Andar Vilas do Atlântico – Lauro de Freitas – BA
             <a href="tel:+55 (71) 3289-5595">+55 (71) 3289-5595</a>
+          </p>
+
+          <p class="local">
+            Quer fazer parte do nosso time?
+            <router-link :to="{ name: 'Contact' }">Trabalhe Conosco</router-link>
           </p>            
         </div>
       </div>
