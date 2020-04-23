@@ -1,23 +1,10 @@
 import axios from "axios";
 
-const url = "https://ranekapi.origamid.dev/wp-json";
+const url = "https://dnadevendas.com.br/wp-json";
 
 const axiosInstance = axios.create({
   baseURL: url + "/api"
 });
-
-axiosInstance.interceptors.request.use(
-  function(config) {
-    const token = window.localStorage.token;
-    if (token) {
-      config.headers.Authorization = token;
-    }
-    return config;
-  },
-  function(error) {
-    return Promise.reject(error);
-  }
-);
 
 export const api = {
   get(endpoint) {
