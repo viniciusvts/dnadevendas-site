@@ -18,7 +18,7 @@
         class="list-clientes"
         :src="item.logo.url" :alt="item.titulo"></li>
       </ul>
-      <button>Veja Mais cases</button>
+      <button class="fsmall-btn" id="veja-mais">Veja Mais cases</button>
     </div>
   </section>
 </template>
@@ -34,17 +34,21 @@ export default {
     return {
       pageID: '2586',
       cases: [],
-      position: 0,
+      position: 1,
       transferData: [],
       componentKey: 0,
       masterKey: 0,
+      classButton: null,
     };
   },
   mounted() {
     this.getCases();
-    const ctx = this;
+    // const ctx = this;
+    this.$nextTick(function () {
+      this.transferData = this.cases.case[1];
+      this.componentKey = 1;
+    })
     setTimeout(() => {
-      ctx.position = 1;
       const list = document.getElementsByClassName('list-item')
       for (let i = 0; i < list.length; i++) {
         list[i].classList.add('square')
@@ -84,6 +88,7 @@ export default {
 
 <style lang="scss">
   @import '@/assets/scss/variables.scss';
+  @import '@/assets/scss/breakpoint.scss';
   .iframe {
     iframe {
       position: absolute;
@@ -91,6 +96,18 @@ export default {
       height: 443px;
       width: 708px;
       top: 75px;
+      @include breakpoint(smartphones) {
+        position: unset;
+        height: 240px;
+        width: 100%;
+      }
+    }
+  }
+  #veja-mais {
+    position: relative;
+    top: -20px;
+    @include breakpoint(smartphones) {
+      top: 0;
     }
   }
   .square {
@@ -98,21 +115,38 @@ export default {
       content: '';
       width: 8px;
       height: 8px;
-      background-color: $golden;
+      background-color: $golden-dark;
       position: absolute;
       z-index: 1;
       right: -50px;
       bottom: 15px;
+      transform: rotate(45deg);
+      @include breakpoint(smartphones) {
+        display: none;
+      }
     }
   }
   #logos-field {
     margin-top: 220px;
     text-align: center;
+    @include breakpoint(smartphones) {
+      margin: 0;
+      font-weight: 700;
+      margin-top: 20px;
+    }
   }
   .list-item {
     position: relative;
     margin-right: 100px;
     cursor: pointer;
+    @include breakpoint(smartphones) {
+      margin-right: 0;
+      img {
+        width: 100%;
+        display: unset;
+        height: unset;
+      }
+    }
     img {
       transition-duration: .5s;
       transform: scale(1);
@@ -126,13 +160,20 @@ export default {
   }
   #logos-clientes {
     display: inline-flex;
+    @include breakpoint(smartphones) {
+      display: block;
+    }
   }
   .card-case {
     position: relative;
     margin-bottom: 100px;
     min-height: 435px;
+    @include breakpoint(smartphones) {
+      margin-bottom: unset;
+      min-height: unset;
+    }
     h2 {
-      color: $golden;
+      color: $golden-dark;
     }
     .img-notebook {
       position: absolute;
@@ -140,6 +181,9 @@ export default {
       height: 650px;
       object-fit: cover;
       left: -135px;
+      @include breakpoint(smartphones) {
+        display: none;
+      }
     }
   }
   svg {
