@@ -35,7 +35,7 @@ export default {
       pageID: '2586',
       cases: [],
       position: 1,
-      transferData: [],
+      transferData: null,
       componentKey: 0,
       masterKey: 0,
       classButton: null,
@@ -44,11 +44,11 @@ export default {
   mounted() {
     this.getCases();
     // const ctx = this;
-    this.$nextTick(function () {
-      this.transferData = this.cases.case[1];
-      this.componentKey = 1;
-    })
     setTimeout(() => {
+      if(this.transferData == null) {
+        this.transferData = this.cases.case[1];
+        this.componentKey = 1;
+      }
       const list = document.getElementsByClassName('list-item')
       for (let i = 0; i < list.length; i++) {
         list[i].classList.add('square')
@@ -80,6 +80,9 @@ export default {
           const positionTarget = el.target.getAttribute('pos');
           ctx.position = parseInt(positionTarget);
         })
+        // setTimeout(() => {
+        //   list[list.length - 1].click();
+        // }, 500);
       }
     },
   },
