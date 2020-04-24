@@ -1,10 +1,9 @@
 
 @import '@/assets/scss/variables.scss';
-
+$form-back-color: whitesmoke;
 .contact{
-    color: white;    
+    color: $baseColor;    
     padding-top: 150px;
-    background-color: #1a213b;
     h1{
         text-align: center;
         position: relative;
@@ -18,21 +17,38 @@
             display: block;
             position: absolute;
             content: "";
-            background-image: url("../assets/svg/pinmap.svg");
-            background-size: 37px;
+            background-image: url("../assets/svg/icone-contato.svg");
+            background-size: 50px;
             background-repeat: no-repeat;
-            height: 47px;
-            width: 37px;
-            left: -80px;
+            height: 70px;
+            width: 50px;
+            left: -60px;
             top: 0px;
         }
     }
 
     form{
-        background: linear-gradient(to bottom, #1a213b 0%, #27415a 100%);
+        background: $form-back-color;
         padding: 60px;
         margin-bottom: 40px;
-
+        h2.title-message{
+            margin-bottom: 50px;
+        }
+        select option{
+            color: $baseColor;
+        }
+        input, select, textarea{
+            background: $form-back-color;
+            border: none;
+            border-bottom: solid 1px $golden;
+            &::placeholder{
+                color: $baseColor;
+            }
+            &:focus{
+                border-bottom: solid 2px $golden;
+                outline: 0;
+            }
+        }
         input[type="submit"]{
             background: linear-gradient(to right, #C8AC78 0%, #B08961 100%);           
             width: max-content;
@@ -51,9 +67,19 @@
             z-index: 1;
         } 
     }
-
+    
+    .flex-wrap{
+        display: flex;
+        flex-wrap: wrap;
+    }
     .local{
         margin-bottom: 60px;
+        margin-left: 40px;
+        img{
+            height: 35px;
+            margin-right: 15px;
+            margin-left: -40px;        
+        }
     }
 
     a{
@@ -79,5 +105,26 @@
         right: 0;
         top: 500px;
         z-index: 1;
+    }
+    .buttons-row{
+        button{
+            margin: 30px 10px;
+            background: #eee;
+            box-shadow: 4px 4px 9px 0px #ccc;
+            color: #555;
+            &.active{
+                background: $golden-dark;
+                color: white;
+            }
+            &:focus{
+                outline: 0;
+            }
+        }
+        button:first-child{
+            margin-left: auto;
+        }
+        button:last-child{
+            margin-right: auto;
+        }
     }
 }

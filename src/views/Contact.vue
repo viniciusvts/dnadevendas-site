@@ -5,71 +5,52 @@
       <div class="row">
         <div class="col-md-8">
             <form action="">
-                <label for="nome">Nome*</label>
-                <input type="text" name="nome" v-model="formData[0].nome" id="">
-
-                <label for="nome">E-mail*</label>
-                <input type="text" v-model="formData[0].from" name="nome" id="">
-
-                <label for="nome">Quero falar com*</label>
-                <select name="setor" v-model="formData[0].setor" id="setor">
-                    <option value="Não Selecionado">Selecionar setor</option>
+                <h2 class="title-message">Vamos conversar?</h2>
+                <input type="text" name="nome" id="nome" v-model="formData[0].nome" placeholder="Nome*" required>
+                <input type="text" v-model="formData[0].from" name="nome" id="" placeholder="Email*" required>
+                <select name="setor" v-model="formData[0].setor" id="setor" required>
+                    <option value="" disabled selected>Quero falar com:</option>
                     <option value="Comercial">Comercial</option>
                     <option value="Administrativo">Administrativo</option>
                     <option value="Comercial 1">Comercial</option>
                     <option value="Comercial 2">Comercial</option>
                 </select>
-
-                <label for="assunto">Telefone*</label>
-                <input type="text" v-model="formData[0].tell" name="telefone" id="">
-
-                <label for="assunto">Assunto*</label>
-                <input type="text" v-model="formData[0].subject" name="assunto" id="">
-
-                <label for="assunto">Mensagem</label>
-                <textarea name="mensagem" v-model="formData[0].mensagem" id="mensagem" cols="90" rows="5"></textarea>
+                <input type="text" v-model="formData[0].tell" name="telefone" id="" placeholder="Telefone*" required>
+                <input type="text" v-model="formData[0].subject" name="assunto" id="" placeholder="Assunto*" required>
+                <textarea name="mensagem" v-model="formData[0].mensagem" id="mensagem" cols="90" rows="5" placeholder="Mensagem*" required></textarea>
 
               <p>* Campos obrigatórios</p>
                 <button @click.prevent="sendMail">
-                  Falar com um consultor
+                  Enviar
                 </button>
                 <!-- <input type="submit" value="Enviar mensagem"> -->
             </form>
         </div>
 
         <div class="col-md-4">
-          <p class="local">
-            <b>São Paulo</b>
-            Av. Maj. Sylvio de Magalhães Padilha 5200 America Business Park, Ed. Montreal 8º andar, Morumbi – São Paulo
-            <a href="tel:+55 (11) 2384-1502">+55 (11) 2384-1502</a>
-          </p>
 
-          <p class="local">
-            <b>Belo Horizonte</b>
-            Rua Canopus 11, Santa Lucia, Belo Horizonte – MG
-            <a href="tel:+55 (31) 4042-0442">+55 (31) 4042-0442</a>
-          </p>
-          
-          <p class="local">
-            <b>Rio de Janeiro</b>
-            <a href="tel:+55 (21) 4042-6965">+55 (21) 4042-6965</a>
-          </p>
-
-          <p class="local">
-            <b>Salvador</b>
-            R. Carlos Alberto Santos, nº7 Ed. Mais Empresarial, 5º Andar Vilas do Atlântico – Lauro de Freitas – BA
-            <a href="tel:+55 (71) 3289-5595">+55 (71) 3289-5595</a>
+          <p class="local flex-wrap" v-for="contact in contacts" :key="contact.city">
+            <img src="../assets/svg/pinmap.gold.svg" alt="" srcset="">
+            <b v-if="contact.city">{{contact.city}}</b>
+            {{contact.end}}
+            <a v-if="contact.email" :href="'mailto:'+contact.email">{{contact.email}}</a>
+            <a v-if="contact.telefone" :href="'tel:'+contact.telefone">{{contact.telefone}}</a>
           </p>
 
           <p class="local">
             Quer fazer parte do nosso time?
             <router-link :to="{ name: 'Contact' }">Trabalhe Conosco</router-link>
+            <button>Fazer parte do time</button>
           </p>            
         </div>
       </div>
     </section>
-
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29244.614597326214!2d-46.703224!3d-23.619505000000004!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4ae67492de264cb6!2sAmerica%20Business%20Park!5e0!3m2!1sen!2sus!4v1585587519596!5m2!1sen!2sus" width="100%" height="550" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <div v-html="mapIframe"></div>
+    <div class="row buttons-row">
+        <button v-for="contact in contactsWithMap" 
+        :key="contact.map" 
+        @click="setMapIframe(contact.map, $event)">{{contact.city}}</button>
+    </div>
   </div>
 </template>
 
@@ -81,6 +62,35 @@ export default {
   mixins: [send],
   data() {
     return {
+      mapIframe: null,
+      contacts: [
+        {
+          city: 'São Paulo',
+          end: 'Av. Maj. Sylvio de Magalhães Padilha 5200 America Business Park, Ed. Montreal 8º andar, Morumbi – São Paulo',
+          email: 'contato@dnadevendas.com.br',
+          telefone: '+55 (11) 2384-1502',
+          map: '<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29244.614597326214!2d-46.703224!3d-23.619505000000004!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4ae67492de264cb6!2sAmerica%20Business%20Park!5e0!3m2!1sen!2sus!4v1585587519596!5m2!1sen!2sus" width="100%" height="550" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>'
+        },
+        {
+          city: 'Belo Horizonte',
+          end: 'Rua Canopus 11, Santa Lucia, Belo Horizonte – MG',
+          email: null,
+          telefone: '+55 (31) 4042-0442',
+          map: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.2813349957087!2d-43.94970308508518!3d-19.954667386589936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa697861f97e149%3A0xffe6369f045869b2!2sR.%20Canopus%2C%2011%20-%20Santa%20L%C3%BAcia%2C%20Belo%20Horizonte%20-%20MG%2C%2030360-112!5e0!3m2!1spt-BR!2sbr!4v1587746473646!5m2!1spt-BR!2sbr" width="100%" height="550" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>'
+        },
+        {
+          city: 'Rio de Janeiro',
+          end: null,
+          email: null,
+          telefone: '+55 (21) 4042-6965'
+        },
+        {
+          city: 'Salvador',
+          end: 'R. Carlos Alberto Santos, nº7 Ed. Mais Empresarial, 5º Andar Vilas do Atlântico – Lauro de Freitas – BA',
+          email: null,
+          telefone: '+55 (71) 3289-5595'
+        }
+      ],
       formData: [
         {
           nome: null,
@@ -97,6 +107,35 @@ export default {
     document.title = "Dna de Vendas | Contato";
     console.log(process.env.VUE_USER_LOGIN_CONTACT);
   },
+  mounted() {
+    this.setMapIframe(this.contactsWithMap[0].map);
+  },
+  methods: {
+    removeActiveButtons(first) {
+      var buttons = document.querySelectorAll('.buttons-row button');
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove('active');
+      }
+      if (first && buttons.length > 0) buttons[0].classList.add('active');
+    },
+    setMapIframe(iframe, event) {
+      if(typeof event == 'undefined') {
+        // se não manda evento é a primeira vez
+        this.removeActiveButtons(true);
+      } else {
+        this.removeActiveButtons(false);
+        event.target.classList.add('active')
+      }
+      this.mapIframe = iframe;
+    }
+  },
+  computed: {
+    contactsWithMap: function(){ //propriedade computada
+      return this.contacts.filter(function(contact){ //filtra os contatos
+        return contact.map; // por aqueles que possuem map
+      });
+    }
+  }
 };
 </script>
 
