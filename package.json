@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "buildtowp": "vue-cli-service build --dest /srv/http/dnadevendas --mode development --watch",
+    "buildtowp": "vue-cli-service build --dest /c/xampp/htdocs/dnadevendas --mode development --watch",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
