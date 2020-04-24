@@ -79,7 +79,7 @@ header{
         display: inline-block;
         position: relative;
         height: 100%;
-        padding: 20px;
+        padding: 20px 16px;
         cursor: pointer;
 
         span{
@@ -90,6 +90,7 @@ header{
           display: block;
           margin: 0 auto;
           text-align: center;
+          padding: 20px 16px;
         };
 
         &:hover{
