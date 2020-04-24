@@ -1,4 +1,6 @@
 @import './variables.scss';
+$blue-dark: #1a213b;
+$gold: #C8AC78;
 .differential{
 
     background-color: white;
@@ -25,24 +27,24 @@
     }
 
     .blue-box{
-        background-color: $baseColor;
+        background-color: $blue-dark;
         color: white;
         margin: 20px;
         cursor: pointer;
         &:hover{
-            background: linear-gradient(to right, $golden 0%, #B08961 100%);
+            background: linear-gradient(to right, $gold 0%, #B08961 100%);
         }
     }
     .destaq{
         margin-top: 50px;
         h2{
-            color: $golden;
+            color: $gold;
             font-size: 35px;
             padding: 25%;
             text-align: left;
         }
         p{
-            color: $baseColor;
+            color: $blue-dark;
             font-size: 25px;
             padding: 35px 70px 35px 35px;
             text-align: left;
@@ -55,13 +57,13 @@
                 width: 20px;
             }
             &::-webkit-scrollbar-track { // a faixa (barra de progresso) da barra de rolagem.
-                // background: $baseColor;
-                box-shadow: inset 0 0 6px $baseColor;
+                // background: $blue-dark;
+                box-shadow: inset 0 0 6px $blue-dark;
                 border-left: 9px solid white;
                 border-right: 9px solid white;
             }
             &::-webkit-scrollbar-thumb{ // a alça de rolagem arrastável.
-                background: $golden;
+                background: $gold;
                 border-radius: 5px;
             }
             &::-webkit-scrollbar-thumb:hover{ // a alça de rolagem arrastável.
