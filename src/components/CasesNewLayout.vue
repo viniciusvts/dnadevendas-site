@@ -132,9 +132,9 @@ export default {
   #logos-field {
     margin-top: 220px;
     text-align: center;
+    font-weight: 700;
     @include breakpoint(smartphones) {
       margin: 0;
-      font-weight: 700;
       margin-top: 20px;
     }
   }
