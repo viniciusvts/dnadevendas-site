@@ -64,9 +64,9 @@
 </script>
 
 <style lang="scss">
-  .section {
-    h2 {
-      color: white;
-    }
-  }
+  // .section {
+  //   h2 {
+  //     color: white;
+  //   }
+  // }
 </style>
