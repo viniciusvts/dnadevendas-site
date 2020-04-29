@@ -1,12 +1,12 @@
 <template>
   <div class="talk">
-    <Spotlight v-if="customFields">
+    <Spotlight v-if="bannerData">
       <div class="text section">
-        <h1>{{customFields.acf.chamada}}</h1>
-        <h2 v-if="customFields.acf.subtitulo">{{customFields.acf.subtitulo}}</h2>
+        <h1>{{bannerData.chamada}}</h1>
+        <h2 v-if="bannerData.subtitulo">{{bannerData.subtitulo}}</h2>
         <button class="btn-grad">
           <router-link to="/contato">
-            {{customFields.acf.cta}}
+            {{bannerData.cta}}
           </router-link>
         </button>
       </div>
@@ -16,12 +16,12 @@
           <img src="@/assets/svg/fast-forward.svg"/>
         </div>
       </div>
-      <img class="image" src="https://www.dnadevendas.com.br/wp-content/uploads/workshops.jpg" :alt="customFields.acf.chamada">
+      <img class="image" :src="bannerData.imagem" :alt="bannerData.chamada">
     </Spotlight>
 
-    <div  v-if="customFields" >
-      <div v-for="(objection, index) in customFields.acf.objecoes" :key="index">
-        <section :class="[index % 2 == 0 ? 'talkDark': 'talkDefault']">
+    <div  v-if="objecoes">
+      <div v-for="(objection, index) in objecoes" :key="index">
+        <section :class="[index % 2 == 0 ? '': 'talkDefault']">
           <div class="container-fluid">
             <div class="row align-items-center" :class="[index % 2 == 0 ? 'flex-row-reverse': '']">
 
@@ -32,7 +32,7 @@
               <div class="col-md-5">
                 <div class="slider">
                   <div class="slides">
-                    <img class="lazy" src="@/assets/loading.gif"  :data-src="objection.imagem.sizes.large" :alt="objection.objecao">
+                    <img class="lazy" src="@/assets/loading.gif"  :data-src="objection.imagem[0].sizes.large" :alt="objection.objecao">
                   </div>
                 </div>
               </div>
@@ -54,13 +54,15 @@
       </div>
     </div> 
     
-    <Metrics v-if="customFields">
-      <div class="col-md-3" v-for="(metric, index) in customFields.acf.metricas" :key="index">
-        <img class="lazy" src="@/assets/loading.gif" :data-src="metric.icone.sizes.medium" :alt="metric.metrica">
-        <span>{{metric.metrica}}</span>
-        <h3>{{metric.titulo}}</h3>
-      </div>
-    </Metrics>
+    <section class="container">
+      <Metrics class="metrics row" v-if="metricas">
+        <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
+          <img class="lazy" src="@/assets/loading.gif" :data-src="metric.icone.sizes.medium" :alt="metric.metrica">
+          <span>{{metric.metrica}}</span>
+          <h3>{{metric.titulo}}</h3>
+        </div>
+      </Metrics>
+    </section>
 
     <fale-conosco></fale-conosco>
     
@@ -77,10 +79,57 @@
     components: {
       Spotlight,
       'fale-conosco': FaleConosco,
-    }
+    },
+    data() {
+      return {
+        objecoes: null,
+        pageID: 3140,
+        bannerData: null,
+        metricas: null,
+      };
+    },
+    mounted() {
+      this.getAcf();
+    },
+    methods: {
+      getAcf(){
+        fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}`)
+        .then(r => r.json())
+        .then(r => {
+          this.objecoes = r.acf.objecoes;
+          this.metricas = r.acf.metricas;
+          const banner = {
+            chamada: r.acf.chamada,
+            cta: r.acf.cta,
+            imagem: r.acf.foto.url,
+            // imagem_banner: r.acf.imagem.sizes.medium_large,
+        };
+        this.bannerData = banner;
+        console.log(this.objecoes);
+        });
+      },
+    },
   }
 </script>
 
 <style lang="scss">
   @import '@/assets/scss/talk.scss';
+  .metrics{
+    background-color: white;
+    text-align: center;
+    span{
+        @include fontSize(50px);
+        font-weight: bold;
+        color: $golden;
+    }
+
+    h3{
+        @include fontSize(22px);
+    }
+    img{
+        max-width: 200px;
+        height: 70px;
+        margin: 10px auto 30px auto;
+    }
+}
 </style>
