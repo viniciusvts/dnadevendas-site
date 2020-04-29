@@ -4,7 +4,7 @@
       <div class="text section">
         <h1>Consultoria para pequenos times de vendas<b>com grandes ambições</b></h1>
         <p>Há mais de 12 anos aumentando a produtividade de vendas em mais de 35 segmentos</p>
-        <button class="pink">
+        <button :class="[classButton]">
           <router-link to="/contato">
             Falar com um consultor
           </router-link>
@@ -19,40 +19,44 @@
       <img class="image" src="https://www.dnadevendas.com.br/wp-content/uploads/dnadevendas-forsmall.jpg"/>
     </Spotlight>
 
+    <banner-fsmall></banner-fsmall>
+
     <Pillars>
       <div class="container-fluid">
           <div class="row">
-              <div class="col-md-3">
-                  <h3>Melhoramos expressivamente os <b>resultados da sua empresa</b> através do alinhamento de:</h3>
+              <div class="col-sm-12">
+                  <h3>Melhoramos expressivamente os resultados da sua empresa através do alinhamento de:</h3>
               </div>
 
-              <div class="col-md-1 d-none d-lg-block d-xl-block">
-                  <img src="@/assets/svg/big-arrow.svg" alt="">
-              </div>
+              <div class="row" id="icons-area">
+                <div class="col-md-3 pillar">
+                    <img src="@/assets/newarrow.png" alt="Processo">
+                    <p>Processos de venda bem definidos</p>
+                </div>
 
-              <div class="col-md-2 pillar">
-                  <img src="@/assets/svg/process.svg" alt="Processo">
-                  <p>Processos de venda bem definidos</p>
-              </div>
+                <div class="col-md-3 pillar">
+                    <img src="@/assets/newbigarrow.png" alt="Gestão">
+                    <p>Funil de vendas e gatilhos personalizados</p>
+                </div>
 
-              <div class="col-md-2 pillar">
-                  <img src="@/assets/svg/management.svg" alt="Gestão">
-                  <p>Funil de vendas e gatilhos personalizados</p>
-              </div>
+                <div class="col-md-3 pillar">
+                    <img src="@/assets/handgroup.png" alt="Tecnologia">
+                    <p>Equipe de vendas capacitada</p>
+                </div>
 
-              <div class="col-md-2 pillar">
-                  <img src="@/assets/svg/tecnology.svg" alt="Tecnologia">
-                  <p>Equipe de vendas capacitada</p>
+                <div class="col-md-3">
+                    <img src="@/assets/newgraphic.png" alt="Pessoas">
+                    <p>Resultados previsíveis e crescentes</p>                
+                </div>
               </div>
-
-              <div class="col-md-2">
-                  <img src="@/assets/svg/people.svg" alt="Pessoas">
-                  <p>Resultados previsíveis e crescentes</p>                
+              
+              <div class="col-sm-12 no-animate">
+                <img src="@/assets/svg/linefs.svg" alt="">
               </div>
           </div>
       </div>
-    </Pillars>
 
+    </Pillars>
     <Cases/>
     <hd-sucesso></hd-sucesso>
     <Depoiments/>
@@ -74,6 +78,8 @@
     import Clients from '@/components/Clients.vue';
     import PricingTable from '@/components/PricingTable.vue';
     import SolicitarContato from '@/components/SolicitarContato.vue';
+    import bannerFSmal from '@/components/BannerForSmall.vue';
+    import ClassButton from '../services/ClassButton';
 
   export default {
     name: "Talk",
@@ -86,7 +92,14 @@
       SolicitarContato,
       'pricing-table': PricingTable,
       'hd-sucesso': HistoriasDeSucesso,
-    }
+      'banner-fsmall': bannerFSmal,
+    },
+    mixins: [ClassButton],
+    data() {
+      return {
+        classButton: null,
+      };
+    },
   }
 </script>
 

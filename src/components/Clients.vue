@@ -16,14 +16,14 @@
                         <div class="col-12">
                             <div class="counter">
                                 <p>300</p>
-                                <p class="count">300</p>
+                                <p :class="['count', pink]">300</p>
                                 <p>301</p>
                             </div>
                         </div>
                 
                         <div class="col-12">
                             <router-link to="/clientes">
-                                <button>Ver todos os clientes</button>
+                                <button :class="[classButton]">Ver todos os clientes</button>
                             </router-link>
                         </div>                
                     </div>
@@ -37,12 +37,18 @@
 </template>
 
 <script>
+import classBtn from '../services/ClassButton';
+import pinkText from '../services/TextPink';
+
     export default {
         name: 'Clients',
+        mixins: [classBtn, pinkText],
         data(){
             return {
                 pageID: 37,
-                clients: null
+                clients: null,
+                classButton: null,
+                pink: null,
             }
         },
         created(){

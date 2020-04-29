@@ -8,7 +8,7 @@
       <div class="col-sm-12 col-md-3 content-client">
         <div class="infos">
           <img :src="obj.logo.url" alt="Logo empresa"/>
-          <h2>
+          <h2 :class="[pink]">
             {{ obj.titulo }}
           </h2>
           <p v-html="obj.texto"></p>
@@ -18,13 +18,16 @@
 </template>
 
 <script>
+import TextPink from '../services/TextPink';
 export default {
   name: 'card-case',
   props: ['dataCase', 'position'],
+  mixins: [TextPink],
   data() {
     return {
       obj: this.dataCase,
       dataPos: this.position,
+      pink: null,
     };
   },
 };
