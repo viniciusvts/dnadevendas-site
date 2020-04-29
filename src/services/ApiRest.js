@@ -12,7 +12,7 @@
       });
 */
 const axios = require('axios');
-
+axios.defaults.baseURL = 'https://novo.dnadevendas.com.br/';
 /**
  * Comunicação com o servidor DNA
  * @author Vinicius de Santana

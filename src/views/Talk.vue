@@ -133,7 +133,7 @@
     <PaginaCarregando v-else/>
     
     <Metrics/>
-    <fale-conosco></fale-conosco>
+    <SolicitarContato></SolicitarContato>
   </div>
 </template>
 
@@ -143,8 +143,8 @@
   import Pillars from '@/components/Pillars.vue';
   // import Pagination from '@/components/Pagination.vue';
   import Metrics from '@/components/Metrics.vue';
-  import FaleConosco from '@/components/FaleConosco.vue';
   import CardPalestrante from '@/components/CardPalestrante.vue';
+  import SolicitarContato from '@/components/SolicitarContato.vue';
 
   export default {
     name: "Talk",
@@ -153,8 +153,8 @@
       Pillars,
       // Pagination,
       Metrics,
+      SolicitarContato,
       'card-palestra': CardPalestrante,
-      'fale-conosco': FaleConosco,
     },
     data(){
       return {

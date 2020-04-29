@@ -1,0 +1,54 @@
+@import 'mixins.scss';
+$colorForSmall:#FF6CAB;
+
+.contact form{
+    background: white;
+    input{
+        background: white;
+        @include mediaScreenMin($tablets){
+            margin: 0 20px;
+        }
+        &::placeholder{
+            color: gray!important;
+        }
+        &.ForSmall{
+            border-bottom: solid 1px $colorForSmall!important;
+        }
+    }
+    button{
+        @include mediaScreenMax($tablets){
+            margin: 0 auto;
+        }
+    }
+}
+
+h2.fale-conosco{
+    padding: 0 15%;
+    font-weight: normal;
+    font-size: 3rem;
+    &::before{
+        content: "";
+        background-image: url("../assets/svg/fale-conosco.svg");
+        background-repeat: no-repeat;
+        width: 185px;
+        height: 185px;
+        display: block;
+        position: absolute;
+        margin-left: -100px;
+        margin-top: -100px;
+    }
+    &.ForSmall::before{
+        background-image: url("../assets/svg/fale-conosco-rosa.svg");
+    }
+    @include mediaScreenMax($tablets){
+        text-align: center;
+    }
+}
+
+span.ForSmall{
+    color: $colorForSmall;
+}
+
+button.ForSmall{
+    background-color: $colorForSmall;
+}

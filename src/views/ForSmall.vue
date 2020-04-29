@@ -58,7 +58,7 @@
     <Depoiments/>
     <Clients/>
     <pricing-table></pricing-table>
-    <fale-conosco></fale-conosco>
+    <SolicitarContato></SolicitarContato>
 
 
   </div>
@@ -73,7 +73,7 @@
     import Depoiments from '@/components/Depoiments.vue';
     import Clients from '@/components/Clients.vue';
     import PricingTable from '@/components/PricingTable.vue';
-    import FaleConosco from '@/components/FaleConosco.vue';
+    import SolicitarContato from '@/components/SolicitarContato.vue';
 
   export default {
     name: "Talk",
@@ -83,8 +83,8 @@
       Cases,
       Depoiments,
       Clients,
+      SolicitarContato,
       'pricing-table': PricingTable,
-      'fale-conosco': FaleConosco,
       'hd-sucesso': HistoriasDeSucesso,
     }
   }

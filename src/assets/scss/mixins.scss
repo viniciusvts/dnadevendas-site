@@ -34,3 +34,49 @@
   font-size: $size;
   font-size: calculateRem($size);
 }
+
+
+/// mixin para a construção de um max media query
+///
+/// @access public
+/// @author Vinicius de Santana
+/// @param {Size} $screensizepx — Tamanho da tela
+/// @param {String} $screensizeprefix - Pprefixo a ser usado
+/// @example $screensizepx — 1900px
+/// @media (min-width: $screensizepx) {
+/// }
+/// @example $screensizeprefix — bp-col
+///  .#{$screensizeprefix} {
+///    -ms-flex-preferred-size: 0;
+///    flex-basis: 0;
+///    -ms-flex-positive: 1;
+///    flex-grow: 1;
+///    max-width: 100%;
+///  }
+@mixin mediaScreenMax($tamanhoDeTela) {
+  @media (max-width: $tamanhoDeTela) {
+      @content;
+  }
+}
+/// mixin para a construção de um min media query
+///
+/// @access public
+/// @author Vinicius de Santana
+/// @param {Size} $screensizepx — Tamanho da tela
+/// @param {String} $screensizeprefix - Pprefixo a ser usado
+/// @example $screensizepx — 1900px
+/// @media (min-width: $screensizepx) {
+/// }
+/// @example $screensizeprefix — bp-col
+///  .#{$screensizeprefix} {
+///    -ms-flex-preferred-size: 0;
+///    flex-basis: 0;
+///    -ms-flex-positive: 1;
+///    flex-grow: 1;
+///    max-width: 100%;
+///  }
+@mixin mediaScreenMin($tamanhoDeTela) {
+  @media (min-width: $tamanhoDeTela) {
+      @content;
+  }
+}
