@@ -1,5 +1,5 @@
 <template>
-  <section class="contact">
+  <section class="contact s-contato">
     <h2 class="fale-conosco" :class="detailColorClass">Entenda hoje como podemos fazer sua empresa <span :class="detailColorClass">crescer mais</span></h2>
     <form name="dna_contato" action="#" class="row" v-on:submit="sendForm">
       <input type="text" name="nome" id="nome" class="col-12 col-md" :class="detailColorClass" v-model="formData[0].nome" placeholder="Seu nome" required>

@@ -1,26 +1,31 @@
 @import 'mixins.scss';
 $colorForSmall:#FF6CAB;
 
-.contact form{
-    background: white;
-    input{
-        background: white;
-        @include mediaScreenMin($tablets){
-            margin: 0 20px;
+.s-contato{
+    &::after {
+        z-index: -1!important;
+    }
+    form{
+        background: inherit!important;
+        input{
+            background: inherit!important;
+            @include mediaScreenMin($tablets){
+                margin: 0 20px;
+            }
+            &::placeholder{
+                color: gray!important;
+            }
+            &.ForSmall{
+                border-bottom: solid 1px $colorForSmall!important;
+            }
         }
-        &::placeholder{
-            color: gray!important;
-        }
-        &.ForSmall{
-            border-bottom: solid 1px $colorForSmall!important;
+        button{
+            @include mediaScreenMax($tablets){
+                margin: 0 auto;
+            }
         }
     }
-    button{
-        @include mediaScreenMax($tablets){
-            margin: 0 auto;
-        }
-    }
-}
+} 
 
 h2.fale-conosco{
     padding: 0 15%;
