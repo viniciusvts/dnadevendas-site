@@ -8,6 +8,9 @@
     h3{
         font-size: 30px;
         margin-top: 0;
+        font-weight: 100;
+        color: $pink-fsmall;
+        text-align: center;
     }
 
     .pillar{
@@ -15,14 +18,13 @@
             display: block;
             position: absolute;
             content: "";
-            background-image: url("../assets/svg/separator.svg");
-            background-size: 10px;
-            height: 10px;
-            width: 10px;
+            height: 8px;
+            width: 8px;
             right: 0;
             top: 60px;
             z-index: 9;
-
+            background-color: $pink-fsmall;
+            transform: rotate(45deg);
             @include breakpoint(tablets){
                 display: none;
             }
@@ -48,4 +50,14 @@
         margin: 30px auto;
         text-transform: uppercase;
     }    
+}
+#icons-area {
+    margin: 50px 0;
+}
+.no-animate {
+    img {
+        &:hover {
+            transform: scale(1);
+        }
+    }
 }
