@@ -85,7 +85,7 @@ export default {
           position: absolute;
           width: 300px;
           height: 165px;
-          border: 1px solid $golden-dark;
+          border: 1px solid $pink-fsmall;
           left: -10px;
           top: 10px;
           z-index: 0;
