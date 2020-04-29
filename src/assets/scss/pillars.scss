@@ -9,7 +9,7 @@
         font-size: 30px;
         margin-top: 0;
         font-weight: 100;
-        color: $pink-fsmall;
+        color: $golden;
         text-align: center;
     }
 
@@ -23,7 +23,7 @@
             right: 0;
             top: 60px;
             z-index: 9;
-            background-color: $pink-fsmall;
+            background-color: $baseColor;
             transform: rotate(45deg);
             @include breakpoint(tablets){
                 display: none;

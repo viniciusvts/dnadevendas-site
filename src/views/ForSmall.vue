@@ -25,7 +25,7 @@
       <div class="container-fluid">
           <div class="row">
               <div class="col-sm-12">
-                  <h3>Melhoramos expressivamente os resultados da sua empresa através do alinhamento de:</h3>
+                  <h3 style="color:#FF6CAB">Melhoramos expressivamente os resultados da sua empresa através do alinhamento de:</h3>
               </div>
 
               <div class="row" id="icons-area">
