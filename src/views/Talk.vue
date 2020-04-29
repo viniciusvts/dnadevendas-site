@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <Pillars v-if="secao_pilares">
+    <!-- <Pillars v-if="secao_pilares">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
@@ -45,11 +45,11 @@
         </div>
       </div>
     </Pillars>
-    <PaginaCarregando v-else/>
+    <PaginaCarregando v-else/> -->
 
     <div  v-if="objecoes" >
       <div v-for="(objection, index) in objecoes" :key="index">
-        <section :class="[index % 2 == 0 ? 'talkDark': 'talkDefault']">
+        <section :class="[index % 2 == 0 ? '': 'talkDefault']">
           <div class="container-fluid">
             <div class="row align-items-center" :class="[index % 2 == 0 ? 'flex-row-reverse': '']">
 
@@ -140,7 +140,7 @@
 <script>
 
   import Spotlight from '@/components/Spotlight.vue';
-  import Pillars from '@/components/Pillars.vue';
+  // import Pillars from '@/components/Pillars.vue';
   // import Pagination from '@/components/Pagination.vue';
   import Metrics from '@/components/Metrics.vue';
   import CardPalestrante from '@/components/CardPalestrante.vue';
@@ -150,7 +150,7 @@
     name: "Talk",
     components: {
       Spotlight,
-      Pillars,
+      // Pillars,
       // Pagination,
       Metrics,
       SolicitarContato,
