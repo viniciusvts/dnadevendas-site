@@ -197,7 +197,6 @@
         this.palestrantes = r.acf.palestrante;
         this.objecoes = r.acf.objecoes;
         this.secao_pilares = r.acf.secao_pilares;
-        console.log(this.palestrantes);
         const bannerData = {
           chamada: r.acf.chamada,
           cta: r.acf.cta,
