@@ -3,12 +3,11 @@
     <Spotlight v-if="customFields" class="home">
       <div class="text section">
         <h1>{{customFields.acf.chamada}} {{customFields.acf.subtitulo}}</h1>
-
-        <button class="btn-grad">
-          <router-link to="/contato">
-            {{customFields.acf.cta}}
-          </router-link>
-        </button>
+        <router-link to="/contato">
+          <button class="btn-grad">
+              {{customFields.acf.cta}}
+          </button>
+        </router-link>
       </div>
       <div class="see-more">
         <div class="container">
@@ -59,7 +58,11 @@
         <div class="text">
           <h3>{{service.servico}}</h3>
           <p>{{service.descricao}}</p>
-          <div class="see-more"><span>Ler mais</span></div>
+          <div class="see-more">
+            <router-link :to="service.rota">
+              <span>Ler mais</span>
+            </router-link>
+          </div>
         </div>
         <img class="lazy" src="@/assets/loading.gif" :data-src="service.imagem.sizes.large" :alt="service.servico">
       </div>
