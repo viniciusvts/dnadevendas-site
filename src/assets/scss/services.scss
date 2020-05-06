@@ -6,17 +6,19 @@
 
     .see-more{
         position: absolute;
-        color: $golden;
         bottom: 20px;
         width: 100%;
         @include transition();
         
-        span{
-            text-align: center;
-            position: relative;
-            display: block;
-            margin: 0 auto;
-            cursor: pointer;
+        a {
+            color: $golden;
+            span{
+                text-align: center;
+                position: relative;
+                display: block;
+                margin: 0 auto;
+                cursor: pointer;
+            }
         }
     }
 
