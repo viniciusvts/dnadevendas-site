@@ -12,7 +12,7 @@
       });
 */
 const axios = require('axios');
-axios.defaults.baseURL = 'https://novo.dnadevendas.com.br/';
+const baseURL = 'http://localhost/';
 /**
  * Comunicação com o servidor DNA
  * @author Vinicius de Santana
@@ -24,7 +24,7 @@ const apiRest = {
    * @author Vinicius de Santana
    */
   getHeader() {
-    const url = 'api/wp-json/dna_theme/v1/wp_header/';
+    const url = baseURL + 'api/wp-json/dna_theme/v1/wp_header/';
     return axios.get(url, {
       headers: { 'Content-type': 'application/json' },
     });
@@ -35,7 +35,7 @@ const apiRest = {
    * @author Vinicius de Santana
    */
   getFooter() {
-    const url = 'api/wp-json/dna_theme/v1/wp_footer/';
+    const url = baseURL + 'api/wp-json/dna_theme/v1/wp_footer/';
     return axios.get(url, {
       headers: { 'Content-type': 'application/json' },
     });
@@ -56,13 +56,51 @@ const apiRest = {
         urlArgs += key + "=" + args[key] + "&";
       }
     }
-    let url = '/api/wp-json/wp/v2/posts/';
+    let url = baseURL + 'api/wp-json/wp/v2/posts/';
     if (urlArgs.length > 0){
       url += "?" + urlArgs;
     }
-    return axios.get(url, {
-      headers: { 'Content-type': 'application/json' },
-    });
+    return fetch(url);
+  },
+  
+  /**
+   * Resgata lista de posts pela quantidade de visualizações
+   * função diferente pq o endpoint é diferente
+   * @author Vinicius de Santana
+   */
+  getPostsByViews() {
+    let url = baseURL + 'api/wp-json/dna_theme/v1/getPostsByViews/';
+    return fetch(url);
+  },
+  
+  /**
+   * Itera o contador do post
+   * @param _id - id do post a ser iterado
+   * @author Vinicius de Santana
+   */
+  postIterateView(_id) {
+    let url = baseURL + 'api/wp-json/dna_theme/v1/post_count/' + _id;
+    return fetch(url);
+  },
+
+  /**
+   * Resgata lista de categorias padrão do wordpress
+   * @param {[]} args - args do endpoint do wordpress
+   * @author Vinicius de Santana
+   */
+  getCategories(args) {
+    let urlArgs = "";
+    if (typeof args != 'undefined'){
+      if (!Array.isArray(args))  throw new TypeError("O parametro precisa ser array");
+      for (const key in args) {
+        urlArgs += key + "=" + args[key] + "&";
+      }
+    }
+    let url = baseURL + 'api/wp-json/wp/v2/categories/';
+    if (urlArgs.length > 0){
+      url += "?" + urlArgs;
+    }
+    return fetch(url);
   },
 
   /**
@@ -80,7 +118,7 @@ const apiRest = {
         urlArgs += key + "=" + args[key] + "&";
       }
     }
-    let url = '/api/wp-json/dna_theme/v1/portfolio';
+    let url = baseURL + '/api/wp-json/dna_theme/v1/portfolio';
     if (urlArgs.length > 0){
       url += "?" + urlArgs;
     }
@@ -94,7 +132,7 @@ const apiRest = {
    * @author Vinicius de Santana
    */
   getTaxonomyPortfolio() {
-    let url = '/api/wp-json/dna_theme/v1/portfolio-taxonomy';
+    let url = baseURL + '/api/wp-json/dna_theme/v1/portfolio-taxonomy';
     return axios.get(url, {
       headers: { 'Content-type': 'application/json' },
     });
@@ -110,7 +148,7 @@ const apiRest = {
     if (typeof idForm == 'undefined') throw new TypeError("O parametro é obrigatório");
     if (typeof data == 'undefined') throw new TypeError("O parametro é obrigatório");
     //formar url
-    let url = '/api/wp-json/contact-form-7/v1/contact-forms/';
+    let url = baseURL + '/api/wp-json/contact-form-7/v1/contact-forms/';
     url += idForm;
     url += '/feedback/';
     //formar conteúdo

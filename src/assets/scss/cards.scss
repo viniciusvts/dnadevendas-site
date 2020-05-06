@@ -1,8 +1,7 @@
 .card{
-    border: 1px solid #e4e4e4;
     @include transition();
     &:hover{
-        transform: scale(1.05);
+        transform: scale(1.02);
         @include transition();
     }
 
@@ -12,33 +11,43 @@
         z-index: 8;
         &::after{
             content: "";
-            width: 50%;
+            width: 60%;
             height: 108%;
             position: absolute;
             top: -4%;
-            right: -2%;
+            right: 0;
             z-index: -1;
-            background: $golden;
+            background: linear-gradient(90deg, #fccc78 0%, $golden 100%);
         }
         img{
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
         }
     }
 
     .right{
         padding: 20px 40px;
-        height: 100%;
+        border: 1px solid #e4e4e4;
         h2{
-            font-weight: bold;                           
+            font-size: 20px;
+            font-weight: normal;                           
             margin-top: 20px;
+            color: black;
+            @media (min-width: $fullHdDesktops) {
+                font-size: 33px;
+            }
         }
         ul{                  
             li{
+                font-size: 13px;
                 display: inline;
                 padding: 5px 10px;
                 margin-right: 10px;
                 cursor: pointer;
+                @mixin mediaScreenMin($fullHdDesktops) {
+                    font-size: 17px;
+                }
             }
         }                    
     }
@@ -69,5 +78,29 @@
             margin: 0 auto;
         }
     } 
-    
+    .viewsAgo{
+        display: flex;
+        position: absolute;
+        bottom: 5%;
+        right: 10%;
+        span{
+            font-size: 13px;
+            margin: 10px;
+            @media (min-width: $fullHdDesktops) {
+                font-size: 20px;
+            }
+        }
+    }
+    .dateAgo{
+        position: absolute;
+        bottom: 8%;
+        left: 10%;
+        span{
+            font-size: 13px;
+            margin: 10px;
+            @media (min-width: $fullHdDesktops) {
+                font-size: 18px;
+            }
+        }
+    }
 }
