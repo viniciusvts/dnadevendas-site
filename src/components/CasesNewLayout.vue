@@ -18,7 +18,7 @@
         class="list-clientes"
         :src="item.logo.url" :alt="item.titulo"></li>
       </ul>
-      <button class="fsmall-btn" id="veja-mais">Veja Mais cases</button>
+      <!-- <button class="fsmall-btn" id="veja-mais">Veja Mais cases</button> -->
     </div>
   </section>
 </template>
