@@ -10,8 +10,8 @@
     min-height: 600px;
 
     h1 {
-        @include fontSize(50px);
-        line-height: 60px;
+        @include fontSize(40px);
+        line-height: 52px;
         max-width: 720px; 
         position: relative;
         animation-name: enterLeft;
@@ -65,7 +65,7 @@
     .see-more{
         display: block;
         width: 100%;
-        bottom: 50px;
+        bottom: 0;
         position: absolute;
         z-index: 9;
         text-transform: uppercase;
