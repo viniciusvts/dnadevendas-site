@@ -161,11 +161,13 @@ export default {
       args['per_page'] = 5;
       Api.getPosts(args)
       .then(res=>{
-        this.ultPosts = res.data;
+        if(res.status == 200)
+          return res.json();
+        else
+          this.message = 'Erro ao consultar os posts';
       })
-      .catch(err=>{
-        this.message = 'Erro ao consultar os posts';
-        console.warn('error =>', err);
+      .then(json=>{
+        this.ultPosts = json;
       });
     },
     sendForm(evt) {
