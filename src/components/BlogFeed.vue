@@ -25,7 +25,9 @@
                 </div>
             </div>
         </div>
-        <button>Veja mais</button>
+        <router-link :to="{ name: 'Blog' }">
+            <button>Veja mais</button>
+        </router-link>
       </div>
   </div>
 </template>
