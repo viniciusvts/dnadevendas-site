@@ -23,7 +23,7 @@
             right: 0;
             top: 60px;
             z-index: 9;
-            background-color: $baseColor;
+            background-color: $golden;
             transform: rotate(45deg);
             @include breakpoint(tablets){
                 display: none;

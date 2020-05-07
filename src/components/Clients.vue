@@ -10,7 +10,7 @@
                 <div class="col-md-6">
                     <div class="row no-gutters align-items-center justify-content-center logos">
                         <div class="col-md-4" v-for="(client, index) in clients.clientes.slice(0,12)" :key="index">
-                            <img class="lazy" src="@/assets/loading.gif" :data-src="client" alt="">
+                            <img class="lazy" src="@/assets/loading.gif" :data-src="client.sizes.large" alt="">
                         </div>
 
                         <div class="col-12">
@@ -60,6 +60,7 @@ import pinkText from '../services/TextPink';
                 .then(r => r.json())
                 .then(r => {
                 this.clients = r;
+                console.log(this.clients)
                 });
             }
         }

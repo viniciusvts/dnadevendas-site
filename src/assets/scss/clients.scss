@@ -90,6 +90,7 @@
     .logos{
         img{
             @include transition();
+            margin: 15px auto;
             &:hover{
                 transform: scale(1.05);
                 @include transition();
