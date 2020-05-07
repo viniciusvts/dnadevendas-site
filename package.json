@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@sendgrid/mail": "^7.0.0",
-    "axios": "^0.19.2",
     "bootstrap-4-grid": "^3.4.0",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",

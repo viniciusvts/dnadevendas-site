@@ -41,9 +41,11 @@ export default {
     sendForm(evt) {
       evt.preventDefault();
       Api.sendToCF7(3795, this.formData)
-      .then(response => {
-        this.formMessage = response.data.message;
-        console.log('response =>', response);
+      .then(res => {
+        return res.json();
+      })
+      .then(json => {
+        this.formMessage = json.message;
       });
     }
   }

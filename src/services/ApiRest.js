@@ -1,18 +1,8 @@
 /**
- * @description https://github.com/axios/axios
- * @example
-      .then((response) => {
-        //do anything
-      })
-      .catch((error) => {
-        //do anything in error
-      })
-      .finally(() => {
-        // always executed
-      });
+ * define a url base do app
+ * @author Vinicius de Santana
 */
-const axios = require('axios');
-const baseURL = 'http://localhost/';
+const baseURL = process.env.NODE_ENV === 'production' ? '/' : 'https://novo.dnadevendas.com.br/';
 /**
  * Comunicação com o servidor DNA
  * @author Vinicius de Santana
@@ -25,9 +15,7 @@ const apiRest = {
    */
   getHeader() {
     const url = baseURL + 'api/wp-json/dna_theme/v1/wp_header/';
-    return axios.get(url, {
-      headers: { 'Content-type': 'application/json' },
-    });
+    return fetch(url);
   },
 
   /**
@@ -36,9 +24,7 @@ const apiRest = {
    */
   getFooter() {
     const url = baseURL + 'api/wp-json/dna_theme/v1/wp_footer/';
-    return axios.get(url, {
-      headers: { 'Content-type': 'application/json' },
-    });
+    return fetch(url);
   },
 
   /**
@@ -55,6 +41,8 @@ const apiRest = {
       for (const key in args) {
         urlArgs += key + "=" + args[key] + "&";
       }
+      //remove p último &
+      urlArgs = urlArgs.substr(0, urlArgs.length-1);
     }
     let url = baseURL + 'api/wp-json/wp/v2/posts/';
     if (urlArgs.length > 0){
@@ -118,13 +106,11 @@ const apiRest = {
         urlArgs += key + "=" + args[key] + "&";
       }
     }
-    let url = baseURL + '/api/wp-json/dna_theme/v1/portfolio';
+    let url = baseURL + 'api/wp-json/dna_theme/v1/portfolio';
     if (urlArgs.length > 0){
       url += "?" + urlArgs;
     }
-    return axios.get(url, {
-      headers: { 'Content-type': 'application/json' },
-    });
+    return fetch(url);
   },
 
   /**
@@ -132,10 +118,8 @@ const apiRest = {
    * @author Vinicius de Santana
    */
   getTaxonomyPortfolio() {
-    let url = baseURL + '/api/wp-json/dna_theme/v1/portfolio-taxonomy';
-    return axios.get(url, {
-      headers: { 'Content-type': 'application/json' },
-    });
+    let url = baseURL + 'api/wp-json/dna_theme/v1/portfolio-taxonomy';
+    return fetch(url);
   },
 
   /**
@@ -148,7 +132,7 @@ const apiRest = {
     if (typeof idForm == 'undefined') throw new TypeError("O parametro é obrigatório");
     if (typeof data == 'undefined') throw new TypeError("O parametro é obrigatório");
     //formar url
-    let url = baseURL + '/api/wp-json/contact-form-7/v1/contact-forms/';
+    let url = baseURL + 'api/wp-json/contact-form-7/v1/contact-forms/';
     url += idForm;
     url += '/feedback/';
     //formar conteúdo
@@ -156,8 +140,9 @@ const apiRest = {
     for (const key in data) {
       formData.append(key, data[key]);
     }
-    return axios.post(url, formData, {
-      headers: { 'Content-type': 'multipart/form-data' },
+    return fetch(url, {
+      method: "POST",
+      body: formData
     });
   },
 

@@ -153,10 +153,10 @@ export default {
     }
   },
   created() {
-    this.getPosts();
+    this.getFooterPosts();
   },
   methods: {
-    getPosts() {
+    getFooterPosts() {
       let args = [];
       args['per_page'] = 5;
       Api.getPosts(args)
@@ -164,7 +164,7 @@ export default {
         if(res.status == 200)
           return res.json();
         else
-          this.message = 'Erro ao consultar os posts';
+          console.log('Erro ao consultar os posts');
       })
       .then(json=>{
         this.ultPosts = json;
@@ -173,9 +173,11 @@ export default {
     sendForm(evt) {
       evt.preventDefault();
       Api.sendToCF7(3795, this.formData)
-      .then(response => {
-        this.formMessage = response.data.message;
-        console.log('response =>', response);
+      .then(res => {
+        return res.json();
+      })
+      .then(json => {
+        this.formMessage = json.message;
       });
     }
   }
