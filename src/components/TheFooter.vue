@@ -153,27 +153,31 @@ export default {
     }
   },
   created() {
-    this.getPosts();
+    this.getFooterPosts();
   },
   methods: {
-    getPosts() {
+    getFooterPosts() {
       let args = [];
       args['per_page'] = 5;
       Api.getPosts(args)
       .then(res=>{
-        this.ultPosts = res.data;
+        if(res.status == 200)
+          return res.json();
+        else
+          console.log('Erro ao consultar os posts');
       })
-      .catch(err=>{
-        this.message = 'Erro ao consultar os posts';
-        console.warn('error =>', err);
+      .then(json=>{
+        this.ultPosts = json;
       });
     },
     sendForm(evt) {
       evt.preventDefault();
       Api.sendToCF7(3795, this.formData)
-      .then(response => {
-        this.formMessage = response.data.message;
-        console.log('response =>', response);
+      .then(res => {
+        return res.json();
+      })
+      .then(json => {
+        this.formMessage = json.message;
       });
     }
   }

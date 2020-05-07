@@ -2,19 +2,10 @@
   <section class="blogSingle section">
     <div class="container-fluid">
       <div class="row">
-          <div class="col-md-2">
-            <div class="sumary">
-              <div class="title">
-                <h2>Sumário</h2>
-                <span></span>
-              </div>
-              <ul>
-                <li v-for="sub in subtitulos" v-bind:key="sub">{{sub}}</li>
-              </ul>
-            </div>
+          <div class="col-1">
           </div>
 
-          <div class="col-md-7 content">
+          <div v-if="post" class="col-8 content">
             <div class="thumbnail">
               <img :src="post.DNA_custom.thumb.large" alt="">
             </div>
@@ -27,10 +18,13 @@
             <article v-html="post.content.rendered"></article>
           </div>
 
+          <div v-else class="col-8 content">{{message}}</div>
+
           <div class="col-md-3">
             <Sidebar/>
           </div>
       </div>
+      <SolicitarContato></SolicitarContato>
     </div>
   </section>
 </template>
@@ -40,27 +34,26 @@
 
   import Sidebar from "@/components/Sidebar.vue";
   import Api from "@/services/ApiRest.js";
+  import SolicitarContato from '@/components/SolicitarContato.vue';
   
   export default {
     name: "Contato",
     components: {
+      SolicitarContato,
       Sidebar
     },
     data() {
       return {
-        post: this.$route.params.post,
-        subtitulos: []
+        post: null,
+        message: 'Carregando'
       }
     },
     mounted() {
       if(typeof this.$route.params.post == 'undefined'){
         this.getPost(this.$route.params.slug);
       }else{
-        this.updateMetaAndTitle();
+        this.post = this.$route.params.post;
       }
-      this.loadSumario();
-      console.log('route =>', this.$route);
-      console.log('this =>', this);
     },
     methods: {
       loadSumario(val) {
@@ -85,16 +78,23 @@
       },
       getPost(slug) {
         if (typeof slug == 'undefined') throw new TypeError("É necessário definir slug");
-        Api.getPost(slug)
-        .then(response => {
-          this.post = response.data[0];
-          this.updateMetaAndTitle();
+        let args = [];
+        args['slug'] = slug;
+        Api.getPosts(args)
+        .then(res=>{
+          if(res.status == 200)
+            return res.json();
+          else
+            this.message = 'Erro ao carregar o post';
+        })
+        .then(json=>{
+          this.post = json[0];
         });
       },
     },
     watch: {
-      'post.content.rendered': function(val) {
-        this.loadSumario(val);
+      'post.id': function(val) {
+        Api.postIterateView(val);
       }
     }
   };

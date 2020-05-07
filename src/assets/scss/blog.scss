@@ -21,5 +21,12 @@
     .content{       
         margin-top: 60px;   
     }
-    
+    .title span::after{
+        @media (min-width: $fullHdDesktops) {
+            height: 3px;
+        }
+    }
+}
+.mb-100px{
+    margin-bottom: 100px;
 }

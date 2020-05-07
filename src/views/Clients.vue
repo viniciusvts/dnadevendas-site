@@ -59,17 +59,25 @@ export default {
                 let args = [];
                 args["post_per_page"] = -1
                 ApiRest.getPortfolio(args)
-                .then(response =>{
-                    this.clients = response.data;
+                .then(res=>{
+                    if(res.status == 200)
+                        return res.json();
                 })
+                .then(json=>{
+                    this.clients = json;
+                });
             }
         },
         getTaxonomyClients(){
             if (this.clients.length < 1){
                 ApiRest.getTaxonomyPortfolio()
-                .then(response =>{
-                    this.taxonomy = response.data;
+                .then(res=>{
+                    if(res.status == 200)
+                        return res.json();
                 })
+                .then(json=>{
+                    this.taxonomy = json;
+                });
             }
         },
         showClients(evt){

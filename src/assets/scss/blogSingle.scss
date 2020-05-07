@@ -55,13 +55,13 @@
             position: relative;
             &::after{
                 content: "";
-                width: 50%;
-                height: 104%;
+                width: 60%;
+                height: 108%;
                 position: absolute;
-                top: -2%;
-                right: -1%;
+                top: -4%;
+                right: 2%;
                 z-index: -1;
-                background: $golden;
+                background: linear-gradient(90deg, #fccc78 0%, $golden 100%);
             }
         }        
 

@@ -1,44 +1,30 @@
 <template>
     <div class="sidebar">
 
-        <div class="visited">
+        <div v-if="isBlogRoute" class="visited">
             <div class="title">
                 <h3>Mais Visitados</h3>
                 <span></span>
             </div>
-            <div class="post">
-                <router-link to="/blog/dasdasd">
+            <div v-for="post in mostViewedPosts" :key="post.id" class="post">
+                <router-link :to="{ name: 'SingleBlog', params: { slug: post.post_name } }">
                     <div class="row no-gutters">
-                        <div class="left col-auto"><img src="https://www.dnadevendas.com.br/wp-content/uploads/consultoria-online-de-vendas.jpg" alt=""></div>
-                        <div class="right col">Consultoria online de vendas: vantagens para pequenas e médias empresas</div>
+                        <div class="left col-auto"><img :src="post.DNA_custom.thumb.medium" alt=""></div>
+                        <div class="right col">{{post.post_title}}</div>
                     </div>   
                 </router-link>
-            </div>          
+            </div>
         </div>
 
-        <div v-if="!matchRoute" class="categories">
+        <div v-if="isSingleBlogRoute" class="categories">
             <div class="title">
                 <h3>Categorias</h3>
                 <span></span>
             </div>
             <ul>
-                <li> <router-link to="/blog">Blog</router-link> </li>
-                <li> <router-link to="/cases-de-sucesso">Cases de Sucesso</router-link> </li>
-                <li>Competência de Vendas</li>
-                <li>Consultoria de vendas</li>
-                <li>CRM de Vendas</li>
-                <li>Dicas de Vendas</li>
-                <li>Educação Corporativa</li>
-                <li>Estratégia de Vendas</li>
-                <li>Liderança de Equipe</li>
-                <li>Marketing</li>
-                <li>Negociação</li>
-                <li>Processos de vendas</li>
-                <li>Produtividade de Vendas</li>
-                <li>RH estratégico</li>
-                <li>Sem categoria</li>
-                <li>Técnicas de vendas</li>
-                <li>Treinamento em vendas</li>
+                <li v-for="cat in categories" :key="cat.id">
+                    <router-link :to="{ name: 'BlogCat', params: { cat: cat.slug, page: 1, categories: cat.id} }">{{cat.name}}</router-link>
+                </li>
             </ul>              
         </div>
 
@@ -48,7 +34,7 @@
             </router-link>
         </div>
 
-        <div v-if="!matchRoute" class="newsletter">
+        <div v-if="isBlogRoute" class="newsletter">
             <form action="">
                 <h3>Assine nossa Newsletter</h3>
                 <p>Cadastre seu e-mail aqui e receba dicas de como vender mais!</p>
@@ -62,12 +48,56 @@
 </template>
 
 <script>
+    import Api from "@/services/ApiRest.js";
+
     export default {
         name: 'Sidebar',
+        data() {
+            return {
+                mostViewedPosts: [],
+                categories:[]
+            }
+        },
+        created(){
+            this.getPosts();
+            this.getCategories();
+        },
         computed:{
-            matchRoute(){
+            isBlogRoute(){
                 let rota = this.$route.name;
-                return rota === 'Blog' ? true : false;
+                if(rota === 'Blog') return true;
+                if(rota === 'BlogPage') return true;
+                if(rota === 'BlogCat') return true;
+                return false;
+            },
+            isSingleBlogRoute(){
+                let rota = this.$route.name;
+                return rota === 'SingleBlog';
+            },
+            hasMostViewedPosts(){
+                return (this.mostViewedPosts.length > 0);
+            }
+        },
+        methods:{
+            getPosts() {
+                Api.getPostsByViews()
+                .then(res=>{
+                    if(res.status == 200)
+                        return res.json();
+                })
+                .then(json=>{
+                    this.mostViewedPosts = json;
+                });
+            },
+            getCategories(){
+                Api.getCategories()
+                .then(res=>{
+                    if(res.status == 200)
+                        return res.json();
+                })
+                .then(json=>{
+                    this.categories = json;
+                });
             }
         }
     }

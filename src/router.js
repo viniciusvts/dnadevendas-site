@@ -31,10 +31,23 @@ const routes = [
     component: ForSmall
   }, 
   {
-    path: '/blog',
+    path: '/o-melhor-blog-de-vendas',
     name: 'Blog',
-    alias: ['/o-melhor-blog-de-vendas'],
+    alias: ['/blog'],
     component: Blog
+  },
+  {
+    path: '/o-melhor-blog-de-vendas/page/:page',
+    name: 'BlogPage',
+    alias: ['/blog'],
+    component: Blog,
+    props: {default: true, page: true}
+  },
+  {
+    path: '/o-melhor-blog-de-vendas/categoria/:cat/page/:page',
+    name: 'BlogCat',
+    component: Blog,
+    props: {default: true, cat: true, page: false}
   },
   
   {

@@ -3,19 +3,19 @@
     <div class="container-fluid">
       <BlogFilter/>
       <div class="content">
-        <div class="columns">
-          <div class="column" v-if="posts.length > 0">
+        <div class="row">
+          <div v-if="posts.length > 0" class="col-12 col-lg-9">
               <div class="cards"> 
-                <div class="columns">
-                  <div v-for="post in posts" :key="post.id" >
+                <div class="row">
+                  <div v-for="post in posts" :key="post.id" class="mb-100px w-100">
                     <BlogCard v-bind:post="post"/>
                   </div>
                 </div>
               </div>
             <Pagination/>
           </div>
-          <div v-else>{{message}}</div>
-          <div class="column">
+          <div v-else class="col-12 col-lg-9">{{message}}</div>
+          <div class="col-12 col-lg-3">
             <Sidebar/>
           </div>
         </div>
@@ -43,27 +43,47 @@
     data() {
       return {
         posts: [],
-        message: 'Carregando'
+        message: 'Carregando Posts'
       }
     },
-    mounted() {
-      this.getPosts();
+    created() {
+      this.initPosts();
     },
     methods: {
-      getPosts() {
+      getPosts(args) {
+        Api.getPosts(args)
+        .then(res=>{
+          if(res.status == 200)
+            return res.json();
+          else
+            this.message = 'Erro ao consultar os posts';
+        })
+        .then(json=>{
+          this.posts = json;
+        });
+      },
+      initPosts(){
+        this.posts = [];
+        /**argumento para buscar os posts */
         let args = [];
         if (typeof this.$route.params.page != 'undefined') {
           args['page'] = this.$route.params.page;
         }
-        Api.getPosts(args)
-        .then(res=>{
-          this.posts = res.data;
-        })
-        .catch(err=>{
-          this.message = 'Erro ao consultar os posts';
-          console.warn('error =>', err);
-        });
+        if (typeof this.$route.params.categories != 'undefined') {
+          args['categories'] = this.$route.params.categories;
+        }
+        this.getPosts(args);
       }
+    },
+    watch: {
+      '$route.params.page': function(val) {
+        console.log('param page', val);
+        this.initPosts();
+      },
+      '$route.params.categories': function(val) {
+        console.log('param cat', val);
+        this.initPosts();
+      },
     }
   }
 </script>
