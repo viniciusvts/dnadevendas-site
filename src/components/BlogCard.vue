@@ -5,7 +5,7 @@
       <div class="card">
         <div class="row">
           <div class="left col-12 col-md-7">
-            <img :src="post.DNA_custom.thumb.medium" alt="">
+            <img :src="post.DNA_custom.thumb.large" alt="">
           </div>
           <div class="right col-12 col-md-5">
             <div class="categories">
