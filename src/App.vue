@@ -33,6 +33,7 @@
     mounted() {
       window.scrollTo(0, 0);
       window.addEventListener("scroll", this.lazyLoad);
+      this.scrolltop();
     },
     methods: {
       lazyLoad: function () {
@@ -58,6 +59,31 @@
           }, 200)
 
         }
+      },
+      scrolltop() {
+        const header = document.getElementById('menu-fixed');
+        var lastPosition = 0;
+        if(window.scrollY > 0) {
+          if(header.classList.contains('darkTransparent')) {
+            header.setAttribute('style', 'background-color:#151515')
+          } else {
+            header.setAttribute('style', 'opacity:1')
+          }
+        } else {
+          header.removeAttribute('style')
+        }
+        window.addEventListener('scroll', () => {
+            lastPosition = window.scrollY;
+            if(lastPosition > 0) {
+              if(header.classList.contains('darkTransparent')) {
+                header.setAttribute('style', 'background-color:#151515')
+              } else {
+                header.setAttribute('style', 'opacity:1')
+              }
+            } else {
+              header.removeAttribute('style')
+            }
+        })
       },
     }
   };
