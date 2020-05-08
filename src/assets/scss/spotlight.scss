@@ -32,6 +32,9 @@
         position: relative;
         animation-name: enterLeft;
         animation-duration: 4s;
+        @include breakpoint(tablets){
+            text-align: center;
+        }
     }
       
 
