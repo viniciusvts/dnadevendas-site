@@ -1,0 +1,145 @@
+@import '@/assets/scss/variables.scss';
+$blue-dark: #1a213b;
+$gold: #C8AC78;
+.cardSlider{
+    .text{
+        p{
+            font-size: 20px;
+            line-height: 40px;
+            @media (min-width: $fullHdDesktops){
+                font-size: 30px;
+                line-height: 50px;
+            }
+        }
+    }
+    .right{
+        .title{
+            h2{
+                font-weight: normal;
+                color: $golden;
+                text-transform: none;
+                font-size: 30px;
+                @media (min-width: $fullHdDesktops){
+                    font-size: 40px;
+                }
+            }
+        }
+    }
+    .colorDestak{
+        color: $golden;
+    }
+    .slider{
+        position: relative;
+        display: block;
+        z-index: 8;
+        margin: 30px auto;
+        .slides{
+            display: none;
+            opacity: 0;
+            position: relative;
+            overflow-x: hidden;
+            width: 100%;
+            height: 100%;
+            max-height: 400px;
+            transition: opacity 500ms, display 500ms step-end;
+            &.active{
+                display: flex;
+                opacity: 1;
+                transition: opacity 500ms, display 500ms step-end;
+            }
+            img{
+                width: 100%;
+                object-fit: cover;
+                max-height: 400px;
+            }
+        }
+    }
+    
+    .slider, .iframe, .card{
+        &::after{
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 4%;
+            right: 0;
+            left: 2%;
+            z-index: -1;
+            border: 1px solid $golden;
+        }
+        &.leftAfter::after{
+            right: 2%;
+            left: auto;
+        }
+    }
+
+    .flex-row-reverse{
+        &::after{
+            display: none;
+        }
+    }
+    
+    button{
+        box-shadow: 3px 3px 10px 0px grey;
+    }
+    .destaq-text{
+        max-height: 250px;
+        overflow-y: scroll;
+        &::-webkit-scrollbar{ // a barra de rolagem inteira.
+            width: 20px;
+        }
+        &::-webkit-scrollbar-track { // a faixa (barra de progresso) da barra de rolagem.
+            // background: $blue-dark;
+            box-shadow: inset 0 0 6px $blue-dark;
+            border-left: 9px solid white;
+            border-right: 9px solid white;
+        }
+        &::-webkit-scrollbar-thumb{ // a alça de rolagem arrastável.
+            background: $gold;
+            border-radius: 5px;
+        }
+        &::-webkit-scrollbar-thumb:hover{ // a alça de rolagem arrastável.
+            background: #B08961;
+        }
+    }
+    .w-bp{
+        width: 100% !important;
+        @media (min-width: $tablets){
+            width: 75% !important;
+        }
+        @media (min-width: $desktops){
+            width: 75% !important;
+        }
+        @media (min-width: $fullHdDesktops){
+            width: 50% !important;
+        }
+    }
+}
+.rtl{
+    direction: rtl;
+    & *{
+        direction: ltr!important;
+        padding-left: 5px;
+    }
+}
+.pl-bp{
+    @media (min-width: $fullHdDesktops){
+        padding-left: 150px;
+        padding-right: 10px;
+    }
+}
+.pr-bp{
+    @media (min-width: $fullHdDesktops){
+        padding-right: 150px;
+        padding-left: 10px;
+    }
+}
+.pl-50{
+    padding-left: 50px;
+}
+.pl-30{
+    padding-left: 30px;
+}
+.pr-50{
+    padding-right: 50px;
+}

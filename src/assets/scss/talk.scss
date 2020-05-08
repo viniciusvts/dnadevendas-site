@@ -3,32 +3,6 @@
 @import '@/assets/scss/breakpoint.scss';
 
 .talk{
-    .slider{
-        position: relative;
-        display: block;
-        z-index: 8;
-        margin: 30px auto;
-    }
-
-    .flex-row-reverse{
-        &::after{
-            display: none;
-        }
-    }
-
-    .slides{
-        display: flex;
-        overflow-x: hidden;
-        position: relative;
-        height: 100%;
-
-        img{
-            width: 100%;
-            object-fit: cover;
-            max-height: 400px;
-        }
-    }
-
     h2{
         text-transform: uppercase;
         font-weight: bold;
@@ -63,20 +37,6 @@
         
         @include breakpoint(hdDesktops){
             height: 300px;
-        }
-    }
-
-    .slider, .iframe, .card{
-        &::after{
-            content: "";
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 4%;
-            right: 0;
-            left: 2%;
-            z-index: -1;
-            border: 1px solid $golden;
         }
     }
 }
@@ -274,4 +234,73 @@
     a{
         margin: 40px auto 20px auto;
     }
+}
+/// @author Pedro Matos
+/// movido da página para cá
+#hr-golden {
+    border-color: $golden-dark;
+}
+.fotos-palestrantes {
+    transition-duration: .5s;
+    max-width: 100vw;
+    // overflow-x: scroll;
+    cursor: pointer;
+    position: relative;
+    &:hover {
+        transition-duration: .5s;
+        transform: scale(1.1);
+    }
+    .overlay-change {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    img {
+        width: 200px;
+        height: 200px;
+        padding: 10px;
+    }
+    text-align: center;
+    p {
+        font-weight: 600;
+        color: $baseColor;
+    }
+    span {
+        color: $golden-dark;
+    }
+}
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}
+#banner-video {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    position: relative;
+    h2 {
+        position: absolute;
+        top: 90px;
+        margin-left: 100px;
+        width: 445px;
+        font-size: 42px;
+        font-weight: 100;
+        color: white;
+        span {
+        font-weight: 600;
+        color: $golden-dark;
+        }
+    }
+    img {
+        object-fit: cover;
+        box-shadow: grey 2px 2px 30px;
+    }
+}
+.next {
+    background-color: black;
+    height: 50px;
+    width: 50px;
 }
