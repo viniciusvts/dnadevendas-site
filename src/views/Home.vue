@@ -1,7 +1,7 @@
 <template>
   <div>
     <Spotlight v-if="customFields" class="home">
-      <div class="text section">
+      <div class="text">
         <h1>{{customFields.acf.chamada}} {{customFields.acf.subtitulo}}</h1>
         <router-link to="/contato">
           <button class="btn-grad">
@@ -26,10 +26,6 @@
                     <h3>Melhoramos expressivamente os <b>resultados da sua empresa</b> através do alinhamento de:</h3>
                 </div>
 
-                <div class="col-md-1 d-none d-lg-block d-xl-block">
-                    <img src="@/assets/svg/big-arrow.svg" alt="">
-                </div>
-
                 <div class="col-md-2 pillar">
                     <img src="@/assets/svg/process.svg" alt="Processo">
                     <p>Processos</p>
@@ -49,6 +45,9 @@
                     <img src="@/assets/svg/people.svg" alt="Pessoas">
                     <p>Pessoas</p>                
                 </div>
+              <div class="col-sm-12 no-animate">
+                <img src="@/assets/line-svg.svg" alt="Pessoas">
+              </div>
             </div>
         </div>
     </Pillars>
