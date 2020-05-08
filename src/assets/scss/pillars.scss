@@ -4,7 +4,9 @@
     width: 100%;
     color: $baseColor;
     background: white;
-
+    p {
+        color: $golden;
+    }
     h3{
         font-size: 30px;
         margin-top: 0;
