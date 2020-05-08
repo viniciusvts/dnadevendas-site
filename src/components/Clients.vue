@@ -60,7 +60,6 @@ import pinkText from '../services/TextPink';
                 .then(r => r.json())
                 .then(r => {
                 this.clients = r;
-                console.log(this.clients)
                 });
             }
         }
