@@ -20,19 +20,24 @@
 
             <hr>
 
-            <div class="row logos">
+            <div v-if="clients.length > 0" class="row logos">
                 <div v-for="client in clients" :key="client.slug" :class="getPortfolio_category(client.categories.portfolio_category)" class="col-md-3 active logoClient">
                     <img :src="client.thumb.medium" :alt="client.thumb.alt">
                 </div>
-                </div>
-                </div>
+            </div>
+            <div v-else>
+                <PaginaCarregando/>
+            </div>
+        </div>
     </section>
 </template>
 
 <script>
 import ApiRest from "@/services/ApiRest.js";
+import PaginaCarregando from '@/components/PaginaCarregando.vue';
 export default {
     name: "Clients",
+    components:{PaginaCarregando},
     data() {
       return {
         clients: [],

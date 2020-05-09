@@ -3,7 +3,7 @@
     <Spotlight v-if="banner">
       <div class="text section">
         <h1>{{banner.chamada}}</h1>
-        <h2>{{banner.subtitulo}}</h2>
+        <h2 class="colorDestak">{{banner.subtitulo}}</h2>
         <button class="btn-grad">
           <router-link to="/contato">
             {{banner.cta}}
@@ -47,43 +47,12 @@
     </Pillars>
     <PaginaCarregando v-else/> -->
 
-    <div  v-if="objecoes" >
-      <div v-for="(objection, index) in objecoes" :key="index">
-        <section :class="[index % 2 == 0 ? '': 'talkDefault']">
-          <div class="container-fluid">
-            <div class="row align-items-center" :class="[index % 2 == 0 ? 'flex-row-reverse': '']">
-
-              <div class="col-md-1 d-none d-lg-block d-xl-block" v-if="objection.icone">
-                <img class="lazy mr-auto ml-auto" src="@/assets/loading.gif"  :data-src="objection.icone.sizes.normal" :alt="objection.icone.title">
-              </div>
-
-              <div class="col-md-5">
-                <div class="slider">
-                  <div class="slides">
-                    <img class="lazy img-slider" src="@/assets/loading.gif"
-                    :key="img_key"
-                    :data-src="objection.imagem[0].sizes.large"  :alt="objection.objecao">
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="right">
-                  <div class="title">
-                    <h2>{{objection.objecao}}</h2>
-                    <span></span>
-                  </div>
-                  <div class="text" v-html="objection.texto"></div>
-                  <router-link to="/contato">
-                    <button> Solicite uma proposta </button>
-                  </router-link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+    <div v-if="objecoes">
+      <div v-for="(obj, index) in objecoes" :key="index">
+        <CardSlider :objection="obj" :index="index"/>
       </div>
-    </div>   
-    <PaginaCarregando v-else/> 
+    </div>
+    <PaginaCarregando v-else/>
 
     <section class="talkers" v-if="palestrantes">
       <div class="title">
@@ -92,7 +61,7 @@
       </div>
       <div class="palestrantes-fotos">
         <div class="row">
-          <div class="fotos-palestrantes" v-for="fotos in palestrantes" :key="fotos">
+          <div class="fotos-palestrantes" v-for="(fotos, index) in palestrantes" :key="index">
             <div class="overlay-change"></div>
             <img :src="fotos.foto.sizes.large" :alt="fotos.nome_palestrante">
             <p>{{ fotos.nome_palestrante }}</p>
@@ -145,6 +114,8 @@
   import Metrics from '@/components/Metrics.vue';
   import CardPalestrante from '@/components/CardPalestrante.vue';
   import SolicitarContato from '@/components/SolicitarContato.vue';
+  import PaginaCarregando from '@/components/PaginaCarregando.vue';
+  import CardSlider from '@/components/CardSlider.vue';
 
   export default {
     name: "Talk",
@@ -153,7 +124,9 @@
       // Pillars,
       // Pagination,
       Metrics,
+      PaginaCarregando,
       SolicitarContato,
+      CardSlider,
       'card-palestra': CardPalestrante,
     },
     data(){
@@ -209,12 +182,10 @@
       setActive() {
         const ctx = this;
         const list = document.getElementsByClassName('overlay-change');
-        console.log(list)
         for(let i = 0; i < list.length; i++) {
           list[i].setAttribute('pos', i);
           list[i].addEventListener('click', (el) => {
             const positionTarget = el.target.getAttribute('pos');
-            console.log(el.target);
             ctx.position = parseInt(positionTarget);
           })
           // setTimeout(() => {
@@ -229,84 +200,4 @@
 <style lang="scss">
   @import '@/assets/scss/talk.scss';
   @import '@/assets/scss/variables.scss';
-  @import '@/assets/scss/breakpoint.scss';
-  #hr-golden {
-    border-color: $golden-dark;
-  }
-  .fotos-palestrantes {
-    transition-duration: .5s;
-    max-width: 100vw;
-    // overflow-x: scroll;
-    cursor: pointer;
-    position: relative;
-    @include breakpoint(smartphones) {
-      margin: auto;
-    }
-    &:hover {
-      transition-duration: .5s;
-      transform: scale(1.1);
-    }
-    .overlay-change {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-    img {
-      width: 200px;
-      height: 200px;
-      padding: 10px;
-    }
-    text-align: center;
-    p {
-      font-weight: 600;
-      color: $baseColor;
-    }
-    span {
-      color: $golden-dark;
-    }
-  }
-  .show {
-    display: block;
-  }
-  .hide {
-    display: none;
-  }
-  #banner-video {
-    margin-top: 50px;
-    margin-bottom: 20px;
-    position: relative;
-    h2 {
-      position: absolute;
-      top: 90px;
-      margin-left: 100px;
-      width: 445px;
-      font-size: 42px;
-      font-weight: 100;
-      color: white;
-      @include breakpoint(smartphones) {
-        top: 0;
-        margin-left: 52px;
-        width: fit-content;
-        font-size: 30px;
-      }
-      span {
-        font-weight: 600;
-        color: $golden-dark;
-      }
-    }
-    img {
-      object-fit: cover;
-      box-shadow: grey 2px 2px 30px;
-      @include breakpoint(smartphones) {
-          height: 201px;
-      }
-    }
-  }
-  .next {
-    background-color: black;
-    height: 50px;
-    width: 50px;
-  }
 </style>
