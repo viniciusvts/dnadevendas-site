@@ -229,6 +229,7 @@
 <style lang="scss">
   @import '@/assets/scss/talk.scss';
   @import '@/assets/scss/variables.scss';
+  @import '@/assets/scss/breakpoint.scss';
   #hr-golden {
     border-color: $golden-dark;
   }
@@ -238,6 +239,9 @@
     // overflow-x: scroll;
     cursor: pointer;
     position: relative;
+    @include breakpoint(smartphones) {
+      margin: auto;
+    }
     &:hover {
       transition-duration: .5s;
       transform: scale(1.1);
@@ -281,6 +285,12 @@
       font-size: 42px;
       font-weight: 100;
       color: white;
+      @include breakpoint(smartphones) {
+        top: 0;
+        margin-left: 52px;
+        width: fit-content;
+        font-size: 30px;
+      }
       span {
         font-weight: 600;
         color: $golden-dark;
@@ -289,6 +299,9 @@
     img {
       object-fit: cover;
       box-shadow: grey 2px 2px 30px;
+      @include breakpoint(smartphones) {
+          height: 201px;
+      }
     }
   }
   .next {
