@@ -35,6 +35,15 @@
       window.addEventListener("scroll", this.lazyLoad);
       this.scrolltop();
     },
+    watch: {
+      $route() {
+        let menuItems = document.querySelector('#menuItems');
+        if(menuItems.classList.contains('menuMobile')){
+          menuItems.classList.remove('menuMobile');
+          menuItems.classList.add('menuDesktop');
+        }
+      },
+    },
     methods: {
       lazyLoad: function () {
         let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
