@@ -23,6 +23,7 @@
   import TheHeader from "@/components/TheHeader.vue";
   import WhatsApp from "@/components/WhatsApp.vue";
   import TheFooter from "@/components/TheFooter.vue";
+  // import UpMeta from "@/services/UpdateMeta.js";
 
   export default {
     components: {
@@ -30,6 +31,7 @@
       WhatsApp,
       TheFooter
     },
+    // mixins: [UpMeta],
     mounted() {
       window.scrollTo(0, 0);
       window.addEventListener("scroll", this.lazyLoad);

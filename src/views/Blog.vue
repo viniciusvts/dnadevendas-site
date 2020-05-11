@@ -76,12 +76,10 @@
       }
     },
     watch: {
-      '$route.params.page': function(val) {
-        console.log('param page', val);
+      '$route.params.page': function() {
         this.initPosts();
       },
-      '$route.params.categories': function(val) {
-        console.log('param cat', val);
+      '$route.params.categories': function() {
         this.initPosts();
       },
     }

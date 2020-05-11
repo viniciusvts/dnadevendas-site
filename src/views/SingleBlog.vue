@@ -35,6 +35,7 @@
   import Sidebar from "@/components/Sidebar.vue";
   import Api from "@/services/ApiRest.js";
   import SolicitarContato from '@/components/SolicitarContato.vue';
+  // import UpMeta from "@/services/UpdateMeta.js";
   
   export default {
     name: "Contato",
@@ -42,6 +43,7 @@
       SolicitarContato,
       Sidebar
     },
+    // mixins:[UpMeta],
     data() {
       return {
         post: null,
@@ -70,12 +72,6 @@
           this.subtitulos.push(elem.innerText);
         });
       },
-      updateMetaAndTitle() {
-        this.$route.meta.title = this.post.yoast_title;
-        this.$route.meta.metaTags = []; // metaTags é Array
-        this.$route.meta.metaTags = this.post.yoast_meta;
-        this.$route.meta.metaTags.push({ description: this.post.yoast_title});
-      },
       getPost(slug) {
         if (typeof slug == 'undefined') throw new TypeError("É necessário definir slug");
         let args = [];
@@ -95,6 +91,12 @@
     watch: {
       'post.id': function(val) {
         Api.postIterateView(val);
+      },
+      'post.yoast_meta': function(val) {
+        this.$root.meta.tags = val
+      },
+      'post.yoast_title': function(val) {
+        this.$root.meta.title = val
       }
     }
   };

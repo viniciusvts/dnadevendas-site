@@ -285,23 +285,33 @@
     margin-bottom: 20px;
     position: relative;
     h2 {
-      position: absolute;
-      top: 90px;
-      margin-left: 100px;
-      width: 445px;
-      font-size: 42px;
-      font-weight: 100;
-      color: white;
-      @include breakpoint(smartphones) {
-        top: 0;
-        margin-left: 52px;
-        width: fit-content;
-        font-size: 30px;
-      }
-      span {
+        position: absolute;
+        top: 15px;
+        margin-left: 10px;
+        width: 200px;
+        font-size: 18px;
+        font-weight: 100;
+        color: white;
+        @media (min-width: $tablets){
+            top: 50px;
+            width: 445px;
+            font-size: 30px;
+        }
+        @media (min-width: $desktops){
+            top: 50px;
+            margin-left: 50px;
+            width: 600px;
+            font-size: 42px;
+        }
+        @media (min-width: $fullHdDesktops){
+            font-size: 42px;
+            top: 90px;
+            margin-left: 80px;
+        }
+        span {
         font-weight: 600;
         color: $golden-dark;
-      }
+        }
     }
     img {
       object-fit: cover;
