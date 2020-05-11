@@ -100,6 +100,7 @@ import Clients from "@/components/Clients.vue";
 import Methodology from "@/components/Methodology.vue";
 import Depoiments from "@/components/Depoiments.vue";
 import BlogFeed from "@/components/BlogFeed.vue";
+import Api from "@/services/ApiRest.js";
 
 export default {
   name: "Home",
@@ -121,8 +122,8 @@ export default {
     }
   },
   created(){
+    this.setHomeMeta();
     this.getAcf();
-    document.title = "Dna de Vendas | Consultoria de Vendas e Treinamento de Vendas";
   },
   methods:{
     getAcf(){
@@ -130,6 +131,16 @@ export default {
       .then(r => r.json())
       .then(r => {
       this.customFields = r;
+      });
+    },
+    setHomeMeta(){
+      Api.getHomeMeta()
+      .then(res => {
+        return res.json();
+      })
+      .then(json => {
+        this.$root.meta.title = json.yoast_title;
+        this.$root.meta.tags = json.yoast_meta;
       });
     }
   }

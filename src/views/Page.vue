@@ -29,7 +29,8 @@
                 .then(r => r.json())
                 .then(r => {
                 this.pageContent = r;
-                document.title = `DNA de Vendas | ${this.pageContent[0].title.rendered}`;
+                this.$root.meta.title = this.pageContent[0].yoast_title;
+                this.$root.meta.tags = this.pageContent[0].yoast_meta;
                 });
             }
         },

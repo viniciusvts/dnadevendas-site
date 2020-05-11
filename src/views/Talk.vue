@@ -152,7 +152,7 @@
           this.componentKey = 1;
         }
       }, 200);
-      document.title = "Dna de Vendas | Palestras de Venda";
+      this.$root.meta.title = "Dna de Vendas | Palestras de Venda";
     },
     watch: {
       position(val) {

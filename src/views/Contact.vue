@@ -56,6 +56,7 @@
 
 
 <script>
+// import Api from "@/services/ApiRest.js";
 import send from '../services/Contact.js';
 export default {
   name: "Contact",
@@ -104,8 +105,8 @@ export default {
     };
   },
   created() {
-    document.title = "Dna de Vendas | Contato";
     console.log(process.env.VUE_USER_LOGIN_CONTACT);
+    this.setMeta();
   },
   mounted() {
     this.setMapIframe(this.contactsWithMap[0].map);
@@ -127,6 +128,14 @@ export default {
         event.target.classList.add('active')
       }
       this.mapIframe = iframe;
+    },
+    setMeta(){
+      fetch('https://www.dnadevendas.com.br/wp-json/wp/v2/pages/?slug=contato')
+      .then(res => res.json())
+      .then(json =>{
+        this.$root.meta.title = json[0].yoast_title;
+        this.$root.meta.tags = json[0].yoast_meta;
+      })
     }
   },
   computed: {

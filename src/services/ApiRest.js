@@ -60,7 +60,49 @@ const apiRest = {
     let url = baseURL + 'api/wp-json/dna_theme/v1/getPostsByViews/';
     return fetch(url);
   },
+
+  /**
+   * Resgata uma página pelo seu id
+   * @param {number} id - Id da página
+   * @author Vinicius de Santana
+   */
+  getPagesById(id) {
+    if (!Number.isInteger(id))  throw new TypeError("O parametro precisa ser um número inteiro");
+    let url = baseURL + 'api/wp-json/wp/v2/pages/' + id;
+    return fetch(url);
+  },
+
+  /**
+   * Resgata lista de páginas informando ou não qual página
+   * @param {[]} args - args do endpoint do wordpress
+   * @author Vinicius de Santana
+   */
+  getPages(args) {
+    let urlArgs = "";
+    if (typeof args != 'undefined'){
+      if (!Array.isArray(args))  throw new TypeError("O parametro precisa ser array");
+      for (const key in args) {
+        urlArgs += key + "=" + args[key] + "&";
+      }
+      //remove p último &
+      urlArgs = urlArgs.substr(0, urlArgs.length-1);
+    }
+    let url = baseURL + 'api/wp-json/wp/v2/pages/';
+    if (urlArgs.length > 0){
+      url += "?" + urlArgs;
+    }
+    return fetch(url);
+  },
   
+  /**
+   * retorna as meta tags globais do site
+   * @author Vinicius de Santana
+   */
+  getHomeMeta() {
+    let url = baseURL + 'api/wp-json/wp-rest-yoast-meta/v1/home/';
+    return fetch(url);
+  },
+
   /**
    * Itera o contador do post
    * @param _id - id do post a ser iterado

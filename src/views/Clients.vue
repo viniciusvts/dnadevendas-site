@@ -45,7 +45,7 @@ export default {
       }
     },
     created(){
-        document.title = "Dna de Vendas | Clientes";
+        this.$root.meta.title = "Dna de Vendas | Clientes";
         this.getClients();
         this.getTaxonomyClients();
     },

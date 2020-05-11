@@ -30,9 +30,6 @@
                 <router-link :to="{ name: 'ForSmall' }">Consultoria de Vendas</router-link>
               </li>
               <li>
-                <router-link :to="{ name: 'Trainning' }">Treinamento de Vendas</router-link>
-              </li>
-              <li>
                 <router-link :to="{ name: 'Workshops' }">Workshop de Vendas</router-link>
               </li>
               <li>
