@@ -31,6 +31,9 @@ h1{
 
 h2{
   @include fontSize(33px);
+  @include breakpoint(fullHdDesktops) {
+    @include fontSize(40px);
+  }
 }
 
 h3{
@@ -41,6 +44,9 @@ h3{
 h4{
   @include fontSize(17px);
   font-weight: bold;
+  @include breakpoint(fullHdDesktops) {
+    @include fontSize(25px);
+  }
 }
 
 h5{
@@ -201,7 +207,9 @@ button, input[type="submit"] {
   width: fit-content;
   cursor: pointer;
   @include transition();
-
+  @include breakpoint(fullHdDesktops) {
+    @include fontSize(25px);
+  }
   &:hover{            
     transform: scale(1.1);
     @include transition();

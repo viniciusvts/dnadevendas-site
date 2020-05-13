@@ -6,12 +6,12 @@
     background: white;
     p {
         color: $golden;
-    }
+     }
     h3{
         font-size: 30px;
         margin-top: 0;
         font-weight: 100;
-        color: $golden;
+        color: $baseColor;
         text-align: center;
     }
 
@@ -39,7 +39,9 @@
         height: 80px;
         transform: scale(1);
         @include transition();
-
+        @include breakpoint(fullHdDesktops) {
+            height: 100px;
+        }
         &:hover{
             transform: scale(1.1);
             @include transition();
@@ -51,6 +53,9 @@
         @include fontSize(15px);
         margin: 30px auto;
         text-transform: uppercase;
+        @include breakpoint(fullHdDesktops) {
+            @include fontSize(24px);
+        }
     }    
 }
 #icons-area {
@@ -61,5 +66,10 @@
         &:hover {
             transform: scale(1);
         }
+    }
+}
+.f-small {
+    p {
+        color: $pink-fsmall;
     }
 }

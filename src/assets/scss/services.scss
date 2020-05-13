@@ -18,6 +18,9 @@
                 display: block;
                 margin: 0 auto;
                 cursor: pointer;
+                @include breakpoint(fullHdDesktops) {
+                    font-size: 20px;
+                }
             }
         }
     }
@@ -48,13 +51,18 @@
         box-shadow: 5px 5px 10px rgba(0,0,0,.08);
         height: 250px;
         @include transition();
-
+        @include breakpoint(fullHdDesktops) {
+            height: 270px;
+        }
         &:hover{
             @include transition();
             height: 40%;
             @include breakpoint(hdDesktops){
                 @include transition();
                 height: 100%;
+            }
+            @include breakpoint(fullHdDesktops) {
+                height: 50%;
             }
             p{
                 height: 100%;
@@ -96,6 +104,9 @@
             overflow-y: hidden;
             height: 140px;
             @include transition();
+            @include breakpoint(fullHdDesktops) {
+                font-size: 20px;
+            }
         }
 
         h3{
@@ -105,6 +116,9 @@
             color: $golden;
             font-weight: bold;
             margin-bottom: 0px;
+            @include breakpoint(fullHdDesktops) {
+                @include fontSize(35px);
+            }
         }
     }
 

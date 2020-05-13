@@ -19,7 +19,10 @@
         position: relative;
         animation-name: enterLeft;
         animation-duration: 2s;
-
+        @include breakpoint(fullHdDesktops) {
+            line-height: 70px;
+            @include fontSize(50px);
+        }
         @include breakpoint(tablets){
             @include fontSize(40px);
             line-height: 50px;
@@ -78,7 +81,9 @@
         position: absolute;
         z-index: 9;
         text-transform: uppercase;
-        
+        @include breakpoint(fullHdDesktops) {
+            bottom: 60px;
+        }
         @include breakpoint(smartphones){
            display: none;
         }

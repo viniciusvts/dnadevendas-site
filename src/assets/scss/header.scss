@@ -81,9 +81,14 @@ header{
         height: 100%;
         padding: 20px 16px;
         cursor: pointer;
-
+        @include breakpoint(fullHdDesktops) {
+          font-size: 20px;
+        }
         span{
           font-size: 10px;
+          @include breakpoint(fullHdDesktops) {
+            font-size: 20px;
+          }
         }
 
         @include breakpoint(largeDesktops){
@@ -121,9 +126,15 @@ header{
         img{
           width: 20px;
           margin: 0 5px;
+          @include breakpoint(fullHdDesktops) {
+            width: 25px;
+          }
         }
         p{
           @include fontSize(16px);
+          @include breakpoint(fullHdDesktops) {
+            @include fontSize(20px);
+          }
         }
       }
     }
@@ -136,7 +147,9 @@ header{
       width: 90px;
       margin: 0 auto;
       @include transition();
-
+      @include breakpoint(fullHdDesktops) {
+        width: 120px;
+      }
       &:hover{            
         transform: scale(1.1);
         @include transition();
