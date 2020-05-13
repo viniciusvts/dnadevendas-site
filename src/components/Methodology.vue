@@ -11,8 +11,8 @@
                     <span>{{index + 1}}</span>
                     <h3>{{methodology.titulo}}</h3>
                     
-                    <ul v-for="(text, index) in methodology.textos" :key="index">
-                        <li>{{text.texto}}</li>
+                    <ul>
+                        <li v-for="(text, index) in methodology.textos" :key="index">{{text.texto}}</li>
                     </ul>
                 </div>
             </div> 
