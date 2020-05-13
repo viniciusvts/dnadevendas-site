@@ -39,7 +39,7 @@
       </div>
 
 
-        <div class="controllers container">
+        <div class="controllers">
           <div class="control" id="next">
             <div class="svg">
               <img src="../assets/svg/big-arrow.svg" alt="Avança">
@@ -70,6 +70,8 @@ export default {
     setTimeout(() => {
       if(screen.width < 800) {
         this.controllers('mobile')
+      } else if (screen.width > 1919) {
+        this.controllers('fullHdDesktop')
       } else {
         this.controllers('desktop')
       }
@@ -85,6 +87,9 @@ export default {
         case 'desktop':
           itens = 6;
           break;
+          case 'fullHdDesktop':
+            itens = 9;
+            break;
       }
       if(this.obj.onde_palestrou.length > itens) {
         const images = document.getElementsByClassName('images');
@@ -151,6 +156,10 @@ export default {
 .controllers {
   width: 100vw;
   position: relative;
+  @include breakpoint(fullHdDesktops) {
+    width: unset;
+    height: 10px;
+  }
   .control {
     display: none;
     border-top: 1px solid $baseColor;
@@ -159,10 +168,19 @@ export default {
     width: 30px;
     height: 30px;
     padding: 5px 0px;
+    @include breakpoint(fullHdDesktops) {
+      width: 50px;
+      height: 50px;
+      padding: 5px 0px;
+    }
     cursor: pointer;
     img {
       width: 30px;
       height: 17px;
+      @include breakpoint(fullHdDesktops) {
+        width: 48px;
+        height: 38px;
+      }
     }
     &#next {
       position: absolute;
@@ -170,6 +188,10 @@ export default {
       right: -45px;
       @include breakpoint(smartphones) {
         right: 25px;
+      }
+      @include breakpoint(fullHdDesktops) {
+        right: -65px;
+        top: -77px;
       }
     }
     &#back {
@@ -179,6 +201,10 @@ export default {
       transform: rotateY(180deg);
       @include breakpoint(smartphones) {
         left: 10px;
+      }
+      @include breakpoint(fullHdDesktops) {
+        left: -22px;
+        top: -77px;
       }
     }
   }
@@ -203,7 +229,8 @@ export default {
         margin: auto;
         object-fit: contain;
         @include breakpoint(fullHdDesktops) {
-          object-fit: cover;
+          width: 193px;
+          height: 100px;
         }
       }
     }
