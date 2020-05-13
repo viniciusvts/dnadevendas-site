@@ -1,3 +1,6 @@
+@import 'variables.scss';
+@import 'breakpoint.scss';
+
 footer{
     color: white;    
     background-image: url('../assets/bg-roger.jpg');
@@ -15,13 +18,22 @@ footer{
     .footer{
         h3{
             font-weight: bold;
+            @include breakpoint(fullHdDesktops) {
+                font-size: 27px;
+            }
         }
         p{
             margin-bottom: 18px;
+            @include breakpoint(fullHdDesktops) {
+                font-size: 24px;
+            }
         }
 
         a{
             color: white;
+            @include breakpoint(fullHdDesktops) {
+                font-size: 24px;
+            }
             @include transition();
             &:hover{
                 color: $spotlight;
@@ -59,6 +71,9 @@ footer{
             margin-top: 40px;
             p{
                 font-size: 16px;
+                @include breakpoint(fullHdDesktops) {
+                    font-size: 20px;
+                }
             }
         }
 

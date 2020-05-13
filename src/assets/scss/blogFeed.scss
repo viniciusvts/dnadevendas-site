@@ -1,3 +1,6 @@
+@import 'variables.scss';
+@import 'breakpoint.scss';
+
 .feedblog{
     color: white;
 
@@ -76,6 +79,9 @@
                     text-transform: uppercase;
                     margin-bottom: 30px;
                     line-height: 30px;
+                    @include breakpoint(fullHdDesktops) {
+                        font-size: 23px;
+                    }
                 }
             }
 
@@ -90,6 +96,9 @@
                     p{
                         padding: 10px;
                         line-height: 20px;
+                        @include breakpoint(fullHdDesktops) {
+                            font-size: 23px;
+                        }
                     }
                     img{
                         border-radius: 50px;

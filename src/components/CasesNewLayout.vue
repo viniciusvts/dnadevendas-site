@@ -104,6 +104,12 @@ export default {
         height: 240px;
         width: 100%;
       }
+      @include breakpoint(fullHdDesktops) {
+        left: 77px;
+        height: 553px;
+        width: 881px;
+        top: 93px;
+      }
     }
   }
   #veja-mais {
@@ -127,6 +133,11 @@ export default {
       @include breakpoint(smartphones) {
         display: none;
       }
+      @include breakpoint(fullHdDesktops) {
+        bottom: 40px;
+        height: 15px;
+        width: 15px;
+      }
     }
   }
   #logos-field {
@@ -136,6 +147,12 @@ export default {
     @include breakpoint(smartphones) {
       margin: 0;
       margin-top: 20px;
+    }
+    @include breakpoint(fullHdDesktops) {
+      margin-top: 370px;
+      p {
+        font-size: 40px;
+      }
     }
   }
   .list-item {
@@ -155,6 +172,11 @@ export default {
       transform: scale(1);
       width: 100px;
       height: 50px;
+      @include breakpoint(fullHdDesktops) {
+        width: 160px;
+        height: auto;
+        margin-top: 30px;
+      }
       &:hover {
         transform: scale(1.1);
         transition-duration: .5s;
@@ -186,6 +208,9 @@ export default {
       left: -135px;
       @include breakpoint(smartphones) {
         display: none;
+      }
+      @include breakpoint(fullHdDesktops) {
+        height: 810px;
       }
     }
   }

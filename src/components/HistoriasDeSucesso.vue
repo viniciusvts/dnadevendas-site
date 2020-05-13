@@ -96,14 +96,23 @@ export default {
       @include breakpoint(smartphones) {
         padding: unset;
       }
+      @include breakpoint(fullHdDesktops) {
+        padding: 0 125px;
+      }
     }
     .card-historias {
         width: 300px;
         margin: auto auto auto;
         position: relative;
         margin-bottom: 20px;
+        @include breakpoint(fullHdDesktops) {
+          width: unset;
+        }
         .preenche {
           height: 165px;
+          @include breakpoint(fullHdDesktops) {
+            height: 217px;
+          }
         }
         .img-field-h {
           position: absolute;
@@ -113,6 +122,10 @@ export default {
           left: -10px;
           top: 10px;
           z-index: 0;
+          @include breakpoint(fullHdDesktops) {
+            width: 415px;
+            height: 217px;
+          }
         }
         img {
           width: 100%;
@@ -120,6 +133,9 @@ export default {
           object-fit: cover;
           position: absolute;
           z-index: 1;
+          @include breakpoint(fullHdDesktops) {
+            height: 217px;
+          }
         }
         .text-historia {
           padding-top: 10px;
