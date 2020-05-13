@@ -16,6 +16,6 @@
       @media (max-width: $hdDesktops)  { @content ; }
     }
     @else if $point == fullHdDesktops {
-      @media (max-width: $fullHdDesktops)  { @content ; }
+      @media (min-width: $fullHdDesktops)  { @content ; }
     }
   }
