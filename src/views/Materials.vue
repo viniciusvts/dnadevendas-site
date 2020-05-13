@@ -1,7 +1,7 @@
 <template>
     <section class="materials mt-5">
 
-        <div class="container">
+        <div class="container container-fhd">
                     <h1>Materiais</h1>
         <p>Aqui você encontrará vídeos, palestras, apresentações e
 outros materiais gratuitos sobre vendas. Baixe à vontade!</p>

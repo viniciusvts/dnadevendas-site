@@ -20,7 +20,7 @@
     </Spotlight>
     <PaginaCarregando v-else/>
 
-    <div class="container">
+    <div class="container container-fhd">
       <div id="banner-video">
         <img src="../assets/banner-video.png" alt="Imagem Banner Video">
         <h2>Por que escolher <span>nossas palestras?</span></h2>
@@ -60,13 +60,15 @@
         <span></span>
       </div>
       <div class="palestrantes-fotos">
-        <div class="row">
-          <div class="fotos-palestrantes" v-for="(fotos, index) in palestrantes" :key="index">
-            <div class="overlay-change"></div>
-            <img :src="fotos.foto.sizes.large" :alt="fotos.nome_palestrante">
-            <p>{{ fotos.nome_palestrante }}</p>
-            <span>{{ fotos.cargo }}</span>
-          </div>
+        <div class="scroll">
+          <ul>
+            <li class="fotos-palestrantes" v-for="(fotos, index) in palestrantes" :key="index">
+              <div class="overlay-change"></div>
+              <img :src="fotos.foto.sizes.large" :alt="fotos.nome_palestrante">
+              <p>{{ fotos.nome_palestrante }}</p>
+              <span>{{ fotos.cargo }}</span>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -146,6 +148,13 @@
     mounted(){
       this.getAcf();
       setTimeout(() => {
+        for(let i = 0; i < this.palestrantes.length; i++) {
+          if(this.palestrantes[i].onde_palestrou.length > 6) {
+            console.log('maior');
+          } else {
+            console.log('menor');
+          }
+        }
         this.setActive();
         if(this.transferData == null) {
           this.transferData = this.palestrantes[1];

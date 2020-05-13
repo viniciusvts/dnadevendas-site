@@ -4,7 +4,7 @@
             <h2>Diferenciais</h2>
             <span></span>
         </div>  
-        <div class="container">
+        <div class="container container-fhd">
             <div class="row">
                 <div class="col-sm-12 col-md-4" v-for="(diferenciais, index) in diferentials.diferenciais.slice(0,6)" :key="index">
                     <div class="row blue-box" @click="changeDestaq(diferenciais)">
