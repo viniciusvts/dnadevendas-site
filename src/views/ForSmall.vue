@@ -29,22 +29,22 @@
               </div>
 
               <div class="row" id="icons-area">
-                <div class="col-md-3 pillar">
+                <div class="col-md-3 pillar f-small">
                     <img src="@/assets/newarrow.png" alt="Processo">
                     <p>Processos de venda bem definidos</p>
                 </div>
 
-                <div class="col-md-3 pillar">
+                <div class="col-md-3 pillar f-small">
                     <img src="@/assets/newbigarrow.png" alt="Gestão">
                     <p>Funil de vendas e gatilhos personalizados</p>
                 </div>
 
-                <div class="col-md-3 pillar">
+                <div class="col-md-3 pillar f-small">
                     <img src="@/assets/handgroup.png" alt="Tecnologia">
                     <p>Equipe de vendas capacitada</p>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-3 f-small">
                     <img src="@/assets/newgraphic.png" alt="Pessoas">
                     <p>Resultados previsíveis e crescentes</p>                
                 </div>
