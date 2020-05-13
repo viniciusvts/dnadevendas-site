@@ -62,6 +62,10 @@ export default {
       }
       p {
         font-size: 14px;
+        @include breakpoint(fullHdDesktops) {
+          font-size: 30px;
+          line-height: 40px;
+        }
       }
     }
   }

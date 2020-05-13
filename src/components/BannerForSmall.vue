@@ -36,6 +36,10 @@ export default {
         width: unset;
         bottom: 0;
       }
+      @include breakpoint(fullHdDesktops) {
+        width: 1100px;
+        right: -300px;
+      }
     }
     h2 {
       font-size: 25px;
@@ -43,6 +47,10 @@ export default {
       width: 400px;
       @include breakpoint(smartphones) {
         width: unset;
+      }
+      @include breakpoint(fullHdDesktops) {
+        font-size: 35px;
+        width: 470px;
       }
       span {
         color: $pink-fsmall;
@@ -78,11 +86,11 @@ export default {
     45%   {content: '35 s'}
     50%   {content: '35'}
     45%   {content: '3'}
-    50%   {content: 'E'}
-    60%   {content: 'Eai'}
-    70%   {content: 'Eai ti'}
-    80%   {content: 'Eai tio '}
-    90%   {content: 'Eai tio bel'}
-    100%   {content: 'Eai tio beleza?'}
+    50%   {content: '35 '}
+    60%   {content: '35 seg'}
+    70%   {content: '35 segment'}
+    80%   {content: '35 segmento'}
+    90%   {content: '35 segmentos'}
+    100%   {content: '35 segmentos'}
   }
 </style>
