@@ -16,9 +16,27 @@
                             <br>
                             <span class="full-price">R$ 7.850</span>
                         </th>
-                        <th class="head-table pro">Professional</th>
-                        <th class="head-table prod">Productivity</th>
-                        <th class="head-table str">Strategic</th>
+                        <th class="head-table pro">
+                            <span><p>Professional</p></span>
+                            <br>
+                            <span class="price">4X DE R$ 5.000,00</span>
+                            <br>
+                            <span class="full-price">R$20.000</span>
+                        </th>
+                        <th class="head-table prod">
+                            <span><p>Productivity</p></span>
+                            <br>
+                            <span class="price">5X DE R$ 7.000,00</span>
+                            <br>
+                            <span class="full-price">R$35.000</span>
+                        </th>
+                        <th class="head-table str">
+                            <span><p>Strategic</p></span>
+                            <br>
+                            <span class="price">5X DE R$ 10.000,00</span>
+                            <br>
+                            <span class="full-price">R$50.000</span>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -157,6 +175,11 @@ export default {
         // border-collapse: collapse;
         border-collapse: 1px;
         position: relative;
+        tr {
+            @include breakpoint(fullHdDesktops) {
+                font-size: 25px;
+            }
+        }
         tbody tr:nth-child(even){
             background:#e2e2e2 !important;
             transition-duration: .5s;
@@ -190,6 +213,10 @@ export default {
             @include breakpoint(smartphones){
                 min-width: 210px;
             }
+            @include breakpoint(fullHdDesktops) {
+                width: 270px;
+                padding: 30px 0px;
+            }
             &.sm {
                 background-color: rgba(145, 147, 162, 1);
             }
@@ -213,6 +240,9 @@ export default {
             // border-bottom: 1px solid grey;
             text-align: center;
             padding: 5px 10px;
+            @include breakpoint(fullHdDesktops) {
+                font-size: 25px;
+            }
         }
         .item-row {
             text-align: center;
@@ -228,6 +258,10 @@ export default {
             &.yes {
                 position: relative;
                 padding-bottom: 5px;
+                @include breakpoint(fullHdDesktops) {
+                    padding-bottom: 10px;
+                    padding-right: 15px;
+                }
                 &::after {
                     position: absolute;
                     content: '';
@@ -236,6 +270,10 @@ export default {
                     transform: rotate(-45deg);
                     border-left: 2px solid #f678b1;
                     border-bottom: 2px solid #f678b1;
+                    @include breakpoint(fullHdDesktops) {
+                        height: 10px;
+                        width: 20px;
+                    }
                 }
             }
         }
