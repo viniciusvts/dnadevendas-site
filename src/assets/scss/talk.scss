@@ -386,6 +386,9 @@
   .palestrantes-fotos {
       max-width: 100vw;
       position: relative;
+      @include breakpoint(fullHdDesktops) {
+        margin-bottom: 50px;
+      }
         @include breakpoint(smartphones) {
             overflow-x: visible;
             max-width: unset;
