@@ -12,6 +12,9 @@
     @else if $point == largeDesktops {
       @media (max-width: $largeDesktops)  { @content ; }
    }
+   @else if $point == largeDesktops-1280 {
+    @media (max-width: $largeDesktops-1280)  { @content ; }
+ }
     @else if $point == hdDesktops {
       @media (max-width: $hdDesktops)  { @content ; }
     }
