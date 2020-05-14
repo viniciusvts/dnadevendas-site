@@ -61,7 +61,7 @@ const routes = [
     component: Categories
   },
   {
-    path: '/quem-somos',
+    path: '/sobre',
     name: 'About',
     component: About
   },
@@ -84,7 +84,7 @@ const routes = [
     path: '/blog/:slug',
     name: 'SingleBlog',
     component: SingleBlog,
-    props: {default: true, post: false}
+    props: {default: true, post: true}
   },
   {
     path: '/palestras-de-vendas',
@@ -107,7 +107,7 @@ const routes = [
     path: '/:slug',
     name: 'Page',
     component: Page,
-    props: true
+    props: {default: true, slug: true}
   }
 ]
 

@@ -43,11 +43,14 @@
     data() {
       return {
         posts: [],
-        message: 'Carregando Posts'
+        message: 'Carregando Posts',
+        pageId: 329,
+        page: null
       }
     },
     created() {
       this.initPosts();
+      this.getPage();
     },
     methods: {
       getPosts(args) {
@@ -73,6 +76,15 @@
           args['categories'] = this.$route.params.categories;
         }
         this.getPosts(args);
+      },
+      getPage(){
+        Api.getPagesById(this.pageId)
+        .then(resp => resp.json())
+        .then( json => {
+          this.post = json
+          this.$root.meta.title = this.post.yoast_title;
+          this.$root.meta.tags = this.post.yoast_meta;
+        })
       }
     },
     watch: {

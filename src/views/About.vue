@@ -139,8 +139,30 @@
 </template>
 
 <script>
+import Api from "@/services/ApiRest.js";
+
 export default {
-  name: "About"
+  name: "About",
+  data() {
+    return {
+      postId: 312,
+      post: null
+    }
+  },
+  mounted(){
+    this.getPost()
+  },
+  methods: {
+    getPost(){
+      Api.getPagesById(this.postId)
+      .then(resp => resp.json())
+      .then( json => {
+        this.post = json
+        this.$root.meta.title = this.post.yoast_title;
+        this.$root.meta.tags = this.post.yoast_meta;
+      })
+    }
+  }
 }
 </script>
 

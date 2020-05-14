@@ -118,6 +118,7 @@
   import SolicitarContato from '@/components/SolicitarContato.vue';
   import PaginaCarregando from '@/components/PaginaCarregando.vue';
   import CardSlider from '@/components/CardSlider.vue';
+  // import Api from "@/services/ApiRest.js"; 
 
   export default {
     name: "Talk",
@@ -143,10 +144,11 @@
         position: 2,
         componentKey: 2,
         transferData: null,
+        page: null
       }
     },
     mounted(){
-      this.getAcf();
+      this.getPage();
       setTimeout(() => {
         for(let i = 0; i < this.palestrantes.length; i++) {
           if(this.palestrantes[i].onde_palestrou.length > 6) {
@@ -161,7 +163,6 @@
           this.componentKey = 1;
         }
       }, 200);
-      this.$root.meta.title = "Dna de Vendas | Palestras de Venda";
     },
     watch: {
       position(val) {
@@ -170,8 +171,8 @@
       },
     },
     methods:{
-      getAcf(){
-        fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}`)
+      getPage(){
+        fetch(`https://www.dnadevendas.com.br/wp-json/wp/v2/pages/${this.pageID}`)
         .then(r => r.json())
         .then(r => {
         // this.customFields = r;
@@ -186,6 +187,9 @@
           imagem_banner: r.acf.imagem.sizes.medium_large,
         };
         this.banner = bannerData;
+        this.page = r;
+        this.$root.meta.title = this.page.yoast_title;
+        this.$root.meta.tags = this.page.yoast_meta;
         });
       },
       setActive() {

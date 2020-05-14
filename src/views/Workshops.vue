@@ -86,6 +86,7 @@
         pageID: 3140,
         bannerData: null,
         metricas: null,
+        post: null
       };
     },
     mounted() {
@@ -93,21 +94,23 @@
     },
     methods: {
       getAcf(){
-        fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}`)
-        .then(r => r.json())
-        .then(r => {
-          this.objecoes = r.acf.objecoes;
-          this.metricas = r.acf.metricas;
+        fetch(`https://www.dnadevendas.com.br/wp-json/wp/v2/pages/${this.pageID}`)
+        .then(resp => resp.json())
+        .then(json => {
+          this.post = json;
+          this.objecoes = json.acf.objecoes;
+          this.metricas = json.acf.metricas;
           const banner = {
-            chamada: r.acf.chamada,
-            cta: r.acf.cta,
-            imagem: r.acf.foto.url,
-            // imagem_banner: r.acf.imagem.sizes.medium_large,
-        };
-        this.bannerData = banner;
-        console.log(this.objecoes);
+            chamada: json.acf.chamada,
+            cta: json.acf.cta,
+            imagem: json.acf.foto.url,
+            // imagem_banner: json.acf.imagem.sizes.medium_large,
+          };
+          this.bannerData = banner;
+          this.$root.meta.title = json.yoast_title;
+          this.$root.meta.tags = json.yoast_meta;
         });
-      },
+      }
     },
   }
 </script>

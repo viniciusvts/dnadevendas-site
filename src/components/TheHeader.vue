@@ -19,10 +19,10 @@
             <div class="submenu">
               <ul>
                 <li>
-                  <router-link to="/quem-somos">Quem somos</router-link>
+                  <router-link :to="{name: 'About'}">Quem somos</router-link>
                 </li>
                 <li>
-                  <router-link to="/clientes">Clientes</router-link>
+                  <router-link :to="{name: 'Clients'}">Clientes</router-link>
                 </li>
               </ul>
             </div>
@@ -34,13 +34,13 @@
             <div class="submenu">
               <ul>
                 <li>
-                  <router-link to="/full-service">Consultoria de vendas Full Service</router-link>
+                  <router-link :to="{name: 'Page', params: { slug: 'full-service'}}">Consultoria de vendas Full Service</router-link>
                 </li>
                 <li>
-                  <router-link to="/vendas-training/">Consultoria de Vendas Trainning</router-link>
+                  <router-link :to="{name: 'Page', params: { slug: 'vendas-training'}}">Consultoria de Vendas Trainning</router-link>
                 </li>
                 <li>
-                  <router-link to="/consultoria-for-small/">Consultoria de Vendas para pequenas empresas (For Small)</router-link>
+                  <router-link :to="{name: 'ForSmall'}">Consultoria de Vendas para pequenas empresas (For Small)</router-link>
                 </li>
               </ul>
             </div>
@@ -52,30 +52,30 @@
             <div class="submenu">
               <ul>
                 <li>
-                  <router-link to="/fabrica-de-conteudo">Fábrica de Conteúdo</router-link>
+                  <router-link :to="{name: 'Page', params: { slug: 'fabrica-de-conteudo'}}">Fábrica de Conteúdo</router-link>
                 </li>
                 <li>
-                  <router-link to="/treinamento-de-vendas">Treinamento de Vendas</router-link>
+                  <router-link :to="{name: 'Page', params: { slug: 'treinamento-de-vendas'}}">Treinamento de Vendas</router-link>
                 </li>
                 <li>
-                  <router-link to="/programas-de-liderança">Programas de Liderança</router-link>
+                  <router-link :to="{name: 'Page', params: { slug: 'programas-de-liderança'}}">Programas de Liderança</router-link>
                 </li>
                 <li>
-                  <router-link to="/formacao-de-trainees">Formação de Trainees</router-link>
+                  <router-link :to="{name: 'Page', params: { slug: 'formacao-de-trainees'}}">Formação de Trainees</router-link>
                 </li>
                 <li>
-                  <router-link to="/multiplicadores-internos">Multiplicadores Internos</router-link>
+                  <router-link :to="{name: 'Page', params: { slug: 'multiplicadores-internos'}}">Multiplicadores Internos</router-link>
                 </li>
               </ul>
             </div>
           </li>
 
           <li>
-            <router-link to="/palestras-de-vendas">Palestras</router-link>
+            <router-link :to="{name: 'Talk'}">Palestras</router-link>
           </li>
 
           <li>
-            <router-link to="/workshops">Workshops</router-link>
+            <router-link :to="{name: 'Workshops'}">Workshops</router-link>
           </li>
 
           <li>
@@ -84,20 +84,20 @@
             <div class="submenu">
               <ul>
                 <li>
-                  <router-link to="/o-melhor-blog-de-vendas">Blog</router-link>
+                  <router-link :to="{name: 'Blog'}">Blog</router-link>
                 </li>
                 <li>
-                  <router-link to="/materiais-de-vendas">Materiais</router-link>
+                  <router-link :to="{name: 'Materials'}">Materiais</router-link>
                 </li>
                 <li>
-                  <router-link to="/videos">Videos</router-link>
+                  <router-link :to="{name: 'Videos'}">Videos</router-link>
                 </li>
               </ul>
             </div>
           </li>
 
           <li>
-            <router-link to="/contato">Contato</router-link>
+            <router-link :to="{name: 'Contact'}">Contato</router-link>
           </li>
         </ul>    
         <div id="searchBtn">  

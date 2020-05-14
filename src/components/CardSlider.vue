@@ -28,7 +28,7 @@
               <span></span>
             </div>
             <div class="text destaq-text" :class="{'rtl':isImpar,'pl-30':isImpar, 'pr-50':!isImpar}" v-html="objection.texto"></div>
-            <router-link to="/contato" :class="{'pl-50':isImpar, 'pr-50':!isImpar}">
+            <router-link :to="{name: 'Contact'}" :class="{'pl-50':isImpar, 'pr-50':!isImpar}">
               <button> Solicite uma proposta </button>
             </router-link>
           </div>

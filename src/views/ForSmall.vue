@@ -69,7 +69,7 @@
 </template>
 
 <script>
-
+    import Api from "@/services/ApiRest.js";
     import Spotlight from '@/components/Spotlight.vue';
     import Pillars from '@/components/Pillars.vue';
     import Cases from '@/components/CasesNewLayout.vue';
@@ -97,9 +97,24 @@
     mixins: [ClassButton],
     data() {
       return {
-        classButton: null,
-      };
+        postId: 2586,
+        post: null
+      }
     },
+    mounted(){
+      this.getPost()
+    },
+    methods: {
+      getPost(){
+        Api.getPagesById(this.postId)
+        .then(resp => resp.json())
+        .then( json => {
+          this.post = json
+          this.$root.meta.title = this.post.yoast_title;
+          this.$root.meta.tags = this.post.yoast_meta;
+        })
+      }
+    }
   }
 </script>
 
