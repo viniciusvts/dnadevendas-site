@@ -36,6 +36,9 @@ export default {
         width: unset;
         bottom: 0;
       }
+      @include breakpoint(largeDesktops-1280) {
+        right: -73px;
+      }
       @include breakpoint(fullHdDesktops) {
         width: 1100px;
         right: -300px;

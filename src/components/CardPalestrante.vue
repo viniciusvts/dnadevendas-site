@@ -72,6 +72,8 @@ export default {
         this.controllers('mobile')
       } else if (screen.width > 1919) {
         this.controllers('fullHdDesktop')
+      } else if(screen.width >= 1119 && screen.width < 1300) {
+        this.controllers('largeDesktop')
       } else {
         this.controllers('desktop')
       }
@@ -89,6 +91,9 @@ export default {
           break;
           case 'fullHdDesktop':
             itens = 9;
+            break;
+            case 'largeDesktop':
+            itens = 5;
             break;
       }
       if(this.obj.onde_palestrou.length > itens) {
@@ -154,7 +159,6 @@ export default {
 @import '@/assets/scss/variables.scss';
 @import '@/assets/scss/breakpoint.scss';
 .controllers {
-  width: 100vw;
   position: relative;
   @include breakpoint(fullHdDesktops) {
     width: unset;
@@ -230,6 +234,11 @@ export default {
         object-fit: contain;
         @include breakpoint(fullHdDesktops) {
           width: 193px;
+          height: 100px;
+        }
+        @include breakpoint(largeDesktops-1280) {
+          width: 220px;
+          max-width: 220px !important;
           height: 100px;
         }
       }

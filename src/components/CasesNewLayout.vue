@@ -110,6 +110,9 @@ export default {
         width: 881px;
         top: 93px;
       }
+      @include breakpoint(largeDesktops-1280) {
+        left: -64px;
+      }
     }
   }
   #veja-mais {
