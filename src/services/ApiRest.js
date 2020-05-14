@@ -93,6 +93,20 @@ const apiRest = {
     }
     return fetch(url);
   },
+
+  /**
+   * Resgata informações do acf
+   * @param {Number} id - id da página
+   * @param {String} field - dado do acf que se deseja obter
+   * @author Vinicius de Santana
+   */
+  getPostsAcfData(id, field) {
+    if (typeof id == 'undefined') throw new TypeError("O parametro id é obrigatório");
+    let url = baseURL + 'api/wp-json/acf/v3/pages/';
+    url += id +"/";
+    if (typeof field != 'undefined') url += field +"/";
+    return fetch(url);
+  },
   
   /**
    * retorna as meta tags globais do site

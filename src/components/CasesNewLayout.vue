@@ -25,6 +25,8 @@
 
 <script>
 import cardCase from './CaseCard.vue';
+import Api from '@/services/ApiRest.js';
+
 export default {
   name: 'cases-sec',
   components: {
@@ -45,10 +47,6 @@ export default {
     this.getCases();
     // const ctx = this;
     setTimeout(() => {
-      if(this.transferData == null) {
-        this.transferData = this.cases.case[1];
-        this.componentKey = 1;
-      }
       const list = document.getElementsByClassName('list-item')
       for (let i = 0; i < list.length; i++) {
         list[i].classList.add('square')
@@ -65,10 +63,12 @@ export default {
   methods: {
     getCases() {
       const ctx = this;
-      fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${ctx.pageID}/case`)
+      Api.getPostsAcfData(this.pageID, 'case')
         .then(r => r.json())
         .then(r => {
           ctx.cases = r;
+          this.transferData = this.cases.case[1];
+          this.componentKey = 1;
       })
     },
     setActive() {

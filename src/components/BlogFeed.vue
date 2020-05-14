@@ -7,17 +7,17 @@
             <div class="row">
                 <div v-for="(post, index) in posts" class="col-md-4" :key="index">
                     <div class="top">
-                        <img src="https://www.dnadevendas.com.br/wp-content/uploads/consultoria-online-de-vendas.jpg" alt="">
+                        <img :src="post.DNA_custom.thumb.large" alt="Imagem destaque do post">
                         <div class="bottom">
                             <h3>{{post.title.rendered}}</h3>
                             <div class="signature">
                             <div class="author">
-                                <img v-bind:src="post.link" alt="">
-                                <p>Lucia Haracemiv</p>
+                                <img :src="post.DNA_custom.author.thumb[48]" alt="Imagem do autor">
+                                <p>{{post.DNA_custom.author.name}}</p>
                             </div>
                             <div class="views">
-                                <span>200</span>
-                                <img src="@/assets/svg/book.svg" alt="">
+                                <span>{{post.DNA_custom.views}}</span>
+                                <img src="@/assets/svg/book.svg" alt="livro">
                             </div>
                             </div>
                         </div>
@@ -34,6 +34,7 @@
 
 <script>
     import BlogFilter from "@/components/BlogFilter.vue";
+    import Api from "@/services/ApiRest.js";
 
     export default {
         name: 'Feedblog',
@@ -47,7 +48,9 @@
         },
         methods:{
             getPosts(){
-                fetch("https://www.dnadevendas.com.br/wp-json/wp/v2/posts/?per_page=3")
+                let args = []
+                args['per_page'] = 3
+                Api.getPosts(args)
                 .then(r => r.json())
                 .then(r => {
                     this.posts = r;
