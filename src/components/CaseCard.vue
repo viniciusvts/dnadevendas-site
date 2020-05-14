@@ -1,11 +1,11 @@
 <template>
     <div class="card-case row">
-      <div class="col-sm-12 col-md-9 img-field">
+      <div class="col-sm-12 col-md-9 img-field out-l">
         <img class="img-notebook" src="../assets/img-notebook-alpha.png" alt="bg">
         <!-- <div class="overlay-video"></div> -->
         <div class="iframe" v-html="obj.video"></div>
       </div>
-      <div class="col-sm-12 col-md-3 content-client">
+      <div class="col-sm-12 col-md-3 content-client out-r">
         <div class="infos">
           <img :src="obj.logo.url" alt="Logo empresa"/>
           <h2 :class="[pink]">
@@ -30,12 +30,44 @@ export default {
       pink: null,
     };
   },
+  mounted() {
+    this.elementScroll();
+  },
+  methods: {
+    elementScroll() {
+      document.getElementsByTagName('body')[0].setAttribute('style', 'overflow-x:hidden');
+      const img = document.getElementsByClassName('img-field');
+      const content = document.getElementsByClassName('content-client');
+      window.addEventListener('scroll', () => {
+        if(window.scrollY > 1700) {
+          img[0].classList.remove('out-l');
+          content[0].classList.remove('out-r');
+        } else {
+          img[0].classList.add('out-l');
+          content[0].classList.add('out-r');
+        }
+      })
+    },
+  },
 };
 </script>
 
 <style lang="scss">
   @import '@/assets/scss/variables.scss';
   @import '@/assets/scss/breakpoint.scss';
+  .out-l {
+    transform: translateX(-100px);
+    opacity: .5;
+    transition-duration: .5s;
+  }
+  .out-r {
+    transform: translateX(100px);
+    opacity: .5;
+    transition-duration: .5s;
+  }
+  .img-field, .content-client {
+    transition-duration: .5s;
+  }
   .overlay-video {
     position: absolute;
     left: -40px;
