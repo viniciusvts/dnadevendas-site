@@ -6,6 +6,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div v-for="(post, index) in posts" class="col-md-4" :key="index">
+                  <router-link :to="{ name: 'SingleBlog', params: { slug: post.slug, post: post } }">
                     <div class="top">
                         <img :src="post.DNA_custom.thumb.large" alt="Imagem destaque do post">
                         <div class="bottom">
@@ -22,6 +23,7 @@
                             </div>
                         </div>
                     </div>
+                    </router-link>
                 </div>
             </div>
         </div>
