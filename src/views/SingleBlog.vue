@@ -5,7 +5,7 @@
           <div class="col-1">
           </div>
 
-          <div v-if="post" class="col-8 content">
+          <div v-if="post" class="col-sm-12 col-md-8 content">
             <div class="thumbnail">
               <img :src="post.DNA_custom.thumb.large" alt="">
             </div>
@@ -18,9 +18,9 @@
             <article v-html="post.content.rendered"></article>
           </div>
 
-          <div v-else class="col-8 content">{{message}}</div>
+          <div v-else class="col-sm-12 col-md-8 content">{{message}}</div>
 
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-12">
             <Sidebar/>
           </div>
       </div>

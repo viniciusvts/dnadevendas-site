@@ -84,6 +84,9 @@ header{
         @include breakpoint(fullHdDesktops) {
           font-size: 20px;
         }
+        @include breakpoint(largeDesktops-1280) {
+          padding: 20px 10px;
+        }
         span{
           font-size: 10px;
           @include breakpoint(fullHdDesktops) {
