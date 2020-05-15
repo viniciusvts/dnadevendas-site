@@ -47,6 +47,7 @@ export default {
             .then(r => r.json())
             .then(r => {
             this.diferentials = r;
+            this.changeDestaq(this.diferentials.diferenciais[0]);
             });
         },
         changeDestaq(diferenciais) {
