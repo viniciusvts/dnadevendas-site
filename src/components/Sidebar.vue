@@ -10,7 +10,10 @@
                 <router-link :to="{ name: 'SingleBlog', params: { slug: post.post_name } }">
                     <div class="row no-gutters">
                         <div class="left col-auto"><img :src="post.DNA_custom.thumb.medium" alt=""></div>
-                        <div class="right col">{{post.post_title}}</div>
+                        <div class="right col">{{post.post_title}}
+                            <br/>
+                            <p class="date-grey">{{ post.to_ping }}</p>
+                        </div>
                     </div>   
                 </router-link>
             </div>
@@ -87,6 +90,10 @@
                 })
                 .then(json=>{
                     this.mostViewedPosts = json;
+                    for(let i = 0; i < this.mostViewedPosts.length; i++) {
+                        const split = this.mostViewedPosts[i].post_date.split(' ');
+                        this.mostViewedPosts[i].to_ping = split[0];
+                    }
                 });
             },
             getCategories(){

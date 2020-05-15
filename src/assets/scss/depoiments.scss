@@ -3,6 +3,7 @@
 @import '@/assets/scss/breakpoint.scss';
 
 .depoiments{
+    position: relative;
     color: $baseColor;
     background-color: #f3f3f3;
     // background-image: url("../assets/svg/graphism.svg");
@@ -11,42 +12,45 @@
     background-repeat: no-repeat;
 
     text-align: center;
-
-    &::before{
-        display: block;
-        position: absolute;
-        content: "";
-        background-image: url("../assets/svg/cases-vetor-right.svg");
-        background-attachment: fixed;
-        height: 860px;
-        width: 140px;
-        left: 0;
-        top: 0px;
-        z-index: 9;
-        transform: rotate(180deg);
-
-        @include breakpoint(tablets){
-            display: none;
-        }
+    .title {
+        margin-bottom: 100px;
     }
 
-    &::after{
-        display: block;
-        position: absolute;
-        content: "";
-        background-image: url("../assets/svg/cases-vetor-right.svg");
-        height: 800px;
-        width: 140px;
-        right: 0;
-        top: 300px;
-        z-index: 9;
-        transform: rotate(180deg);
-        background-position-x: 140px;
+    // &::before{
+    //     display: block;
+    //     position: absolute;
+    //     content: "";
+    //     background-image: url("../assets/svg/cases-vetor-right.svg");
+    //     background-attachment: fixed;
+    //     height: 860px;
+    //     width: 140px;
+    //     left: 0;
+    //     top: 0px;
+    //     z-index: 9;
+    //     transform: rotate(180deg);
 
-        @include breakpoint(tablets){
-            display: none;
-        }
-    }
+    //     @include breakpoint(tablets){
+    //         display: none;
+    //     }
+    // }
+
+    // &::after{
+    //     display: block;
+    //     position: absolute;
+    //     content: "";
+    //     background-image: url("../assets/svg/cases-vetor-right.svg");
+    //     height: 800px;
+    //     width: 140px;
+    //     right: 0;
+    //     top: 300px;
+    //     z-index: 9;
+    //     transform: rotate(180deg);
+    //     background-position-x: 140px;
+
+    //     @include breakpoint(tablets){
+    //         display: none;
+    //     }
+    // }
 
     .row{        
         margin: 40px auto;
@@ -59,10 +63,24 @@
 
     .box{
         color: white;
+        margin-top: 50px;
         .top{
+            &.golden {
+                &::before {
+                    background-image: url("../assets/aspas.png");
+                }
+            }
+            &.pink {
+                &::before {
+                    background-image: url("../assets/nova-aspas.png");
+                }
+            }
             background-color: #2E3152;
             padding: 80px 20px 40px 20px;
-            min-height: 510px;
+            min-height: 550px;
+            @include breakpoint(fullHdDesktops) {
+                min-height: 660px;
+            }
 
             @include breakpoint(tablets){
                 min-height: unset;
@@ -76,17 +94,19 @@
                 display: block;
                 position: absolute;
                 content: "";
-                background-image: url("../assets/nova-aspas.png");
                 background-size: 30px;
                 height: 28px;
                 width: 30px;
                 left:30px;
-                top: 20px;
+                top: 70px;
                 z-index: 9;
             }
         }
         .bottom{
             padding-bottom: 20px;
+            @include breakpoint(fullHdDesktops) {
+                min-height: 310px;
+            }
             img{
                 position: relative;
                 width: 90px;
@@ -118,5 +138,37 @@
                 }
             }
         }
+    }
+}
+.depoiments h5.pink {
+    color: $pink-fsmall;
+}
+.depoiments h5.golden {
+    color: $golden !important;
+}
+.line-deps {
+    height: 50px;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    position: absolute;
+    left: 0;
+    right: 0;
+    &.bottom {
+        bottom: 80px;
+    }
+    @include breakpoint(smartphones) {
+        display: none;
+    }
+}
+.line-center {
+    position: absolute;
+    width: 1px;
+    top: 115px;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+    background-color: grey;
+    @include breakpoint(smartphones) {
+        display: none;
     }
 }

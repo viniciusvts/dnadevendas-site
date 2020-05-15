@@ -4,8 +4,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="title">
-                        <h2><b>Conteúdos <br> direcionados</b> para você</h2>
-                        <span></span>
+                        <h2 id="blog-title"><b>Conteúdos direcionados ao seu interesse</b></h2>
                     </div>
                 </div>
 
@@ -15,7 +14,7 @@
                         <span></span>
                     </div>
                     <ul>
-                        <li v-for="cat in catGestores" :key="cat.id">
+                        <li class="filter-link" v-for="cat in catGestores" :key="cat.id">
                             <router-link :to="{ name: 'BlogCat', params: { cat: cat.slug, page: 1, categories: cat.id} }">
                                 {{cat.name}}
                             </router-link>
@@ -29,7 +28,7 @@
                         <span></span>
                     </div>
                     <ul>
-                        <li v-for="cat in catTimeVendas" :key="cat.id">
+                        <li class="filter-link" v-for="cat in catTimeVendas" :key="cat.id">
                             <router-link :to="{ name: 'BlogCat', params: { cat: cat.slug, page: 1, categories: cat.id} }">
                                 {{cat.name}}
                             </router-link>
@@ -43,7 +42,7 @@
                         <span></span>
                     </div>
                     <ul>
-                        <li v-for="cat in catTimeRH" :key="cat.id">
+                        <li class="filter-link" v-for="cat in catTimeRH" :key="cat.id">
                             <router-link :to="{ name: 'BlogCat', params: { cat: cat.slug, page: 1, categories: cat.id} }">
                                 {{cat.name}}
                             </router-link>

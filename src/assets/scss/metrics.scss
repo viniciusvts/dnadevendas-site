@@ -5,13 +5,14 @@
     background-color: white;
     text-align: center;
     span{
-        @include fontSize(50px);
-        font-weight: bold;
+        @include fontSize(35px);
+        font-weight: 500;
         color: $golden;
     }
 
     h3{
         @include fontSize(22px);
+        font-weight: 100;
     }
     img{
         max-width: 200px;

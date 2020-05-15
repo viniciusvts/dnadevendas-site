@@ -22,7 +22,7 @@
 
     <div class="container container-fhd">
       <div id="banner-video">
-        <img src="../assets/banner-video.png" alt="Imagem Banner Video">
+        <img src="../assets/alisson.jpg" alt="Imagem Banner Video">
         <h2>Por que escolher <span>nossas palestras?</span></h2>
       </div>
     </div>
@@ -73,9 +73,29 @@
       </div>
 
       <card-palestra :dataCase="transferData" :key="componentKey"></card-palestra>
-
+      <br>
+        <div class="row">
+          <div class="col-sm-12">
+            <p class="centered">
+              <router-link to="/contato">
+                <button>Solicite uma proposta</button>
+              </router-link>
+            </p>
+          </div>
+        </div>
     </section>
     <PaginaCarregando v-else/>
+
+
+    <section class="container">
+      <Metrics class="metrics row" v-if="metricas">
+        <div class="col-md-3 col-sm-12" v-for="(metric, index) in metricas" :key="index">
+          <img class="lazy" src="@/assets/loading.gif" :data-src="metric.icone.sizes.medium" :alt="metric.metrica">
+          <span>{{metric.metrica}}</span>
+          <h3>{{metric.titulo}}</h3>
+        </div>
+      </Metrics>
+    </section>
 
     <section class="themes" v-if="themes">
       <div class="title">
@@ -94,7 +114,7 @@
             <p>{{theme.tema}}</p>
           </div>
         </div>
-        <div class="col-12">
+        <div class="col-sm-12">
           <router-link to="/contato">
             <button>Solicite uma proposta</button>
           </router-link>
@@ -144,7 +164,8 @@
         position: 2,
         componentKey: 2,
         transferData: null,
-        page: null
+        page: null,
+        metricas: null,
       }
     },
     mounted(){
@@ -180,16 +201,18 @@
         this.palestrantes = r.acf.palestrante;
         this.objecoes = r.acf.objecoes;
         this.secao_pilares = r.acf.secao_pilares;
-        const bannerData = {
-          chamada: r.acf.chamada,
-          cta: r.acf.cta,
-          subtitulo: r.acf.subtitulo,
-          imagem_banner: r.acf.imagem.sizes.medium_large,
-        };
+        this.metricas = r.acf.metricas;
+        const bannerData = {};
+          bannerData.chamada = r.acf.chamada;
+          bannerData.cta = r.acf.cta;
+          bannerData.subtitulo = r.acf.subtitulo;
+          bannerData.imagem_banner = r.acf.imagem.sizes.medium_large;
         this.banner = bannerData;
         this.page = r;
         this.$root.meta.title = this.page.yoast_title;
         this.$root.meta.tags = this.page.yoast_meta;
+        this.transferData = this.palestrantes[1];
+        this.componentKey = 1;
         });
       },
       setActive() {

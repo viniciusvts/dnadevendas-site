@@ -4,15 +4,19 @@
     width: 100%;
     color: $baseColor;
     background: white;
+    margin: 30px 0;
     p {
         color: $golden;
      }
     h3{
-        font-size: 30px;
+        font-size: 21px;
         margin-top: 0;
         font-weight: 100;
         color: $baseColor;
-        text-align: center;
+        text-align: left;
+        @include breakpoint(fullHdDesktops) {
+            font-size: 32px;
+        }
     }
 
     .pillar{
@@ -50,7 +54,7 @@
 
     p{
         text-align: center;
-        @include fontSize(15px);
+        @include fontSize(13px);
         margin: 30px auto;
         text-transform: uppercase;
         @include breakpoint(fullHdDesktops) {

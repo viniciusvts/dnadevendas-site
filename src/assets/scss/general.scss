@@ -72,13 +72,22 @@ img {
 .container-flat{
   max-width: 1500px;
 }
-
-.title{  
+.centered {
+  text-align: center;
+}
+.inline {
+  display: inline-flex;
+  padding: 5px;
+}
+.title{ 
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 40px;
+  // @include breakpoint(fullHdDesktops) {
+  //   width: 370px;
+  // }
   
 
   h2{
@@ -101,6 +110,12 @@ img {
     width: 50px;
     display: block;
     position: relative;
+    @include breakpoint(fullHdDesktops) {
+      width: 60px;
+    }
+    @include breakpoint(smartphones) {
+      display: none;
+    }
     &::after{
       display: block;
       position: absolute;
@@ -112,12 +127,15 @@ img {
       right: 0px;
       top: 50%;
       z-index: 9;
+      @include breakpoint(fullHdDesktops) {
+        height: 3px;
+      }
     }
   }
 }
 
 section, .section{
-  padding: 90px;
+  padding: 50px 90px;
   position: relative;
   display: block;
 

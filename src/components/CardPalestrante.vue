@@ -3,7 +3,7 @@
     <div class="col-12 col-lg-6 col-sm-12">
       <div class="row video">
         <div class="col-12">
-          <div class="iframe" v-html="obj.video">
+          <div class="iframe-palestrante" v-html="obj.video">
           </div>
         </div>
         <!-- <div class="col-12">
@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-    <div class="col-12 portfolio">
+    <div class="col-sm-12 portfolio">
       <div class="row align-items-center">
         <div class="col-auto">
           <h4>Empresas que palestrou</h4>
@@ -141,17 +141,6 @@ export default {
       }
     }
   },
-  // methods: {
-  //   video() {
-  //     const iframe = document.getElementsByClassName('iframe');
-  //     const video = iframe[0].children[0]
-  //     const src = video.getAttribute('src');
-  //     let newSrc = src + '?enablejsapi=1';
-  //     video.setAttribute('id', 'video-palestrante');
-  //     video.removeAttribute('src');
-  //     video.setAttribute('src', newSrc);
-  //   },
-  // },
 }
 </script>
 

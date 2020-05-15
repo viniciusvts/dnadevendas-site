@@ -69,6 +69,17 @@ export default {
           ctx.cases = r;
           this.transferData = this.cases.case[1];
           this.componentKey = 1;
+          setTimeout(() => {
+            this.setActive();
+            const listA = document.getElementsByClassName('list-clientes');
+            for(let i = 0; i < listA.length; i++) {
+              listA[i].setAttribute('pos', i);
+              const positionList = listA[i].getAttribute('pos');
+              if(positionList == this.componentKey) {
+                listA[i].setAttribute('style', 'filter: grayscale(0);');
+              }
+            }
+          }, 500);
       })
     },
     setActive() {
@@ -79,10 +90,13 @@ export default {
         list[i].addEventListener('click', (el) => {
           const positionTarget = el.target.getAttribute('pos');
           ctx.position = parseInt(positionTarget);
+          list[i].setAttribute('style', 'filter: grayscale(0);');
+          for (let j = 0; j < list.length; j++) {
+            if(list[j].getAttribute('pos') != ctx.componentKey) {
+              list[j].removeAttribute('style');
+            }
+          }
         })
-        // setTimeout(() => {
-        //   list[list.length - 1].click();
-        // }, 500);
       }
     },
   },
@@ -146,13 +160,13 @@ export default {
   #logos-field {
     margin-top: 220px;
     text-align: center;
-    font-weight: 700;
+    font-weight: 100;
     @include breakpoint(smartphones) {
       margin: 0;
       margin-top: 20px;
     }
     @include breakpoint(fullHdDesktops) {
-      margin-top: 370px;
+      margin-top: 400px;
       p {
         font-size: 40px;
       }
@@ -162,6 +176,10 @@ export default {
     position: relative;
     margin-right: 100px;
     cursor: pointer;
+    img {
+      object-fit: cover;
+      filter: grayscale(1);
+    }
     @include breakpoint(smartphones) {
       margin-right: 0;
       img {

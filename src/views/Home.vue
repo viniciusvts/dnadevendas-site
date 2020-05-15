@@ -22,7 +22,7 @@
     <Pillars>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <h3>Melhoramos expressivamente os <b>resultados da sua empresa</b> através do alinhamento de:</h3>
                 </div>
 
@@ -67,15 +67,16 @@
       </div>
     </Services>
 
-    <Cases/>
+    <Methodology/>
 
     <Differential/>
 
+    <Cases/>
+
     <Clients/>
 
-    <Methodology/>
     
-    <Depoiments/>
+    <Depoiments color="golden"/>
     
     <BlogFeed/>
 

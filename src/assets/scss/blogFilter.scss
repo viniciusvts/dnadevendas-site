@@ -2,8 +2,26 @@
 @import 'breakpoint.scss';
 .blogFilter{
     color: $baseColor;
+    padding-top: 50px;
     .title{
         margin-bottom: 0;
+        #blog-title {
+            position: relative;
+            &::after{
+                content: '';
+                background: url("../assets/svg/big-arrow.svg") no-repeat center;
+                position: absolute;
+                z-index: 2;
+                height: 60px;
+                width: 60px;
+                background-size: contain;
+                right: 0;
+                top: 50px;
+                @include breakpoint(smartphones) {
+                    display: none;
+                }
+            }
+        }
     }
 
     ul{
@@ -23,17 +41,31 @@
         }
     }   
 }
-
+.filter-link {
+    a {
+        color: $baseColor;
+        @include transition();
+    }
+    &:hover{
+        background-color: white;
+        a {
+            color: white;
+            @include transition();
+        }
+    }
+}
 .defaultFilter{
     ul{
         li{
-            
+            background-color: white;
             border: 1px solid $baseColor;
             color: $baseColor;
             &:hover{
-                background-color: white;
-                color: $golden;
-                @include transition();
+                background-color: $baseColor;
+                a {
+                    color: white;
+                    @include transition();
+                }
             }
         }
     }
@@ -44,10 +76,12 @@
         li{
             color: $lightBase;
             border: 1px solid $lightBase;
-            &:hover{
-                background-color: $lightBase;
-                color: white;
-                @include transition();
+            a {
+                &:hover{
+                    background-color: $baseColor;
+                    color: white;
+                    @include transition();
+                }
             }
         }
     }

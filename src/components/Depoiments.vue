@@ -4,34 +4,38 @@
             <h2>Sentimento dos clientes</h2>
             <span></span>
         </div>  
-
+        <div class="line-deps"></div>
+        <div class="line-center"></div>
         <div class="container">
             <div class="row">
-                <div class="col col-md-12 col-lg-4" v-for="(depoiment, index) in depoiments.depoimentos.slice(0, 3)" :key="index">
+                <div class="col col-md-12 col-lg-4 card-depoiments" v-for="(depoiment, index) in depoiments.depoimentos.slice(0, 3)" :key="index">
                     <div class="box">
-                        <div class="top">
+                        <div :class="['top', thisColor]">
                             <p>{{depoiment.mensagem}}</p>
                         </div>
                         <div class="bottom">
                             <img :src="depoiment.foto" alt="">
                             <h3>{{depoiment.nome}}</h3>
                             <h4>{{depoiment.cargo}}</h4>
-                            <h5>{{depoiment.empresa}}</h5>
+                            <h5 :class="thisColor">{{depoiment.empresa}}</h5>
                         </div>
                     </div>
                 </div>
             </div> 
         </div>
+        <div class="line-deps bottom"></div>
     </div>
 </template>
 
 <script>
 export default {
     name: 'Depoiments',
+    props: ['color'],
     data(){
         return {
             pageID: 37,
-            depoiments: null
+            depoiments: null,
+            thisColor: this.color,
         }
     },
     created(){
