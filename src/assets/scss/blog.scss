@@ -30,3 +30,10 @@
 .mb-100px{
     margin-bottom: 100px;
 }
+.post-categorie {
+    &:hover {
+        background-color: #30546e;
+        color: white;
+        @include transition();
+    }
+}
