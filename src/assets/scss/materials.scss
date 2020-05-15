@@ -11,10 +11,25 @@
 
     h1, p{
         text-align: center;
+        color: $lightBase;
     }
 
     .card{
         margin-top: 40px;
         background-color: white;
+        .left{
+            &::after{
+                right: -10px;
+            }
+            img{
+                height: 180px;
+            }
+        }
+        .rigth{
+            min-height: 100px;
+        }
+    }
+    .h-90{
+        height: 90% !important;
     }
 }
