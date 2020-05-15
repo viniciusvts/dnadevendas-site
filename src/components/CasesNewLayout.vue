@@ -49,8 +49,13 @@ export default {
     setTimeout(() => {
       const list = document.getElementsByClassName('list-item')
       for (let i = 0; i < list.length; i++) {
-        list[i].classList.add('square')
-        list[list.length - 1].classList.remove('square')
+        if(this.$route.name == 'ForSmall') {
+          list[i].classList.add('square-pink')
+          list[list.length - 1].classList.remove('square-pink')
+        } else {
+          list[i].classList.add('square')
+          list[list.length - 1].classList.remove('square')
+        }
       }
     }, 200);
   },
@@ -142,6 +147,27 @@ export default {
       width: 8px;
       height: 8px;
       background-color: $golden-dark;
+      position: absolute;
+      z-index: 1;
+      right: -50px;
+      bottom: 15px;
+      transform: rotate(45deg);
+      @include breakpoint(smartphones) {
+        display: none;
+      }
+      @include breakpoint(fullHdDesktops) {
+        bottom: 40px;
+        height: 15px;
+        width: 15px;
+      }
+    }
+  }
+  .square-pink {
+    &::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background-color: $pink-fsmall;
       position: absolute;
       z-index: 1;
       right: -50px;
