@@ -24,6 +24,10 @@ $gold: #C8AC78;
             font-size: 20px;
             padding: 12px 10px;
         }
+        @include breakpoint(smartphones) {
+            font-size: 18px;
+            text-align: center;
+        }
     }
 
     img{
@@ -41,6 +45,7 @@ $gold: #C8AC78;
         min-width: 366px;
         @include breakpoint(smartphones) {
             margin: 20px 0;
+            min-width: 310px;
         }
         cursor: pointer;
         &:hover{
