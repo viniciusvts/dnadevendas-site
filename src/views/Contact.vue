@@ -83,7 +83,7 @@ export default {
           city: 'Rio de Janeiro',
           end: null,
           email: null,
-          telefone: '+55 (21) 4042-6965'
+          telefone: '+55 (21) 4042-5440'
         },
         {
           city: 'Salvador',
