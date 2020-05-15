@@ -25,7 +25,7 @@ export default {
     }
     img {
       position: absolute;
-      right: -95px;
+      right: -120px;
       top: 0;
       height: 500px;
       width: 950px;
@@ -41,7 +41,7 @@ export default {
       }
       @include breakpoint(fullHdDesktops) {
         width: 1100px;
-        right: -300px;
+        right: -385px;
       }
     }
     h2 {
