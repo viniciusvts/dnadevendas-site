@@ -31,15 +31,14 @@ export default {
     };
   },
   mounted() {
-    this.elementScroll();
+    // this.elementScroll();
   },
   methods: {
     elementScroll() {
-      document.getElementsByTagName('body')[0].setAttribute('style', 'overflow-x:hidden');
       const img = document.getElementsByClassName('img-field');
       const content = document.getElementsByClassName('content-client');
       window.addEventListener('scroll', () => {
-        if(window.scrollY > 1700) {
+        if(window.scrollY > 3000) {
           img[0].classList.remove('out-l');
           content[0].classList.remove('out-r');
         } else {
@@ -55,16 +54,22 @@ export default {
 <style lang="scss">
   @import '@/assets/scss/variables.scss';
   @import '@/assets/scss/breakpoint.scss';
-  .out-l {
-    transform: translateX(-100px);
-    opacity: .5;
-    transition-duration: .5s;
-  }
-  .out-r {
-    transform: translateX(100px);
-    opacity: .5;
-    transition-duration: .5s;
-  }
+  // .out-l {
+  //   transform: translateX(-100px);
+  //   opacity: .5;
+  //   transition-duration: .5s;
+  //   @include breakpoint(smartphones) {
+  //     transform: translateX(0);
+  //   }
+  // }
+  // .out-r {
+  //   transform: translateX(100px);
+  //   opacity: .5;
+  //   transition-duration: .5s;
+  //   @include breakpoint(smartphones) {
+  //     transform: translateX(0);
+  //   }
+  // }
   .img-field, .content-client {
     transition-duration: .5s;
   }
@@ -83,6 +88,14 @@ export default {
       position: absolute;
       top: 180px;
       left: -150px;
+      @include breakpoint(fullHdDesktops) {
+        top: 45px;
+      }
+      img {
+        width: 200px;
+        height: 100px;
+        object-fit: cover;
+      }
       @include breakpoint(smartphones) {
         position: unset;
       }
