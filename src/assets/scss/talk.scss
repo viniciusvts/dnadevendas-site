@@ -63,7 +63,7 @@
         z-index: 9;
 
         iframe{
-            margin-right: -80px;
+            // margin-right: -80px;
             position: relative;
             display: block;
         }
@@ -306,6 +306,9 @@
     margin-top: 50px;
     margin-bottom: 20px;
     position: relative;
+    height: 310px;
+    overflow-y: hidden;
+    box-shadow: grey 2px 2px 30px;
     h2 {
         position: absolute;
         top: 15px;
@@ -323,12 +326,16 @@
             top: 50px;
             margin-left: 50px;
             width: 600px;
-            font-size: 42px;
+            font-size: 40px;
         }
         @media (min-width: $fullHdDesktops){
-            font-size: 42px;
-            top: 90px;
+            font-size: 65px;
+            top: 150px;
             margin-left: 80px;
+            width: 830px;
+        }
+        @media (max-width: $smartphones) {
+            font-size: 28px;
         }
         span {
         font-weight: 600;
@@ -338,9 +345,21 @@
     img {
       object-fit: cover;
       box-shadow: grey 2px 2px 30px;
+      position: relative;
+      top: -106px;
       @include breakpoint(smartphones) {
           height: 201px;
       }
+      @include breakpoint(fullHdDesktops) {
+        max-width: 1700px;
+        position: relative;
+        top: -106px;
+      }
+    }
+    @include breakpoint(fullHdDesktops) {
+        height: 500px;
+        overflow-y: hidden;
+        box-shadow: grey 2px 2px 30px;
     }
   }
   .next {
@@ -350,7 +369,7 @@
   }
   .container-fhd {
       @include breakpoint(fullHdDesktops) {
-        max-width: 1310px;
+        max-width: 1700px;
       }
   }
   .scroll {
