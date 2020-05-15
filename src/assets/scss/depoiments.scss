@@ -59,6 +59,9 @@
     .col{
         max-width: 400px;
         margin: 0 auto 40px auto;
+        @include breakpoint(fullHdDesktops) {
+            max-width: 490px;
+        }
     }
 
     .box{
@@ -77,9 +80,9 @@
             }
             background-color: #2E3152;
             padding: 80px 20px 40px 20px;
-            min-height: 550px;
+            min-height: 440px;
             @include breakpoint(fullHdDesktops) {
-                min-height: 660px;
+                min-height: 530px;
             }
 
             @include breakpoint(tablets){
@@ -89,6 +92,10 @@
                 @include breakpoint(fullHdDesktops) {
                     font-size: 22px;
                 }
+                font-size: 13px;
+                line-height: 30px;
+                font-weight: 100;
+                font-style: italic;
             }
             &::before{
                 display: block;
@@ -114,7 +121,7 @@
                 border-radius: 70px;
                 margin: 0 auto;
                 object-fit: cover;
-                top: -20px;
+                top: -50px;
                 @include breakpoint(fullHdDesktops) {
                     width: 110px;
                     height: 110px;
@@ -133,6 +140,7 @@
 
             h5{
                 color: $spotlight;
+                font-weight: 100;
                 @include breakpoint(fullHdDesktops) {
                     font-size: 24px;
                 }
@@ -145,6 +153,9 @@
 }
 .depoiments h5.golden {
     color: $golden !important;
+}
+.depoiments .bottom.pink-bottom {
+    border-bottom: 10px solid $pink-fsmall;
 }
 .line-deps {
     height: 50px;

@@ -6,14 +6,14 @@
         </div>  
         <div class="line-deps"></div>
         <div class="line-center"></div>
-        <div class="container">
+        <div class="container container-fhd">
             <div class="row">
                 <div class="col col-md-12 col-lg-4 card-depoiments" v-for="(depoiment, index) in depoiments.depoimentos.slice(0, 3)" :key="index">
                     <div class="box">
                         <div :class="['top', thisColor]">
                             <p>{{depoiment.mensagem}}</p>
                         </div>
-                        <div class="bottom">
+                        <div :class="['bottom', thisColor + '-bottom']">
                             <img :src="depoiment.foto" alt="">
                             <h3>{{depoiment.nome}}</h3>
                             <h4>{{depoiment.cargo}}</h4>
