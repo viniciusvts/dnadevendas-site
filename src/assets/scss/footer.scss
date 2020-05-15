@@ -7,9 +7,12 @@ footer{
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    text-align: left;
+    text-align: center;
     z-index: 8;
     position: relative;
+    @media (min-width: $tablets){
+        text-align: left;
+    }
 
     .section{
         padding-bottom: 0px;
