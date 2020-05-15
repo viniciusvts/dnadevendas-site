@@ -1,6 +1,6 @@
 
 @import '@/assets/scss/variables.scss';
-$form-back-color: whitesmoke;
+$form-back-color: rgba(245, 245, 245, 0.657);
 .contact{
     color: $baseColor;    
     padding-top: 150px;
@@ -55,17 +55,17 @@ $form-back-color: whitesmoke;
             color: white;
         }
 
-        &::before{
-            display: block;
-            position: absolute;
-            content: "";
-            background-image: url("../assets/svg/cases-vetor-left.svg");
-            height: 92px;
-            width: 8px;
-            left: -30px;
-            top: 0;
-            z-index: 1;
-        } 
+        // &::before{
+        //     display: block;
+        //     position: absolute;
+        //     content: "";
+        //     background-image: url("../assets/svg/cases-vetor-left.svg");
+        //     height: 92px;
+        //     width: 8px;
+        //     left: -30px;
+        //     top: 0;
+        //     z-index: 1;
+        // } 
     }
     
     .flex-wrap{
@@ -95,17 +95,17 @@ $form-back-color: whitesmoke;
         display: block;
     }
 
-    &::after{
-        display: block;
-        position: absolute;
-        content: "";
-        background-image: url("../assets/svg/cases-vetor-right.svg");
-        height: 800px;
-        width: 190px;
-        right: 0;
-        top: 500px;
-        z-index: 1;
-    }
+    // &::after{
+    //     display: block;
+    //     position: absolute;
+    //     content: "";
+    //     background-image: url("../assets/svg/cases-vetor-right.svg");
+    //     height: 800px;
+    //     width: 190px;
+    //     right: 0;
+    //     top: 500px;
+    //     z-index: 1;
+    // }
     .buttons-row{
         button{
             margin: 30px 10px;
