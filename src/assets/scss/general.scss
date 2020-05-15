@@ -268,5 +268,8 @@ button, input[type="submit"] {
 .fsmall {
   color: $pink-fsmall !important;
 }
+.fsmall-btn {
+  background-color: $pink-fsmall !important;
+}
 
 @import 'animation.scss';
