@@ -4,7 +4,7 @@
       <div class="text section">
         <h1>Consultoria para pequenos times de vendas<b>com grandes ambições</b></h1>
         <p>Há mais de 12 anos aumentando a produtividade de vendas em mais de 35 segmentos</p>
-        <button :class="[classButton]">
+        <button class="fsmall-btn">
           <router-link to="/contato">
             Falar com um consultor
           </router-link>
@@ -102,7 +102,7 @@
       }
     },
     mounted(){
-      this.getPost()
+      this.getPost();
     },
     methods: {
       getPost(){
