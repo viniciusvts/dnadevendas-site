@@ -49,12 +49,11 @@ export default {
     setTimeout(() => {
       const list = document.getElementsByClassName('list-item')
       for (let i = 0; i < list.length; i++) {
+          list[i].classList.add('square')
+          list[list.length - 1].classList.remove('square')
         if(this.$route.name == 'ForSmall') {
           list[i].classList.add('square-pink')
           list[list.length - 1].classList.remove('square-pink')
-        } else {
-          list[i].classList.add('square')
-          list[list.length - 1].classList.remove('square')
         }
       }
     }, 200);
