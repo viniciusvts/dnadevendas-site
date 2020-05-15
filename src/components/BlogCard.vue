@@ -12,7 +12,7 @@
               <ul class="row">
                 <li v-for="cat in post.DNA_custom.categories.category" 
                 v-bind:key="cat.name"
-                class="mb-1">{{cat.name}}</li>
+                class="mb-1 post-categorie">{{cat.name}}</li>
               </ul>
             </div>
             <h2>{{post.title.rendered}}</h2>
