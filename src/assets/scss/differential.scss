@@ -21,7 +21,7 @@ $gold: #C8AC78;
         padding: 0 10px;
         margin: 0;
         @include breakpoint(fullHdDesktops) {
-            font-size: 27px;
+            font-size: 20px;
             padding: 12px 10px;
         }
     }
@@ -38,6 +38,7 @@ $gold: #C8AC78;
         background-color: $blue-dark;
         color: white;
         margin: 20px;
+        min-width: 366px;
         @include breakpoint(smartphones) {
             margin: 20px 0;
         }
