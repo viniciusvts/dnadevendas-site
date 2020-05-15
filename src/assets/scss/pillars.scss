@@ -35,6 +35,23 @@
                 display: none;
             }
         }
+        &.f-small {
+            &::before{
+                display: block;
+                position: absolute;
+                content: "";
+                height: 8px;
+                width: 8px;
+                right: 0;
+                top: 60px;
+                z-index: 9;
+                background-color: $pink-fsmall;
+                transform: rotate(45deg);
+                @include breakpoint(tablets){
+                    display: none;
+                }
+            }
+        }
     }
 
     img{
