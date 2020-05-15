@@ -19,40 +19,12 @@
       <img class="image" :src="bannerData.imagem" :alt="bannerData.chamada">
     </Spotlight>
 
-    <div  v-if="objecoes">
-      <div v-for="(objection, index) in objecoes" :key="index">
-        <section :class="[index % 2 == 0 ? '': 'talkDefault']">
-          <div class="container-fluid">
-            <div class="row align-items-center" :class="[index % 2 == 0 ? 'flex-row-reverse': '']">
-
-              <div class="col-md-1 d-none d-lg-block d-xl-block" v-if="objection.icone">
-                <img class="lazy mr-auto ml-auto" src="@/assets/loading.gif"  :data-src="objection.icone.sizes.normal" :alt="objection.icone.title">
-              </div>
-
-              <div class="col-md-5">
-                <div class="slider">
-                  <div class="slides">
-                    <img class="lazy" src="@/assets/loading.gif"  :data-src="objection.imagem[0].sizes.large" :alt="objection.objecao">
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="right">
-                  <div class="title">
-                    <h2>{{objection.objecao}}</h2>
-                    <span></span>
-                  </div>
-                  <div class="text" v-html="objection.texto"></div>
-                  <router-link to="/contato">
-                    <button> Solicite uma proposta </button>
-                  </router-link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+    <div v-if="objecoes">
+      <div v-for="(obj, index) in objecoes" :key="index">
+        <CardSlider :objection="obj" :index="index"/>
       </div>
-    </div> 
+    </div>
+    <PaginaCarregando v-else/>
     
     <section class="container">
       <Metrics class="metrics row" v-if="metricas">
@@ -73,12 +45,14 @@
 
   import Spotlight from '@/components/Spotlight.vue';
   import FaleConosco from '@/components/FaleConosco.vue';
+  import CardSlider from '@/components/CardSlider.vue';
 
   export default {
     name: "WorkShops",
     components: {
       Spotlight,
       'fale-conosco': FaleConosco,
+      CardSlider,
     },
     data() {
       return {
@@ -105,7 +79,6 @@
             // imagem_banner: r.acf.imagem.sizes.medium_large,
         };
         this.bannerData = banner;
-        console.log(this.objecoes);
         });
       },
     },
