@@ -36,7 +36,8 @@
       </Metrics>
     </section>
 
-    <fale-conosco></fale-conosco>
+    <!-- <fale-conosco></fale-conosco> -->
+    <sec-contact></sec-contact>
     
   </div>
 </template>
@@ -44,14 +45,16 @@
 <script>
 
   import Spotlight from '@/components/Spotlight.vue';
-  import FaleConosco from '@/components/FaleConosco.vue';
+  // import FaleConosco from '@/components/FaleConosco.vue';
   import CardSlider from '@/components/CardSlider.vue';
+  import SolicitarContato from '@/components/SolicitarContato.vue';
 
   export default {
     name: "WorkShops",
     components: {
       Spotlight,
-      'fale-conosco': FaleConosco,
+      // 'fale-conosco': FaleConosco,
+      'sec-contact': SolicitarContato,
       CardSlider,
     },
     data() {
