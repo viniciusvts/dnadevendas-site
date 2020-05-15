@@ -30,7 +30,7 @@ export default {
       height: 500px;
       width: 950px;
       @include breakpoint(smartphones) {
-        right: 10px;
+        right: 10px !important;
         top: unset;
         height: unset;
         width: unset;
