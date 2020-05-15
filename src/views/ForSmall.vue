@@ -59,7 +59,7 @@
     </Pillars>
     <Cases/>
     <hd-sucesso></hd-sucesso>
-    <Depoiments/>
+    <Depoiments color="pink"/>
     <Clients/>
     <pricing-table></pricing-table>
     <SolicitarContato></SolicitarContato>
