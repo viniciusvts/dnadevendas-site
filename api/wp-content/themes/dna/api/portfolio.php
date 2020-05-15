@@ -8,13 +8,19 @@ function dnaapi_get_portfolio($req){
   // pega os parametros
   $post_per_page = $req->get_param('post_per_page');
   $page = $req->get_param('page');
+  $orderby = $req->get_param('orderby');
+  $order = $req->get_param('order');
   // verifica se os parametros são válidos, senão, seta default
   $post_per_page = isset($post_per_page) ? $post_per_page : 10;
   $page = isset($page) ? $page : 1;
+  $orderby = isset($orderby) ? $orderby : 'date';
+  $order = isset($order) ? $order : 'desc';
   $args = array(
     'post_type' => 'portfolio',
     'posts_per_page' => $post_per_page,
-    'paged' => $page
+    'paged' => $page,
+    'orderby' => $orderby,
+    'order' => $order
   );
   $query = new WP_Query($args);
   $dataResp = array();
@@ -84,6 +90,31 @@ function dnaapi_register_portfolio(){
           'validate_callback' => 'dna_validate_isNumeric',
           'description' => 'Valor irá indicar qual página será entregue',
           'default' => 1
+        ),
+        'orderby' => array(
+          'required' => false,
+          'description' => 'Valor irá indicar a ordem dos resultados',
+          'default' => 'date',
+          'enum' => array(
+            'author',
+            'date',
+            'id',
+            'include',
+            'modified',
+            'parent',
+            'relevance',
+            'sluginclude_slugs',
+            'title'
+          ),
+          'order' => array(
+            'required' => false,
+            'description' => 'Valor irá indicar a ordem dos resultados',
+            'default' => 'desc',
+            'enum' => array(
+              'asc',
+              'desc'
+            )
+          )
         )
       )
     )

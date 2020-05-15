@@ -1,0 +1,87 @@
+@import '@/assets/scss/variables.scss';
+@import '@/assets/scss/mixins.scss';
+@import '@/assets/scss/materials.scss';
+@import '@/assets/scss/cards.scss';
+.videoCard{
+    position: absolute;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.active.videoCard{
+    position: relative;
+    opacity: 1; 
+    transform: scale(1);
+    @include transition(800ms ease all);
+}
+.videos{
+    .menu{
+        margin: 40px auto 20px auto;
+        text-align: center;
+        text-transform: uppercase;
+        padding-bottom: 10px;
+       
+        > [class*="col-"] {
+            text-align: center;
+            margin: 10px 20px;
+        }
+    }
+
+    .tooltip {
+        color: black;
+        position: relative;       
+        cursor: pointer;
+        padding: 10px;
+        @include transition();
+
+        &:hover{
+            background-color: $lightBase;
+            border-radius: 4px;
+            color: white;
+            @include transition();
+        }
+        &.active{
+            background-color: $lightBase;
+            padding: 10px 20px;
+            border-radius: 4px;
+            color: white;
+        }
+      }
+      
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        @include transition();
+
+        transition-property: opacity;
+        transition-duration: 0.5s;
+        transition-delay: 0.5s;
+    }
+    
+    .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+    
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+}
