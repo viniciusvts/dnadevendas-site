@@ -104,7 +104,7 @@ export default {
         width: 300px;
         margin: auto auto auto;
         position: relative;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
         @include breakpoint(fullHdDesktops) {
           width: unset;
         }
