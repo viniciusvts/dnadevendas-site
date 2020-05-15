@@ -43,7 +43,7 @@ $gold: #C8AC78;
             margin: 20px 0;
         }
         cursor: pointer;
-        &:hover{
+        &:hover, &.active{
             background: linear-gradient(to right, $gold 0%, #B08961 100%);
         }
     }

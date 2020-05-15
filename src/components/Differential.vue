@@ -6,9 +6,14 @@
         </div>  
         <div class="container container-fhd">
             <div class="row">
-                <div class="col-sm-12 col-md-4" v-for="(diferenciais, index) in diferentials.diferenciais.slice(0,6)" :key="index">
-                    <div class="inline blue-box" @click="changeDestaq(diferenciais)">
-                        <img :src="diferenciais.icone.sizes.thumbnail" :alt="diferenciais.titulo">
+                <div class="col-sm-12 col-md-4"
+                v-for="(diferenciais, index) in diferentials.diferenciais.slice(0,6)"
+                :key="index">
+                    <div class="inline blue-box" 
+                    :class="{'active': (index == 0)}" 
+                    @click.prevent="changeDestaq(diferenciais, $event)">
+                        <img :src="diferenciais.icone.sizes.thumbnail" 
+                        :alt="diferenciais.titulo">
                         <h3>{{diferenciais.titulo}}</h3>
                     </div>
                 </div>                
@@ -50,9 +55,23 @@ export default {
             this.changeDestaq(this.diferentials.diferenciais[0]);
             });
         },
-        changeDestaq(diferenciais) {
+        changeDestaq(diferenciais, evt) {
+            console.log(evt);
             this.diferentialsdestaq.title = diferenciais.titulo;
             this.diferentialsdestaq.text = diferenciais.texto;
+            if (typeof evt != 'undefined') {
+                let blueBoxes = document.querySelectorAll('.blue-box');
+                for (const bbox of blueBoxes) {
+                    bbox.classList.remove('active');
+                }
+                /* Pq o evento estava sendo executado nos filhos
+                estou fazendo uma verificação para ir no elemento certo*/
+                let blueBox = evt.target;
+                while (!blueBox.classList.contains('blue-box')) {
+                    blueBox = blueBox.parentElement
+                }
+                blueBox.classList.add('active');
+            }
         }
     }
 }
