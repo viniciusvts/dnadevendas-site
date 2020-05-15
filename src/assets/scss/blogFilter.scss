@@ -76,9 +76,9 @@
         li{
             color: $lightBase;
             border: 1px solid $lightBase;
-            a {
-                &:hover{
-                    background-color: $baseColor;
+            &:hover{
+                background-color: $baseColor;
+                a {
                     color: white;
                     @include transition();
                 }
