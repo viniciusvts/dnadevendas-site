@@ -52,7 +52,7 @@ $gold: #C8AC78;
         h2{
             color: $gold;
             font-size: 35px;
-            padding: 25%;
+            padding: 15%;
             text-align: left;
             @include breakpoint(smartphones) {
                 padding: 10%;
