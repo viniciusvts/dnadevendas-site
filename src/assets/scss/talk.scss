@@ -3,6 +3,13 @@
 @import '@/assets/scss/breakpoint.scss';
 
 .talk{
+
+    h1{
+        @include breakpoint(fullHdDesktops){
+           max-width: 550px;
+        }
+    }
+
     h2{
         text-transform: uppercase;
         font-weight: bold;
