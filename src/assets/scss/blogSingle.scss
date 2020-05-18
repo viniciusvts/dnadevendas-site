@@ -66,9 +66,12 @@
                 height: 108%;
                 position: absolute;
                 top: -4%;
-                right: 2%;
+                right: -2%;
                 z-index: -1;
                 background: linear-gradient(90deg, #fccc78 0%, $golden 100%);
+                @media (min-width: $fullHdDesktops){
+                    right: 2%;
+                }
             }
         }        
 
