@@ -30,7 +30,7 @@
 
     .categories{
         a{
-            &:hover{
+            &:hover, &.active{
                 color: $golden;
             }
         }
