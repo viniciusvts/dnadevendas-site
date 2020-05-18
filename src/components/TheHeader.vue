@@ -72,10 +72,20 @@
 
           <li>
             <router-link :to="{name: 'Talk'}">Palestras</router-link>
-          </li>
 
+            <span>&#x25bc;</span>
+            <div class="submenu">
+              <ul>
+                <li>
+                  <router-link :to="{name: 'Workshops'}">Workshops</router-link>
+                </li>
+              </ul>
+            </div>
+
+          </li>
+          
           <li>
-            <router-link :to="{name: 'Workshops'}">Workshops</router-link>
+            <a href="http://insidesalesacademy.com.br/" target="_blank">Cursos Online</a>
           </li>
 
           <li>
@@ -103,8 +113,8 @@
         <div id="searchBtn">  
           <div>      
             <img v-if="logoWhite" src="@/assets/svg/search-white.svg" alt="">
-            <img v-else src="@/assets/svg/search.svg" alt="">
-            <p>Buscar</p>
+            <!-- <img v-else src="@/assets/svg/search.svg" alt="">
+            <p>Buscar</p> -->
           </div>
         </div>  
       </nav>    
