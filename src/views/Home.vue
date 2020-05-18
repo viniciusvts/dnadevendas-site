@@ -2,7 +2,7 @@
   <div>
     <Spotlight v-if="customFields" class="home">
       <div class="text">
-        <h1>{{customFields.acf.chamada}} {{customFields.acf.subtitulo}}</h1>
+        <h1><div v-html="customFields.acf.chamada"></div> {{customFields.acf.subtitulo}}</h1>
         <router-link to="/contato">
           <button class="btn-grad">
               {{customFields.acf.cta}}
@@ -22,30 +22,30 @@
     <Pillars>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 col-sm-12 col-tb-12">
                     <h3>Melhoramos expressivamente os <b>resultados da sua empresa</b> através do alinhamento de:</h3>
                 </div>
 
-                <div class="col-md-2 pillar">
+                <div class="col-md-2 col-sm-12 col-tb-12 pillar">
                     <img src="@/assets/svg/process.svg" alt="Processo">
                     <p>Processos</p>
                 </div>
 
-                <div class="col-md-2 pillar">
+                <div class="col-md-2 col-sm-12 col-tb-12 pillar">
                     <img src="@/assets/svg/management.svg" alt="Gestão">
                     <p>Gestão</p>
                 </div>
 
-                <div class="col-md-2 pillar">
+                <div class="col-md-2 col-sm-12 col-tb-12 pillar">
                     <img src="@/assets/svg/tecnology.svg" alt="Tecnologia">
                     <p>Tecnologia</p>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-2 col-sm-12 col-tb-12">
                     <img src="@/assets/svg/people.svg" alt="Pessoas">
                     <p>Pessoas</p>                
                 </div>
-              <div class="col-sm-12 no-animate">
+              <div class="col-md-12 col-sm-12 col-tb-12 no-animate">
                 <img src="@/assets/line-svg.svg" alt="Pessoas">
               </div>
             </div>
@@ -53,7 +53,7 @@
     </Pillars>
 
     <Services v-if="customFields">
-      <div class="col-md-3" v-for="(service, index) in customFields.acf.servicos" :key="index">
+      <div class="col-md-3 col-sm-12 col-tb-12" v-for="(service, index) in customFields.acf.servicos" :key="index">
         <div class="text">
           <h3>{{service.servico}}</h3>
           <p>{{service.descricao}}</p>

@@ -6,7 +6,7 @@
         </div>  
         <div class="container container-fhd">
             <div class="row">
-                <div class="col-sm-12 col-md-4"
+                <div class="col-sm-12 col-tb-12 col-md-4"
                 v-for="(diferenciais, index) in diferentials.diferenciais.slice(0,6)"
                 :key="index">
                     <div class="inline blue-box" 
@@ -19,10 +19,10 @@
                 </div>                
             </div>
             <div class="row destaq" v-if="diferentialsdestaq.title">
-                <div class="col-sm-12 col-md-4">
+                <div class="col-sm-12 col-md-4 col-tb-12">
                     <h2>{{diferentialsdestaq.title}}</h2>
                 </div>
-                <div class="col-sm-12 col-md-8 destaq-text">
+                <div class="col-sm-12 col-md-8 col-tb-12 destaq-text">
                     <p>{{diferentialsdestaq.text}}</p>
                 </div>
             </div>

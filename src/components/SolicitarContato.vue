@@ -2,10 +2,10 @@
   <section class="contact s-contato">
     <h2 class="fale-conosco" :class="detailColorClass">Entenda hoje como podemos fazer sua empresa <span :class="detailColorClass">crescer mais</span></h2>
     <form name="dna_contato" action="#" class="row" v-on:submit="sendForm">
-      <input type="text" name="nome" id="nome" class="col-12 col-md" :class="detailColorClass" v-model="formData[0].nome" placeholder="Seu nome" required>
-      <input type="text" name="email" id="email" class="col-12 col-md" :class="detailColorClass" v-model="formData[0].email" placeholder="Seu e-mail" required>
-      <input type="text" name="telefone" id="telefone" class="col-12 col-md" :class="detailColorClass" v-model="formData[0].telefone" placeholder="Seu telefone" required>
-      <button :class="detailColorClass" @click.prevent="send">
+      <input type="text" name="nome" id="nome" class="col-12 col-md col-sm-12 col-tb-12" :class="detailColorClass" v-model="formData[0].nome" placeholder="Seu nome" required>
+      <input type="text" name="email" id="email" class="col-12 col-md col-sm-12 col-tb-12" :class="detailColorClass" v-model="formData[0].email" placeholder="Seu e-mail" required>
+      <input type="text" name="telefone" id="telefone" class="col-12 col-md col-sm-12 col-tb-12" :class="detailColorClass" v-model="formData[0].telefone" placeholder="Seu telefone" required>
+      <button :class="[detailColorClass]" @click.prevent="send">
         Solicitar Contato
       </button>
     </form>

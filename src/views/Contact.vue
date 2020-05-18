@@ -3,7 +3,7 @@
     <h1>Contato</h1>
     <section class="container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 col-sm-12 col-tb-12">
             <form action="">
                 <h2 class="title-message">Vamos conversar?</h2>
                 <input type="text" name="nome" id="nome" v-model="formData[0].nome" placeholder="Nome*" required>
@@ -27,7 +27,7 @@
             </form>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-12 col-tb-12">
 
           <p class="local flex-wrap" v-for="contact in contacts" :key="contact.city">
             <img src="../assets/svg/pinmap.gold.svg" alt="" srcset="">

@@ -4,7 +4,7 @@
       <BlogFilter/>
       <div class="content">
         <div class="row">
-          <div v-if="posts.length > 0" class="col-12 col-lg-9">
+          <div v-if="posts.length > 0" class="col-12 col-lg-9 col-tb-12">
               <div class="cards"> 
                 <div class="row">
                   <div v-for="post in posts" :key="post.id" class="mb-100px w-100">
@@ -14,8 +14,8 @@
               </div>
             <Pagination/>
           </div>
-          <div v-else class="col-12 col-lg-9">{{message}}</div>
-          <div class="col-12 col-lg-3">
+          <div v-else class="col-12 col-lg-9 col-tb-12">{{message}}</div>
+          <div class="col-12 col-lg-3 col-tb-12">
             <Sidebar/>
           </div>
         </div>
