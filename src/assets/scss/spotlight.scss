@@ -28,6 +28,9 @@
             line-height: 50px;
             text-align: center;
         }
+        span{
+            font-weight: bold;
+        }
     }
 
     h2{
@@ -39,7 +42,26 @@
             text-align: center;
         }
     }
-      
+
+    h2.subtitle{
+        margin-top: 50px;
+        font-size: 25px;
+        font-weight: normal;
+        line-height: inherit;
+        max-width: 500px;
+        @media (min-width:$tablets){
+            font-size: 30px;
+        }
+        @media (min-width:$desktops){
+            font-size: 25px;
+            margin-top: 30px;
+        }
+        @media (min-width:$fullHdDesktops){
+            font-size: 35px;
+            margin-top: 45px;
+            max-width: 720px;    
+        }
+    }      
 
     .image{
         filter: brightness(0.9);
