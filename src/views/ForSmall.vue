@@ -2,8 +2,8 @@
   <div class="forSmall">
     <Spotlight>
       <div class="text section">
-        <h1>Consultoria para pequenos times de vendas<b>com grandes ambições</b></h1>
-        <p>Há mais de 12 anos aumentando a produtividade de vendas em mais de 35 segmentos</p>
+        <h1>Consultoria para pequenos times de vendas <span>com grandes ambições</span></h1>
+        <h2 class="subtitle">Há mais de 12 anos aumentando a produtividade de vendas em mais de 35 segmentos</h2>
         <button class="fsmall-btn">
           <router-link to="/contato">
             Falar com um consultor

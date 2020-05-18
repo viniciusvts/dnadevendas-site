@@ -2,7 +2,8 @@
   <div>
     <Spotlight v-if="customFields" class="home">
       <div class="text">
-        <h1>{{customFields.acf.chamada}} {{customFields.acf.subtitulo}}</h1>
+        <h1 v-html="customFields.acf.chamada"></h1>
+        <h2 class="subtitle" v-html="customFields.acf.subtitulo"></h2>
         <router-link to="/contato">
           <button class="btn-grad">
               {{customFields.acf.cta}}
