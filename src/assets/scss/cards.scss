@@ -1,3 +1,5 @@
+@import 'variables.scss';
+@import 'breakpoint.scss';
 .card{
     @include transition();
     &:hover{
@@ -45,6 +47,9 @@
                 padding: 5px 10px;
                 margin-right: 10px;
                 cursor: pointer;
+                @include breakpoint(tablet-desktop) {
+                    font-size: 20px;
+                }
                 @mixin mediaScreenMin($fullHdDesktops) {
                     font-size: 17px;
                 }

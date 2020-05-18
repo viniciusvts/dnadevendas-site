@@ -1,13 +1,15 @@
 <template>
     <div class="card-case row">
-      <div class="col-sm-12 col-md-9 img-field out-l">
+      <div class="col-tb-12 col-sm-12 col-md-9 img-field out-l">
         <img class="img-notebook" src="../assets/img-notebook-alpha.png" alt="bg">
         <!-- <div class="overlay-video"></div> -->
         <div class="iframe" v-html="obj.video"></div>
       </div>
-      <div class="col-sm-12 col-md-3 content-client out-r">
+      <div class="col-sm-12 col-tb-12 col-md-3 content-client out-r">
         <div class="infos">
-          <img :src="obj.logo.url" alt="Logo empresa"/>
+          <p class="centered-12">
+            <img :src="obj.logo.url" alt="Logo empresa"/>
+          </p>
           <h2 :class="[pink]">
             {{ obj.titulo }}
           </h2>
@@ -16,7 +18,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import TextPink from '../services/TextPink';
 export default {
@@ -54,6 +55,7 @@ export default {
 <style lang="scss">
   @import '@/assets/scss/variables.scss';
   @import '@/assets/scss/breakpoint.scss';
+  @import '@/assets/scss/cardCases.scss';
   // .out-l {
   //   transform: translateX(-100px);
   //   opacity: .5;
@@ -70,48 +72,4 @@ export default {
   //     transform: translateX(0);
   //   }
   // }
-  .img-field, .content-client {
-    transition-duration: .5s;
-  }
-  .overlay-video {
-    position: absolute;
-    left: -40px;
-    height: 443px;
-    width: 708px;
-    top: 75px;
-    z-index: 2;
-    background-color: black;
-  }
-  .content-client {
-    position: relative;
-    .infos {
-      position: absolute;
-      top: 180px;
-      left: -150px;
-      @include breakpoint(fullHdDesktops) {
-        top: 45px;
-      }
-      img {
-        width: 200px;
-        height: 100px;
-        object-fit: cover;
-      }
-      @include breakpoint(smartphones) {
-        position: unset;
-      }
-      img {
-        margin: 10px 0;
-      }
-      h2 {
-        margin: 10px 0;
-      }
-      p {
-        font-size: 14px;
-        @include breakpoint(fullHdDesktops) {
-          font-size: 30px;
-          line-height: 40px;
-        }
-      }
-    }
-  }
 </style>

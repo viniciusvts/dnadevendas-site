@@ -13,7 +13,16 @@ p {
   padding: 0px;
   margin: 0px;
 }
-
+p {
+  @include breakpoint(tablet-desktop) {
+    font-size: 24px !important;
+  }
+}
+h4 {
+  @include breakpoint(tablet-desktop) {
+    font-size: 25px !important;
+}
+}
 html{
   font-family: 'Open Sans', sans-serif;
 }
@@ -267,6 +276,22 @@ button, input[type="submit"] {
 }
 .fsmall-btn {
   background-color: $pink-fsmall !important;
+}
+
+.col-tb-12 {
+  @include breakpoint(tablet-desktop) {
+    -webkit-box-flex: 0 !important;
+    -ms-flex: 0 0 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 50px;
+  }
+}
+
+.centered-12 {
+  @include breakpoint(tablet-desktop) {
+    text-align: center;
+  }
 }
 
 @import 'animation.scss';

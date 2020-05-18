@@ -70,6 +70,10 @@ $gold: #C8AC78;
                 font-size: 40px;
                 padding: 12%;
             }
+            @include breakpoint(tablet-desktop) {
+                font-size: 40px;
+                padding: 0 15%;
+            }
         }
         p{
             color: $blue-dark;

@@ -74,6 +74,8 @@ export default {
         this.controllers('fullHdDesktop')
       } else if(screen.width >= 1119 && screen.width < 1300) {
         this.controllers('largeDesktop')
+      } else if (screen.width > 800 && screen.width < 1024) {
+        this.controllers('tablet')
       } else {
         this.controllers('desktop')
       }
@@ -84,17 +86,20 @@ export default {
       var itens = 0;
       switch (screen) {
         case 'mobile':
-          itens = 1
+          itens = 1;
+          break;
+        case 'tablet':
+          itens = 3;
           break;
         case 'desktop':
           itens = 6;
           break;
-          case 'fullHdDesktop':
-            itens = 9;
-            break;
-            case 'largeDesktop':
-            itens = 5;
-            break;
+        case 'fullHdDesktop':
+          itens = 9;
+          break;
+        case 'largeDesktop':
+          itens = 5;
+          break;
       }
       if(this.obj.onde_palestrou.length > itens) {
         const images = document.getElementsByClassName('images');
@@ -199,6 +204,9 @@ export default {
         left: -22px;
         top: -77px;
       }
+      @include breakpoint(tablet-desktop) {
+          left: -50px;
+      }
     }
   }
 }
@@ -229,6 +237,9 @@ export default {
           width: 220px;
           max-width: 220px !important;
           height: 100px;
+        }
+        @include breakpoint(tablet-desktop) {
+          width: 196px;
         }
       }
     }
@@ -281,5 +292,8 @@ export default {
         position: absolute;
       }
     }
+  }
+  .scroll {
+    margin-bottom: 50px;
   }
 </style>

@@ -9,8 +9,8 @@
             <div v-for="post in mostViewedPosts" :key="post.id" class="post">
                 <router-link :to="{ name: 'SingleBlog', params: { slug: post.post_name } }">
                     <div class="row no-gutters">
-                        <div class="left col-auto"><img :src="post.DNA_custom.thumb.medium" alt=""></div>
-                        <div class="right col">{{post.post_title}}
+                        <div class="left col-auto col-tb-12 image-sidebar"><img :src="post.DNA_custom.thumb.medium" alt=""></div>
+                        <div class="right col col-tb-12 title-sidebar">{{post.post_title}}
                             <br/>
                             <p class="date-grey">{{ post.to_ping }}</p>
                         </div>
