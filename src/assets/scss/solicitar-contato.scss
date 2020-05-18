@@ -25,11 +25,17 @@ $colorForSmall:#FF6CAB;
             }
         }
         button{
+            padding: 5px 20px;
+            text-transform: none;
             @include mediaScreenMax($tablets){
                 margin: 0 auto;
             }
             @include breakpoint(tablet-desktop) {
                 margin: 20px auto;
+            }
+            img{
+                height: 18px;
+                margin: auto 10px;
             }
         }
     }
