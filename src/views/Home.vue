@@ -103,7 +103,6 @@ import Differential from "@/components/Differential.vue";
 import Clients from "@/components/Clients.vue";
 import Methodology from "@/components/Methodology.vue";
 import Depoiments from "@/components/Depoiments.vue";
-import BlogFeed from "@/components/BlogFeed.vue";
 import SolicitarContato from "@/components/SolicitarContato.vue";
 import Api from "@/services/ApiRest.js";
 
@@ -118,7 +117,6 @@ export default {
     Clients,
     Methodology,
     Depoiments,
-    BlogFeed,
     SolicitarContato
   },
   data(){
