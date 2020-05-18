@@ -7,9 +7,9 @@
         <div class="container container-fhd">
             <div class="row">
                 <div class="col-sm-12 col-md-4"
-                v-for="(diferenciais, index) in diferentials.diferenciais.slice(0,6)"
+                v-for="(diferenciais, index) in diferentials.diferenciais.slice(0,9)"
                 :key="index">
-                    <div class="inline blue-box" 
+                    <div class="inline blue-box justify-content-center" 
                     :class="{'active': (index == 0)}" 
                     @click.prevent="changeDestaq(diferenciais, $event)">
                         <img :src="diferenciais.icone.sizes.thumbnail" 
@@ -18,7 +18,7 @@
                     </div>
                 </div>                
             </div>
-            <div class="row destaq" v-if="diferentialsdestaq.title">
+            <div class="row destaq align-items-center" v-if="diferentialsdestaq.title">
                 <div class="col-sm-12 col-md-4">
                     <h2>{{diferentialsdestaq.title}}</h2>
                 </div>

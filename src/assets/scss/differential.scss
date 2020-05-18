@@ -20,6 +20,7 @@ $gold: #C8AC78;
     h3{
         padding: 0 10px;
         margin: 0;
+        font-weight: 300;
         @include breakpoint(fullHdDesktops) {
             font-size: 20px;
             padding: 12px 10px;
@@ -34,7 +35,7 @@ $gold: #C8AC78;
         margin: 10px;
         height: 25px;
         @include breakpoint(fullHdDesktops){
-            height: 45px;
+            height: 35px;
         }
     }
 
@@ -56,6 +57,7 @@ $gold: #C8AC78;
         margin-top: 50px;
         h2{
             color: $gold;
+            font-weight: 300;
             font-size: 35px;
             padding: 15%;
             text-align: left;
@@ -85,7 +87,7 @@ $gold: #C8AC78;
             }
         }
         .destaq-text{
-            max-height: 250px;
+            max-height: 290px;
             overflow-y: scroll;
             &::-webkit-scrollbar{ // a barra de rolagem inteira.
                 width: 20px;
