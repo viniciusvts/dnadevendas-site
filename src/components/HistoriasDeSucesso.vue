@@ -6,7 +6,7 @@
     </div>
     <div class="container">
       <div class="row sec-card">
-        <div v-for="item in posts" :key="item.id" class="col-sm-12 col-md-6">
+        <div v-for="item in posts" :key="item.id" class="col-sm-12 col-tb-12 col-md-6">
           <div class="card-historias">
             <router-link :to="{ name: 'SingleBlog', params: { slug: item.slug, post: item } }">
               <img :src="item.DNA_custom.thumb.medium" alt="Img historia">
@@ -81,67 +81,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '@/assets/scss/variables.scss';
-  @import '@/assets/scss/breakpoint.scss';
-  .historias {
-    background-color: white;
-    .title {
-      width: 250px;
-      h2 {
-        color: $baseColor;
-      }
-    }
-    .sec-card {
-      padding: 0 200px;
-      @include breakpoint(smartphones) {
-        padding: unset;
-      }
-      @include breakpoint(fullHdDesktops) {
-        padding: 0 125px;
-      }
-    }
-    .card-historias {
-        width: 300px;
-        margin: auto auto auto;
-        position: relative;
-        margin-bottom: 50px;
-        @include breakpoint(fullHdDesktops) {
-          width: unset;
-        }
-        .preenche {
-          height: 165px;
-          @include breakpoint(fullHdDesktops) {
-            height: 217px;
-          }
-        }
-        .img-field-h {
-          position: absolute;
-          width: 300px;
-          height: 165px;
-          border: 1px solid $pink-fsmall;
-          left: -10px;
-          top: 10px;
-          z-index: 0;
-          @include breakpoint(fullHdDesktops) {
-            width: 415px;
-            height: 217px;
-          }
-        }
-        img {
-          width: 100%;
-          height: 165px;
-          object-fit: cover;
-          position: absolute;
-          z-index: 1;
-          @include breakpoint(fullHdDesktops) {
-            height: 217px;
-          }
-        }
-        .text-historia {
-          padding-top: 10px;
-          color: #444444;
-          text-align: center;
-        }
-    }
-  }
+  @import '@/assets/scss/historiasDeSuc.scss';
 </style>
