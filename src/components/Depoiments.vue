@@ -1,7 +1,7 @@
 <template>
     <div class="depoiments section" v-if="depoiments">
         <div class="title">
-            <h2>Sentimento dos clientes</h2>
+            <h2>Sentimento <br> dos clientes</h2>
             <span></span>
         </div>  
         <div class="line-deps"></div>
