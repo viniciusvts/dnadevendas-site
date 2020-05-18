@@ -1,5 +1,6 @@
 @import '@/assets/scss/variables.scss';
 @import '@/assets/scss/mixins.scss';
+@import '@/assets/scss/breakpoint.scss';
 @import '@/assets/scss/cards.scss';
 
 .materials{
@@ -7,6 +8,10 @@
     
     h1{
         font-weight: bold;
+    }
+
+    h2{
+        font-size: 20px !important;
     }
 
     h1, p{
@@ -21,15 +26,17 @@
             &::after{
                 right: -10px;
             }
+
             img{
                 height: 180px;
             }
+
         }
         .rigth{
             min-height: 100px;
         }
     }
     .h-90{
-        height: 90% !important;
+        height: 100% !important;
     }
 }
