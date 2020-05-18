@@ -1,7 +1,7 @@
 <template>
   <div>
     <Spotlight v-if="customFields" class="home">
-      <div class="text">
+      <div class="text white-lg">
         <h1 v-html="customFields.acf.chamada"></h1>
         <h2 class="subtitle" v-html="customFields.acf.subtitulo"></h2>
         <router-link to="/contato">
@@ -16,8 +16,8 @@
           <img src="@/assets/svg/fast-forward-black.svg"/>
         </div>
       </div>
-      <img class="image" src="https://www.dnadevendas.com.br/wp-content/uploads/capa-home-1.jpg" :alt="customFields.acf.chamada">
-      <!-- <img class="image" :src="customFields.acf.imagem.sizes.medium_large" :alt="customFields.acf.chamada"> -->
+      <img class="image dp-none-video" src="https://www.dnadevendas.com.br/wp-content/uploads/capa-home-1.jpg" :alt="customFields.acf.chamada">
+      <iframe class="image" width="100%" height="100%" src="https://www.youtube.com/embed/iPTCw93Pim4?controls=0&autoplay=1&playlist=iPTCw93Pim4&loop=1" frameborder="0" ></iframe>
     </Spotlight>
 
     <Pillars>
