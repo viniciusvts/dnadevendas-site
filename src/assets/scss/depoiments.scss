@@ -126,6 +126,9 @@
                     width: 110px;
                     height: 110px;
                 }
+                @include breakpoint(tablet-desktop) {
+                    top: -25px;
+                }
             }
             background-color: #282A41;
             border-bottom: 10px solid #8B97BB;
@@ -165,7 +168,7 @@
     left: 0;
     right: 0;
     &.bottom {
-        bottom: 80px;
+        bottom: 40px;
     }
     @include breakpoint(smartphones) {
         display: none;

@@ -51,6 +51,12 @@
         box-shadow: 5px 5px 10px rgba(0,0,0,.08);
         height: 250px;
         @include transition();
+        @include breakpoint(tablet-desktop) {
+            width: 90%;
+            span {
+                font-size: 22px;
+            }
+        }
         @include breakpoint(fullHdDesktops) {
             height: 270px;
         }

@@ -21,4 +21,7 @@
     @else if $point == fullHdDesktops {
       @media (min-width: $fullHdDesktops)  { @content ; }
     }
+    @else if $point == tablet-desktop or $point == tablets {
+      @media (min-width: $smartphones) and (max-width: 1024px){ @content; }
+    }
   }
