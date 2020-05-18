@@ -25,7 +25,6 @@
           <div class="right" :class="{'pl-bp':isImpar, 'pr-bp':!isImpar}">
             <div class="title" :class="{'pl-50':isImpar, 'pr-50':!isImpar}">
               <h2>{{objection.objecao}}</h2>
-              <span></span>
             </div>
             <div class="text destaq-text" :class="{'rtl':isImpar,'pl-30':isImpar, 'pr-50':!isImpar}" v-html="objection.texto"></div>
             <router-link :to="{name: 'Contact'}" :class="{'pl-50':isImpar, 'pr-50':!isImpar}">
