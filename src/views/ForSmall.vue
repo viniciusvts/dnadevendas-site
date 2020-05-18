@@ -16,7 +16,7 @@
           <img src="@/assets/svg/fast-forward.svg"/>
         </div>
       </div>
-      <img class="image" src="https://www.dnadevendas.com.br/wp-content/uploads/dnadevendas-forsmall.jpg"/>
+      <img class="image" src="@/assets/forsmall-capa.jpg"/>
     </Spotlight>
 
     <banner-fsmall></banner-fsmall>
