@@ -66,7 +66,7 @@
               <input type="email" v-model="formData.email" placeholder="Seu e-mail*" nome="email" id="email">
               <p>{{formMessage}}</p>
               <p>* Campos obrigatórios</p>
-              <input type="submit" value="Quero me inscrever">
+              <input type="submit" value="Quero me inscrever" class="ml-auto mr-auto ml-lg-0 mr-lg-0">
             </form>
           </div>
 
