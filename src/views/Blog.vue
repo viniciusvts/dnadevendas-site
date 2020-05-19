@@ -12,7 +12,7 @@
                   </div>
                 </div>
               </div>
-            <Pagination/>
+            <Pagination :endOfPosts="endOfPosts"/>
           </div>
           <div v-else class="col-12 col-lg-9 col-tb-12">{{message}}</div>
           <div class="col-12 col-lg-3 col-tb-12">
@@ -43,9 +43,10 @@
     data() {
       return {
         posts: [],
-        message: 'Carregando Posts',
+        message: null,
         pageId: 329,
-        page: null
+        page: null,
+        endOfPosts: false
       }
     },
     created() {
@@ -63,10 +64,13 @@
         })
         .then(json=>{
           this.posts = json;
+          if (json.length < 10) this.endOfPosts = true;
         });
       },
       initPosts(){
         this.posts = [];
+        this.endOfPosts = false;
+        this.message = 'Carregando Artigos';
         /**argumento para buscar os posts */
         let args = [];
         if (typeof this.$route.params.page != 'undefined') {
@@ -74,6 +78,18 @@
         }
         if (typeof this.$route.params.categories != 'undefined') {
           args['categories'] = this.$route.params.categories;
+        } else {
+          if (typeof this.$route.params.cat != 'undefined') {
+            this.message = 'Carregando Categorias';
+            let catArgs = [];
+            catArgs['slug'] = this.$route.params.cat;
+            return Api.getCategories(catArgs)
+            .then(resp => resp.json())
+            .then(json => {
+              this.$route.params.categories = json[0].id;
+              this.initPosts()
+            });
+          }
         }
         this.getPosts(args);
       },
