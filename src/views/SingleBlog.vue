@@ -9,6 +9,17 @@
             <div class="thumbnail">
               <img :src="post.DNA_custom.thumb.large" alt="">
             </div>
+            <div class="row single-information">
+              <div class="row col-12 col-lg-6 social-col m-0">
+                <img @click="iniciaSocialButtons" src="@/assets/svg/Facebook_logo.svg" alt="facebook logo" id="facebook">
+                <img @click="iniciaSocialButtons" src="@/assets/svg/Twitter_logo.svg" alt="twitter logo" id="twitter">
+                <img @click="iniciaSocialButtons" src="@/assets/svg/Linkedin_icon.svg" alt="linkedin logo" id="linkedin">
+                <img @click="iniciaSocialButtons" src="@/assets/svg/Pinterest_Shiny_Icon.svg" alt="pinterest logo" id="pinterest">
+              </div>
+              <div class="col-12 col-lg-6 m-0">
+                <p>{{postInformation}}</p>
+              </div>
+            </div>
             <h1>{{post.title.rendered}}</h1>
             <p class="breadcrumb">
               <router-link :to="{ name: 'Home' }">Home</router-link> / 
@@ -51,6 +62,7 @@
       }
     },
     mounted() {
+      this.iniciaSocialButtons();
       if(typeof this.$route.params.post == 'undefined'){
         this.getPost(this.$route.params.slug);
       }else{
@@ -87,6 +99,71 @@
           this.post = json[0];
         });
       },
+      iniciaSocialButtons(){
+        var facebook = document.getElementById('facebook');
+        if(facebook){
+          facebook.addEventListener("click", function(){
+              var link = "https://www.facebook.com/sharer/sharer.php?u="+document.URL;
+              window.open(link);
+          });
+        }
+
+        var pinterest = document.getElementById('pinterest');
+        if(pinterest){
+          pinterest.addEventListener("click", function(){
+              var link = "https://www.pinterest.com/pin/create/button/?url="+document.URL;
+              try{
+                  var description = document.querySelector("meta[name='description']").getAttribute("content");
+              }catch(e){
+                  console.log("error", e);
+              }
+              if( description ){
+                  link += "&description="+description;
+              }
+              window.open(link);
+          });
+        }
+
+        var twitter = document.getElementById('twitter');
+        if(twitter){
+          twitter.addEventListener("click", function(){
+              var link = "https://twitter.com/intent/tweet?url="+document.URL;
+              try{
+                  var titulo = document.querySelector("title").innerText;
+              }catch(e){
+                  console.log("error", e);
+              }
+              if( titulo ){
+                  link += "&text="+titulo;
+              }
+              window.open(link);
+          });
+        }
+
+        var linkedin = document.getElementById('linkedin');
+        if(linkedin){
+          linkedin.addEventListener("click", function(){
+              var link = "https://www.linkedin.com/shareArticle?mini=true&url="+document.URL;
+              try{
+                  var titulo = document.querySelector("title").innerText;
+              }catch(e){
+                  console.log("error", e);
+              }
+              if( titulo ){
+                  link += "&title="+titulo;
+              }
+              try{
+                  var description = document.querySelector("meta[name='description']").getAttribute("content");
+              }catch(e){
+                  console.log("error", e);
+              }
+              if( description ){
+                  link += "&summary="+description;
+              }
+              window.open(link);
+          });
+        }
+      },
     },
     watch: {
       'post.id': function(val) {
@@ -97,6 +174,23 @@
       },
       'post.yoast_title': function(val) {
         this.$root.meta.title = val
+      }
+    },
+    computed: {
+      postInformation () {
+        // data: fevereiro, 2020
+        const date = new Date(this.post.date);
+        let dateToString = '';
+        dateToString += date.toLocaleString('default', { month: 'long' });
+        dateToString += ', ' + date.getFullYear();
+        // monta a string a ser exibida
+        let resp = '';
+        resp += this.post.DNA_custom.author.name + " • ";
+        resp += dateToString + " • ";
+        resp += this.post.DNA_custom.views;
+        if (this.post.DNA_custom.views == 1) resp += " visualização";
+        else resp += " visualizações";
+        return resp;
       }
     }
   };
