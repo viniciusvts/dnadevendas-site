@@ -20,7 +20,7 @@
     </Spotlight>
     <PaginaCarregando v-else/>
 
-    <section class="container">
+    <section class="container-fluid">
       <div class="banner-video">
         <h2>Por que escolher <span>nossas palestras?</span></h2>
         <div class="see-more">
