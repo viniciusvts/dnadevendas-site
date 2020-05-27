@@ -2,7 +2,7 @@
   <div class="talk">
     <Spotlight v-if="banner">
       <div class="text section">
-        <h1>{{banner.chamada}}</h1>
+        <h1 v-html="banner.chamada"></h1>
         <h2 class="colorDestak">{{banner.subtitulo}}</h2>
         <button class="btn-grad">
           <router-link to="/contato">
@@ -16,7 +16,12 @@
           <img src="@/assets/svg/fast-forward.svg"/>
         </div>
       </div>
-      <img class="image" :src="banner.imagem_banner" :alt="banner.chamada">
+      
+      <video v-if="video" autoplay="true" loop="true">
+        <source type="video/mp4" :src="video">
+      </video>
+      <img v-else class="image" :src="banner.imagem_banner" :alt="banner.chamada">
+      
     </Spotlight>
     <PaginaCarregando v-else/>
 
@@ -31,26 +36,6 @@
         <img src="../assets/alisson.jpg" alt="Imagem Banner Video">
       </div>
     </section>
-
-    <!-- <Pillars v-if="secao_pilares">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-3">
-            <h3 v-html="secao_pilares.titulo"></h3>
-          </div>
-
-          <div class="col-md-1 d-none d-lg-block d-xl-block">
-            <img src="@/assets/svg/big-arrow.svg" alt="">
-          </div>
-
-          <div class="col-md-2 pillar" v-for="(pilar, index) in secao_pilares.pilares" :key="index">
-            <img class="lazy" src="@/assets/loading.gif" :data-src="pilar.icone.sizes.thumbnail" alt="pilar.pilar">
-            <p>{{pilar.pilar}}</p>
-          </div>
-        </div>
-      </div>
-    </Pillars>
-    <PaginaCarregando v-else/> -->
 
     <section v-if="objecoes">
       <div v-for="(obj, index) in objecoes" :key="index">
@@ -136,8 +121,6 @@
 <script>
 
   import Spotlight from '@/components/Spotlight.vue';
-  // import Pillars from '@/components/Pillars.vue';
-  // import Pagination from '@/components/Pagination.vue';
   import Metrics from '@/components/Metrics.vue';
   import CardPalestrante from '@/components/CardPalestrante.vue';
   import SolicitarContato from '@/components/SolicitarContato.vue';
@@ -166,6 +149,7 @@
         objecoes: null,
         secao_pilares: null,
         banner: null,
+        video: null,
         position: 2,
         componentKey: 2,
         transferData: null,
@@ -218,6 +202,7 @@
         this.$root.meta.tags = this.page.yoast_meta;
         this.transferData = this.palestrantes[1];
         this.componentKey = 1;
+        this.video = r.acf.video
         });
       },
       setActive() {
