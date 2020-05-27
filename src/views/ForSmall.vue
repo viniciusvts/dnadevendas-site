@@ -2,8 +2,7 @@
   <div class="forSmall">
     <Spotlight>
       <div class="text section">
-        <h1>Consultoria para pequenos times de vendas <span>com grandes ambições</span></h1>
-        <h2 class="subtitle">Há mais de 12 anos aumentando a produtividade de vendas em mais de 35 segmentos</h2>
+        <h1 v-html="post.acf.chamada"></h1>
         <button class="fsmall-btn">
           <router-link to="/contato">
             Falar com um consultor
@@ -60,7 +59,6 @@
     <Cases/>
     <hd-sucesso></hd-sucesso>
     <Depoiments color="pink"/>
-    <Clients/>
     <pricing-table></pricing-table>
     <SolicitarContato></SolicitarContato>
 
@@ -75,7 +73,6 @@
     import Cases from '@/components/CasesForSmall.vue';
     import HistoriasDeSucesso from '@/components/HistoriasDeSucesso.vue';
     import Depoiments from '@/components/Depoiments.vue';
-    import Clients from '@/components/Clients.vue';
     import PricingTable from '@/components/PricingTable.vue';
     import SolicitarContato from '@/components/SolicitarContato.vue';
     import bannerFSmal from '@/components/BannerForSmall.vue';
@@ -88,7 +85,6 @@
       Pillars,
       Cases,
       Depoiments,
-      Clients,
       SolicitarContato,
       'pricing-table': PricingTable,
       'hd-sucesso': HistoriasDeSucesso,
