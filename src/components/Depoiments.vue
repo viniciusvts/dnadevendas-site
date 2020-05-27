@@ -6,7 +6,7 @@
         </div>  
         <div class="line-deps"></div>
         <div class="line-center"></div>
-        <div class="container container-fhd">
+        <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-4 col-tb-12 card-depoiments" v-for="(depoiment, index) in depoiments.depoimentos.slice(0, 3)" :key="index">
                     <div class="box">
