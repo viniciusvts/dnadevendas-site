@@ -13,11 +13,15 @@
       <div class="see-more">
         <div class="container">
           <span>Saiba mais</span>
-          <img src="@/assets/svg/fast-forward-black.svg"/>
+          <img src="@/assets/svg/fast-forward.svg"/>
         </div>
       </div>
-      <img class="image dp-none-video" src="https://www.dnadevendas.com.br/wp-content/uploads/capa-home-1.jpg" :alt="customFields.acf.chamada">
-      <iframe class="image" width="100%" height="100%" src="https://www.youtube.com/embed/iPTCw93Pim4?controls=0&autoplay=1&playlist=iPTCw93Pim4&loop=1" frameborder="0" ></iframe>
+
+      <video v-if="customFields.acf.video" autoplay="true" loop="true">
+        <source type="video/mp4" :src="customFields.acf.video">
+      </video>
+      <img v-else class="image" :src="customFields.acf.chamada" :alt="customFields.acf.imagem.sizes.medium_large">
+      
     </Spotlight>
 
     <Pillars>
