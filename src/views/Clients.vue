@@ -1,7 +1,7 @@
 <template>
     <section class="clients">
         <h1>Clientes</h1>
-        <div class="container">
+        <div class="container-fluid">
 
             <ul class="menu row justify-content-center">
                 <li class="col-auto">
@@ -21,7 +21,7 @@
             <hr>
 
             <div v-if="clients.length > 0" class="row logos">
-                <div v-for="client in clients" :key="client.slug" :class="getPortfolio_category(client.categories.portfolio_category)" class="col-md-3 active logoClient">
+                <div v-for="client in clients" :key="client.slug" :class="getPortfolio_category(client.categories.portfolio_category)" class="col-md-2 active logoClient">
                     <img :src="client.thumb.medium" :alt="client.thumb.alt">
                 </div>
             </div>

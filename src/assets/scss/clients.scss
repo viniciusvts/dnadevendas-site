@@ -93,7 +93,8 @@
     .logos{
         img{
             @include transition();
-            margin: 15px auto;
+            margin: 25px auto;
+            max-width: 190px;
             &:hover{
                 transform: scale(1.05);
                 @include transition();
