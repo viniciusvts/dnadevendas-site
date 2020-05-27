@@ -165,7 +165,7 @@
         if(this.slug === 'Blog' || this.slug === 'SingleBlog' || this.slug === 'Clients' || this.slug === 'About'){
           this.menuStyle = 'darkMenu';
           this.logoWhite = true;
-        }else if(this.slug === 'Workshops' || this.slug === 'Talk' || this.slug === 'ForSmall'){
+        }else if(this.slug === 'Home' || this.slug === 'Workshops' || this.slug === 'Talk' || this.slug === 'ForSmall'){
           this.menuStyle = 'darkTransparent';
           this.logoWhite = true;
         }
