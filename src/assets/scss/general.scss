@@ -41,10 +41,7 @@ h1{
 }
 
 h2{
-  @include fontSize(33px);
-  @include breakpoint(fullHdDesktops) {
-    @include fontSize(40px);
-  }
+  @include fontSize(32px);
 }
 
 h3{
