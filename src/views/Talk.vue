@@ -20,12 +20,17 @@
     </Spotlight>
     <PaginaCarregando v-else/>
 
-    <div class="container container-fhd">
-      <div id="banner-video">
-        <img src="../assets/alisson.jpg" alt="Imagem Banner Video">
+    <section class="container">
+      <div class="banner-video">
         <h2>Por que escolher <span>nossas palestras?</span></h2>
+        <div class="see-more">
+          <div class="container">
+            <img src="@/assets/svg/fast-forward.svg"/>
+          </div>
+        </div>
+        <img src="../assets/alisson.jpg" alt="Imagem Banner Video">
       </div>
-    </div>
+    </section>
 
     <!-- <Pillars v-if="secao_pilares">
       <div class="container-fluid">
@@ -47,11 +52,11 @@
     </Pillars>
     <PaginaCarregando v-else/> -->
 
-    <div v-if="objecoes">
+    <section v-if="objecoes">
       <div v-for="(obj, index) in objecoes" :key="index">
         <CardSlider :objection="obj" :index="index"/>
       </div>
-    </div>
+    </section>
     <PaginaCarregando v-else/>
 
     <section class="talkers" v-if="palestrantes">
