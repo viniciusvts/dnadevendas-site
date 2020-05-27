@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-lg col-md col-sm-12 col-tb-12" v-for="(methodology, index) in methodologys.acf.metodologia.slice(0, 5)" :key="index">
                     <span>{{index + 1}}</span>
-                    <h3>{{methodology.titulo}}</h3>
+                    <h3 v-html="methodology.titulo"></h3>
                     
                     <ul>
                         <li v-for="(text, index) in methodology.textos" :key="index">{{text.texto}}</li>
