@@ -79,11 +79,8 @@
     <Cases/>
 
     <Clients/>
-
     
     <Depoiments color="golden"/>
-    
-    <BlogFeed/>
 
     <SolicitarContato/>
     
