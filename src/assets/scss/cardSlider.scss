@@ -6,10 +6,7 @@ $gold: #C8AC78;
         p{
             font-size: 20px;
             line-height: 40px;
-            @media (min-width: $fullHdDesktops){
-                font-size: 25px;
-                line-height: 50px;
-            }
+            padding: 0 20px;
         }
     }
     .right{
@@ -19,10 +16,14 @@ $gold: #C8AC78;
                 color: $golden;
                 text-transform: none;
                 font-size: 30px;
+                padding: 0 20px;
                 @media (min-width: $fullHdDesktops){
                     font-size: 40px;
                 }
             }
+        }
+        button{
+            margin: 0 20px;
         }
     }
     .colorDestak{
@@ -32,7 +33,7 @@ $gold: #C8AC78;
         position: relative;
         display: block;
         z-index: 8;
-        margin: 30px auto;
+        margin: 0 auto;
         .slides{
             display: none;
             opacity: 0;
@@ -83,8 +84,8 @@ $gold: #C8AC78;
         box-shadow: 3px 3px 10px 0px grey;
     }
     .destaq-text{
-        max-height: 250px;
-        overflow-y: scroll;
+        max-height: 300px;
+        overflow-y: auto;
         &::-webkit-scrollbar{ // a barra de rolagem inteira.
             width: 20px;
         }

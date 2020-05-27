@@ -22,12 +22,12 @@
           class="w-bp ml-auto mr-auto"/>
         </div>
         <div class="col-12 col-lg-6 mt-5 mt-lg-0">
-          <div class="right" :class="{'pl-bp':isImpar, 'pr-bp':!isImpar}">
-            <div class="title" :class="{'pl-50':isImpar, 'pr-50':!isImpar}">
+          <div class="right">
+            <div class="title">
               <h2>{{objection.objecao}}</h2>
             </div>
-            <div class="text destaq-text" :class="{'rtl':isImpar,'pl-30':isImpar, 'pr-50':!isImpar}" v-html="objection.texto"></div>
-            <router-link :to="{name: 'Contact'}" :class="{'pl-50':isImpar, 'pr-50':!isImpar}">
+            <div class="text destaq-text" v-html="objection.texto"></div>
+            <router-link :to="{name: 'Contact'}">
               <button> Solicite uma proposta </button>
             </router-link>
           </div>

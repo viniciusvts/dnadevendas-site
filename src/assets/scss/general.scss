@@ -149,7 +149,7 @@ section, .section{
   display: block;
 
   @include breakpoint(tablets){
-    padding: 90px 10px;
+    padding: 40px 10px;
   }
 }
 
