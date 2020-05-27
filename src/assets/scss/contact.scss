@@ -119,6 +119,10 @@ $form-back-color: rgba(245, 245, 245, 0.657);
             &:focus{
                 outline: 0;
             }
+            @media (max-width: $desktops) {
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
         button:first-child{
             margin-left: auto;

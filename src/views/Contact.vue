@@ -3,7 +3,7 @@
     <h1>Contato</h1>
     <section class="container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 col-sm-12 col-tb-12">
             <form action="">
                 <h2 class="title-message">Vamos conversar?</h2>
                 <input type="text" name="nome" id="nome" v-model="formData[0].nome" placeholder="Nome*" required>
@@ -27,7 +27,7 @@
             </form>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-12 col-tb-12">
 
           <p class="local flex-wrap" v-for="contact in contacts" :key="contact.city">
             <img src="../assets/svg/pinmap.gold.svg" alt="" srcset="">
@@ -89,7 +89,8 @@ export default {
           city: 'Salvador',
           end: 'R. Carlos Alberto Santos, nº7 Ed. Mais Empresarial, 5º Andar Vilas do Atlântico – Lauro de Freitas – BA',
           email: null,
-          telefone: '+55 (71) 3289-5595'
+          telefone: '+55 (71) 3289-5595',
+          map: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.582831596932!2d-38.30206118517906!3d-12.87019919092251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7163e16a0d82513%3A0x130e7ebf24ae7c63!2sMais%20Empresarial!5e0!3m2!1spt-BR!2sbr!4v1589816921620!5m2!1spt-BR!2sbr" width="100%" height="550" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>'
         }
       ],
       formData: [

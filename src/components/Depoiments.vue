@@ -8,7 +8,7 @@
         <div class="line-center"></div>
         <div class="container container-fhd">
             <div class="row">
-                <div class="col col-md-12 col-lg-4 card-depoiments" v-for="(depoiment, index) in depoiments.depoimentos.slice(0, 3)" :key="index">
+                <div class="col-sm-12 col-md-12 col-lg-4 col-tb-12 card-depoiments" v-for="(depoiment, index) in depoiments.depoimentos.slice(0, 3)" :key="index">
                     <div class="box">
                         <div :class="['top', thisColor]">
                             <p>{{depoiment.mensagem}}</p>

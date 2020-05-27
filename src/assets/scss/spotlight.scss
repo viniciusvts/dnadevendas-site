@@ -69,6 +69,31 @@
         width: 100%;
         object-fit: cover;
     }
+    img.dp-none-video{
+        @media (min-width: $desktops){
+            display: none;
+        }
+    }
+    iframe.image{
+        filter: brightness(0.7);
+        @media (max-width: $desktops){
+            display: none;
+        }
+        @media (min-width: $desktops){
+            height: 75%; // inspecionar
+            // height: 92%; // redimensionando
+        }
+        @media (min-width: $largeDesktops){
+            height: 89%; // inspecionar
+            // height: 112%; // redimensionando
+        }
+        @media (min-width: $largeDesktops-1280){
+            height: 127%;
+        }
+        @media (min-width: $fullHdDesktops){
+            height: 83%;
+        }
+    }
 
     button{
         margin-top: 40px;
@@ -93,6 +118,11 @@
         }
         @include breakpoint(smartphones){
             left: 0;
+        }
+        &.white-lg{
+            @media (min-width: $desktops){
+                color: white;
+            }
         }
     }
 

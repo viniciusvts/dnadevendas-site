@@ -7,6 +7,9 @@
         font-weight: bold;
         text-transform: uppercase;
         font-size: 13px;
+        @include breakpoint(tablet-desktop) {
+            font-size: 25px;
+        }
         @media (min-width: $fullHdDesktops) {
             font-size: 20px;
         }
@@ -27,7 +30,7 @@
 
     .categories{
         a{
-            &:hover{
+            &:hover, &.active{
                 color: $golden;
             }
         }
@@ -136,5 +139,21 @@
                 }
             }
         }
+    }
+}
+
+.image-sidebar {
+    img {
+        @include breakpoint(tablet-desktop) {
+            margin: auto;
+            width: 100px !important;
+            height: 100px !important;
+        }
+    }
+}
+.title-sidebar {
+    @include breakpoint(tablet-desktop) {
+        font-size: 20px !important;
+        text-align: center;
     }
 }

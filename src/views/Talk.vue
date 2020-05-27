@@ -75,7 +75,7 @@
       <card-palestra :dataCase="transferData" :key="componentKey"></card-palestra>
       <br>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-sm-12 col-sm-12 col-tb-12">
             <p class="centered">
               <router-link to="/contato">
                 <button>Solicite uma proposta</button>
@@ -89,7 +89,7 @@
 
     <section class="container">
       <Metrics class="metrics row" v-if="metricas">
-        <div class="col-md-3 col-sm-12" v-for="(metric, index) in metricas" :key="index">
+        <div class="col-md-3 col-sm-12 col-tb-12" v-for="(metric, index) in metricas" :key="index">
           <img class="lazy" src="@/assets/loading.gif" :data-src="metric.icone.sizes.medium" :alt="metric.metrica">
           <span>{{metric.metrica}}</span>
           <h3>{{metric.titulo}}</h3>

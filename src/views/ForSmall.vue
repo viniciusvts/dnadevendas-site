@@ -16,7 +16,7 @@
           <img src="@/assets/svg/fast-forward.svg"/>
         </div>
       </div>
-      <img class="image" src="https://www.dnadevendas.com.br/wp-content/uploads/dnadevendas-forsmall.jpg"/>
+      <img class="image" src="@/assets/forsmall-capa.jpg"/>
     </Spotlight>
 
     <banner-fsmall></banner-fsmall>
@@ -24,33 +24,33 @@
     <Pillars>
       <div class="container-fluid">
           <div class="row">
-              <div class="col-sm-12">
+              <div class="col-sm-12 col-sm-12 col-tb-12">
                   <h3 style="color:#FF6CAB">Melhoramos expressivamente os resultados da sua empresa através do alinhamento de:</h3>
               </div>
 
               <div class="row" id="icons-area">
-                <div class="col-md-3 pillar f-small">
+                <div class="col-md-3 col-sm-12 col-tb-12 pillar f-small">
                     <img src="@/assets/newarrow.png" alt="Processo">
                     <p>Processos de venda bem definidos</p>
                 </div>
 
-                <div class="col-md-3 pillar f-small">
+                <div class="col-md-3 col-sm-12 col-tb-12 pillar f-small">
                     <img src="@/assets/newbigarrow.png" alt="Gestão">
                     <p>Funil de vendas e gatilhos personalizados</p>
                 </div>
 
-                <div class="col-md-3 pillar f-small">
+                <div class="col-md-3 col-sm-12 col-tb-12 pillar f-small">
                     <img src="@/assets/handgroup.png" alt="Tecnologia">
                     <p>Equipe de vendas capacitada</p>
                 </div>
 
-                <div class="col-md-3 f-small">
+                <div class="col-md-3 col-sm-12 col-tb-12 f-small">
                     <img src="@/assets/newgraphic.png" alt="Pessoas">
                     <p>Resultados previsíveis e crescentes</p>                
                 </div>
               </div>
               
-              <div class="col-sm-12 no-animate">
+              <div class="col-sm-12 col-sm-12 col-tb-12 no-animate">
                 <img src="@/assets/svg/linefs.svg" alt="">
               </div>
           </div>
@@ -72,7 +72,7 @@
     import Api from "@/services/ApiRest.js";
     import Spotlight from '@/components/Spotlight.vue';
     import Pillars from '@/components/Pillars.vue';
-    import Cases from '@/components/CasesNewLayout.vue';
+    import Cases from '@/components/CasesForSmall.vue';
     import HistoriasDeSucesso from '@/components/HistoriasDeSucesso.vue';
     import Depoiments from '@/components/Depoiments.vue';
     import Clients from '@/components/Clients.vue';

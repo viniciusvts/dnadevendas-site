@@ -5,6 +5,9 @@
 .clients{
     color: $baseColor;
     background: white;
+    @media (min-width: $tablets) {
+        padding-top: 100px;
+    }
     h1{
         text-align: center;
         font-weight: bold;

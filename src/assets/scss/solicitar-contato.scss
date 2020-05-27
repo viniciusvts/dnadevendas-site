@@ -1,4 +1,6 @@
 @import 'mixins.scss';
+@import 'variables.scss';
+@import 'breakpoint.scss';
 $colorForSmall:#FF6CAB;
 
 .s-contato{
@@ -12,6 +14,9 @@ $colorForSmall:#FF6CAB;
             @include mediaScreenMin($tablets){
                 margin: 0 20px;
             }
+            @include breakpoint(tablet-desktop) {
+                margin: 10px 20px;
+            }
             &::placeholder{
                 color: gray!important;
             }
@@ -20,8 +25,17 @@ $colorForSmall:#FF6CAB;
             }
         }
         button{
+            padding: 5px 20px;
+            text-transform: none;
             @include mediaScreenMax($tablets){
                 margin: 0 auto;
+            }
+            @include breakpoint(tablet-desktop) {
+                margin: 20px auto;
+            }
+            img{
+                height: 18px;
+                margin: auto 10px;
             }
         }
     }

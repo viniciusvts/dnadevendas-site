@@ -52,9 +52,12 @@
             height: auto !important;
         }
         h1{
-            padding-top: 80px;
+            padding-top: 10px;
             margin-bottom: 20px;
             font-weight: bold;
+            @media (min-width: $largeDesktops) {
+                padding-top: 80px;
+            }
         }
 
         .thumbnail{
@@ -66,9 +69,12 @@
                 height: 108%;
                 position: absolute;
                 top: -4%;
-                right: 2%;
+                right: -2%;
                 z-index: -1;
                 background: linear-gradient(90deg, #fccc78 0%, $golden 100%);
+                @media (min-width: $fullHdDesktops){
+                    right: 2%;
+                }
             }
         }        
 
@@ -135,6 +141,32 @@
         }     
         .local{
             text-align: center;
+        }
+    }
+    .single-information{
+        margin-top: 50px;
+        p{
+            font-size: 15px !important;
+            margin-top: 50px;
+            @media (min-width: $tablets) {
+                font-size: 10px!important;
+            }
+            @media (min-width: $largeDesktops) {
+                margin: 0;
+                font-size: 13px!important;
+            }
+            @media (min-width: $fullHdDesktops) {
+                margin: 0;
+                font-size: 20px!important;
+            }
+        }
+        .social-col{
+            img{
+                width: 30px;
+                height: 30px;
+                margin: 0 5px;
+                cursor: pointer;
+            }
         }
     }
 }

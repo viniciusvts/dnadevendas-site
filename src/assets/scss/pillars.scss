@@ -14,6 +14,9 @@
         font-weight: 100;
         color: $baseColor;
         text-align: left;
+        @include breakpoint(tablet-desktop) {
+            font-size: 25px;
+        }
         @include breakpoint(fullHdDesktops) {
             font-size: 32px;
         }
@@ -34,6 +37,9 @@
             @include breakpoint(tablets){
                 display: none;
             }
+            @include breakpoint(tablet-desktop) {
+                background-color: transparent;
+            }
         }
         &.f-small {
             &::before{
@@ -50,6 +56,9 @@
                 @include breakpoint(tablets){
                     display: none;
                 }
+                @include breakpoint(tablet-desktop) {
+                    background-color: transparent;
+                }
             }
         }
     }
@@ -62,6 +71,9 @@
         @include transition();
         @include breakpoint(fullHdDesktops) {
             height: 100px;
+        }
+        @include breakpoint(tablet-desktop) {
+            height: 110px;
         }
         &:hover{
             transform: scale(1.1);

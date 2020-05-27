@@ -1,6 +1,9 @@
 @import "variables.scss";
 
 .page{
+    @media (min-width: $tablets) {
+        padding-top: 100px;
+    }
     h1, h2, h3{
         margin-bottom: 40px;
         text-align: center;

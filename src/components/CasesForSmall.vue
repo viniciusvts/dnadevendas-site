@@ -11,7 +11,7 @@
       <p>Veja outros cases</p>
       <ul id="logos-clientes">
         <li
-        v-for="item in cases.case" 
+        v-for="item in cases.case_fsmall" 
         :key="item.logo.url"
         class="list-item"
         @click.prevent="setActive"><img
@@ -34,7 +34,7 @@ export default {
   },
   data() {
     return {
-      pageID: '37',
+      pageID: '2586',
       cases: [],
       position: 1,
       transferData: null,
@@ -50,21 +50,23 @@ export default {
   },
   watch: {
     position(val) {
-      this.transferData = this.cases.case[val];
+      this.transferData = this.cases.case_fsmall[val];
       this.componentKey = val;
     },
   },
   methods: {
     getCases() {
       const ctx = this;
-      Api.getPostsAcfData(this.pageID, 'case')
+      Api.getPostsAcfData(this.pageID, 'case_fsmall')
         .then(r => r.json())
         .then(r => {
           ctx.cases = r;
+          this.setActive();
           setTimeout(() => {
-            this.transferData = this.cases.case[0];
-            this.componentKey = 0;
+            this.position = 0;
+            this.componentKey = this.position;
             const list = document.getElementsByClassName('list-item')
+            list[0].children[0].click();
             for (let i = 0; i < list.length; i++) {
                 list[i].classList.add('square')
                 list[list.length - 1].classList.remove('square')
@@ -73,7 +75,6 @@ export default {
                 list[list.length - 1].classList.remove('square-pink')
               }
             }
-            this.setActive();
             const listA = document.getElementsByClassName('list-clientes');
             for(let i = 0; i < listA.length; i++) {
               listA[i].setAttribute('pos', i);

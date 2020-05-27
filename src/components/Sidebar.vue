@@ -9,8 +9,10 @@
             <div v-for="post in mostViewedPosts" :key="post.id" class="post">
                 <router-link :to="{ name: 'SingleBlog', params: { slug: post.post_name } }">
                     <div class="row no-gutters">
-                        <div class="left col-auto"><img :src="post.DNA_custom.thumb.medium" alt=""></div>
-                        <div class="right col">{{post.post_title}}
+                        <div class="left col-auto col-tb-12 image-sidebar">
+                            <img :src="post.DNA_custom.thumb.medium" alt="">
+                        </div>
+                        <div class="right col col-tb-12 title-sidebar">{{post.post_title}}
                             <br/>
                             <p class="date-grey">{{ post.to_ping }}</p>
                         </div>
@@ -25,8 +27,12 @@
                 <span></span>
             </div>
             <ul>
-                <li v-for="cat in categories" :key="cat.id">
-                    <router-link :to="{ name: 'BlogCat', params: { cat: cat.slug, page: 1, categories: cat.id} }">{{cat.name}}</router-link>
+                <li v-for="(cat, index) in categories" :key="index">
+                    <router-link 
+                    :to="{ name: 'BlogCat', params: { cat: cat.slug, page: 1, categories: cat.id} }"
+                    :class="{'active': (index == 0)}">
+                        {{cat.name}}
+                    </router-link>
                 </li>
             </ul>              
         </div>

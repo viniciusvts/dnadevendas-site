@@ -20,6 +20,9 @@
                 @include breakpoint(smartphones) {
                     display: none;
                 }
+                @include breakpoint(tablet-desktop) {
+                    display: none;
+                }
             }
         }
     }
@@ -35,6 +38,9 @@
             width: fit-content;                
             cursor: pointer;
             @include transition();
+            @include breakpoint(tablet-desktop) {
+                font-size: 25px;
+            }
             @include breakpoint(fullHdDesktops) {
                 font-size: 22px;
             }           

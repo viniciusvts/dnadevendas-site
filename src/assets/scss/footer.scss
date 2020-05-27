@@ -56,6 +56,9 @@ footer{
                         left: -19px;
                         top: 8px;
                         z-index: 9;
+                        @media (max-width: $tablets) {
+                            display: none;
+                        }
                     }
                 }
             }
