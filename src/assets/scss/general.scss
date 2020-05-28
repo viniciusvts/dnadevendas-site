@@ -81,19 +81,18 @@ img {
 .centered {
   text-align: center;
 }
+
 .inline {
   display: inline-flex;
   padding: 5px;
 }
+
 .title{ 
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 40px;
-  // @include breakpoint(fullHdDesktops) {
-  //   width: 370px;
-  // }
+  margin-bottom: 40px;  
   
 
   h2{
@@ -101,6 +100,10 @@ img {
     text-transform: uppercase;
     position: relative;
     font-weight: normal;
+
+    @include breakpoint(tablets){
+      margin: 0px auto;
+    } 
 
     b{
       font-weight: 100;
