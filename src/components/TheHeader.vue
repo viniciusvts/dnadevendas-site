@@ -58,24 +58,32 @@
                   <router-link :to="{name: 'Page', params: { slug: 'treinamento-de-vendas'}}">Treinamento de Vendas</router-link>
                 </li>
                 <li>
+                  <router-link :to="{name: 'Page', params: { slug: 'trilhas-de-capacitacao-online'}}">Trilhas de Capacitação Online</router-link>
+                </li>
+                <li>
+                  <router-link :to="{name: 'Page', params: { slug: 'treinamento-de-vendas-presencial'}}">Treinamento de Vendas Presencial</router-link>
+                </li>
+                <li>
                   <router-link :to="{name: 'Page', params: { slug: 'programas-de-liderança'}}">Programas de Liderança</router-link>
                 </li>
                 <li>
-                  <router-link :to="{name: 'Page', params: { slug: 'formacao-de-trainees'}}">Formação de Trainees</router-link>
+                  <router-link :to="{name: 'Page', params: { slug: 'multiplicadores-internos'}}">Multiplicadores Internos</router-link>
                 </li>
                 <li>
-                  <router-link :to="{name: 'Page', params: { slug: 'multiplicadores-internos'}}">Multiplicadores Internos</router-link>
+                  <router-link :to="{name: 'Page', params: { slug: 'workshops-de-vendas'}}">Workshops de Vendas</router-link>
                 </li>
               </ul>
             </div>
           </li>
 
           <li>
-            <router-link :to="{name: 'Talk'}">Palestras</router-link>
-
+            Palestras
             <span>&#x25bc;</span>
             <div class="submenu">
               <ul>
+                <li>
+                  <router-link :to="{name: 'Talk'}">Palestras para Eventos</router-link>
+                </li>
                 <li>
                   <router-link :to="{name: 'Workshops'}">Workshops</router-link>
                 </li>
@@ -85,7 +93,13 @@
           </li>
           
           <li>
-            <a href="http://insidesalesacademy.com.br/" target="_blank">Cursos Online</a>
+            Cursos Online
+            <span>&#x25bc;</span>
+            <div class="submenu">
+              <ul>
+                <li><a href="http://insidesalesacademy.com.br/" target="_blank">Vendas Consultivas no Mundo Digital</a></li>
+              </ul>
+            </div>
           </li>
 
           <li>
