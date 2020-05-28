@@ -15,7 +15,7 @@
           <img src="@/assets/svg/fast-forward.svg"/>
         </div>
       </div>
-      <img class="image" src="@/assets/forsmall-capa.jpg"/>
+      <img class="image" :src="post.acf.foto.sizes.medium_large">
     </Spotlight>
 
     <banner-fsmall></banner-fsmall>
