@@ -43,9 +43,9 @@ $gold: #C8AC78;
         background-color: $blue-dark;
         color: white;
         margin: 20px;
-        min-width: 366px;
+        min-width: 100%;
         @include breakpoint(smartphones) {
-            margin: 20px 0;
+            margin: 5px auto;
             min-width: 310px;
         }
         cursor: pointer;
@@ -62,7 +62,7 @@ $gold: #C8AC78;
             padding: 15%;
             text-align: left;
             @include breakpoint(smartphones) {
-                padding: 10%;
+                padding: 0 0 30px 0;
                 font-size: 25px;
                 text-align: center;
             }
@@ -81,18 +81,21 @@ $gold: #C8AC78;
             padding: 35px 70px 35px 35px;
             text-align: left;
             line-height: 50px;
+
             @include breakpoint(smartphones) {
                 font-size: 20px;
                 line-height: unset;
                 padding: 0;
+                text-align: center;
             }
+
             @include breakpoint(fullHdDesktops) {
                 font-size: 30px;
             }
         }
         .destaq-text{
-            max-height: 290px;
-            overflow-y: scroll;
+            max-height: 350px;
+            overflow-y: auto;
             &::-webkit-scrollbar{ // a barra de rolagem inteira.
                 width: 20px;
             }

@@ -25,14 +25,8 @@ $colorForSmall:#FF6CAB;
             }
         }
         button{
-            padding: 5px 20px;
+            padding: 20px;
             text-transform: none;
-            @include mediaScreenMax($tablets){
-                margin: 0 auto;
-            }
-            @include breakpoint(tablet-desktop) {
-                margin: 20px auto;
-            }
             img{
                 height: 18px;
                 margin: auto 10px;
@@ -44,7 +38,7 @@ $colorForSmall:#FF6CAB;
 h2.fale-conosco{
     padding: 0 15%;
     font-weight: normal;
-    font-size: 3rem;
+    @include fontSize(30px);
     &::before{
         content: "";
         background-image: url("../assets/svg/fale-conosco.svg");
@@ -58,9 +52,6 @@ h2.fale-conosco{
     }
     &.ForSmall::before{
         background-image: url("../assets/svg/fale-conosco-rosa.svg");
-    }
-    @include mediaScreenMax($tablets){
-        text-align: center;
     }
 }
 
