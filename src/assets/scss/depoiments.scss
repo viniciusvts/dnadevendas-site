@@ -14,46 +14,17 @@
     text-align: center;
     .title {
         margin-bottom: 100px;
+        @include breakpoint(tablets){
+            margin-bottom: 20px;
+        } 
+        
     }
-
-    // &::before{
-    //     display: block;
-    //     position: absolute;
-    //     content: "";
-    //     background-image: url("../assets/svg/cases-vetor-right.svg");
-    //     background-attachment: fixed;
-    //     height: 860px;
-    //     width: 140px;
-    //     left: 0;
-    //     top: 0px;
-    //     z-index: 9;
-    //     transform: rotate(180deg);
-
-    //     @include breakpoint(tablets){
-    //         display: none;
-    //     }
-    // }
-
-    // &::after{
-    //     display: block;
-    //     position: absolute;
-    //     content: "";
-    //     background-image: url("../assets/svg/cases-vetor-right.svg");
-    //     height: 800px;
-    //     width: 140px;
-    //     right: 0;
-    //     top: 300px;
-    //     z-index: 9;
-    //     transform: rotate(180deg);
-    //     background-position-x: 140px;
-
-    //     @include breakpoint(tablets){
-    //         display: none;
-    //     }
-    // }
 
     .row{        
         margin: 40px auto;
+        @include breakpoint(tablets){
+            margin: 0px auto;
+        }  
     }
 
     .col{
@@ -67,6 +38,11 @@
     .box{
         color: white;
         margin-top: 50px;
+
+        @include breakpoint(tablets){
+           margin-top: 20px;
+        }
+
         .top{
             &.golden {
                 &::before {
@@ -89,10 +65,7 @@
                 min-height: unset;
             }
             p {
-                @include breakpoint(fullHdDesktops) {
-                    font-size: 18px;
-                }
-                font-size: 13px;
+                font-size: 17px;
                 line-height: 30px;
                 font-weight: 100;
                 font-style: italic;
