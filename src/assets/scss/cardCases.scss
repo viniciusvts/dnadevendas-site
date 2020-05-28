@@ -1,5 +1,6 @@
 @import '@/assets/scss/variables.scss';
 @import '@/assets/scss/breakpoint.scss';
+@import '@/assets/scss/mixins.scss';
 
 .iframe {
   @include breakpoint(tablet-desktop) {
@@ -116,6 +117,7 @@
       height: unset;
     }
   }
+  
   img {
     transition-duration: .5s;
     transform: scale(1);
@@ -135,6 +137,7 @@
     }
   }
 }
+
 #logos-clientes {
   display: inline-flex;
   padding-left: 100px;
@@ -154,9 +157,11 @@
     margin-bottom: unset;
     min-height: unset;
   }
+
   h2 {
     color: $golden-dark;
   }
+
   .img-notebook {
     position: absolute;
     width: auto;
@@ -174,9 +179,11 @@
     }
   }
 }
+
 svg {
   fill: black !important;
 }
+
 .cases {
   background-color: white;
   .title {
@@ -185,12 +192,6 @@ svg {
     }
   }
 }
-
-
-
-
-// card
-
 
 .img-field, .content-client {
   transition-duration: .5s;
@@ -210,42 +211,58 @@ svg {
     position: absolute;
     top: 180px;
     left: -150px;
+
     @include breakpoint(tablet-desktop) {
       position: unset;
       img {
         margin: auto !important;
       }
     }
+
     @include breakpoint(smartphones) {
       img {
         margin: auto !important;
       }
     }
+
     @include breakpoint(tablet-desktop) {
       position: unset;
     }
+
     @include breakpoint(fullHdDesktops) {
       top: 45px;
     }
+
     img {
       width: 200px;
       height: 100px;
       object-fit: cover;
     }
+
     @include breakpoint(smartphones) {
       position: unset;
     }
+
     img {
       margin: 10px 0;
     }
+
     h2 {
       margin: 10px 0;
+      @include fontSize(40px);
+      font-weight: 300;
+      @include breakpoint(tablets) {
+        text-align: center;
+      }
     }
+
     p {
-      font-size: 14px;
-      @include breakpoint(fullHdDesktops) {
-        font-size: 30px;
-        line-height: 40px;
+      @include fontSize(25px);
+      margin-top: 30px;
+      line-height: 45px;
+      font-weight: 100;
+      @include breakpoint(tablets) {
+        text-align: center;
       }
     }
   }

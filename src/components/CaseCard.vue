@@ -32,7 +32,7 @@ export default {
     };
   },
   mounted() {
-    // this.elementScroll();
+    this.elementScroll();
   },
   methods: {
     elementScroll() {
@@ -56,20 +56,4 @@ export default {
   @import '@/assets/scss/variables.scss';
   @import '@/assets/scss/breakpoint.scss';
   @import '@/assets/scss/cardCases.scss';
-  // .out-l {
-  //   transform: translateX(-100px);
-  //   opacity: .5;
-  //   transition-duration: .5s;
-  //   @include breakpoint(smartphones) {
-  //     transform: translateX(0);
-  //   }
-  // }
-  // .out-r {
-  //   transform: translateX(100px);
-  //   opacity: .5;
-  //   transition-duration: .5s;
-  //   @include breakpoint(smartphones) {
-  //     transform: translateX(0);
-  //   }
-  // }
 </style>
