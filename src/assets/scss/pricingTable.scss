@@ -78,18 +78,13 @@
             max-width: 100px;
         }
         .title-row {
-            font-size: 14px;
+            font-size: 16px;
+            line-height: 40px;
             font-weight: 200;
             // border-top: 1px solid grey;
             // border-bottom: 1px solid grey;
             text-align: center;
             padding: 5px 10px;
-            @include breakpoint(fullHdDesktops) {
-                font-size: 25px;
-            }
-            @include breakpoint(tablet-desktop) {
-              font-size: 20px;
-            }
         }
         .item-row {
             text-align: center;

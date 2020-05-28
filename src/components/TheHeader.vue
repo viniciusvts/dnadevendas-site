@@ -2,12 +2,19 @@
   <div>
     <header id="menu-fixed" class="fixed-top" :class="menuStyle">
       <nav>
-        <div class="logo">
+
+        <div class="logo" v-if="this.$route.name == 'ForSmall'">
+          <router-link to="/">
+            <img v-if="logoWhite" src="@/assets/svg/logo-dnaforsmall-white.svg" alt="Dna de Vendas">
+          </router-link>
+        </div>
+        <div class="logo" v-else>
           <router-link to="/">
             <img v-if="logoWhite" src="@/assets/svg/logo.svg" alt="Dna de Vendas">
             <img v-else src="@/assets/svg/logo-dnadevendas.svg" alt="Dna de Vendas">
           </router-link>
         </div>
+
         <div id="burgerMenu">
           <img v-if="logoWhite" src="@/assets/svg/open-menu-white.svg" alt="Menu mobile">
           <img v-else src="@/assets/svg/open-menu.svg" alt="Menu mobile">          
