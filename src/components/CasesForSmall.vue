@@ -6,18 +6,13 @@
     </div>
     <card-case :dataCase="transferData" :position="position" :key="componentKey"></card-case>
 
-
-    <div id="logos-field">
-      <p>Veja outros cases</p>
-      <ul id="logos-clientes">
-        <li
-        v-for="item in cases.case_fsmall" 
-        :key="item.logo.url"
-        class="list-item"
-        @click.prevent="setActive"><img
-        class="list-clientes"
-        :src="item.logo.url" :alt="item.titulo"></li>
-      </ul>
+    <div class="container list-clients">
+      <p>Veja outros cases</p>      
+      <div class="row justify-content-center align-items-center">
+        <div v-for="item in cases.case_fsmall" :key="item.logo.url" class="list-item col-md-auto" @click.prevent="setActive">
+          <img class="list-clientes" :src="item.logo.url" :alt="item.titulo">
+        </div>
+      </div>
       <!-- <button class="fsmall-btn" id="veja-mais">Veja Mais cases</button> -->
     </div>
   </section>

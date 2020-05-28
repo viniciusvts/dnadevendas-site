@@ -7,17 +7,13 @@
     <card-case :dataCase="transferData" :position="position" :key="componentKey"></card-case>
 
 
-    <div id="logos-field">
-      <p>Veja outros cases</p>
-      <ul id="logos-clientes">
-        <li
-        v-for="item in cases.case" 
-        :key="item.logo.url"
-        class="list-item"
-        @click.prevent="setActive"><img
-        class="list-clientes"
-        :src="item.logo.url" :alt="item.titulo"></li>
-      </ul>
+    <div class="container list-clients">
+      <p>Veja outros cases</p>      
+      <div class="row justify-content-center align-items-center">
+        <div v-for="item in cases.case" :key="item.logo.url" class="list-item col-md-auto col-6" @click.prevent="setActive">
+          <img class="list-clientes" :src="item.logo.url" :alt="item.titulo">
+        </div>
+      </div>
       <!-- <button class="fsmall-btn" id="veja-mais">Veja Mais cases</button> -->
     </div>
   </section>
@@ -61,10 +57,12 @@ export default {
         .then(r => r.json())
         .then(r => {
           ctx.cases = r;
+          this.setActive();
           setTimeout(() => {
-            this.transferData = this.cases.case[0];
-            this.componentKey = 0;
+            this.position = 0;
+            this.componentKey = this.position;
             const list = document.getElementsByClassName('list-item')
+            list[0].children[0].click();
             for (let i = 0; i < list.length; i++) {
                 list[i].classList.add('square')
                 list[list.length - 1].classList.remove('square')
@@ -73,13 +71,12 @@ export default {
                 list[list.length - 1].classList.remove('square-pink')
               }
             }
-            this.setActive();
             const listA = document.getElementsByClassName('list-clientes');
             for(let i = 0; i < listA.length; i++) {
               listA[i].setAttribute('pos', i);
               const positionList = listA[i].getAttribute('pos');
               if(positionList == this.componentKey) {
-                listA[i].setAttribute('style', 'filter: grayscale(0);');
+                listA[i].setAttribute('style', 'filter: opacity(1);');
               }
             }
           }, 500);

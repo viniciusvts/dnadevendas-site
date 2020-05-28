@@ -1,13 +1,16 @@
 @import '@/assets/scss/variables.scss';
 @import '@/assets/scss/breakpoint.scss';
+
 #details-fs {
   position: relative;
   margin-top: 50px;
   height: 500px;
+
   @include breakpoint(smartphones) {
     margin-top: 0;
     height: 400px;
   }
+
   img {
     position: absolute;
     right: -120px;
@@ -32,16 +35,14 @@
       right: -23px;
     }
   }
+
   h2 {
-    font-size: 25px;
+    font-size: 44px;
     font-weight: 100;
-    width: 400px;
-    @include breakpoint(smartphones) {
-      width: unset;
-    }
-    @include breakpoint(fullHdDesktops) {
-      font-size: 35px;
-      width: 470px;
+    width: 500px;
+    max-width: 100%;
+    @include breakpoint(tablets) {
+      font-size: 24px;
     }
     span {
       color: $pink-fsmall;
@@ -61,10 +62,12 @@
     }
   }
 }
+
 @keyframes blink {
   0%   {opacity: 1;}
   100% {opacity: 0;}
 }
+
 @keyframes typing {
   0%   {content: '35 segmentos'}
   10%   {content: '35 segmento'}

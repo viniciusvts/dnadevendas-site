@@ -1,15 +1,15 @@
 <template>
-    <div class="card-case row">
-      <div class="col-tb-12 col-sm-12 col-md-9 img-field out-l">
-        <img class="img-notebook" src="../assets/img-notebook-alpha.png" alt="bg">
-        <!-- <div class="overlay-video"></div> -->
-        <div class="iframe" v-html="obj.video"></div>
+    <div class="card-case row align-items-center">
+      <div class="col-md-7">
+        <div class="mockup">
+          <img class="img-notebook" src="../assets/img-notebook-alpha.png" alt="bg">
+          <!-- <div class="overlay-video"></div> -->
+          <div class="iframe" v-html="obj.video"></div>
+        </div>
       </div>
-      <div class="col-sm-12 col-tb-12 col-md-3 content-client out-r">
+      <div class="col-md-5">
         <div class="infos">
-          <p class="centered-12">
-            <img :src="obj.logo.url" alt="Logo empresa"/>
-          </p>
+          <img :src="obj.logo.url" :alt="obj.titulo"/>
           <h2 :class="[pink]">
             {{ obj.titulo }}
           </h2>
@@ -18,6 +18,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import TextPink from '../services/TextPink';
 export default {
@@ -32,7 +33,7 @@ export default {
     };
   },
   mounted() {
-    this.elementScroll();
+    // this.elementScroll();
   },
   methods: {
     elementScroll() {
