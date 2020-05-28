@@ -24,28 +24,30 @@
       <div class="container-fluid">
           <div class="row">
               <div class="col-sm-12 col-sm-12 col-tb-12">
-                  <h3 style="color:#FF6CAB">Melhoramos expressivamente os resultados da sua empresa através do alinhamento de:</h3>
+                  <h2>Melhoramos expressivamente os resultados da sua empresa através do alinhamento de:</h2>
               </div>
 
-              <div class="row" id="icons-area">
-                <div class="col-md-3 col-sm-12 col-tb-12 pillar f-small">
-                    <img src="@/assets/newarrow.png" alt="Processo">
-                    <p>Processos de venda bem definidos</p>
-                </div>
+              <div class="container-fluid">
+                <div class="row" id="icons-area">
+                  <div class="col-md-3 pillar">
+                      <img src="@/assets/newarrow.png" alt="Processo">
+                      <p>Processos <br>bem definidos</p>
+                  </div>
 
-                <div class="col-md-3 col-sm-12 col-tb-12 pillar f-small">
-                    <img src="@/assets/newbigarrow.png" alt="Gestão">
-                    <p>Funil de vendas e gatilhos personalizados</p>
-                </div>
+                  <div class="col-md-3 pillar">
+                      <img src="@/assets/newbigarrow.png" alt="Gestão">
+                      <p>Funil de vendas <br>e gatilhos personalizados</p>
+                  </div>
 
-                <div class="col-md-3 col-sm-12 col-tb-12 pillar f-small">
-                    <img src="@/assets/handgroup.png" alt="Tecnologia">
-                    <p>Equipe de vendas capacitada</p>
-                </div>
+                  <div class="col-md-3 pillar">
+                      <img src="@/assets/handgroup.png" alt="Tecnologia">
+                      <p>Equipe de vendas <br>capacitada</p>
+                  </div>
 
-                <div class="col-md-3 col-sm-12 col-tb-12 f-small">
-                    <img src="@/assets/newgraphic.png" alt="Pessoas">
-                    <p>Resultados previsíveis e crescentes</p>                
+                  <div class="col-md-3">
+                      <img src="@/assets/newgraphic.png" alt="Pessoas">
+                      <p>Resultados <br>previsíveis e crescentes</p>                
+                  </div>
                 </div>
               </div>
               

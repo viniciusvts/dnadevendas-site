@@ -5,21 +5,18 @@
     color: $baseColor;
     background: white;
     margin: 30px 0;
+
+    
     p {
         color: $golden;
-     }
+    }
+    
     h3{
         font-size: 21px;
         margin-top: 0;
         font-weight: 100;
         color: $baseColor;
         text-align: left;
-        @include breakpoint(tablet-desktop) {
-            font-size: 25px;
-        }
-        @include breakpoint(fullHdDesktops) {
-            font-size: 32px;
-        }
     }
 
     .pillar{
@@ -41,26 +38,6 @@
                 background-color: transparent;
             }
         }
-        &.f-small {
-            &::before{
-                display: block;
-                position: absolute;
-                content: "";
-                height: 8px;
-                width: 8px;
-                right: 0;
-                top: 60px;
-                z-index: 9;
-                background-color: $pink-fsmall;
-                transform: rotate(45deg);
-                @include breakpoint(tablets){
-                    display: none;
-                }
-                @include breakpoint(tablet-desktop) {
-                    background-color: transparent;
-                }
-            }
-        }
     }
 
     img{
@@ -69,12 +46,6 @@
         height: 80px;
         transform: scale(1);
         @include transition();
-        @include breakpoint(fullHdDesktops) {
-            height: 100px;
-        }
-        @include breakpoint(tablet-desktop) {
-            height: 110px;
-        }
         &:hover{
             transform: scale(1.1);
             @include transition();
@@ -83,17 +54,12 @@
 
     p{
         text-align: center;
-        @include fontSize(13px);
-        margin: 30px auto;
+        @include fontSize(20px);
+        margin: 20px auto 60px auto;
         text-transform: uppercase;
-        @include breakpoint(fullHdDesktops) {
-            @include fontSize(24px);
-        }
     }    
 }
-#icons-area {
-    margin: 50px 0;
-}
+
 .no-animate {
     img {
         &:hover {
@@ -101,8 +67,40 @@
         }
     }
 }
-.f-small {
-    p {
+
+.forSmall{
+    .pillar{
+        &::before{
+            display: block;
+            position: absolute;
+            content: "";
+            height: 8px;
+            width: 8px;
+            right: 0;
+            top: 60px;
+            z-index: 9;
+            background-color: $pink-fsmall;
+            transform: rotate(45deg);
+            @include breakpoint(tablets){
+                display: none;
+            }
+        }
+    }
+
+    .pillars p{
+        color: black;
+    }
+
+    .pillars h2{
+        text-align: center;
+        font-weight: 100;
+        max-width: 840px;
         color: $pink-fsmall;
+        margin: 30px auto 80px auto;
+        @include fontSize(40px);
+
+        @include breakpoint(tablets){
+            @include fontSize(30px)
+        }
     }
 }
