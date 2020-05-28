@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="footer section container container-fhd">
+    <div class="footer section container-fluid">
       <div class="top">
         <div class="row">
           <div class="col-12 col-md-6 col-lg-2">
@@ -47,6 +47,19 @@
               <li class="af-l-1">
                 <router-link :to="{ name: 'ForSmall' }">Consultoria Comercial</router-link>
               </li>
+              <li><a href="http://dnaformarketing.com.br" target="_blank" rel="noopener">DNA For Marketing</a>
+              </li>
+              <li><a href="https://www.dnadevendas.com.br/blog/playbook-de-vendas/">Playbook de Vendas</a>              
+              </li>
+              <li>
+                <a href="https://jobs.solides.com/dna" target="_blank" rel="noopener noreferrer">Trabalhe Conosco</a>
+              </li>
+              <li>
+                <a href="https://insidesalesacademy.com.br/" target="_blank" rel="noopener noreferrer">Inside Sales Academy</a>
+              </li>
+              <li>
+                <a href="https://www.dnadevendas.com.br/blog/venda-consultiva/" target="_blank" rel="noopener noreferrer">Venda Consultiva</a>
+              </li>
             </ul>
           </div>
 
@@ -66,7 +79,7 @@
               <input type="email" v-model="formData.email" placeholder="Seu e-mail*" nome="email" id="email">
               <p>{{formMessage}}</p>
               <p>* Campos obrigatórios</p>
-              <input type="submit" value="Quero me inscrever" class="ml-auto mr-auto ml-lg-0 mr-lg-0">
+              <input type="submit" value="Quero me inscrever">
             </form>
           </div>
 

@@ -7,15 +7,21 @@ footer{
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    text-align: center;
+    text-align: left;
     z-index: 8;
+    padding: 0 90px;
     position: relative;
-    @media (min-width: $tablets){
-        text-align: left;
+
+    @include breakpoint(tablets){
+        padding: 0 20px;
     }
 
     .section{
         padding-bottom: 0px;
+    }
+
+    hr{
+        margin: 20px auto;
     }
 
     .footer{
@@ -56,9 +62,6 @@ footer{
                         left: -19px;
                         top: 8px;
                         z-index: 9;
-                        @media (max-width: $tablets) {
-                            display: none;
-                        }
                     }
                 }
             }
@@ -68,11 +71,17 @@ footer{
             margin-top: 40px;
             p{
                 font-size: 16px;
+                margin-top: 20px;
             }
         }
 
         .social{
             float: right;
+            
+            @include breakpoint(tablets){
+                float: unset;
+            }
+
             li{
                 display: inline-block;
                 margin: 0 10px;
