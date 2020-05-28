@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12 col-tb-12 col-md-4"
-                v-for="(diferenciais, index) in diferentials.diferenciais.slice(0,6)"
+                v-for="(diferenciais, index) in diferentials.diferenciais.slice(0,9)"
                 :key="index">
                     <div class="inline blue-box justify-content-center" 
                     :class="{'active': (index == 0)}" 
