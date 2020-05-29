@@ -61,7 +61,6 @@
           </ul>
         </div>
       </div>
-
       <card-palestra :dataCase="transferData" :key="componentKey"></card-palestra>
       <br>
         <div class="row">
@@ -160,19 +159,12 @@
     mounted(){
       this.getPage();
       setTimeout(() => {
-        for(let i = 0; i < this.palestrantes.length; i++) {
-          if(this.palestrantes[i].onde_palestrou.length > 6) {
-            console.log('maior');
-          } else {
-            console.log('menor');
-          }
-        }
         this.setActive();
         if(this.transferData == null) {
-          this.transferData = this.palestrantes[1];
-          this.componentKey = 1;
+          this.transferData = this.palestrantes[0];
+          this.componentKey = 0;
         }
-      }, 200);
+      }, 2000);
     },
     watch: {
       position(val) {
@@ -200,8 +192,8 @@
         this.page = r;
         this.$root.meta.title = this.page.yoast_title;
         this.$root.meta.tags = this.page.yoast_meta;
-        this.transferData = this.palestrantes[1];
-        this.componentKey = 1;
+        this.transferData = this.palestrantes[0];
+        this.componentKey = 0;
         this.video = r.acf.video
         });
       },
@@ -214,9 +206,6 @@
             const positionTarget = el.target.getAttribute('pos');
             ctx.position = parseInt(positionTarget);
           })
-          // setTimeout(() => {
-          //   list[list.length - 1].click();
-          // }, 500);
         }
       },
     },

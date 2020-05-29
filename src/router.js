@@ -15,6 +15,7 @@ const Contact = () => import('./views/Contact.vue')
 const Search = () => import('./views/Search.vue')
 const Clients = () => import('./views/Clients.vue')
 const ForSmall = () => import('./views/ForSmall.vue')
+const Trainning = () => import('./views/Trainning.vue')
 const Page = () => import('./views/Page.vue')
 
 Vue.use(VueRouter)
@@ -102,6 +103,11 @@ const routes = [
     path: '/contato',
     name: 'Contact',
     component: Contact
+  },  
+  {
+    path: '/vendas-training',
+    name: 'Trainning',
+    component: Trainning
   },  
   {
     path: '/:slug',
