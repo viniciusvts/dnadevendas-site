@@ -15,7 +15,7 @@ const Contact = () => import('./views/Contact.vue')
 const Search = () => import('./views/Search.vue')
 const Clients = () => import('./views/Clients.vue')
 const ForSmall = () => import('./views/ForSmall.vue')
-const Trainning = () => import('./views/Trainning.vue')
+const Training = () => import('./views/Training.vue')
 const FullService = () => import('./views/FullService.vue')
 const Page = () => import('./views/Page.vue')
 
@@ -107,8 +107,8 @@ const routes = [
   },  
   {
     path: '/vendas-training',
-    name: 'Trainning',
-    component: Trainning
+    name: 'Training',
+    component: Training
   },
   {
     path: '/full-service',

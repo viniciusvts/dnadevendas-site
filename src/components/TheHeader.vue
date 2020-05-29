@@ -41,10 +41,10 @@
             <div class="submenu">
               <ul>
                 <li>
-                  <router-link :to="{name: 'Page', params: { slug: 'full-service'}}">Consultoria de vendas Full Service</router-link>
+                  <router-link :to="{name: 'FullService'}">Consultoria de vendas Full Service</router-link>
                 </li>
                 <li>
-                  <router-link :to="{name: 'Page', params: { slug: 'vendas-training'}}">Consultoria de Vendas Trainning</router-link>
+                  <router-link :to="{name: 'Training'}">Consultoria de Vendas Training</router-link>
                 </li>
                 <li>
                   <router-link :to="{name: 'ForSmall'}">Consultoria de Vendas para pequenas empresas (For Small)</router-link>

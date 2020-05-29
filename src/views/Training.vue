@@ -50,7 +50,7 @@
   import SolicitarContato from '@/components/SolicitarContato.vue';
 
   export default {
-    name: "WorkShops",
+    name: "Training",
     components: {
       Spotlight,
       // 'fale-conosco': FaleConosco,
