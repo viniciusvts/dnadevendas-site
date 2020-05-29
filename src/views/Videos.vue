@@ -26,9 +26,9 @@
             <div class="row h-100">
               <div class="col-12">
                 <div class="left">
-                  <iframe 
+                  <iframe
                   width="100%" 
-                  height="100%" 
+                  height="220px" 
                   :src="'//www.youtube.com/embed/'+ getYtId(vid.video)"
                   frameborder="0"
                   allowfullscreen="">
