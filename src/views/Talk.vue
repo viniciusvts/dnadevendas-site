@@ -76,15 +76,13 @@
     <PaginaCarregando v-else/>
 
 
-    <section class="container">
-      <Metrics class="metrics row" v-if="metricas">
-        <div class="col-md-3 col-sm-12 col-tb-12" v-for="(metric, index) in metricas" :key="index">
-          <img class="lazy" src="@/assets/loading.gif" :data-src="metric.icone.sizes.medium" :alt="metric.metrica">
-          <span>{{metric.metrica}}</span>
-          <h3>{{metric.titulo}}</h3>
-        </div>
-      </Metrics>
-    </section>
+    <Metrics v-if="metricas">
+      <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
+        <img class="lazy" src="@/assets/loading.gif" :data-src="metric.icone.sizes.medium" :alt="metric.metrica">
+        <span>{{metric.metrica}}</span>
+        <h3>{{metric.titulo}}</h3>
+      </div>
+    </Metrics>
 
     <section class="themes" v-if="themes">
       <div class="title">
@@ -112,7 +110,6 @@
     </section>
     <PaginaCarregando v-else/>
     
-    <Metrics/>
     <SolicitarContato></SolicitarContato>
   </div>
 </template>
@@ -125,14 +122,11 @@
   import SolicitarContato from '@/components/SolicitarContato.vue';
   import PaginaCarregando from '@/components/PaginaCarregando.vue';
   import CardSlider from '@/components/CardSlider.vue';
-  // import Api from "@/services/ApiRest.js"; 
 
   export default {
     name: "Talk",
     components: {
       Spotlight,
-      // Pillars,
-      // Pagination,
       Metrics,
       PaginaCarregando,
       SolicitarContato,

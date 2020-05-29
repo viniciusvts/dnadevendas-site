@@ -2,9 +2,7 @@
   <section class="metrics">
     <div class="container">
         <div class="row align-items-start">
-
-                <slot></slot>
-
+          <slot></slot>
         </div>
     </div>
   </section>

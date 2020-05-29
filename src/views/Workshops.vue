@@ -26,15 +26,13 @@
     </div>
     <PaginaCarregando v-else/>
     
-    <section class="container">
-      <Metrics class="metrics row" v-if="metricas">
-        <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
-          <img class="lazy" src="@/assets/loading.gif" :data-src="metric.icone.sizes.medium" :alt="metric.metrica">
-          <span>{{metric.metrica}}</span>
-          <h3>{{metric.titulo}}</h3>
-        </div>
-      </Metrics>
-    </section>
+    <Metrics v-if="metricas">
+      <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
+        <img class="lazy" src="@/assets/loading.gif" :data-src="metric.icone.sizes.medium" :alt="metric.metrica">
+        <span>{{metric.metrica}}</span>
+        <h3>{{metric.titulo}}</h3>
+      </div>
+    </Metrics>
 
     <!-- <fale-conosco></fale-conosco> -->
     <sec-contact></sec-contact>
@@ -46,6 +44,7 @@
 
   import Spotlight from '@/components/Spotlight.vue';
   // import FaleConosco from '@/components/FaleConosco.vue';
+  import Metrics from '@/components/Metrics.vue';
   import CardSlider from '@/components/CardSlider.vue';
   import SolicitarContato from '@/components/SolicitarContato.vue';
 
@@ -53,7 +52,7 @@
     name: "WorkShops",
     components: {
       Spotlight,
-      // 'fale-conosco': FaleConosco,
+      Metrics,
       'sec-contact': SolicitarContato,
       CardSlider,
     },
