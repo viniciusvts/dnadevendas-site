@@ -79,11 +79,9 @@ header{
         display: inline-block;
         position: relative;
         height: 100%;
-        padding: 20px 16px;
+        padding: 20px 8px;
         cursor: pointer;
-        @include breakpoint(largeDesktops-1280) {
-          padding: 20px 10px;
-        }
+
         span{
           font-size: 10px;
           margin-left: 8px;
