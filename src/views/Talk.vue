@@ -13,7 +13,7 @@
       <div class="see-more">
         <div class="container">
           <span>Saiba mais</span>
-          <img src="@/assets/svg/fast-forward.svg"/>
+          <img class="image" src="@/assets/svg/fast-forward.svg"/>
         </div>
       </div>
       

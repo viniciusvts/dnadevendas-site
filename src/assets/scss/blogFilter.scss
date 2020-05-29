@@ -37,13 +37,7 @@
             display: block;
             width: fit-content;                
             cursor: pointer;
-            @include transition();
-            @include breakpoint(tablet-desktop) {
-                font-size: 25px;
-            }
-            @include breakpoint(fullHdDesktops) {
-                font-size: 22px;
-            }           
+            @include transition();         
         }
     }   
 }
