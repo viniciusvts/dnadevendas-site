@@ -26,8 +26,14 @@
       margin-bottom: 30px;
     }
     h2{
+      @include fontSize(42px);
       margin-bottom: 30px;
       color: $golden;
+    }
+
+    p{
+      @include fontSize(22px);
+      line-height: 40px;
     }
 
     @include breakpoint(smartphones){
@@ -37,6 +43,13 @@
       h2, p{
         text-align: center;
       }
+
+      h2{
+        @include fontSize(25px);
+        margin-bottom: 30px;
+        color: $golden;
+      }
+
     }
   }
 }

@@ -2,7 +2,7 @@
   <div class="talk">
     <Spotlight v-if="bannerData">
       <div class="text section">
-        <h1>{{bannerData.chamada}}</h1>
+        <h1 v-html="bannerData.chamada"></h1>
         <h2 v-if="bannerData.subtitulo">{{bannerData.subtitulo}}</h2>
         <button class="btn-grad">
           <router-link to="/contato">
