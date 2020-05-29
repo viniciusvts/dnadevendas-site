@@ -16,6 +16,7 @@ const Search = () => import('./views/Search.vue')
 const Clients = () => import('./views/Clients.vue')
 const ForSmall = () => import('./views/ForSmall.vue')
 const Trainning = () => import('./views/Trainning.vue')
+const FullService = () => import('./views/FullService.vue')
 const Page = () => import('./views/Page.vue')
 
 Vue.use(VueRouter)
@@ -108,6 +109,11 @@ const routes = [
     path: '/vendas-training',
     name: 'Trainning',
     component: Trainning
+  },
+  {
+    path: '/full-service',
+    name: 'FullService',
+    component: FullService
   },  
   {
     path: '/:slug',
