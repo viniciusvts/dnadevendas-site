@@ -15,9 +15,7 @@
 
                         <div class="col-12 col-sm-12 col-tb-12">
                             <div class="counter">
-                                <p>300</p>
                                 <p :class="['count', pink]">300</p>
-                                <p>301</p>
                             </div>
                         </div>
                 
