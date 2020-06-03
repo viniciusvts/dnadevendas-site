@@ -16,7 +16,7 @@
         <div class="col-12 bio">
           <h3>{{obj.nome_palestrante}}</h3>
           <h4>{{obj.cargo}}</h4>
-          <p>{{obj.bio}}</p>
+          <p v-html="obj.bio"></p>
         </div>
       </div>
     </div>

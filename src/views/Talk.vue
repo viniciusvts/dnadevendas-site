@@ -54,9 +54,9 @@
           <ul>
             <li class="fotos-palestrantes" v-for="(fotos, index) in palestrantes" :key="index">
               <div class="overlay-change"></div>
-              <img :src="fotos.foto.sizes.large" :alt="fotos.nome_palestrante">
-              <p>{{ fotos.nome_palestrante }}</p>
-              <span>{{ fotos.cargo }}</span>
+              <img v-if="fotos.foto.sizes.large" :src="fotos.foto.sizes.large" :alt="fotos.nome_palestrante">
+              <p v-if="fotos.nome_palestrante">{{ fotos.nome_palestrante }}</p>
+              <span v-if="fotos.cargo">{{ fotos.cargo }}</span>
             </li>
           </ul>
         </div>
@@ -74,7 +74,6 @@
         </div>
     </section>
     <PaginaCarregando v-else/>
-
 
     <Metrics v-if="metricas">
       <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
