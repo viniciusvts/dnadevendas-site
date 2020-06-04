@@ -39,8 +39,7 @@
 
           <p class="local">
             Quer fazer parte do nosso time?
-            <router-link :to="{ name: 'Contact' }">Trabalhe Conosco</router-link>
-            <button>Fazer parte do time</button>
+            <a href="https://jobs.solides.com/dna" target="_blank">Trabalhe Conosco</a>
           </p>            
         </div>
       </div>
