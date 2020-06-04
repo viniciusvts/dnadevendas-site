@@ -40,11 +40,11 @@
 
     iframe{
         overflow:hidden;
-        height: 500px;
+        height: 300px;
         width: 100%;   
         
-        @include breakpoint(hdDesktops){
-            height: 300px;
+        @include breakpoint(smartphones){
+            height: 200px;
         }
     }
 }
@@ -77,7 +77,6 @@
         z-index: 9;
 
         iframe{
-            // margin-right: -80px;
             position: relative;
             display: block;
         }
@@ -86,21 +85,31 @@
     .right{
         height: 100%;
         color: $baseColor;
-        padding: 40px;
+        padding: 0px;
         background-color: white;
         z-index: 8;
         display: block;
-        position: relative; 
+        position: relative;        
 
         &:before{
-            background-color: white;
+            background-color: black;
             position: absolute;
-            z-index: 1;
-            width: 30px;
+            z-index: 0;
+            width: 1px;
             height: 100%;
             content: "";
             top: 0;
-            left: -28px;
+            right: 5px;
+            max-height: 300px;
+            margin-top: 0px;
+            margin-bottom: 25px;
+        }
+
+        @include breakpoint(smartphones) {
+            &:before{
+                display: none;
+            }
+            padding: 10px;
         }
 
         &::after{
@@ -152,6 +161,30 @@
     }
 
     .bio{        
+        overflow-y: auto;
+        max-height: 300px;
+        width: 100%;
+
+        @include breakpoint(smartphones) {
+            overflow: unset;
+            max-height: 100%;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+            border-radius: 1px;
+        }
+
+        &::-webkit-scrollbar {
+            width: 10px;
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $golden;
+            border-radius: 6px;
+        }
+
         h3, h4{
             color: $golden;
             padding: 10px 0;
@@ -172,12 +205,10 @@
 }
 .bio {
     p {
-        line-height: 40px;
+        line-height: 39px;
     }
 }
 .themes{
-    // color: white;
-
     .card{
         display: block;
         position: relative;
@@ -255,12 +286,15 @@
   .fotos-palestrantes {
     transition-duration: .5s;
     max-width: 100vw;
-    // overflow-x: scroll;
+    width: 225px;
     cursor: pointer;
     position: relative;
+
     @include breakpoint(smartphones) {
       margin: auto;
+      width: 315px;
     }
+
     @include breakpoint(fullHdDesktops) {
         margin-right: 30px;
         margin-bottom: 40px;
@@ -271,10 +305,12 @@
             font-size: 22px;
         }
     }
+
     &:hover {
       transition-duration: .5s;
       transform: scale(1.1);
     }
+
     .overlay-change {
       position: absolute;
       top: 0;
@@ -282,19 +318,24 @@
       left: 0;
       right: 0;
     }
+
     img {
       width: 200px;
       height: 200px;
       padding: 10px;
+      margin: 0 auto;
       @include breakpoint(fullHdDesktops) {
         padding: 0px;
       }
     }
+
     text-align: center;
+
     p {
       font-weight: 600;
       color: $baseColor;
     }
+
     span {
       color: $golden-dark;
     }
@@ -388,60 +429,58 @@
     width: 50px;
   }
   .container-fhd {
-      @include breakpoint(fullHdDesktops) {
+    @include breakpoint(fullHdDesktops) {
         max-width: 1700px;
-      }
+    }
   }
   .scroll {
-      overflow-y: auto;
-      min-height: 300px;
-      @include breakpoint(smartphones) {
-          overflow-x: unset;
-      }
-      &::-webkit-scrollbar-track {
+    overflow-y: auto;
+    min-height: 300px;
+    @include breakpoint(smartphones) {
+        overflow-x: unset;
+    }
+    &::-webkit-scrollbar-track {
         background-color: transparent;
     }
     &::-webkit-scrollbar {
         width: 1px;
         background: transparent;
+        height: 10px;
     }
     &::-webkit-scrollbar-thumb {
         background: $golden;
         border-radius: 6px;
+        height: 1px;
     }
-      ul {
-          display: inline-flex;
-          img {
+    ul {
+        display: inline-flex;
+        img {
             max-width: unset !important;
-          }
-      }
+        }
+    }
   }
-  .palestrantes-fotos {
-      max-width: 100vw;
-      position: relative;
-      @include breakpoint(fullHdDesktops) {
-        margin-bottom: 50px;
-      }
+    .palestrantes-fotos {
+        max-width: 100vw;
+        position: relative;
+        @include breakpoint(fullHdDesktops) {
+            margin-bottom: 50px;
+        }
         @include breakpoint(smartphones) {
             overflow-x: visible;
             max-width: unset;
-             margin-bottom: 20px;
-            &::after {
-                content: '';
-                display: none;
-            }
+            margin-bottom: 20px;
         }
-      &::after {
+        &::after {
         content: '';
         height: 1px;
         position: absolute;
         background-color: $baseColor;
         left: 0;
         right: 0;
-        bottom: 7px;
+        bottom: 5px;
         z-index: -1;
-      }
-  }
+        }
+    }
 
   .forSmall{
       .spotlight{
@@ -450,3 +489,149 @@
           }
       }
   }
+
+  .controllers {
+    position: relative;
+    @include breakpoint(fullHdDesktops) {
+      width: unset;
+      height: 10px;
+    }
+    .control {
+      display: none;
+      border-top: 1px solid $baseColor;
+      border-right: 1px solid $baseColor;
+      border-bottom: 1px solid $baseColor;
+      width: 30px;
+      height: 30px;
+      padding: 5px 0px;
+      @include breakpoint(fullHdDesktops) {
+        width: 50px;
+        height: 50px;
+        padding: 5px 0px;
+      }
+      cursor: pointer;
+      img {
+        width: 30px;
+        height: 17px;
+        @include breakpoint(fullHdDesktops) {
+          width: 48px;
+          height: 38px;
+        }
+      }
+      &#next {
+        position: absolute;
+        top: -70px;
+        right: -45px;
+        @include breakpoint(smartphones) {
+          right: 25px;
+        }
+        @include breakpoint(fullHdDesktops) {
+          right: -65px;
+          top: -77px;
+        }
+      }
+      &#back {
+        position: absolute;
+        top: -70px;
+        left: -10px;
+        transform: rotateY(180deg);
+        @include breakpoint(smartphones) {
+          left: 10px;
+        }
+        @include breakpoint(fullHdDesktops) {
+          left: -22px;
+          top: -77px;
+        }
+        @include breakpoint(tablet-desktop) {
+            left: -50px;
+        }
+      }
+    }
+  }
+  .images {
+    transition-duration: .5s;
+  }
+    .empresas {
+      max-width: 100vw;
+      overflow-x: hidden;
+      @include breakpoint(smartphones) {
+        max-width: 200px;
+        margin: auto;
+      }
+      ul {
+        display: inline-flex;
+        img {
+          width: 200px;
+          height: 100px;
+          max-width: 200px !important;
+          height: 100px;
+          margin: auto;
+          object-fit: contain;
+          @include breakpoint(fullHdDesktops) {
+            width: 193px;
+            height: 100px;
+          }
+          @include breakpoint(largeDesktops-1280) {
+            width: 220px;
+            max-width: 220px !important;
+            height: 100px;
+          }
+          @include breakpoint(tablet-desktop) {
+            width: 196px;
+          }
+        }
+      }
+    }
+    .portfolio {
+      margin: 50px auto;
+      h4 {
+        font-size: 25px;
+        font-weight: 100;
+      }
+    }
+    .video {
+      position: relative;
+      #top-right {
+        position: absolute;
+        z-index: 9;
+        top: -20px;
+        bottom: 20px;
+        left: 0;
+        right: 40px;
+        height: 2px;
+        background-color: $golden;
+        &::after {
+          content: '';
+          z-index: 9;
+          top: 0px;
+          bottom: 20px;
+          right: 0px;
+          height: 500px;
+          width: 2px;
+          background-color: $golden;
+          position: absolute;
+        }
+      }
+      #bottom-left {
+        position: absolute;
+        z-index: 9;
+        bottom: 20px;
+        left: 0;
+        right: 40px;
+        height: 2px;
+        background-color: $golden;
+        &::after {
+          content: '';
+          z-index: 9;
+          bottom: 0;
+          left: 0;
+          height: 500px;
+          width: 2px;
+          background-color: $golden;
+          position: absolute;
+        }
+      }
+    }
+    .scroll {
+      margin-bottom: 50px;
+    }

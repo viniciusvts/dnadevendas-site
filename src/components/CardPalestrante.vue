@@ -245,6 +245,7 @@ export default {
     }
   }
   .portfolio {
+    margin: 50px auto;
     h4 {
       font-size: 26px;
       font-weight: 100;

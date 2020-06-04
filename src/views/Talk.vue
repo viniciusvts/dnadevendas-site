@@ -44,7 +44,7 @@
     </section>
     <PaginaCarregando v-else/>
 
-    <section class="talkers" v-if="palestrantes">
+    <section class="talkers container" v-if="palestrantes">
       <div class="title">
         <h2><b>Conheça nossos</b> palestrantes</h2>
         <span></span>
