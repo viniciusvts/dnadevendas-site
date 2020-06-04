@@ -25,7 +25,7 @@
     </Spotlight>
     <PaginaCarregando v-else/>
 
-    <section class="container-fluid">
+    <section class="container-fluid" v-if="video">
       <div class="banner-video">
         <h2>Por que escolher <span>nossas palestras?</span></h2>
         <div class="see-more">
@@ -36,6 +36,7 @@
         <img src="../assets/alisson.jpg" alt="Imagem Banner Video">
       </div>
     </section>
+    
 
     <section v-if="objecoes">
       <div v-for="(obj, index) in objecoes" :key="index">
