@@ -1,5 +1,5 @@
 <template>
-  <section :class="{'talkDefault':isImpar}" class="cardSlider">
+  <div :class="{'talkDefault':isImpar}" class="cardSlider">
     <div class="container-fluid">
       <div class="row align-items-center" :class="{'flex-row-reverse':isImpar}">
 
@@ -34,7 +34,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
