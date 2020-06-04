@@ -19,11 +19,11 @@
       <img class="image" :src="bannerData.imagem" :alt="bannerData.chamada">
     </Spotlight>
 
-    <div v-if="objecoes">
+    <section v-if="objecoes">
       <div v-for="(obj, index) in objecoes" :key="index">
         <CardSlider :objection="obj" :index="index"/>
       </div>
-    </div>
+    </section>
     <PaginaCarregando v-else/>
     
     <Metrics v-if="metricas">
