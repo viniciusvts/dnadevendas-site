@@ -9,6 +9,7 @@ $colorForSmall:#FF6CAB;
     }
     form{
         background: inherit!important;
+        max-width: 100%;
         input{
             background: inherit!important;
             @include mediaScreenMin($tablets){

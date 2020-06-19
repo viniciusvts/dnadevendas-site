@@ -690,7 +690,7 @@
         height: 140px;
         bottom: 0;
         z-index: -1;
-        @include breakpoint(tablets){
+        @include breakpoint(desktops){
           display: none;
         }
       }
@@ -698,12 +698,14 @@
 
     h2{
       @include fontSize(48px);
+      line-height: 4rem;
       color: $golden;
 
       @include breakpoint(tablets){
         text-align: center;
       }
     }
+
     p{
       @include fontSize(20px);
       line-height: 40px;
@@ -712,7 +714,10 @@
     }
 
     .itens-pilar{
-      position: relative;
+      position: relative;      
+      margin-top: 50px;      
+      margin-bottom: 50px;
+
       &::before{
         content: " ";
         width: 1px;
@@ -721,8 +726,8 @@
         border: 1px solid $golden;
         z-index: 9;
         top: 0;
-        left: 75px;
-        @include breakpoint(tablets){
+        left: 80px;
+        @include breakpoint(desktops){
           display: none;
         }
       }
@@ -731,7 +736,7 @@
     ul{
       display: block;
       position: relative;
-      margin-left: 100px;
+      margin-left: 105px;
       padding: 30px 0;
 
       @include breakpoint(tablets){
@@ -806,7 +811,7 @@
 
   h2{
     text-align: center;
-    color: white;
+    color: white !important;
     font-weight: bold;
     @include fontSize(40px);
   }
@@ -814,6 +819,117 @@
   button{
     margin: 40px auto;
     display: block;
+  }
+}
+
+.puzzle{
+  position: relative;
+  display: block;
+  height: 1200px;
+
+  @include breakpoint(tablets){
+    height: 100%;
+  }
+
+  img{
+    position: absolute;
+    width: 20%;
+
+    @include breakpoint(largeDesktops){
+      position: relative;
+      width: 33.333%;
+      top: unset !important;
+      left: unset !important;
+      display: inline;
+      margin: 0 auto;
+
+      &:nth-child(8), &:nth-child(15){
+        display: none;
+      }
+    }
+
+    @include breakpoint(smartphones){
+      width: 50%;
+    }
+
+    &:nth-child(1){
+      left: 18%;
+      top: 21%;
+    }
+
+    &:nth-child(2){
+      left: 29%;
+      top: 10%;
+    }
+
+    &:nth-child(3){
+      left: 40%;
+      top: 0%;
+    }
+
+    &:nth-child(4){
+      left: 51%;
+      top: 10%;
+    }
+
+    &:nth-child(5){
+      left: 62%;
+      top: 20%;
+    }
+
+    &:nth-child(6){
+      left: 51%;
+      top: 31%;
+    }
+
+    &:nth-child(7){
+      top: 41%;
+      left: 40%;
+    }
+
+    &:nth-child(8){
+      left: 36.5%;
+      top: 17.3%;
+      z-index: -1;
+      width: 27%;
+    }
+
+    &:nth-child(9){
+      left: 29%;
+      top: 51%;
+    }
+
+    &:nth-child(10){
+      left: 18%;
+      top: 61%;
+    }
+
+    &:nth-child(11){
+      left: 29%;
+      top: 72%;
+    }
+
+    &:nth-child(12){
+      left: 40%;
+      top: 82%;
+    }
+
+    &:nth-child(13){
+      left: 51%;
+      top: 72%;
+    }
+
+    &:nth-child(14){
+      top: 62%;
+      left: 62%;
+    }
+
+    &:nth-child(15){
+      left: 36.5%;
+      top: 58.1%;
+      z-index: -1;
+      width: 27%;
+    }
   }
 }
 
