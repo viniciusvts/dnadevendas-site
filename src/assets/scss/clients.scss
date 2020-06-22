@@ -26,7 +26,6 @@
        
         > [class*="col-"] {
             text-align: center;
-            margin: 10px 20px;
         }
 
         
@@ -34,7 +33,7 @@
 
     .active.tooltip{
         background-color: $lightBase;
-        padding: 10px 20px;
+        padding: 10px;
         border-radius: 4px;
         color: white;
     }

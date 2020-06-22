@@ -4,13 +4,13 @@
         <div class="container-fluid">
 
             <ul class="menu row justify-content-center">
-                <li class="col-auto">
+                <li class="col-md-auto col-6">
                     <div v-on:click="showClients" class="tooltip active" id="todos">
                         Todos
                         <span class="tooltiptext">{{clients.length}}</span>
                     </div>                    
                 </li>
-                <li v-for="tax in taxonomy" :key="tax.term_id" class="col-auto">
+                <li v-for="tax in taxonomy" :key="tax.term_id" class="col-md-auto col-6">
                     <div class="tooltip" v-on:click="showClients" :id="tax.slug">
                         {{tax.name}}
                         <span class="tooltiptext">{{tax.count}}</span>
