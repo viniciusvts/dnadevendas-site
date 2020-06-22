@@ -94,16 +94,20 @@
         </div>
 
         <div v-if="index == 0" class="container-fluid cta-section">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-12">
-              <h2>"Vendas é uma ciência"</h2>
-              <button>
-                <router-link to="/contato">
-                Solicite uma proposta
-                </router-link>
-              </button>
+          <div class="cta-section">
+            <div class="container">
+              <div class="row align-items-center justify-content-center">
+                <div class="col-12">
+                  <h2>"Vendas é uma ciência"</h2>
+                  <button>
+                    <router-link to="/contato">
+                    Solicite uma proposta
+                    </router-link>
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>      
+          </div>    
         </div>
 
         <div v-if="index == 1" class="container">
@@ -167,14 +171,18 @@
     <Methodology/>
 
     <div class="cta-section">
-      <div class="row align-items-center justify-content-center">
-        <div class="col-12">
-          <h2>"Vendas é uma ciência"</h2>
-          <button>
-            <router-link to="/contato">
-            Solicite uma proposta
-            </router-link>
-          </button>
+      <div class="cta-section">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-12">
+              <h2>"Vendas é uma ciência"</h2>
+              <button>
+                <router-link to="/contato">
+                Solicite uma proposta
+                </router-link>
+              </button>
+            </div>
+          </div>
         </div>
       </div>      
     </div>
