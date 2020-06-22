@@ -21,12 +21,7 @@
         font-weight: 300;
         max-width: 200px;
         margin: 0 auto 20px auto;
-        @include breakpoint(fullHdDesktops) {
-            font-size: 25px;
-        }
-        @include breakpoint(tablet-desktop) {
-            font-size: 25px;
-        }
+        @include fontSize(30px);
     }
 
     ul{
@@ -44,7 +39,7 @@
 
     .col, [class*="col-"] { 
         span{
-            font-size: 140px;
+            font-size: 80px;
             color: $golden;
         }
 
@@ -57,7 +52,7 @@
             height: 34px;
             width: 20px;
             right: -10px;
-            top: 90px;
+            top: 40px;
             z-index: 9;
             @include breakpoint(tablet-desktop) {
                 display: none;
