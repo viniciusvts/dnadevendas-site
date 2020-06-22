@@ -6,7 +6,10 @@
 
       <div class="row">
         <div class="col-md-6 left">
-          <h2>Nossa história</h2>
+          <div class="title">
+            <span></span>
+            <h2>Nossa história</h2>            
+          </div>
           <p>A DNA de Vendas nasceu a partir do desenvolvimento de um programa de gestão e capacitação da força de vendas, criado por três executivos, em uma das maiores redes de varejo do Brasil.</p>
 
           <p>O projeto foi desenhado, executado e aperfeiçoado, ao longo de três anos, pelos sócios da DNA de Vendas, e o impacto gerado pela implantação do programa contribuiu estrategicamente para o crescimento no volume de vendas, aumento da rentabilidade e qualidade na formação de líderes de vendas. A Exame concedeu o Prêmio Maiores e Melhores por dois anos consecutivos, pelo maior crescimento no setor e aumento de rentabilidade do setor varejista.</p>
@@ -20,8 +23,11 @@
           <p>Em fevereiro de 2011, em função das necessidades dos nossos clientes, criamos uma empresa de Tecnologia, a iDNA de Vendas, a qual desenvolveu o Ciapipe, um software de inteligência de vendas para ganho de produtividade das equipes.</p>
         </div>
 
-        <div class="col-md-6 right">
-          <h2>Nossos Valores</h2>
+        <div class="col-md-6 right">          
+          <div class="title">
+            <h2>Nossos Valores</h2>
+            <span></span>
+          </div>
           <div class="row">
             <div class="col-auto">
               <img src="@/assets/svg/diamond.svg" alt="Integridade">              

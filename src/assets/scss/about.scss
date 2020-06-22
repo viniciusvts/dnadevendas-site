@@ -1,5 +1,6 @@
 @import "@/assets/scss/variables.scss";
 @import "@/assets/scss/breakpoint.scss";
+@import "@/assets/scss/mixins.scss";
 
 .about{
     background-color: white;
@@ -7,9 +8,15 @@
     @media (min-width: $tablets) {
         padding-top: 100px;
     }
+
+    .title{
+        margin-bottom: 30px;
+    }
+
     h1{        
         text-align: center;
-        font-weight: bold;
+        text-transform: uppercase;
+        color: $golden;
         b{
             font-weight: 100;
         }
@@ -20,9 +27,8 @@
     }
 
     h2{
-        margin-bottom: 30px;
-        font-weight: bold;
         color: $golden;
+        @include fontSize(20px);
     }
 
     h3{
@@ -36,6 +42,10 @@
     }
 
     .left{
+        .title{
+            justify-content: flex-end;
+        }
+
         p, h2{
             text-align: right;
         }
@@ -48,15 +58,31 @@
             }
 
             border-right: none;
+
+            .title{
+                justify-content: uns3;
+            }
         }
     }
 
     .right{
 
+        .title{
+            justify-content: start;
+        }
+
         img{
             max-width: 40px;
             width: fit-content;
             max-height: 50px;
+        }
+
+        @include breakpoint(tablets){
+            border-right: none;
+
+            .title{
+                justify-content: uns3;
+            }
         }
     }
 
