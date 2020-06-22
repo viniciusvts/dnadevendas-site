@@ -10,7 +10,8 @@
     }
     h1{
         text-align: center;
-        font-weight: bold;
+        color: $golden;
+        text-transform: uppercase;
     }
 
     hr{
@@ -26,9 +27,7 @@
        
         > [class*="col-"] {
             text-align: center;
-        }
-
-        
+        }        
     }
 
     .active.tooltip{
