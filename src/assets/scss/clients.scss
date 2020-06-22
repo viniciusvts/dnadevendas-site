@@ -32,7 +32,7 @@
     }
 
     .active.tooltip{
-        background-color: $lightBase;
+        background-color: $golden;
         padding: 10px;
         border-radius: 4px;
         color: white;
@@ -45,7 +45,7 @@
         @include transition();
 
         &:hover{
-            background-color: $lightBase;
+            background-color: $golden;
             border-radius: 4px;
             color: white;
             @include transition();
