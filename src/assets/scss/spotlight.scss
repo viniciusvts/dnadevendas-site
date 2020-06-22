@@ -163,6 +163,8 @@
                 margin: 30px auto 0 auto;
                 position: relative;
 
+                min-height: 100%;
+
                 animation: mymove 1s cubic-bezier(0.1,0.25,0.1,1) 5s infinite;
 
                 @keyframes mymove {

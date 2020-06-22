@@ -651,10 +651,14 @@
   .spotlight{
     h2 {
       color: white;
+      margin-top: 30px;
       @include breakpoint(tablets){
         @include fontSize(25px);
         line-height: 30px;
       }
+    }
+    img{
+      min-height: 100vh;
     }
   } 
 

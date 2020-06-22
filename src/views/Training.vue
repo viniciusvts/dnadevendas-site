@@ -20,12 +20,12 @@
     <Pillars v-if="pilares">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-4 col-sm-12 col-tb-12">
+          <div class="col-md-5 col-sm-12 col-tb-12">
             <h3 v-if="pilares.titulo" v-html="pilares.titulo"></h3>
           </div>
 
           <div v-for="(pilar, index) in pilares.pilares" :key="index"
-            class="col-md-2 col-sm-12 col-tb-12" :class="[index < 3 ? 'pillar' : '']">
+            class="col-md-2 col-sm-12 col-tb-12" :class="[index < 2 ? 'pillar' : '']">
             <img :src="pilar.icone.url" :alt="pilar.pilar" />
             <p>{{pilar.pilar}}</p>
           </div>
