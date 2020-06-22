@@ -95,7 +95,7 @@ const routes = [
   },
   
   {
-    path: '/workshops',
+    path: '/workshops-de-vendas',
     alias: ['/vendas', '/negociacao', '/lideranca', '/eficacia-pessoal', '/gestao'],
     name: 'Workshops',
     component: Workshops

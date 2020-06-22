@@ -33,9 +33,6 @@
                 <router-link :to="{ name: 'Workshops' }">Workshop de Vendas</router-link>
               </li>
               <li class="af-l-1">
-                <router-link :to="{ name: 'ForSmall' }">Consultoria de Vendas</router-link>
-              </li>
-              <li class="af-l-1">
                 <router-link :to="{ name: 'Talk' }">Palestra de Vendas</router-link>
               </li>
               <li class="af-l-1">
@@ -88,10 +85,10 @@
 
       <div class="bottom">
         <div class="row">
-          <div class="col-md-12">
+          <!-- <div class="col-md-12">
             <h4>Clientes atendidos em:</h4>
             <p>Acre • Alagoas • Amapá • Amazonas • Bahia • Ceará • Distrito Federal • Espírito Santo • Goiás • Maranhão • Mato Grosso • Mato Grosso do Sul • Minas Gerais • Pará • Paraíba •Paraná • Pernambuco • Piauí • Rio de Janeiro • Rio Grande do Norte • Rio Grande do Sul • Rondônia • Roraima • Santa Catarina • São Paulo • Sergipe • Tocantins</p>
-          </div>
+          </div> -->
 
           <div class="col-md-12">
             <hr>
