@@ -17,7 +17,7 @@
         </div>
       </div>
 
-      <video v-if="customFields.acf.video" autoplay="true" loop="true">
+      <video v-if="customFields.acf.video" autoplay loop muted>
         <source type="video/mp4" :src="customFields.acf.video">
       </video>
       <img v-else class="image" :src="customFields.acf.chamada" :alt="customFields.acf.imagem.sizes.medium_large">
