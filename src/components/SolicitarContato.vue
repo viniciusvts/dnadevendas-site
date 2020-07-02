@@ -2,9 +2,23 @@
   <section class="contact s-contato">
     <h2 class="fale-conosco" :class="detailColorClass">Entenda hoje como podemos fazer sua empresa <span :class="detailColorClass">crescer mais</span></h2>
     <form name="dna_contato" action="#" class="row" v-on:submit="sendForm">
-      <input type="text" name="nome" id="nome" class="col-12 col-lg" :class="detailColorClass" v-model="formData[0].nome" placeholder="Seu nome" required>
-      <input type="text" name="email" id="email" class="col-12 col-lg" :class="detailColorClass" v-model="formData[0].email" placeholder="Seu e-mail" required>
-      <input type="text" name="telefone" id="telefone" class="col-12 col-lg" :class="detailColorClass" v-model="formData[0].telefone" placeholder="Seu telefone" required>
+      <input type="text" name="nome" id="nome" class="col-12 col-md-5 col-lg" 
+      :class="detailColorClass" v-model="formData[0].nome" placeholder="Seu nome" required>
+      <input type="text" name="email" id="email" class="col-12 col-md-5 col-lg" 
+      :class="detailColorClass" v-model="formData[0].email" placeholder="Seu e-mail" required>
+      <input type="text" name="telefone" id="telefone" class="col-12 col-md-5 col-lg" 
+      :class="detailColorClass" v-model="formData[0].telefone" placeholder="Seu telefone" required>
+      <input type="text" name="empresa" id="empresa" class="col-12 col-md-5 col-lg" 
+      :class="detailColorClass" v-model="formData[0].empresa" placeholder="Sua Empresa" required>
+      <select type="text" name="qtdfunc" id="qtdfunc" class="col-12 col-md-5 col-lg" 
+      :class="detailColorClass" v-model="formData[0].qtdfunc" required>
+      <option value="">N° Funcionários</option>
+      <option value="1-2">1-2</option>
+      <option value="3-10">3-10</option>
+      <option value="11-15">11-15</option>
+      <option value="16-50">16-50</option>
+      <option value="51+">51+</option>
+      </select>
       <button :class="detailColorClass" @click.prevent="send" class="inline">
         Solicitar Contato
         <img src="@/assets/svg/paperplain.svg" 
@@ -31,9 +45,11 @@ export default {
       formMessage: null,
       formData: [
         {
-          nome: null,
-          email: null,
-          telefone: null,
+          nome: '',
+          email: '',
+          telefone: '',
+          empresa: '',
+          qtdfunc: '',
         },
       ],
     };
