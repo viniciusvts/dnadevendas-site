@@ -15,9 +15,6 @@ $colorForSmall:#FF6CAB;
         }
         input{
             background: inherit!important;
-            @include mediaScreenMin($tablets){
-                margin: 0 20px;
-            }
             @include breakpoint(tablet-desktop) {
                 margin: 10px 20px;
             }
@@ -32,9 +29,6 @@ $colorForSmall:#FF6CAB;
             margin: 0 0 20px;
             background-color: white;
             color: gray;
-            @media (min-width: $desktops) {
-                margin: 0 20px 20px;
-            }
         }
         button{
             padding: 20px;
