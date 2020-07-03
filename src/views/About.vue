@@ -100,6 +100,19 @@
         </div>
       </div>
 
+      <div class="row mt-5 group">
+        <h1>Grupo Dna</h1>
+        <div class="col-md-4">
+          <img src="https://www.dnadevendas.com.br/wp-content/uploads/logo-dnadevendas-color-1.svg" alt="Dna de Vendas">
+        </div>
+        <div class="col-md-4">
+          <img src="https://www.dnadevendas.com.br/wp-content/themes/dnadevendas/images/logo-dnaforsmall.svg" alt="Dna de Vendas for Small">
+        </div>
+        <div class="col-md-4">
+          <img src="https://dnaformarketing.com.br/wp-content/uploads/2018/11/dna-for-marketing.png" alt="Dna for Marketing">
+        </div>
+      </div>
+
       <div class="row mt-5">
         <h1>Nossa Estrutura</h1>
         <p>A DNA de Vendas tem dois escritórios corporativos: um em São Paulo e outro em Lauro de Freitas, na RM de Salvador. Além dos escritórios, a DNA tem sócios-consultores alocados no Rio de Janeiro, Belo Horizonte e Juiz de Fora para melhor atender os clientes desses estados sem necessidade de deslocamentos.</p>
