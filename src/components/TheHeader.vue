@@ -62,14 +62,14 @@
                   <router-link :to="{name: 'Page', params: { slug: 'fabrica-de-conteudo'}}">Fábrica de Conteúdo</router-link>
                 </li>
                 <li>
-                  <router-link :to="{name: 'Page', params: { slug: 'treinamento-de-vendas'}}">Treinamento de Vendas</router-link>
+                  <router-link :to="{name: 'Page', params: { slug: 'treinamento-de-vendas'}}">Treinamento de Vendas presencial</router-link>
                 </li>
-                <li>
+                <!-- <li>
                   <router-link :to="{name: 'Page', params: { slug: 'trilhas-de-capacitacao-online'}}">Trilhas de Capacitação Online</router-link>
-                </li>
-                <li>
+                </li> -->
+                <!-- <li>
                   <router-link :to="{name: 'Page', params: { slug: 'treinamento-de-vendas-presencial'}}">Treinamento de Vendas Presencial</router-link>
-                </li>
+                </li> -->
                 <li>
                   <router-link :to="{name: 'Page', params: { slug: 'programas-de-liderança'}}">Programas de Liderança</router-link>
                 </li>
@@ -92,7 +92,7 @@
                   <router-link :to="{name: 'Talk'}">Palestras para Eventos</router-link>
                 </li>
                 <li>
-                  <router-link :to="{name: 'Workshops'}">Workshops</router-link>
+                  <router-link :to="{name: 'Workshops'}">Workshops de Vendas</router-link>
                 </li>
               </ul>
             </div>
