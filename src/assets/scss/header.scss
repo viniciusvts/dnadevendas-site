@@ -141,7 +141,7 @@ header{
 
     .logo img {
       width: 90px;
-      margin: 0 auto;
+      margin: 10px auto;
       @include transition();
       @include breakpoint(fullHdDesktops) {
         width: 120px;
