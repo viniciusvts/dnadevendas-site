@@ -17,7 +17,7 @@
         </div>
       </div>
       
-      <video v-if="video" autoplay="true" loop="true">
+      <video v-if="video" autoplay loop muted>
         <source type="video/mp4" :src="video">
       </video>
       <img v-else class="image" :src="banner.imagem_banner" :alt="banner.chamada">
