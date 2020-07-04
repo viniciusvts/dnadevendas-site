@@ -9,15 +9,13 @@ $colorForSmall:#FF6CAB;
     }
     form{
         background: inherit!important;
-        max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
         @media (min-width: $desktops) {
             padding: 60px 0;
         }
         input{
             background: inherit!important;
-            @include breakpoint(tablet-desktop) {
-                margin: 10px 20px;
-            }
             &::placeholder{
                 color: gray!important;
             }
