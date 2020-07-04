@@ -138,13 +138,10 @@
         position: absolute;
         z-index: 9;
         text-transform: uppercase;
-        @include breakpoint(fullHdDesktops) {
-            bottom: 120px;
-        }
+
         @include breakpoint(smartphones){
            display: none;
         }
-
 
         .container{
             display: block;
