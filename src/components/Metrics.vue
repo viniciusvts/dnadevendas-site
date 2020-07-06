@@ -1,6 +1,6 @@
 <template>
   <section class="metrics">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row align-items-start">
           <slot></slot>
         </div>
