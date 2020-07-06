@@ -119,6 +119,7 @@
     background-color: white;
     position: relative;
 
+    
     .row{
         background: #f9f9f9;
     }
@@ -177,5 +178,15 @@
             top: 0px;
             z-index: 9;
           }
+    }
+
+    .right{
+        img{
+            padding: 40px 0;
+            margin-left: 60px;
+            @media (max-width: $tablets) {
+                display: none;
+            }
+        }
     }
 }
