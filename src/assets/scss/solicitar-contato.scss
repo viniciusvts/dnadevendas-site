@@ -1,7 +1,6 @@
 @import 'mixins.scss';
 @import 'variables.scss';
 @import 'breakpoint.scss';
-$colorForSmall:#FF6CAB;
 
 .s-contato{
     &::after {
@@ -20,7 +19,7 @@ $colorForSmall:#FF6CAB;
                 color: gray!important;
             }
             &.ForSmall{
-                border-bottom: solid 1px $colorForSmall!important;
+                border-bottom: solid 1px $pink-fsmall;
             }
         }
         select{
@@ -66,7 +65,7 @@ h2.fale-conosco{
 }
 
 span.ForSmall{
-    color: $colorForSmall;
+    color: $pink-fsmall;
 }
 
 span.Home{
@@ -74,5 +73,5 @@ span.Home{
 }
 
 button.ForSmall{
-    background-color: $colorForSmall;
+    background-color: $pink-fsmall;
 }
