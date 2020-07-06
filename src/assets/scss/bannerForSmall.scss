@@ -1,10 +1,12 @@
-@import '@/assets/scss/variables.scss';
-@import '@/assets/scss/breakpoint.scss';
+@import "@/assets/scss/variables.scss";
+@import "@/assets/scss/breakpoint.scss";
 
 #details-fs {
   position: relative;
   margin-top: 50px;
-  height: 500px;
+  background-color: #fafafa;
+  padding: 120px 40px 300px 40px;
+  display: block;
 
   @include breakpoint(smartphones) {
     margin-top: 0;
@@ -13,26 +15,16 @@
 
   img {
     position: absolute;
-    right: -120px;
-    top: 0;
-    height: 500px;
-    width: 950px;
+    right: -19px;
+    border: 0;
+    width: 90%;
+    bottom: 0;
+
     @include breakpoint(smartphones) {
-      right: 10px !important;
       top: unset;
       height: unset;
       width: unset;
       bottom: 0;
-    }
-    @include breakpoint(largeDesktops-1280) {
-      right: -73px;
-    }
-    @include breakpoint(fullHdDesktops) {
-      width: 1100px;
-      right: -385px;
-    }
-    @include breakpoint(tablet-desktop) {
-      right: -23px;
     }
   }
 
@@ -49,14 +41,14 @@
       &#animation {
         position: relative;
         &::after {
-          content: '|';
+          content: "|";
           color: $baseColor;
-          animation: blink .5s cubic-bezier(0.1,0.25,0.1,1) 5s infinite;
+          animation: blink 0.5s cubic-bezier(0.1, 0.25, 0.1, 1) 1s infinite;
           opacity: 1;
         }
         &::before {
-          content: '35 segmentos';
-          animation: typing 8s cubic-bezier(0.1,0.25,0.1,1) 10s infinite;
+          content: "35 segmentos";
+          animation: typing 4s cubic-bezier(0.1, 0.25, 0.1, 1) 1s infinite;
         }
       }
     }
@@ -64,26 +56,64 @@
 }
 
 @keyframes blink {
-  0%   {opacity: 1;}
-  100% {opacity: 0;}
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes typing {
-  0%   {content: '35 segmentos'}
-  10%   {content: '35 segmento'}
-  15%   {content: '35 segment'}
-  20%   {content: '35 segmen'}
-  25%   {content: '35 segme'}
-  30%   {content: '35 segm'}
-  35%   {content: '35 seg'}
-  40%   {content: '35 se'}
-  45%   {content: '35 s'}
-  50%   {content: '35'}
-  45%   {content: '3'}
-  50%   {content: '35 '}
-  60%   {content: '35 seg'}
-  70%   {content: '35 segment'}
-  80%   {content: '35 segmento'}
-  90%   {content: '35 segmentos'}
-  100%   {content: '35 segmentos'}
+  0% {
+    content: "35 segmentos";
+  }
+  10% {
+    content: "35 segmento";
+  }
+  15% {
+    content: "35 segment";
+  }
+  20% {
+    content: "35 segmen";
+  }
+  25% {
+    content: "35 segme";
+  }
+  30% {
+    content: "35 segm";
+  }
+  35% {
+    content: "35 seg";
+  }
+  40% {
+    content: "35 se";
+  }
+  45% {
+    content: "35 s";
+  }
+  50% {
+    content: "35";
+  }
+  45% {
+    content: "3";
+  }
+  50% {
+    content: "35 ";
+  }
+  60% {
+    content: "35 seg";
+  }
+  70% {
+    content: "35 segment";
+  }
+  80% {
+    content: "35 segmento";
+  }
+  90% {
+    content: "35 segmentos";
+  }
+  100% {
+    content: "35 segmentos";
+  }
 }
