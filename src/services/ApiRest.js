@@ -2,7 +2,7 @@
  * define a url base do app
  * @author Vinicius de Santana
 */
-const baseURL = process.env.NODE_ENV === 'production' ? '/' : 'https://novo.dnadevendas.com.br/';
+const baseURL = process.env.NODE_ENV === 'production' ? '/api/' : 'https://novo.dnadevendas.com.br/api/';
 /**
  * Comunicação com o servidor DNA
  * @author Vinicius de Santana
@@ -14,7 +14,7 @@ const apiRest = {
    * @author Vinicius de Santana
    */
   getHeader() {
-    const url = baseURL + 'api/wp-json/dna_theme/v1/wp_header/';
+    const url = baseURL + 'wp-json/dna_theme/v1/wp_header/';
     return fetch(url);
   },
 
@@ -23,7 +23,7 @@ const apiRest = {
    * @author Vinicius de Santana
    */
   getFooter() {
-    const url = baseURL + 'api/wp-json/dna_theme/v1/wp_footer/';
+    const url = baseURL + 'wp-json/dna_theme/v1/wp_footer/';
     return fetch(url);
   },
 
@@ -44,7 +44,7 @@ const apiRest = {
       //remove p último &
       urlArgs = urlArgs.substr(0, urlArgs.length-1);
     }
-    let url = baseURL + 'api/wp-json/wp/v2/posts/';
+    let url = baseURL + 'wp-json/wp/v2/posts/';
     if (urlArgs.length > 0){
       url += "?" + urlArgs;
     }
@@ -57,7 +57,7 @@ const apiRest = {
    * @author Vinicius de Santana
    */
   getPostsByViews() {
-    let url = baseURL + 'api/wp-json/dna_theme/v1/getPostsByViews/';
+    let url = baseURL + 'wp-json/dna_theme/v1/getPostsByViews/';
     return fetch(url);
   },
 
@@ -68,7 +68,7 @@ const apiRest = {
    */
   getPagesById(id) {
     if (!Number.isInteger(id))  throw new TypeError("O parametro precisa ser um número inteiro");
-    let url = baseURL + 'api/wp-json/wp/v2/pages/' + id;
+    let url = baseURL + 'wp-json/wp/v2/pages/' + id;
     return fetch(url);
   },
 
@@ -87,7 +87,7 @@ const apiRest = {
       //remove p último &
       urlArgs = urlArgs.substr(0, urlArgs.length-1);
     }
-    let url = baseURL + 'api/wp-json/wp/v2/pages/';
+    let url = baseURL + 'wp-json/wp/v2/pages/';
     if (urlArgs.length > 0){
       url += "?" + urlArgs;
     }
@@ -102,7 +102,7 @@ const apiRest = {
    */
   getPostsAcfData(id, field) {
     if (typeof id == 'undefined') throw new TypeError("O parametro id é obrigatório");
-    let url = baseURL + 'api/wp-json/acf/v3/pages/';
+    let url = baseURL + 'wp-json/acf/v3/pages/';
     url += id +"/";
     if (typeof field != 'undefined') url += field +"/";
     return fetch(url);
@@ -113,7 +113,7 @@ const apiRest = {
    * @author Vinicius de Santana
    */
   getHomeMeta() {
-    let url = baseURL + 'api/wp-json/wp-rest-yoast-meta/v1/home/';
+    let url = baseURL + 'wp-json/wp-rest-yoast-meta/v1/home/';
     return fetch(url);
   },
 
@@ -123,7 +123,7 @@ const apiRest = {
    * @author Vinicius de Santana
    */
   postIterateView(_id) {
-    let url = baseURL + 'api/wp-json/dna_theme/v1/post_count/' + _id;
+    let url = baseURL + 'wp-json/dna_theme/v1/post_count/' + _id;
     return fetch(url);
   },
 
@@ -140,7 +140,7 @@ const apiRest = {
         urlArgs += key + "=" + args[key] + "&";
       }
     }
-    let url = baseURL + 'api/wp-json/wp/v2/categories/';
+    let url = baseURL + 'wp-json/wp/v2/categories/';
     if (urlArgs.length > 0){
       url += "?" + urlArgs;
     }
@@ -162,7 +162,7 @@ const apiRest = {
         urlArgs += key + "=" + args[key] + "&";
       }
     }
-    let url = baseURL + 'api/wp-json/dna_theme/v1/portfolio';
+    let url = baseURL + 'wp-json/dna_theme/v1/portfolio';
     if (urlArgs.length > 0){
       url += "?" + urlArgs;
     }
@@ -174,7 +174,7 @@ const apiRest = {
    * @author Vinicius de Santana
    */
   getTaxonomyPortfolio() {
-    let url = baseURL + 'api/wp-json/dna_theme/v1/portfolio-taxonomy';
+    let url = baseURL + 'wp-json/dna_theme/v1/portfolio-taxonomy';
     return fetch(url);
   },
 
@@ -188,7 +188,7 @@ const apiRest = {
     if (typeof idForm == 'undefined') throw new TypeError("O parametro é obrigatório");
     if (typeof data == 'undefined') throw new TypeError("O parametro é obrigatório");
     //formar url
-    let url = baseURL + 'api/wp-json/contact-form-7/v1/contact-forms/';
+    let url = baseURL + 'wp-json/contact-form-7/v1/contact-forms/';
     url += idForm;
     url += '/feedback/';
     //formar conteúdo
