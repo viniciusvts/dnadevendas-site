@@ -70,13 +70,18 @@ footer{
         .bottom{
             margin-top: 40px;
             p{
-                font-size: 16px;
+                font-size: 15px;
                 margin-top: 20px;
             }
         }
 
+        .address{
+            margin-top: 40px;
+        }
+
         .social{
             float: right;
+            margin-bottom: 20px;
             
             @include breakpoint(tablets){
                 float: unset;

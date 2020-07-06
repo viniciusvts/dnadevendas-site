@@ -6,20 +6,24 @@
           <div class="col-12 col-md-6 col-lg-2">
             <h3>Contato</h3>
             <p>
-              <b>Salvador</b><br>
-              <a href="tel:+55 (71) 3289-5595">+55 (71) 3289-5595</a>
+              <b>São Paulo</b>
+              <br />
+              <a href="tel:+55 (11) 2384-1502">Fone: (11) 2384-1502</a>
             </p>
             <p>
-              <b>São Paulo</b> <br>
-              <a href="tel:+55 (11) 2384-1502">+55 (11) 2384-1502</a>
+              <b>Belo Horizonte</b>
+              <br />
+              <a href="tel:+55 (31) 4042-0442">Fone: (31) 4042-0442</a>
             </p>
             <p>
-              <b>Belo Horizonte</b> <br>
-              <a href="tel:+55 (31) 4042-0442">+55 (31) 4042-0442</a>
+              <b>Rio de Janeiro</b>
+              <br />
+              <a href="tel:+55 (21) 4042-5440">Fone: (21) 4042-5440</a>
             </p>
             <p>
-              <b>Rio de Janeiro</b> <br>
-              <a href="tel:+55 (21) 4042-5440">+55 (21) 4042-5440</a>
+              <b>Salvador</b>
+              <br />
+              <a href="tel:+55 (71) 3289-5595">Fone: (71) 3289-5595</a>
             </p>
           </div>
 
@@ -30,32 +34,66 @@
                 <router-link :to="{ name: 'ForSmall' }">Consultoria de Vendas</router-link>
               </li>
               <li class="af-l-1">
+                <router-link
+                  :to="{name: 'Page', params: { slug: 'treinamento-de-vendas'}}"
+                >Treinamento de Vendas</router-link>
+              </li>
+              <li class="af-l-1">
                 <router-link :to="{ name: 'Workshops' }">Workshop de Vendas</router-link>
               </li>
               <li class="af-l-1">
                 <router-link :to="{ name: 'Talk' }">Palestra de Vendas</router-link>
               </li>
               <li class="af-l-1">
+                <router-link
+                  :to="{name: 'SingleBlog', params: { slug: 'produtividade-de-vendas'}}"
+                >Produtividade de Vendas</router-link>
+              </li>
+              <li class="af-l-1">
                 <router-link :to="{ name: 'Materials' }">Materiais de Vendas</router-link>
               </li>
+              <li class="af-l-1">
+                <router-link
+                  :to="{name: 'SingleBlog', params: { slug: 'processo-de-vendas-o-que-e'}}"
+                >Processo de Vendas</router-link>
+              </li>
+
               <li class="af-l-1">
                 <router-link :to="{ name: 'Blog' }">Blog de Vendas</router-link>
               </li>
               <li class="af-l-1">
                 <router-link :to="{ name: 'ForSmall' }">Consultoria Comercial</router-link>
               </li>
-              <li><a href="http://dnaformarketing.com.br" target="_blank" rel="noopener">DNA For Marketing</a>
-              </li>
-              <li><a href="https://www.dnadevendas.com.br/blog/playbook-de-vendas/">Playbook de Vendas</a>              
+              <li>
+                <a
+                  href="http://dnaformarketing.com.br"
+                  target="_blank"
+                  rel="noopener"
+                >DNA For Marketing</a>
               </li>
               <li>
-                <a href="https://jobs.solides.com/dna" target="_blank" rel="noopener noreferrer">Trabalhe Conosco</a>
+                <a href="https://www.dnadevendas.com.br/blog/playbook-de-vendas/">Playbook de Vendas</a>
               </li>
               <li>
-                <a href="https://insidesalesacademy.com.br/" target="_blank" rel="noopener noreferrer">Inside Sales Academy</a>
+                <a
+                  href="https://jobs.solides.com/dna"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Trabalhe Conosco</a>
               </li>
               <li>
-                <a href="https://www.dnadevendas.com.br/blog/venda-consultiva/" target="_blank" rel="noopener noreferrer">Venda Consultiva</a>
+                <a
+                  href="https://insidesalesacademy.com.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Inside Sales Academy</a>
+              </li>
+              <li>
+                <a
+                  href="https://www.dnadevendas.com.br/blog/venda-consultiva/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Venda Consultiva</a>
               </li>
             </ul>
           </div>
@@ -63,8 +101,10 @@
           <div class="col-12 col-md-6 col-lg-4">
             <h3>Últimos Posts</h3>
             <ul>
-              <li v-for="post in ultPosts" :key="post.id" class="af-l-2">
-                <router-link :to="{ name: 'SingleBlog', params: { slug: post.slug, post: post } }">{{post.title.rendered}}</router-link>
+              <li v-for="post in ultPosts" :key="post.id" class="af-l-2 mb-3">
+                <router-link
+                  :to="{ name: 'SingleBlog', params: { slug: post.slug, post: post } }"
+                >{{post.title.rendered}}</router-link>
               </li>
             </ul>
           </div>
@@ -72,67 +112,91 @@
           <div class="col-12 col-md-6 col-lg-4">
             <h3>Receba conteúdos exclusivos</h3>
             <form name="dna_newsletter" action="#" v-on:submit="sendForm">
-              <input type="text" v-model="formData.nome" name="Nome" placeholder="Insira seu nome*" id="nome">
-              <input type="email" v-model="formData.email" placeholder="Seu e-mail*" nome="email" id="email">
+              <input
+                type="text"
+                v-model="formData.nome"
+                name="Nome"
+                placeholder="Insira seu nome*"
+                id="nome"
+              />
+              <input
+                type="email"
+                v-model="formData.email"
+                placeholder="Seu e-mail*"
+                nome="email"
+                id="email"
+              />
               <p>{{formMessage}}</p>
               <p>* Campos obrigatórios</p>
-              <input type="submit" value="Quero me inscrever">
+              <input type="submit" value="Quero me inscrever" />
             </form>
           </div>
 
+          <div class="col-12">
+            <div class="address">
+              <b>Endereço</b>
+              <p>Av. Maj. Sylvio de Magalhães Padilha 5200, América Business Park, Ed. Montreal 8º andar, Morumbi - São Paulo</p>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="bottom">
-        <div class="row">
-          <!-- <div class="col-md-12">
+        <div class="row align-items-end">
+          <div class="col">
             <h4>Clientes atendidos em:</h4>
             <p>Acre • Alagoas • Amapá • Amazonas • Bahia • Ceará • Distrito Federal • Espírito Santo • Goiás • Maranhão • Mato Grosso • Mato Grosso do Sul • Minas Gerais • Pará • Paraíba •Paraná • Pernambuco • Piauí • Rio de Janeiro • Rio Grande do Norte • Rio Grande do Sul • Rondônia • Roraima • Santa Catarina • São Paulo • Sergipe • Tocantins</p>
-          </div> -->
-
-          <div class="col-md-12">
-            <hr>
           </div>
 
-          <div class="col-12">
+          <div class="col-md-auto">
             <ul class="social">
               <li>
                 <a href="https://www.facebook.com/dnadevendas" target="_blank" noreferrer>
-                  <img src="@/assets/svg/facebook.svg" alt="">
+                  <img src="@/assets/svg/facebook.svg" alt />
                 </a>
               </li>
               <li>
                 <a href="https://www.instagram.com/dnadevendas/" target="_blank" noreferrer>
-                  <img src="@/assets/svg/instagram.svg" alt="">
+                  <img src="@/assets/svg/instagram.svg" alt />
                 </a>
               </li>
               <li>
                 <a href="https://www.linkedin.com/company/dna-de-vendas" target="_blank" noreferrer>
-                  <img src="@/assets/svg/linkedin.svg" alt="">
+                  <img src="@/assets/svg/linkedin.svg" alt />
                 </a>
               </li>
               <li>
-                <a href="https://www.youtube.com/channel/UCFVjn3D1_niovczni8e9jeg" target="_blank" noreferrer>
-                  <img src="@/assets/svg/youtube.svg" alt="">
+                <a
+                  href="https://www.youtube.com/channel/UCFVjn3D1_niovczni8e9jeg"
+                  target="_blank"
+                  noreferrer
+                >
+                  <img src="@/assets/svg/youtube.svg" alt />
                 </a>
               </li>
               <li>
                 <a href="https://br.pinterest.com/dnadevendas/" target="_blank" noreferrer>
-                  <img src="@/assets/svg/pinterest.svg" alt="">
+                  <img src="@/assets/svg/pinterest.svg" alt />
                 </a>
               </li>
               <li>
                 <a href="https://twitter.com/dnadevendas" target="_blank" noreferrer>
-                  <img src="@/assets/svg/twitter.svg" alt="">
+                  <img src="@/assets/svg/twitter.svg" alt />
                 </a>
               </li>
             </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <hr />
           </div>
 
           <div class="col">
             <p>© Copyright 2020. Direitos Reservados - DNA de Vendas</p>
           </div>
-          
+
           <div class="col-md-auto">
             <router-link to="/politicas-de-privacidade">
               <p>Políticas de privacidade</p>
@@ -155,9 +219,9 @@ export default {
       ultPosts: [],
       formData: {
         nome: null,
-        email: null,
+        email: null
       }
-    }
+    };
   },
   created() {
     this.getFooterPosts();
@@ -165,35 +229,33 @@ export default {
   methods: {
     getFooterPosts() {
       let args = [];
-      args['per_page'] = 5;
+      args["per_page"] = 5;
       Api.getPosts(args)
-      .then(res=>{
-        if(res.status == 200)
-          return res.json();
-        else
-          console.log('Erro ao consultar os posts');
-      })
-      .then(json=>{
-        this.ultPosts = json;
-      });
+        .then(res => {
+          if (res.status == 200) return res.json();
+          else console.log("Erro ao consultar os posts");
+        })
+        .then(json => {
+          this.ultPosts = json;
+        });
     },
     sendForm(evt) {
       evt.preventDefault();
       Api.sendToCF7(3795, this.formData)
-      .then(res => {
-        return res.json();
-      })
-      .then(json => {
-        this.formMessage = json.message;
-      });
+        .then(res => {
+          return res.json();
+        })
+        .then(json => {
+          this.formMessage = json.message;
+        });
     }
   }
 };
 </script>
 
 <style lang="scss">
-  @import '@/assets/scss/variables.scss';
-  @import '@/assets/scss/mixins.scss';
-  @import '@/assets/scss/breakpoint.scss';
-  @import '@/assets/scss/footer.scss';
+@import "@/assets/scss/variables.scss";
+@import "@/assets/scss/mixins.scss";
+@import "@/assets/scss/breakpoint.scss";
+@import "@/assets/scss/footer.scss";
 </style>
