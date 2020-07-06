@@ -496,6 +496,7 @@
   .spotlight {
     img {
       filter: brightness(0.7);
+      min-height: 100vh;
     }
   }
 }
