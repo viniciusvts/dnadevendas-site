@@ -160,7 +160,8 @@
           <div class="col-md-6">
             <p>
               Promovemos a educação corporativa através de uma jornada de aprendizagem com múltiplos recursos que conecta negócios, estratégias e pessoas ao incremento de resultados da equipe comercial.
-              <br>
+            </p>
+            <p>
               Construímos programas de treinamento corporativos personalizados, baseados diretamente nos desafios e estratégias de negócios da sua empresa. Garanta força da liderança a longo prazo e desenvolvimento de equipes de vendas de alta performance.
             </p>
           </div>

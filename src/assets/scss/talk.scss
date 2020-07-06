@@ -678,7 +678,7 @@
         vertical-align: middle;
         background: white;
         padding: 14px 0;
-        max-height: 90px;
+        max-height: 150px;
         margin: 0 auto;
     
         @include breakpoint(tablets){
@@ -689,9 +689,9 @@
         content: " ";
         position: absolute;
         border: 1px solid #b0896140;
-        top: -21px;
+        top: -51px;
         left: 95px;
-        height: 140px;
+        height: 240px;
         bottom: 0;
         z-index: -1;
         @include breakpoint(desktops){
@@ -715,6 +715,14 @@
       line-height: 40px;
       margin-top: 30px;
       margin-bottom: 30px;
+    }
+
+    .pilar-childs {
+      margin-top: 120px;
+
+      @include breakpoint(tablets){
+        margin-top: unset
+      }
     }
 
     .itens-pilar{
@@ -742,9 +750,11 @@
       position: relative;
       margin-left: 105px;
       padding: 30px 0;
+      margin-top: 80px;
 
       @include breakpoint(tablets){
         margin-left: 30px;
+        margin-top: unset;
       }
     }
 
