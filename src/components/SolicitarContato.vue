@@ -1,9 +1,11 @@
 <template>
   <section class="contact s-contato">
-    <h2 class="fale-conosco" :class="detailColorClass">
-      Entenda hoje como podemos fazer sua empresa
-      <span :class="detailColorClass">crescer mais</span>
-    </h2>
+    <div class="container">
+      <h2 class="fale-conosco" :class="detailColorClass">
+        Entenda hoje como podemos fazer sua empresa
+        <span :class="detailColorClass">crescer mais</span>
+      </h2>
+    </div>
     <form name="dna_contato" action="#" v-on:submit="sendForm">
       <div class="container">
         <div class="row">
