@@ -11,8 +11,11 @@
 
   h2 {
     font-weight: 300;
-    @include fontSize(30px);
-    line-height: 45px;
+    @include fontSize(50px);
+
+    span{
+      color: $golden;
+    }
   }
 
   .text {
@@ -285,7 +288,7 @@
 .fotos-palestrantes {
   transition-duration: 0.5s;
   max-width: 100vw;
-  width: 225px;
+  width: 200px;
   cursor: pointer;
   position: relative;
 
@@ -469,8 +472,11 @@
   }
 }
 .palestrantes-fotos {
-  max-width: 100vw;
+  max-width: 100%;
+  width: 1000px;
+  margin: 0 auto;
   position: relative;
+
   @include breakpoint(fullHdDesktops) {
     margin-bottom: 50px;
   }
@@ -531,30 +537,13 @@
     &#next {
       position: absolute;
       top: -70px;
-      right: -45px;
-      @include breakpoint(smartphones) {
-        right: 25px;
-      }
-      @include breakpoint(fullHdDesktops) {
-        right: -65px;
-        top: -77px;
-      }
+      right: 0;
     }
     &#back {
       position: absolute;
       top: -70px;
-      left: -10px;
+      left: 0;
       transform: rotateY(180deg);
-      @include breakpoint(smartphones) {
-        left: 10px;
-      }
-      @include breakpoint(fullHdDesktops) {
-        left: -22px;
-        top: -77px;
-      }
-      @include breakpoint(tablet-desktop) {
-        left: -50px;
-      }
     }
   }
 }
@@ -562,8 +551,10 @@
   transition-duration: 0.5s;
 }
 .empresas {
-  max-width: 100vw;
+  max-width: 100%;
   overflow-x: hidden;
+  width: 1000px;
+  margin: 0 auto;
   @include breakpoint(smartphones) {
     max-width: 200px;
     margin: auto;
@@ -577,18 +568,6 @@
       height: 100px;
       margin: auto;
       object-fit: contain;
-      @include breakpoint(fullHdDesktops) {
-        width: 193px;
-        height: 100px;
-      }
-      @include breakpoint(largeDesktops-1280) {
-        width: 220px;
-        max-width: 220px !important;
-        height: 100px;
-      }
-      @include breakpoint(tablet-desktop) {
-        width: 196px;
-      }
     }
   }
 }
