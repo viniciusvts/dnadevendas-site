@@ -14,8 +14,7 @@
         </div>
 
         <div class="col-md-6">
-          <input type="text" name="telefone" id="telefone" 
-        :class="detailColorClass" v-model="formData[0].telefone" placeholder="Seu telefone" required>
+          <input type="text" name="mobile_phone" id="mobile_phone" v-on:keyup="execMascara" 
         </div>
 
         <div class="col-md-6">
@@ -97,6 +96,13 @@ export default {
       this.$root.meta.tags = this.page.yoast_meta;
       });
     },
+    execMascara (evt) {
+      let v = evt.target.value;
+      v=v.replace(/\D/g,""); //Remove tudo o que não é dígito
+      v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+      v=v.replace(/(\d)(\d{4})$/,"$1-$2"); //Coloca - depois dos 4 digitos após ()
+      evt.target.value = v;
+    }
   }
 };
 </script>
