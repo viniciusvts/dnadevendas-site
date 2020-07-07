@@ -1,30 +1,31 @@
 <template>
   <section class="contact s-contato">
     <h2 class="fale-conosco" :class="detailColorClass">Entenda hoje como podemos fazer sua empresa <span :class="detailColorClass">crescer mais</span></h2>
-    <form name="dna_contato" action="#" v-on:submit="sendForm">
+    <form name="dna_contato" action="#" v-on:submit.prevent="sendForm">
       <div class="row">
         <div class="col-md-12">
-          <input type="text" name="nome" id="nome" 
-        :class="detailColorClass" v-model="formData[0].nome" placeholder="Seu nome" required>
+          <input type="text" name="name" id="name" 
+        :class="detailColorClass" v-model="formData.name" placeholder="Seu nome" required>
         </div>
 
         <div class="col-md-6">
           <input type="text" name="email" id="email" 
-          :class="detailColorClass" v-model="formData[0].email" placeholder="Seu e-mail" required>
+          :class="detailColorClass" v-model="formData.email" placeholder="Seu e-mail" required>
         </div>
 
         <div class="col-md-6">
           <input type="text" name="mobile_phone" id="mobile_phone" v-on:keyup="execMascara" 
+          :class="detailColorClass" v-model="formData.mobile_phone" placeholder="Seu telefone" required>
         </div>
 
         <div class="col-md-6">
-          <input type="text" name="empresa" id="empresa" 
-        :class="detailColorClass" v-model="formData[0].empresa" placeholder="Sua Empresa" required>
+          <input type="text" name="company_name" id="company_name" 
+        :class="detailColorClass" v-model="formData.company_name" placeholder="Sua Empresa" required>
         </div>
         
         <div class="col-md-6">
           <select type="text" name="qtdfunc" id="qtdfunc" 
-          :class="detailColorClass" v-model="formData[0].qtdfunc" required>
+          :class="detailColorClass" v-model="formData.qtdfunc" required>
             <option value="">N° Funcionários</option>
             <option value="1-2">1-2</option>
             <option value="3-10">3-10</option>
@@ -36,7 +37,7 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <button :class="detailColorClass" @click.prevent="send" class="inline">
+          <button :class="detailColorClass" class="inline">
             Solicitar Contato
             <img src="@/assets/svg/paperplain.svg" 
             alt="enviar mensagem">
@@ -57,43 +58,30 @@ export default {
   // mixins: [classBtn],
   data() {
     return {
-      pageId:3,
-      page: null,
       detailColorClass: null,
       // classButton: null,
       formMessage: null,
-      formData: [
-        {
-          nome: '',
+      formData: {
+          name: '',
           email: '',
-          telefone: '',
-          empresa: '',
+          mobile_phone: '',
+          company_name: '',
           qtdfunc: '',
-        },
-      ],
+      },
     };
   },
   mounted() {
     this.detailColorClass = this.$route.name;
   },
   methods: {
-    sendForm(evt) {
-      evt.preventDefault();
-      Api.sendToCF7(3795, this.formData)
+    sendForm () {
+      Api.sendToRD('dna_contato', this.formData)
       .then(res => {
-        return res.json();
-      })
-      .then(json => {
-        this.formMessage = json.message;
-      });
-    },
-    getPage(){
-      Api.getPageById(this.pageId)
-      .then(resp => resp.json())
-      .then(json => {
-      this.page = json;
-      this.$root.meta.title = this.page.yoast_title;
-      this.$root.meta.tags = this.page.yoast_meta;
+        if (res.status ==200) {
+          // redireciona aqui
+        } else {
+          this.formMessage = 'Houve um erro ao enviar, tente novamente mais tarde';
+        }
       });
     },
     execMascara (evt) {
