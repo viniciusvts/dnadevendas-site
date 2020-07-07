@@ -116,22 +116,28 @@
       <div class="row mt-5 group">
         <h1>Grupo Dna</h1>
         <div class="col-md-4">
-          <img
-            src="https://www.dnadevendas.com.br/wp-content/uploads/logo-dnadevendas-color-1.svg"
-            alt="Dna de Vendas"
-          />
+          <router-link :to="{name: 'Home'}">
+            <img
+              src="https://www.dnadevendas.com.br/wp-content/uploads/logo-dnadevendas-color-1.svg"
+              alt="Dna de Vendas"
+            />
+          </router-link>
         </div>
         <div class="col-md-4">
-          <img
-            src="https://www.dnadevendas.com.br/wp-content/themes/dnadevendas/images/logo-dnaforsmall.svg"
-            alt="Dna de Vendas for Small"
-          />
+          <router-link :to="{name: 'ForSmall'}">
+            <img
+              src="https://www.dnadevendas.com.br/wp-content/themes/dnadevendas/images/logo-dnaforsmall.svg"
+              alt="Dna de Vendas for Small"
+            />
+          </router-link>
         </div>
         <div class="col-md-4">
-          <img
-            src="https://dnaformarketing.com.br/wp-content/uploads/2018/11/dna-for-marketing.png"
-            alt="Dna for Marketing"
-          />
+          <a href="http://dnaformarketing.com.br/" target="_blank">
+            <img
+              src="https://dnaformarketing.com.br/wp-content/uploads/2018/11/dna-for-marketing.png"
+              alt="Dna for Marketing"
+            />
+          </a>
         </div>
       </div>
 
