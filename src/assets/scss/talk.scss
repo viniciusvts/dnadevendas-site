@@ -786,31 +786,6 @@
   }
 }
 
-.about {
-  background: #fafafa;
-  h2 {
-    color: $baseColor;
-    margin: 0;
-
-    @include breakpoint(tablets){
-      text-align: center;
-    }
-  }
-
-  p{
-    margin-top: 30px;
-    @include fontSize(25px);
-    line-height: 50px;
-  }
-
-  @include breakpoint(tablets){
-    p{
-      @include fontSize(20px);
-      line-height: 40px;
-    }
-  }
-}
-
 .cta-section{
   background-image: url("../assets/cta-section.jpg");
   background-repeat: no-repeat;
