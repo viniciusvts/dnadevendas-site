@@ -7,6 +7,7 @@
         margin-bottom: 0;
         #blog-title {
             position: relative;
+            text-transform: none;
             &::after{
                 content: '';
                 background: url("../assets/svg/big-arrow.svg") no-repeat center;
@@ -15,7 +16,7 @@
                 height: 60px;
                 width: 60px;
                 background-size: contain;
-                right: 0;
+                right: -100px;
                 top: 50px;
                 @include breakpoint(smartphones) {
                     display: none;

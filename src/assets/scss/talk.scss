@@ -9,6 +9,13 @@
     }
   }
 
+  .spotlight{
+    h2{
+      @include fontSize(35px);
+      color: $golden;
+    }
+  }
+
   h2 {
     font-weight: 300;
     @include fontSize(50px);
