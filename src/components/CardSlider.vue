@@ -3,14 +3,7 @@
     <div class="container-fluid">
       <div class="row align-items-center" :class="{'flex-row-reverse':isImpar}">
 
-        <div class="col-md-1 d-none d-lg-block" v-if="objection.icone">
-          <img class="lazy mr-auto ml-auto"
-          src="@/assets/loading.gif"
-          :data-src="objection.icone.sizes.normal"
-          :alt="objection.icone.title">
-        </div>
-
-        <div class="col-12 col-lg-5">
+        <div class="col-12 col-lg-6">
           <div class="slider" :class="'i-'+index">
             <div v-for="(img, index) in objection.imagem" :key="index" class="slides" :class="{'active':index==0}">
               <img class="lazy img-slider" src="@/assets/loading.gif"
