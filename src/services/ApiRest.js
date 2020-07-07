@@ -202,5 +202,30 @@ const apiRest = {
     });
   },
 
+  /**
+   * Envia formulário para o RD Station
+   * @param {String} indentificador - Identificador para o evento
+   * @param {{}} data - objeto a ser enviado para o form
+   * @author Vinicius de Santana
+   */
+  sendToRD(indentificador, data) {
+    if (typeof indentificador == 'undefined') throw new TypeError("O parametro é obrigatório");
+    if (typeof data == 'undefined') throw new TypeError("O parametro é obrigatório");
+    data.conversion_identifier = indentificador;
+    let url = 'https://api.rd.services/platform/conversions?api_key=a3a5dd520bafab6ff8cc64d58f3f1e83';
+    let myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+    let body = {
+      "event_type": "CONVERSION",
+      "event_family":"CDP",
+      "payload": data
+    }
+    return fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: myHeaders,
+    });
+  },
+
 };
 export default apiRest;
