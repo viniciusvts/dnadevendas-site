@@ -13,7 +13,7 @@
         @media (max-width: $desktops) {
             padding: 60px 20px;
         }
-        input{
+        input, select{
             background: inherit!important;
             &::placeholder{
                 color: gray!important;
