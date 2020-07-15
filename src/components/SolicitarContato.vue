@@ -54,7 +54,7 @@
 import Api from "@/services/ApiRest.js";
 
 export default {
-  name: 'solicitar-contato',
+  name: "solicitar-contato",
   // mixins: [classBtn],
   data() {
     return {
@@ -96,6 +96,6 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '@/assets/scss/contact.scss';
-  @import '@/assets/scss/solicitar-contato.scss';
+@import "@/assets/scss/contact.scss";
+@import "@/assets/scss/solicitar-contato.scss";
 </style>

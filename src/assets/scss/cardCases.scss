@@ -7,6 +7,7 @@
     display: block;
     position: relative;
     width: 100%;
+    max-width: 1200px;
 
     iframe{
       position: absolute;
@@ -22,8 +23,9 @@
   }
   .infos{
     img{
-      max-width: 150px;
+      max-width: 200px;
       margin-bottom: 30px;
+      max-height: 70px;
     }
     h2{
       @include fontSize(42px);
@@ -65,7 +67,7 @@
     img{
       max-width: 100%;
       height: auto;
-      max-height: 50px;
+      max-height: 40px;
       margin: 0 20px;
       cursor: pointer;
     } 

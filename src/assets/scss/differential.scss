@@ -1,7 +1,6 @@
 @import './variables.scss';
 @import './breakpoint.scss';
 $blue-dark: #1a213b;
-$gold: #C8AC78;
 .differential{
 
     background-color: white;
@@ -39,6 +38,15 @@ $gold: #C8AC78;
         }
     }
 
+    .container-fluid{
+        background-color: #FAFAFA;
+        padding: 60px;
+
+        @include breakpoint(smartphones) {
+            padding: 20px;
+        }
+    }
+
     .blue-box{
         background-color: $blue-dark;
         color: white;
@@ -49,13 +57,13 @@ $gold: #C8AC78;
         }
         cursor: pointer;
         &:hover, &.active{
-            background: linear-gradient(to right, $gold 0%, #B08961 100%);
+            background: linear-gradient(to right, $golden 0%, #B08961 100%);
         }
     }
     .destaq{
         margin-top: 50px;
         h2{
-            color: $gold;
+            color: $golden;
             font-weight: 300;
             font-size: 35px;
             padding: 15%;
@@ -105,7 +113,7 @@ $gold: #C8AC78;
                 border-right: 9px solid white;
             }
             &::-webkit-scrollbar-thumb{ // a alça de rolagem arrastável.
-                background: $gold;
+                background: $golden;
                 border-radius: 5px;
             }
             &::-webkit-scrollbar-thumb:hover{ // a alça de rolagem arrastável.

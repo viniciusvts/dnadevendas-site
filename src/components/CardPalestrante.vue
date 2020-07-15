@@ -15,7 +15,6 @@
       <div class="row align-items-center right">
         <div class="col-12 bio">
           <h3>{{obj.nome_palestrante}}</h3>
-          <h4>{{obj.cargo}}</h4>
           <p v-html="obj.bio"></p>
         </div>
       </div>

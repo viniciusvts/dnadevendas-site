@@ -4,6 +4,13 @@
 .metrics{
     background-color: white;
     text-align: center;
+    margin: 40px auto;
+
+    .container-fluid{
+        background-color: #FAFAFA;
+        padding: 40px;
+    }
+
     span{
         @include fontSize(35px);
         font-weight: bold;

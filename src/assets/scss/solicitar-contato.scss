@@ -1,7 +1,6 @@
 @import 'mixins.scss';
 @import 'variables.scss';
 @import 'breakpoint.scss';
-$colorForSmall:#FF6CAB;
 
 .s-contato{
     &::after {
@@ -9,20 +8,18 @@ $colorForSmall:#FF6CAB;
     }
     form{
         background: inherit!important;
-        max-width: 100%;
-        @media (min-width: $desktops) {
-            padding: 60px 0;
+        width: 100%;
+        margin: 0 auto;
+        @media (max-width: $desktops) {
+            padding: 60px 20px;
         }
-        input{
+        input, select{
             background: inherit!important;
-            @include breakpoint(tablet-desktop) {
-                margin: 10px 20px;
-            }
             &::placeholder{
                 color: gray!important;
             }
             &.ForSmall{
-                border-bottom: solid 1px $colorForSmall!important;
+                border-bottom: solid 1px $pink-fsmall;
             }
         }
         select{
@@ -42,29 +39,39 @@ $colorForSmall:#FF6CAB;
 } 
 
 h2.fale-conosco{
-    padding: 0 15%;
     font-weight: normal;
-    @include fontSize(30px);
+    @include fontSize(50px);
+
     &::before{
         content: "";
         background-image: url("../assets/svg/fale-conosco.svg");
         background-repeat: no-repeat;
-        width: 185px;
-        height: 185px;
+        width: 100px;
+        height: 100px;
         display: block;
         position: absolute;
-        margin-left: -100px;
-        margin-top: -100px;
+        margin-left: -68px;
+        margin-top: -44px;
+        background-size: 100px;
     }
     &.ForSmall::before{
         background-image: url("../assets/svg/fale-conosco-rosa.svg");
     }
+
+    @media (max-width: $desktops) {
+        @include fontSize(20px);
+        text-align: center;
+    }
 }
 
 span.ForSmall{
-    color: $colorForSmall;
+    color: $pink-fsmall;
+}
+
+span.Home{
+    color: $golden;
 }
 
 button.ForSmall{
-    background-color: $colorForSmall;
+    background-color: $pink-fsmall;
 }

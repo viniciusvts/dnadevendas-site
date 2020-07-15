@@ -57,7 +57,7 @@
               <div class="overlay-change"></div>
               <img v-if="fotos.foto.sizes.large" :src="fotos.foto.sizes.large" :alt="fotos.nome_palestrante">
               <p v-if="fotos.nome_palestrante">{{ fotos.nome_palestrante }}</p>
-              <span v-if="fotos.cargo">{{ fotos.cargo }}</span>
+              <!-- <span v-if="fotos.cargo">{{ fotos.cargo }}</span> -->
             </li>
           </ul>
         </div>

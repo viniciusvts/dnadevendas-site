@@ -10,15 +10,11 @@
 
     video{
         height: 100%;
-        max-height: 100%;
+        max-height: 100vh;
         min-height: 100vh;
-        filter: brightness(0.5);
+        filter: brightness(0.3);
         width: 100%;
         object-fit: cover;
-    }
-
-    @include breakpoint(smartphones) {
-        height: 112vh;
     }
 
     h1 {
@@ -138,17 +134,14 @@
     .see-more{
         display: block;
         width: 100%;
-        bottom: 0;
+        bottom: 20px;
         position: absolute;
         z-index: 9;
         text-transform: uppercase;
-        @include breakpoint(fullHdDesktops) {
-            bottom: 120px;
-        }
+
         @include breakpoint(smartphones){
            display: none;
         }
-
 
         .container{
             display: block;

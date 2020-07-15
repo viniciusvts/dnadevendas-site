@@ -8,29 +8,42 @@
         <div class="col-md-6 left">
           <div class="title">
             <span></span>
-            <h2>Nossa história</h2>            
+            <h2>Nossa história</h2>
           </div>
-          <p>A DNA de Vendas nasceu a partir do desenvolvimento de um programa de gestão e capacitação da força de vendas, criado por três executivos, em uma das maiores redes de varejo do Brasil.</p>
+          <p>
+            A DNA de Vendas nasceu a partir do desenvolvimento de
+            um programa de gestão e capacitação da força de Vendas,
+            criado por três executivos, em uma das maiores redes de
+            varejo do Brasil. O projeto foi executado e aperfeiçoado
+            e o impacto gerado contribuiu estrategicamente para o
+            crescimento de Vendas e o aumento da rentabilidade.
+          </p>
 
-          <p>O projeto foi desenhado, executado e aperfeiçoado, ao longo de três anos, pelos sócios da DNA de Vendas, e o impacto gerado pela implantação do programa contribuiu estrategicamente para o crescimento no volume de vendas, aumento da rentabilidade e qualidade na formação de líderes de vendas. A Exame concedeu o Prêmio Maiores e Melhores por dois anos consecutivos, pelo maior crescimento no setor e aumento de rentabilidade do setor varejista.</p>
+          <p>
+            Ao longo dos últimos anos a DNA já desenvolveu centenas
+            de programas para aumento da produtividade de Vendas
+            em empresas que atuam com produtos e serviços, nos
+            mais diversos segmentos, tais como: tecnologia, educação,
+            mercado imobiliário, saúde indústria farmacêutica,
+            automobilística, varejo, distribuição em todas as regiões
+            do Brasil.
+          </p>
 
-          <p>Os três executivos entenderam que haviam criado uma metodologia que poderia ser aplicada e customizada em diversos negócios. E a partir de 2007, passaram a prestar serviço para várias empresas, inclusive para uma das operações da companhia que haviam trabalhado.</p>
-
-          <p>Ao longo dos últimos anos a DNA já desenvolveu dezenas de programas para aumento da produtividade em empresas que vendem produtos e serviços em mais de 35 segmentos em todas as regiões do Brasil.</p>
-
-          <p>A DNA possui uma equipe dedicada e multidisciplinar para atender diferentes perfis de empresas e segmentos. Contamos  com engenheiros, administradores, psicólogos e profissionais de marketing com dedicação exclusiva aos nossos projetos.</p>
-
-          <p>Em fevereiro de 2011, em função das necessidades dos nossos clientes, criamos uma empresa de Tecnologia, a iDNA de Vendas, a qual desenvolveu o Ciapipe, um software de inteligência de vendas para ganho de produtividade das equipes.</p>
+          <p>
+            O grupo DNA de Vendas é constituído por três negócios:
+            DNA de Vendas Corporate, DNA de Vendas For Small e a
+            DNA For Marketing.
+          </p>
         </div>
 
-        <div class="col-md-6 right">          
+        <div class="col-md-6 right">
           <div class="title">
             <h2>Nossos Valores</h2>
             <span></span>
           </div>
           <div class="row">
             <div class="col-auto">
-              <img src="@/assets/svg/diamond.svg" alt="Integridade">              
+              <img src="@/assets/svg/diamond.svg" alt="Integridade" />
             </div>
             <div class="col">
               <h3>Integridade</h3>
@@ -40,7 +53,7 @@
 
           <div class="row">
             <div class="col-auto">
-              <img src="@/assets/svg/tick.svg" alt="Integridade">              
+              <img src="@/assets/svg/tick.svg" alt="Integridade" />
             </div>
             <div class="col">
               <h3>Compromisso</h3>
@@ -50,7 +63,7 @@
 
           <div class="row">
             <div class="col-auto">
-              <img src="@/assets/svg/discover.svg" alt="Integridade">              
+              <img src="@/assets/svg/discover.svg" alt="Integridade" />
             </div>
             <div class="col">
               <h3>Foco</h3>
@@ -60,7 +73,7 @@
 
           <div class="row">
             <div class="col-auto">
-              <img src="@/assets/svg/lamp.svg" alt="Integridade">              
+              <img src="@/assets/svg/lamp.svg" alt="Integridade" />
             </div>
             <div class="col">
               <h3>Inovação</h3>
@@ -70,7 +83,7 @@
 
           <div class="row">
             <div class="col-auto">
-              <img src="@/assets/svg/pencil.svg" alt="Integridade">              
+              <img src="@/assets/svg/pencil.svg" alt="Integridade" />
             </div>
             <div class="col">
               <h3>Simplicidade</h3>
@@ -80,7 +93,7 @@
 
           <div class="row">
             <div class="col-auto">
-              <img src="@/assets/svg/smile.svg" alt="Integridade">              
+              <img src="@/assets/svg/smile.svg" alt="Integridade" />
             </div>
             <div class="col">
               <h3>Otimismo</h3>
@@ -90,7 +103,7 @@
 
           <div class="row">
             <div class="col-auto">
-              <img src="@/assets/svg/heart.svg" alt="Integridade">              
+              <img src="@/assets/svg/heart.svg" alt="Integridade" />
             </div>
             <div class="col">
               <h3>Intensidade no trabalho</h3>
@@ -103,13 +116,28 @@
       <div class="row mt-5 group">
         <h1>Grupo Dna</h1>
         <div class="col-md-4">
-          <img src="https://www.dnadevendas.com.br/wp-content/uploads/logo-dnadevendas-color-1.svg" alt="Dna de Vendas">
+          <router-link :to="{name: 'Home'}">
+            <img
+              src="https://www.dnadevendas.com.br/wp-content/uploads/logo-dnadevendas-color-1.svg"
+              alt="Dna de Vendas"
+            />
+          </router-link>
         </div>
         <div class="col-md-4">
-          <img src="https://www.dnadevendas.com.br/wp-content/themes/dnadevendas/images/logo-dnaforsmall.svg" alt="Dna de Vendas for Small">
+          <router-link :to="{name: 'ForSmall'}">
+            <img
+              src="https://www.dnadevendas.com.br/wp-content/themes/dnadevendas/images/logo-dnaforsmall.svg"
+              alt="Dna de Vendas for Small"
+            />
+          </router-link>
         </div>
         <div class="col-md-4">
-          <img src="https://dnaformarketing.com.br/wp-content/uploads/2018/11/dna-for-marketing.png" alt="Dna for Marketing">
+          <a href="http://dnaformarketing.com.br/" target="_blank">
+            <img
+              src="https://dnaformarketing.com.br/wp-content/uploads/2018/11/dna-for-marketing.png"
+              alt="Dna for Marketing"
+            />
+          </a>
         </div>
       </div>
 
@@ -118,39 +146,39 @@
         <p>A DNA de Vendas tem dois escritórios corporativos: um em São Paulo e outro em Lauro de Freitas, na RM de Salvador. Além dos escritórios, a DNA tem sócios-consultores alocados no Rio de Janeiro, Belo Horizonte e Juiz de Fora para melhor atender os clientes desses estados sem necessidade de deslocamentos.</p>
       </div>
 
-    <div class="galery">
-      <div class="row">
-            <div class="col-md-3">
-              <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-7.jpg" alt="">
-            </div>
+      <div class="galery">
+        <div class="row">
+          <div class="col-md-3">
+            <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-7.jpg" alt />
+          </div>
 
-            <div class="col-md-3">
-              <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-9.jpg" alt="">
-            </div>
+          <div class="col-md-3">
+            <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-9.jpg" alt />
+          </div>
 
-            <div class="col-md-3">
-              <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-6.jpg" alt="">
-            </div>
+          <div class="col-md-3">
+            <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-6.jpg" alt />
+          </div>
 
-            <div class="col-md-3">
-              <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-5.jpg" alt="">
-            </div>
+          <div class="col-md-3">
+            <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-5.jpg" alt />
+          </div>
 
-            <div class="col-md-3">
-              <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-10.jpg" alt="">
-            </div>
+          <div class="col-md-3">
+            <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-10.jpg" alt />
+          </div>
 
-            <div class="col-md-3">
-              <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-4.jpg" alt="">
-            </div>
+          <div class="col-md-3">
+            <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-4.jpg" alt />
+          </div>
 
-            <div class="col-md-3">
-              <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-2.jpg" alt="">
-            </div>
+          <div class="col-md-3">
+            <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-2.jpg" alt />
+          </div>
 
-            <div class="col-md-3">
-              <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-1.jpg" alt="">
-            </div>
+          <div class="col-md-3">
+            <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-1.jpg" alt />
+          </div>
         </div>
       </div>
     </div>
@@ -166,25 +194,25 @@ export default {
     return {
       postId: 312,
       post: null
-    }
+    };
   },
-  mounted(){
-    this.getPost()
+  mounted() {
+    this.getPost();
   },
   methods: {
-    getPost(){
+    getPost() {
       Api.getPagesById(this.postId)
-      .then(resp => resp.json())
-      .then( json => {
-        this.post = json
-        this.$root.meta.title = this.post.yoast_title;
-        this.$root.meta.tags = this.post.yoast_meta;
-      })
+        .then(resp => resp.json())
+        .then(json => {
+          this.post = json;
+          this.$root.meta.title = this.post.yoast_title;
+          this.$root.meta.tags = this.post.yoast_meta;
+        });
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
-  @import "@/assets/scss/about.scss";  
+@import "@/assets/scss/about.scss";
 </style>

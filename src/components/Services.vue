@@ -4,8 +4,10 @@
             <h2>Serviços</h2>
             <span></span>
         </div>  
-        <div class="row">
-            <slot></slot>
+        <div class="container-fluid">
+            <div class="row">
+                <slot></slot>
+            </div>
         </div>
     </section>
 </template>

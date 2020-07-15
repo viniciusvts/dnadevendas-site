@@ -2,9 +2,9 @@
     <div class="blogFilter" :class="matchRoute">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-5 col-sm-12 col-tb-12">
-                    <div class="title">
-                        <h2 id="blog-title"><b>Conteúdos direcionados ao seu interesse</b></h2>
+                <div class="col-md-5 col-sm-12 col-tb-12 align-self-center">
+                    <div class="title align-self-center">
+                        <h2 id="blog-title"><b>Conteúdos<br> direcionados <br> ao seu interesse</b></h2>
                     </div>
                 </div>
 
