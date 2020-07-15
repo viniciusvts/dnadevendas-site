@@ -47,7 +47,7 @@
     </section>
 
     <section v-if="pilares" class="pilares">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           <div v-for="(pilar, index) in pilares.pilares" :key="index" class="pilar">
             <div class="row align-items-center">
