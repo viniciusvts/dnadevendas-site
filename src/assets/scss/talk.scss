@@ -639,6 +639,10 @@
     line-height: 53px;
   }
 
+  .about img{
+    margin-bottom: 30px;
+  }
+
   .spotlight {
     h2 {
       color: white;
@@ -654,6 +658,7 @@
   }
 
   .pilares {
+    padding: 0 40px;
     .pilar {
       margin-top: 80px;
     }
@@ -669,7 +674,6 @@
         background: white;
         padding: 14px 0;
         height: 170px;
-        margin: 0 auto;
 
         @include breakpoint(tablets) {
           margin: 0 auto;
@@ -680,7 +684,7 @@
         position: absolute;
         border: 1px solid #b0896140;
         top: -65px;
-        left: 162px;
+        left: 86px;
         height: 300px;
         bottom: 0;
         z-index: -1;
@@ -728,7 +732,7 @@
         border: 1px solid $golden;
         z-index: 9;
         top: 0;
-        left: 148px;
+        left: 70px;
         @include breakpoint(desktops) {
           display: none;
         }
@@ -738,7 +742,7 @@
     ul {
       display: block;
       position: relative;
-      margin-left: 173px;
+      margin-left: 95px;
       padding: 30px 0;
       margin-top: 80px;
 

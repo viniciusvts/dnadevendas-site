@@ -58,7 +58,7 @@
       <div v-for="(pilar, index) in pilares.pilares" :key="index" class="pilar">
         <div class="container-fluid">
           <div class="row align-items-center">
-            <div class="col-md-2 left">
+            <div class="col-md-auto left">
               <img :src="pilar.icone.url" :alt="pilar.pilar" />
             </div>
             <div class="col right">
@@ -76,7 +76,7 @@
 
           <div v-for="(filho, indexFilho) in pilar.pilar_filho" :key="indexFilho" class="pilar-childs">
             <div class="row align-items-center">
-              <div class="col-md-2 left">
+              <div class="col-md-auto left">
                 <img :src="pilar.icone.url" :alt="pilar.pilar" />
               </div>
               <div class="col right">
