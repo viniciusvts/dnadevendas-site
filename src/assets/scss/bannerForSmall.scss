@@ -5,7 +5,7 @@
   position: relative;
   margin-top: 50px;
   background-color: #fafafa;
-  padding: 120px 40px 300px 40px;
+  padding: 190px 40px 300px 40px;
   display: block;
 
   @include breakpoint(smartphones) {
@@ -15,7 +15,7 @@
 
   img {
     position: absolute;
-    right: -19px;
+    right: 0px;;
     border: 0;
     width: 90%;
     bottom: 0;

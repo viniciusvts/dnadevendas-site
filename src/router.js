@@ -18,6 +18,7 @@ const ForSmall = () => import('./views/ForSmall.vue')
 const Training = () => import('./views/Training.vue')
 const FullService = () => import('./views/FullService.vue')
 const Page = () => import('./views/Page.vue')
+const Mentoring = () => import('./views/Mentoring.vue')
 
 Vue.use(VueRouter)
 
@@ -120,7 +121,12 @@ const routes = [
     name: 'Page',
     component: Page,
     props: {default: true, slug: true}
-  }
+  },
+  {
+    path: '/mentoria-online',
+    name: 'Mentoring',
+    component: Mentoring
+  },
 ]
 
 const router = new VueRouter({

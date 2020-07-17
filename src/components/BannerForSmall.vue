@@ -8,7 +8,7 @@
         vendas em mais de <br />
         <span id="animation"></span>
       </h2>
-      <img src="../assets/banner-4small.png" alt="Banner" />
+      <img src="../assets/dashboard-for-small.png" alt="Banner" />
     </div>
   </section>
 </template>

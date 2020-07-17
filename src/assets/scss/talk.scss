@@ -635,7 +635,6 @@
 .full-service {
   .about p {
     margin-bottom: 30px;
-    margin-top: 40px;
     font-size: 30px;
     line-height: 53px;
   }
@@ -680,9 +679,9 @@
         content: " ";
         position: absolute;
         border: 1px solid #b0896140;
-        top: -101px;
-        left: 142px;
-        height: 390px;
+        top: -65px;
+        left: 162px;
+        height: 300px;
         bottom: 0;
         z-index: -1;
         @include breakpoint(desktops) {
@@ -729,7 +728,7 @@
         border: 1px solid $golden;
         z-index: 9;
         top: 0;
-        left: 130px;
+        left: 148px;
         @include breakpoint(desktops) {
           display: none;
         }
@@ -739,7 +738,7 @@
     ul {
       display: block;
       position: relative;
-      margin-left: 155px;
+      margin-left: 173px;
       padding: 30px 0;
       margin-top: 80px;
 
