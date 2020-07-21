@@ -9,9 +9,9 @@
     }
   }
 
-  .spotlight{
-    h2{
-      @include fontSize(35px);
+  .spotlight {
+    h2 {
+      @include fontSize(25px);
       color: $golden;
     }
   }
@@ -20,7 +20,7 @@
     font-weight: 300;
     @include fontSize(50px);
 
-    span{
+    span {
       color: $golden;
     }
   }
@@ -302,17 +302,6 @@
   @include breakpoint(smartphones) {
     margin: auto;
     width: 315px;
-  }
-
-  @include breakpoint(fullHdDesktops) {
-    margin-right: 30px;
-    margin-bottom: 40px;
-    p {
-      font-size: 22px;
-    }
-    span {
-      font-size: 22px;
-    }
   }
 
   &:hover {
@@ -633,72 +622,83 @@
 }
 
 .full-service {
- 
-  .spotlight{
+  .about p {
+    margin-bottom: 30px;
+    font-size: 30px;
+    line-height: 53px;
+  }
+
+
+
+  .about img{
+    margin-bottom: 30px;
+  }
+
+  .spotlight {
     h2 {
       color: white;
       margin-top: 30px;
-      @include breakpoint(tablets){
+      @include breakpoint(tablets) {
         @include fontSize(25px);
         line-height: 30px;
       }
     }
-    img{
+    img {
       min-height: 100vh;
     }
-  } 
+  }
 
-  .pilares{
-
-    .pilar{
+  .pilares {
+    padding: 0 40px;
+    .pilar {
       margin-top: 80px;
     }
 
-    .right{
+    .right {
       padding: 0 30px;
     }
 
-    .left{
+    .left {
       position: relative;
-      img{
+      img {
         vertical-align: middle;
         background: white;
         padding: 14px 0;
-        max-height: 150px;
-        margin: 0 auto;
-    
-        @include breakpoint(tablets){
+        height: 170px;
+        max-width: 140px;
+
+        @include breakpoint(tablets) {
           margin: 0 auto;
         }
       }
-      &::before{
+      &::before {
         content: " ";
         position: absolute;
         border: 1px solid #b0896140;
-        top: -51px;
-        left: 95px;
-        height: 240px;
+        top: -65px;
+        left: 86px;
+        height: 300px;
         bottom: 0;
         z-index: -1;
-        @include breakpoint(desktops){
+        @include breakpoint(desktops) {
           display: none;
         }
       }
     }
 
-    h2{
+    h2 {
       @include fontSize(48px);
       line-height: 4rem;
       color: $golden;
 
-      @include breakpoint(tablets){
+      @include breakpoint(tablets) {
         text-align: center;
       }
     }
 
-    p{
-      @include fontSize(20px);
-      line-height: 40px;
+    p {
+      @include fontSize(30px);
+      line-height: 68px;
       margin-top: 30px;
       margin-bottom: 30px;
     }
@@ -706,17 +706,17 @@
     .pilar-childs {
       margin-top: 120px;
 
-      @include breakpoint(tablets){
-        margin-top: unset
+      @include breakpoint(tablets) {
+        margin-top: unset;
       }
     }
 
-    .itens-pilar{
-      position: relative;      
-      margin-top: 50px;      
+    .itens-pilar {
+      position: relative;
+      margin-top: 50px;
       margin-bottom: 50px;
 
-      &::before{
+      &::before {
         content: " ";
         width: 1px;
         height: 100%;
@@ -724,30 +724,32 @@
         border: 1px solid $golden;
         z-index: 9;
         top: 0;
-        left: 80px;
-        @include breakpoint(desktops){
+        left: 70px;
+        @include breakpoint(desktops) {
           display: none;
         }
       }
     }
 
-    ul{
+    ul {
       display: block;
       position: relative;
-      margin-left: 105px;
+      margin-left: 95px;
       padding: 30px 0;
       margin-top: 80px;
 
-      @include breakpoint(tablets){
+      @include breakpoint(tablets) {
         margin-left: 30px;
         margin-top: unset;
       }
     }
 
-    li {list-style: none;}
+    li {
+      list-style: none;
+    }
 
     li::before {
-      content: '\25c6';
+      content: "\25c6";
       padding-left: 50px;
       padding-right: 20px;
       color: $golden;
@@ -755,61 +757,61 @@
       left: -91px;
       font-size: 40px;
 
-      @include breakpoint(tablets){
+      @include breakpoint(tablets) {
         left: -80px;
       }
     }
-    li{
+    li {
       margin-top: 20px;
       margin-left: 15px;
-      @include fontSize(20px);
-      line-height: 40px;
+      @include fontSize(30px);
+      line-height: 70px;
 
-      @include breakpoint(tablets){
+      @include breakpoint(tablets) {
         @include fontSize(20px);
       }
     }
   }
 }
 
-.cta-section{
+.cta-section {
   background-image: url("../assets/cta-section.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   display: block;
 
-  .row{
+  .row {
     height: 400px;
   }
 
-  h2{
+  h2 {
     text-align: center;
     color: white !important;
     font-weight: bold;
     @include fontSize(40px);
   }
 
-  button{
+  button {
     margin: 40px auto;
     display: block;
   }
 }
 
-.puzzle{
+.puzzle {
   position: relative;
   display: block;
   height: 1200px;
 
-  @include breakpoint(tablets){
+  @include breakpoint(tablets) {
     height: 100%;
   }
 
-  img{
+  img {
     position: absolute;
     width: 20%;
 
-    @include breakpoint(largeDesktops){
+    @include breakpoint(largeDesktops) {
       position: relative;
       width: 33.333%;
       top: unset !important;
@@ -817,88 +819,89 @@
       display: inline;
       margin: 0 auto;
 
-      &:nth-child(8), &:nth-child(15){
+      &:nth-child(8),
+      &:nth-child(15) {
         display: none;
       }
     }
 
-    @include breakpoint(smartphones){
+    @include breakpoint(smartphones) {
       width: 50%;
     }
 
-    &:nth-child(1){
+    &:nth-child(1) {
       left: 18%;
       top: 21%;
     }
 
-    &:nth-child(2){
+    &:nth-child(2) {
       left: 29%;
       top: 10%;
     }
 
-    &:nth-child(3){
+    &:nth-child(3) {
       left: 40%;
       top: 0%;
     }
 
-    &:nth-child(4){
+    &:nth-child(4) {
       left: 51%;
       top: 10%;
     }
 
-    &:nth-child(5){
+    &:nth-child(5) {
       left: 62%;
       top: 20%;
     }
 
-    &:nth-child(6){
+    &:nth-child(6) {
       left: 51%;
       top: 31%;
     }
 
-    &:nth-child(7){
+    &:nth-child(7) {
       top: 41%;
       left: 40%;
     }
 
-    &:nth-child(8){
+    &:nth-child(8) {
       left: 36.5%;
       top: 17.3%;
       z-index: -1;
       width: 27%;
     }
 
-    &:nth-child(9){
+    &:nth-child(9) {
       left: 29%;
       top: 51%;
     }
 
-    &:nth-child(10){
+    &:nth-child(10) {
       left: 18%;
       top: 61%;
     }
 
-    &:nth-child(11){
+    &:nth-child(11) {
       left: 29%;
       top: 72%;
     }
 
-    &:nth-child(12){
+    &:nth-child(12) {
       left: 40%;
       top: 82%;
     }
 
-    &:nth-child(13){
+    &:nth-child(13) {
       left: 51%;
       top: 72%;
     }
 
-    &:nth-child(14){
+    &:nth-child(14) {
       top: 62%;
       left: 62%;
     }
 
-    &:nth-child(15){
+    &:nth-child(15) {
       left: 36.5%;
       top: 58.1%;
       z-index: -1;
@@ -906,4 +909,3 @@
     }
   }
 }
-

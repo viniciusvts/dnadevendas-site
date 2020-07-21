@@ -47,11 +47,11 @@
     </section>
 
     <section v-if="pilares" class="pilares">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           <div v-for="(pilar, index) in pilares.pilares" :key="index" class="pilar">
             <div class="row align-items-center">
-              <div class="col-md-2 left">
+              <div class="col-md-auto left">
                 <img :src="pilar.icone.url" :alt="pilar.pilar" />
               </div>
               <div class="col right">

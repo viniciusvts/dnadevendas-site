@@ -1,0 +1,149 @@
+@import "@/assets/scss/variables.scss";
+@import "@/assets/scss/mixins.scss";
+@import "@/assets/scss/breakpoint.scss";
+
+.mentoring{
+    .spotlight {
+        h2 {
+            color: white;
+            margin-top: 30px;
+        }
+        img {
+            min-height: 100vh;
+        }
+    }
+
+    .about p {
+        margin-bottom: 30px;
+        font-size: 28px;
+        line-height: 53px;
+        margin-top: 30px;
+    }
+    .what{
+        ul{
+            li::before {
+                content: "\25c6";
+                padding-left: 0;
+                padding-right: 0;
+                color: #b08961;
+                position: absolute;
+                left: -40px;
+                font-size: 20px;
+            }
+
+            li{
+                margin-bottom: 40px;
+                @include fontSize(28px);
+                line-height: 43px;
+            }
+            margin-left: 30px;
+            display: block;
+            position: relative;
+        }
+        img{
+            margin-bottom: 30px;
+        }
+    }
+    .title{
+        h2{
+            @include fontSize(30px);
+        }
+    }
+
+    .plan{
+        h3{
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 400;
+            @include fontSize(30px);
+        }
+
+        img{
+            margin: 0 auto;
+        }
+
+        ul{
+            img{
+                width: 70px;
+                margin-right: auto;
+                margin-bottom: 20px;
+            }
+
+            li{
+                margin-bottom: 40px;
+                text-transform: uppercase;
+                @include fontSize(22px);
+                text-align: center;
+            }            
+        }
+
+        .price{
+            text-align: center;
+            margin-top: 30px;
+            color: $golden;
+            @include fontSize(32px);
+
+            span{
+                @include fontSize(22px);
+            }
+        }
+   
+        button{
+            margin: 40px auto 0 auto;
+            display: block;
+            text-transform: uppercase;
+            box-shadow: 9px 7px 21px rgba($color: #000000, $alpha: 0.16);
+        }
+
+        border: 5px solid $golden;
+        padding: 40px;
+        box-shadow: 12px 13px 10px rgba($color: #000000, $alpha: 0.16);
+
+        @include transition();
+        &:hover{
+            box-shadow: 12px 23px 20px rgba($color: #000000, $alpha: 0.16);
+            @include transition();
+        }
+        margin-bottom: 30px;
+    }
+
+    .objectives{
+
+        .title{
+            margin-bottom: 80px;
+        }
+
+        .objective{
+            margin-bottom: 60px;
+
+            &::before{
+                display: block;
+                position: absolute;
+                content: "";
+                height: 14px;
+                width: 14px;
+                right: 0;
+                top: 100px;
+                z-index: 9;
+                background-color: $golden;
+                transform: rotate(45deg);
+                @include breakpoint(tablets){
+                    display: none;
+                }
+            }
+        }
+
+        .objective:last-child::before, .objective:nth-child(3)::before{
+            display: none;
+        }
+
+        img{
+            margin: 20px auto;
+        }
+        p{
+            text-align: center;
+        }
+    }
+}
+

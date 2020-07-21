@@ -19,13 +19,13 @@
 
     <Pillars v-if="pilares">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-5 col-sm-12 col-tb-12">
+        <div class="row align-items-center">
+          <div class="col-md-3 col-sm-12 col-tb-12">
             <h3 v-if="pilares.titulo" v-html="pilares.titulo"></h3>
           </div>
 
           <div v-for="(pilar, index) in pilares.pilares" :key="index"
-            class="col-md-2 col-sm-12 col-tb-12" :class="[index < 2 ? 'pillar' : '']">
+            class="col-md-3 col-sm-12 col-tb-12" :class="[index < 2 ? 'pillar' : '']">
             <img :src="pilar.icone.url" :alt="pilar.pilar" />
             <p>{{pilar.pilar}}</p>
           </div>
@@ -44,11 +44,11 @@
       </div>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-5">
             <img v-if="post.acf.imagem_sobre" :src="post.acf.imagem_sobre" :alt="post.acf.chamada_sobre" />
           </div>
-          <div class="col-md-6">
-            <p v-if="post.acf.texto_sobre" v-html="post.acf.texto_sobre"></p>
+          <div class="col-md-7">
+            <div v-if="post.acf.texto_sobre" v-html="post.acf.texto_sobre"></div>
           </div>
         </div>
       </div>
@@ -56,9 +56,9 @@
 
     <div v-if="pilares" class="pilares">
       <div v-for="(pilar, index) in pilares.pilares" :key="index" class="pilar">
-        <div class="container">
+        <div class="container-fluid">
           <div class="row align-items-center">
-            <div class="col-md-2 left">
+            <div class="col-md-auto left">
               <img :src="pilar.icone.url" :alt="pilar.pilar" />
             </div>
             <div class="col right">
@@ -76,7 +76,7 @@
 
           <div v-for="(filho, indexFilho) in pilar.pilar_filho" :key="indexFilho" class="pilar-childs">
             <div class="row align-items-center">
-              <div class="col-md-2 left">
+              <div class="col-md-auto left">
                 <img :src="pilar.icone.url" :alt="pilar.pilar" />
               </div>
               <div class="col right">
@@ -155,7 +155,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-6">
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossos-servicos.jpg" alt="Nossos serviços">
+            <img src="https://www.dnadevendas.com.br/wp-content/uploads/shutterstock_1076687258.png" alt="Nossos serviços">
           </div>
           <div class="col-md-6">
             <p>

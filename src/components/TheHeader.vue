@@ -98,6 +98,10 @@
             </div>
 
           </li>
+
+          <li>
+          <router-link :to="{name: 'Mentoring'}">Mentoria</router-link>
+          </li>
           
           <li>
             Cursos Online
@@ -105,6 +109,8 @@
             <div class="submenu">
               <ul>
                 <li><a href="http://insidesalesacademy.com.br/" target="_blank">Vendas Consultivas no Mundo Digital</a></li>
+                 <li><a href="https://insidesalesacademy.com.br/hotsite-imob-corretor/" target="_blank">Curso para corretores</a></li>
+                  <li><a href="https://insidesalesacademy.com.br/hotsite-imob-gestor/" target="_blank">Curso para Gestores</a></li>
               </ul>
             </div>
           </li>
@@ -186,7 +192,7 @@
         if(this.slug === 'Blog' || this.slug === 'SingleBlog' || this.slug === 'Clients' || this.slug === 'About'){
           this.menuStyle = 'darkMenu';
           this.logoWhite = true;
-        }else if(this.slug === 'Home' || this.slug === 'Workshops' || this.slug === 'Talk' || this.slug === 'ForSmall' || this.slug === 'Training' || this.slug === 'FullService'){
+        }else if(this.slug === 'Home' || this.slug === 'Workshops' || this.slug === 'Talk' || this.slug === 'ForSmall' || this.slug === 'Training' || this.slug === 'FullService' || this.slug === 'Mentoring'){
           this.menuStyle = 'darkTransparent';
           this.logoWhite = true;
         }

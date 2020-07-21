@@ -65,7 +65,7 @@
         background: white;
         width: auto;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.08);
-        height: 250px;
+        height: 280px;
         margin-left: 10px;
         margin-right: 10px;
         @include transition();
@@ -125,8 +125,5 @@
         height: 620px;
         width: 100%;
         @include transition();
-        @include breakpoint(fullHdDesktops) {
-            height: 800px;
-        }
     }
 }
