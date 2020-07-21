@@ -11,7 +11,7 @@
 
   .spotlight {
     h2 {
-      @include fontSize(35px);
+      @include fontSize(25px);
       color: $golden;
     }
   }
@@ -302,17 +302,6 @@
   @include breakpoint(smartphones) {
     margin: auto;
     width: 315px;
-  }
-
-  @include breakpoint(fullHdDesktops) {
-    margin-right: 30px;
-    margin-bottom: 40px;
-    p {
-      font-size: 22px;
-    }
-    span {
-      font-size: 22px;
-    }
   }
 
   &:hover {
@@ -639,6 +628,8 @@
     line-height: 53px;
   }
 
+
+
   .about img{
     margin-bottom: 30px;
   }
@@ -674,6 +665,7 @@
         background: white;
         padding: 14px 0;
         height: 170px;
+        max-width: 140px;
 
         @include breakpoint(tablets) {
           margin: 0 auto;
