@@ -19,6 +19,10 @@ const Training = () => import('./views/Training.vue')
 const FullService = () => import('./views/FullService.vue')
 const Page = () => import('./views/Page.vue')
 const Mentoring = () => import('./views/Mentoring.vue')
+const ContentFabric = () => import('./views/ContentFabric.vue')
+const SalesTraining = () => import('./views/SalesTraining.vue')
+const LeaderPrograms = () => import('./views/LeaderPrograms.vue')
+const MultipliersInternal = () => import('./views/MultipliersInternal.vue')
 
 Vue.use(VueRouter)
 
@@ -117,15 +121,35 @@ const routes = [
     component: FullService
   },  
   {
+    path: '/mentoria-online',
+    name: 'Mentoring',
+    component: Mentoring
+  },
+  {
+    path: '/fabica-de-conteudo',
+    name: 'ContentFabric',
+    component: ContentFabric
+  },
+  {
+    path: '/treinamento-de-vendas',
+    name: 'SalesTraining',
+    component: SalesTraining
+  },
+  {
+    path: '/programas-de-lideranca',
+    name: 'LeaderPrograms',
+    component: LeaderPrograms
+  },
+  {
+    path: '/multiplicadores-internos',
+    name: 'MultipliersInternal',
+    component: MultipliersInternal
+  },
+  {
     path: '/:slug',
     name: 'Page',
     component: Page,
     props: {default: true, slug: true}
-  },
-  {
-    path: '/mentoria-online',
-    name: 'Mentoring',
-    component: Mentoring
   },
 ]
 
