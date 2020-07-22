@@ -102,7 +102,6 @@
                 </li>
               </ul>
               <img src="https://www.dnadevendas.com.br/wp-content/uploads/line.png" alt="Linha Divisória">
-              <p class="price">10X <span>R$</span>{{plano.preco_plano}}</p>
               <a :href="plano.link_cta_plano" target="_blank" v-if="plano.link_cta_plano"><button>{{plano.texto_cta_plano}}</button></a>
             </div>
           </div>
