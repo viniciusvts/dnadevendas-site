@@ -1,86 +1,123 @@
 <template>
-    <section class="page" style="background: white">
-
-        <div v-if="pageContent" class="container">
-            <h1 >{{pageContent[0].title.rendered}}</h1>
-            <div class="row" v-if="pageContent[0].acf.conteudo">
-                <div class="col-12" v-html="pageContent[0].acf.conteudo">
-                </div>
-            </div>
-            <p class="error" v-else>Esta página não tem conteúdo</p>
+  <div class="training">
+    <section class="about">
+      <div class="container-fluid">
+        <div class="title" v-if="post.title.rendered">
+          <h2>{{post.title.rendered}}</h2>
+          <span></span>
         </div>
 
-        <div v-else-if="is404" class="container">
-            404: não encontrado
-        </div>
-
-        <div v-else-if="isError" class="container">
-            <h1>Ocorreu um erro de rede</h1>
-            <p class="text-center">
-                Ocorreu um erro de rede, recarregue a página e tente novamente mais tarde
-            </p>
-        </div>
-
-        <div v-else class="container">
-            <Loading />
-        </div>
+        <img
+          v-if="post.acf.imagem"
+          :src="post.acf.imagem.sizes.medium_large"
+          :alt="post.title.rendered"
+        />
+        <div v-html="post.acf.conteudo"></div>
+      </div>
     </section>
-    
+
+    <Pillars v-if="pilares">
+      <div class="container-fluid">
+        <div class="title" v-if="pilares.titulo">
+          <h2>{{pilares.titulo}}</h2>
+          <span></span>
+        </div>
+        <div class="row">
+          <div
+            v-for="(pilar, index) in pilares.pilares"
+            :key="index"
+            class="col-md-3 mr-auto ml-auto"
+          >
+            <img :src="pilar.icone.url" :alt="pilar.pilar" v-if="pilar.icone.url" />
+            <p>{{pilar.pilar}}</p>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-tb-12 no-animate">
+            <img src="@/assets/line-svg.svg" alt="Divisória" />
+          </div>
+        </div>
+      </div>
+    </Pillars>
+
+    <section v-if="post.acf.chamada_sobre" class="academy">
+      <div class="container-fluid">
+        <div class="title">
+          <h2 v-if="post.acf.chamada_sobre">{{post.acf.chamada_sobre}}</h2>
+          <span></span>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img :src="post.acf.imagem_sobre" alt="Nossos serviços" />
+          </div>
+          <div class="col-md-6" v-html="post.acf.texto_sobre"></div>
+        </div>
+      </div>
+    </section>
+
+    <Metrics v-if="metricas">
+      <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
+        <img
+          class="lazy"
+          src="@/assets/loading.gif"
+          :data-src="metric.icone.sizes.medium"
+          :alt="metric.metrica"
+          v-if="metric.icone"
+        />
+        <span v-if="metric.metrica">{{metric.metrica}}</span>
+        <h3 v-html="metric.titulo" v-if="metric.titulo"></h3>
+      </div>
+    </Metrics>
+
+     <SolicitarContato />
+  </div>
 </template>
 
 <script>
-    import Loading from "@/components/Loading.vue";
-    import Api from "@/services/ApiRest.js";
+import Pillars from "@/components/Pillars.vue";
+import Metrics from "@/components/Metrics.vue";
+import SolicitarContato from "@/components/SolicitarContato.vue";
 
-    export default {
-        name: "Page",
-        components:{Loading},
-        data(){
-            return {
-                pageContent: null,
-                slug: null,
-                is404: false,
-                isError: false
-            }
-        },
-        mounted(){
-            this.slug = this.$route.params.slug;
-            this.getPage();
-        },
-        methods:{
-            getPage(){
-                //reset da página
-                this.pageContent = null
-                this.is404 = false
-                this.isError = false
-                let args = []
-                args['slug'] = this.slug
-                Api.getPages(args)
-                .then(r => {
-                    if (r.status == 200){
-                        return r.json()
-                    }
-                    this.is404= true
-                })
-                .then(r => {
-                this.pageContent = r;
-                this.$root.meta.title = this.pageContent[0].yoast_title;
-                this.$root.meta.tags = this.pageContent[0].yoast_meta;
-                })
-                .catch(() =>{
-                    this.isError = true;
-                });
-            }
-        },
-        watch: {
-            '$route.params.slug': function(val){
-                this.slug = val;
-                this.getPage();
-            }
-        }
-    }
+export default {
+  name: "LeaderPrograms",
+  components: {
+    Pillars,
+    Metrics,
+    SolicitarContato
+  },
+  data() {
+    return {
+      pageID: 602,
+      post: null,
+      pilares: null,
+      metricas: null,
+    };
+  },
+  mounted() {
+    this.getAcf();
+    this.getMetrics();
+  },
+  methods: {
+    getAcf() {
+      fetch(`https://www.dnadevendas.com.br/wp-json/wp/v2/pages/${this.pageID}`)
+        .then((resp) => resp.json())
+        .then((json) => {
+          this.post = json;
+          this.pilares = json.acf.secao_pilares;
+          this.$root.meta.title = json.yoast_title;
+          this.$root.meta.tags = json.yoast_meta;
+        });
+    },
+    getMetrics() {
+      fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/310/metricas`)
+        .then((resp) => resp.json())
+        .then((json) => {
+          this.metricas = json.metricas;
+        });
+    },
+  },
+};
 </script>
 
 <style lang="scss">
-    @import "@/assets/scss/page.scss"
+@import "@/assets/scss/training.scss";
 </style>

@@ -1,0 +1,48 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+.training {
+    margin-top: 100px;
+    .about {
+        img {
+            margin-bottom: 40px;
+        }
+
+        p {
+            margin-top: 20px;
+            margin-bottom: 40px;
+            @include fontSize(25px);
+            line-height: 50px;
+            font-weight: 300;
+        }
+
+        h2 {
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+    }    
+
+    .title {
+        margin-bottom: 40px;
+    }
+
+    .pillars{
+        p{
+            color: $baseColor;
+            text-transform: none;
+        }
+    }
+
+    .academy{
+        img{
+            margin-bottom: 40px;
+        }
+        p {
+            margin-top: 0px;
+            margin-bottom: 40px;
+            @include fontSize(25px);
+            line-height: 50px;
+            font-weight: 300;
+        }
+    }
+}

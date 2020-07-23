@@ -59,10 +59,10 @@
             <div class="submenu">
               <ul>
                 <li>
-                  <router-link :to="{name: 'Page', params: { slug: 'fabrica-de-conteudo'}}">Fábrica de Conteúdo</router-link>
+                  <router-link :to="{ name: 'ContentFabric'}">Fábrica de Conteúdo</router-link>
                 </li>
                 <li>
-                  <router-link :to="{name: 'Page', params: { slug: 'treinamento-de-vendas'}}">Treinamento de Vendas presencial</router-link>
+                  <router-link :to="{name: 'SalesTraining'}">Treinamento de Vendas presencial</router-link>
                 </li>
                 <!-- <li>
                   <router-link :to="{name: 'Page', params: { slug: 'trilhas-de-capacitacao-online'}}">Trilhas de Capacitação Online</router-link>
@@ -71,13 +71,13 @@
                   <router-link :to="{name: 'Page', params: { slug: 'treinamento-de-vendas-presencial'}}">Treinamento de Vendas Presencial</router-link>
                 </li> -->
                 <li>
-                  <router-link :to="{name: 'Page', params: { slug: 'programas-de-liderança'}}">Programas de Liderança</router-link>
+                  <router-link :to="{name: 'LeaderPrograms'}">Programas de Liderança</router-link>
                 </li>
                 <li>
-                  <router-link :to="{name: 'Page', params: { slug: 'multiplicadores-internos'}}">Multiplicadores Internos</router-link>
+                  <router-link :to="{name: 'InternalMultipliers'}">Multiplicadores Internos</router-link>
                 </li>
                 <li>
-                  <router-link :to="{name: 'Page', params: { slug: 'workshops-de-vendas'}}">Workshops de Vendas</router-link>
+                  <router-link :to="{name: 'Workshops'}">Workshops de Vendas</router-link>
                 </li>
               </ul>
             </div>
@@ -189,7 +189,7 @@
         };
       },
       matchRoute(){
-        if(this.slug === 'Blog' || this.slug === 'SingleBlog' || this.slug === 'Clients' || this.slug === 'About'){
+        if(this.slug === 'Blog' || this.slug === 'SingleBlog' || this.slug === 'Clients' || this.slug === 'About' || this.slug === 'Contact'|| this.slug === 'SalesTraining'|| this.slug === 'InternalMultipliers'|| this.slug === 'LeaderPrograms' || this.slug === 'ContentFabric'){
           this.menuStyle = 'darkMenu';
           this.logoWhite = true;
         }else if(this.slug === 'Home' || this.slug === 'Workshops' || this.slug === 'Talk' || this.slug === 'ForSmall' || this.slug === 'Training' || this.slug === 'FullService' || this.slug === 'Mentoring'){
