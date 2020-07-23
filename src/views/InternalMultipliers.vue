@@ -78,7 +78,7 @@ import Metrics from "@/components/Metrics.vue";
 import SolicitarContato from "@/components/SolicitarContato.vue";
 
 export default {
-  name: "SalesTraining",
+  name: "InternalMultipliers",
   components: {
     Pillars,
     Metrics,
@@ -86,7 +86,7 @@ export default {
   },
   data() {
     return {
-      pageID: 316,
+      pageID: 605,
       post: null,
       pilares: null,
       metricas: null,

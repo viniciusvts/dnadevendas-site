@@ -35,7 +35,7 @@
       </div>
     </Pillars>
 
-    <section class="about">
+    <section class="what">
       <div class="title">
         <h2 v-if="post.acf.chamada_sobre" v-html="post.acf.chamada_sobre"></h2>
         <span></span>
@@ -102,7 +102,6 @@
                 </li>
               </ul>
               <img src="https://www.dnadevendas.com.br/wp-content/uploads/line.png" alt="Linha Divisória">
-              <p class="price">10X <span>R$</span>{{plano.preco_plano}}</p>
               <a :href="plano.link_cta_plano" target="_blank" v-if="plano.link_cta_plano"><button>{{plano.texto_cta_plano}}</button></a>
             </div>
           </div>

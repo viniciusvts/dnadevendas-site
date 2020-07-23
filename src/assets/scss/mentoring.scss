@@ -13,13 +13,20 @@
         }
     }
 
-    .about p {
+    .what p {
         margin-bottom: 30px;
         font-size: 28px;
         line-height: 53px;
         margin-top: 30px;
+        text-align: justify;
+        font-weight: 300;
     }
     .what{
+        li{
+            margin-bottom: 40px;
+            @include fontSize(28px);
+            line-height: 43px;
+        }
         ul{
             li::before {
                 content: "\25c6";
@@ -30,18 +37,15 @@
                 left: -40px;
                 font-size: 20px;
             }
-
-            li{
-                margin-bottom: 40px;
-                @include fontSize(28px);
-                line-height: 43px;
-            }
+            
             margin-left: 30px;
             display: block;
             position: relative;
         }
         img{
             margin-bottom: 30px;
+            min-height: 470px;
+            object-fit: cover;
         }
     }
     .title{

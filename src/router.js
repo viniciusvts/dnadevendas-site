@@ -22,7 +22,7 @@ const Mentoring = () => import('./views/Mentoring.vue')
 const ContentFabric = () => import('./views/ContentFabric.vue')
 const SalesTraining = () => import('./views/SalesTraining.vue')
 const LeaderPrograms = () => import('./views/LeaderPrograms.vue')
-const MultipliersInternal = () => import('./views/MultipliersInternal.vue')
+const InternalMultipliers = () => import('./views/InternalMultipliers.vue')
 
 Vue.use(VueRouter)
 
@@ -142,8 +142,8 @@ const routes = [
   },
   {
     path: '/multiplicadores-internos',
-    name: 'MultipliersInternal',
-    component: MultipliersInternal
+    name: 'InternalMultipliers',
+    component: InternalMultipliers
   },
   {
     path: '/:slug',
