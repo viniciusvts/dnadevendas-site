@@ -35,7 +35,7 @@
       </div>
     </Pillars>
 
-    <section class="about">
+    <section class="what">
       <div class="title">
         <h2 v-if="post.acf.chamada_sobre" v-html="post.acf.chamada_sobre"></h2>
         <span></span>
