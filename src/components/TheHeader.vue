@@ -64,6 +64,7 @@
                 <li>
                   <router-link :to="{name: 'SalesTraining'}">Treinamento de Vendas presencial</router-link>
                 </li>
+                <li><a href="http://insidesalesacademy.com.br/" target="_blank">Treinamento de Vendas online</a></li>
                 <!-- <li>
                   <router-link :to="{name: 'Page', params: { slug: 'trilhas-de-capacitacao-online'}}">Trilhas de Capacitação Online</router-link>
                 </li> -->
@@ -104,7 +105,7 @@
           </li>
           
           <li>
-            Cursos Online
+            Capacitação Online
             <span>&#x25bc;</span>
             <div class="submenu">
               <ul>
