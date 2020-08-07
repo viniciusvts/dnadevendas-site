@@ -80,7 +80,7 @@
       <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
         <img class="lazy" src="@/assets/loading.gif" :data-src="metric.icone.sizes.medium" :alt="metric.metrica">
         <span>{{metric.metrica}}</span>
-        <h3>{{metric.titulo}}</h3>
+        <h3 v-html="metric.titulo"></h3>
       </div>
     </Metrics>
 

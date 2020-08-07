@@ -35,6 +35,9 @@ footer{
         a{
             color: white;
             @include transition();
+            @include breakpoint(hdDesktops){
+                font-size: 15px;
+            }
             &:hover{
                 color: $spotlight;
                 @include transition();
@@ -51,6 +54,9 @@ footer{
                     padding-top: 0;
                     margin-top: 0;
                     display: block;
+                    @include breakpoint(hdDesktops){
+                        font-size: 15px;
+                    }
                     &::before{
                         display: block;
                         position: absolute;
@@ -77,6 +83,11 @@ footer{
 
         .address{
             margin-top: 40px;
+            p{
+                @include breakpoint(hdDesktops) {
+                    @include fontSize(15px);
+                }
+            }
         }
 
         .social{
@@ -97,6 +108,7 @@ footer{
             input{
                 height: 50px;
                 margin-bottom: 20px;
+                text-transform: none;
             }
 
             input::placeholder{

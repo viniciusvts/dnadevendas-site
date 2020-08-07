@@ -31,11 +31,17 @@
       @include fontSize(42px);
       margin-bottom: 30px;
       color: $golden;
+      font-weight: 600;
+
+      @include breakpoint(hdDesktops){
+        @include fontSize(32px);
+      }
     }
 
     p{
       @include fontSize(22px);
       line-height: 40px;
+      font-weight: 300;
     }
 
     @include breakpoint(smartphones){

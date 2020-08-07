@@ -8,10 +8,6 @@ $blue-dark: #1a213b;
     text-align: center;
     color: white;
 
-    p{
-        margin-bottom: 40px;
-    }
-
     h2{
         color: $baseColor;
     }
@@ -65,9 +61,10 @@ $blue-dark: #1a213b;
         h2{
             color: $golden;
             font-weight: 300;
-            font-size: 35px;
+            font-size: 39px;
             padding: 15%;
             text-align: left;
+            font-weight: 400;
             @include breakpoint(smartphones) {
                 padding: 0 0 30px 0;
                 font-size: 25px;
@@ -88,6 +85,7 @@ $blue-dark: #1a213b;
             padding: 35px 70px 35px 35px;
             text-align: left;
             line-height: 50px;
+            font-weight: 300;
 
             @include breakpoint(smartphones) {
                 font-size: 20px;

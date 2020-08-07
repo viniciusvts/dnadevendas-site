@@ -19,6 +19,12 @@
   h2 {
     font-weight: 400;
     @include fontSize(50px);
+    color: $baseColor;
+    font-weight: 600;
+
+    @media (max-width: $hdDesktops) {
+      font-size: 32px;
+    }
 
     span {
       color: $golden;
@@ -626,12 +632,22 @@
     margin-bottom: 30px;
     font-size: 30px;
     line-height: 53px;
+    font-weight: 300;
+    @include breakpoint(hdDesktops) {
+      @include fontSize(22px);
+      line-height: 40px;
+    }
   }
 
 
 
   .about img{
     margin-bottom: 30px;
+
+    @media (max-width: $hdDesktops) {
+      object-fit: cover;
+      min-height: 340px;
+    }
   }
 
   .spotlight {
@@ -690,6 +706,10 @@
       @include fontSize(48px);
       line-height: 4rem;
       color: $golden;
+      
+      @media (max-width: $hdDesktops) {
+        font-size: 35px;
+      }
 
       @include breakpoint(tablets) {
         text-align: center;
@@ -699,6 +719,11 @@
     p {
       @include fontSize(30px);
       line-height: 68px;
+      font-weight: 300;
+      @include breakpoint(hdDesktops) {
+        @include fontSize(20px);
+        line-height: 50px;
+      }
       margin-top: 30px;
       margin-bottom: 30px;
     }
@@ -764,10 +789,15 @@
     li {
       margin-top: 20px;
       margin-left: 15px;
+      font-weight: 300;
       @include fontSize(30px);
       line-height: 70px;
 
       @include breakpoint(tablets) {
+        @include fontSize(20px);
+      }
+
+      @include breakpoint(hdDesktops) {
         @include fontSize(20px);
       }
     }

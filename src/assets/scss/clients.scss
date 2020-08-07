@@ -14,6 +14,7 @@
         color: $golden;
         text-transform: uppercase;
         margin-top: 40px;
+        font-weight: 600;
     }
 
     hr{
@@ -44,6 +45,10 @@
         cursor: pointer;
         padding: 10px;
         @include transition();
+
+        @include breakpoint(hdDesktops){
+            @include fontSize(15px);
+        }
 
         &:hover{
             background-color: $golden;
@@ -94,7 +99,7 @@
         img{
             @include transition();
             margin: 25px auto;
-            max-width: 190px;
+            max-width: 160px;
             &:hover{
                 transform: scale(1.05);
                 @include transition();

@@ -3,7 +3,7 @@
         <h1>Clientes</h1>
         <div class="container-fluid">
 
-            <ul class="menu row justify-content-center">
+            <ul class="menu row justify-content-center align-items-center">
                 <li class="col-md-auto col-6">
                     <div v-on:click="showClients" class="tooltip active" id="todos">
                         Todos

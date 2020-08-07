@@ -80,3 +80,7 @@
       @content;
   }
 }
+
+@function proportional-text($font-size, $viewport-size) {
+  @return ($font-size * 100 / $viewport-size) + vw;
+}

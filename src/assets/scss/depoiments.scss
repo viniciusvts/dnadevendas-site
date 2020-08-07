@@ -69,6 +69,10 @@
                 line-height: 37px;
                 font-weight: 100;
                 font-style: italic;
+                @include breakpoint(hdDesktops){
+                    font-size: 15px;
+                    line-height: 26px;
+                }
             }
             &::before{
                 display: block;
@@ -110,10 +114,12 @@
 
             h3{
                 @include fontSize(26px);
+                font-weight: 600;
             }
 
             h4{
                 @include fontSize(20px);
+                font-weight: 600;
             }
 
             h5{
@@ -123,7 +129,7 @@
 
             h5{
                 color: $spotlight;
-                font-weight: 100;
+                font-weight: 400;
             }
         }
     }

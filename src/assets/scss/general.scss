@@ -13,6 +13,7 @@ p {
   padding: 0px;
   margin: 0px;
 }
+
 p {
   @include breakpoint(tablet-desktop) {
     font-size: 24px !important;
@@ -27,6 +28,10 @@ html{
   font-family: 'Open Sans', sans-serif;
 }
 
+#main{
+  min-height: 100vh;
+}
+
 h1{
   @include fontSize(30px);
   font-weight: 100;
@@ -34,9 +39,7 @@ h1{
   width: 100%;
   b{
     font-weight: bold;
-    font-size: 48px;
     display: block;
-    @include fontSize(48px);
   }
 }
 
@@ -87,6 +90,16 @@ img {
   padding: 5px;
 }
 
+.forSmall{
+  .title{ 
+    span{
+      &::after{
+        background-image: url("../assets/svg/line-pink.svg");
+      }
+    }
+  }
+}
+
 .title{ 
   display: flex;
   flex-direction: row;
@@ -99,7 +112,7 @@ img {
     flex-grow: 0;
     text-transform: uppercase;
     position: relative;
-    font-weight: bold;
+    font-weight: 600;
 
     @include breakpoint(tablets){
       margin: 0px auto;
@@ -135,7 +148,7 @@ img {
       width: 100%;
       right: 0px;
       top: 50%;
-      z-index: 9;
+      z-index: 999;
       @include breakpoint(fullHdDesktops) {
         height: 3px;
       }

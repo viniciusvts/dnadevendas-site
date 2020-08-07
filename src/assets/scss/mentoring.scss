@@ -13,6 +13,10 @@
         }
     }
 
+    .what{
+        padding-top: 0px;
+    }
+
     .what p {
         margin-bottom: 30px;
         font-size: 28px;
@@ -20,12 +24,23 @@
         margin-top: 30px;
         text-align: justify;
         font-weight: 300;
+
+        @media (max-width: $hdDesktops) {
+            font-size: 20px;
+            line-height: 40px;
+        }
     }
     .what{
         li{
             margin-bottom: 40px;
+            font-weight: 300;
             @include fontSize(28px);
             line-height: 43px;
+
+            @media (max-width: $hdDesktops) {
+                font-size: 21px;
+                line-height: 40px;
+            }
         }
         ul{
             li::before {
@@ -72,14 +87,25 @@
                 width: 70px;
                 margin-right: auto;
                 margin-bottom: 20px;
+
+                @media (max-width: $hdDesktops) {
+                    width: 40px;
+                    margin-bottom: 0;
+                }
             }
 
             li{
                 margin-bottom: 40px;
                 text-transform: uppercase;
-                @include fontSize(22px);
+                @include fontSize(20px);
                 text-align: center;
-            }            
+
+                @media (max-width: $hdDesktops) {
+                    margin-bottom: 20px;
+                }
+            }    
+            
+            margin-bottom: 40px;
         }
 
         .price{

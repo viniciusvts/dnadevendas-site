@@ -11,9 +11,14 @@
         p {
             margin-top: 20px;
             margin-bottom: 40px;
-            @include fontSize(25px);
-            line-height: 50px;
+            @include fontSize(22px);
+            line-height: 40px;
             font-weight: 300;
+
+            @media (max-width: $hdDesktops) {
+                font-size: 20px;
+                line-height: 40px;
+            }
         }
 
         h2 {
@@ -31,6 +36,11 @@
             color: $baseColor;
             text-transform: none;
         }
+
+        @media (max-width: $hdDesktops) {
+            margin: 0;
+            padding: 20px;
+        }
     }
 
     .academy{
@@ -39,10 +49,15 @@
         }
         p {
             margin-top: 0px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             @include fontSize(25px);
             line-height: 50px;
             font-weight: 300;
+
+            @media (max-width: $hdDesktops) {
+                font-size: 20px;
+                line-height: 40px;
+            }
         }
     }
 }

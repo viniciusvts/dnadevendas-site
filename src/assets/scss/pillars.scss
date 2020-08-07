@@ -1,4 +1,4 @@
-.pillars{
+.pillars {
     display: block;
     position: relative;
     width: 100%;
@@ -6,21 +6,26 @@
     background: white;
     margin: 30px 0;
 
-    
     p {
         color: $golden;
+        font-weight: 600;
     }
-    
-    h3{
-        font-size: 32px;
+
+    h3 {
         margin-top: 0;
         font-weight: 400;
         color: $baseColor;
         text-align: left;
+        
+        @include fontSize(32px);
+        @include breakpoint(hdDesktops) {
+            font-size: 24px;
+            line-height: 36px;
+        }
     }
 
-    .pillar{
-        &::before{
+    .pillar {
+        &::before {
             display: block;
             position: absolute;
             content: "";
@@ -31,7 +36,7 @@
             z-index: 9;
             background-color: $golden;
             transform: rotate(45deg);
-            @include breakpoint(tablets){
+            @include breakpoint(tablets) {
                 display: none;
             }
             @include breakpoint(tablet-desktop) {
@@ -40,24 +45,28 @@
         }
     }
 
-    img{
+    img {
         width: auto;
         margin: 0 auto;
-        height: 80px;
+        height: 60px;
         transform: scale(1);
         @include transition();
-        &:hover{
+        &:hover {
             transform: scale(1.1);
             @include transition();
         }
     }
 
-    p{
+    p {
         text-align: center;
         @include fontSize(20px);
         margin: 20px auto 60px auto;
         text-transform: uppercase;
-    }    
+        @media (max-width: $hdDesktops) {
+            font-size: 16px;
+            line-height: 25px;
+        }
+    }
 }
 
 .no-animate {
@@ -68,9 +77,9 @@
     }
 }
 
-.forSmall{
-    .pillar{
-        &::before{
+.forSmall {
+    .pillar {
+        &::before {
             display: block;
             position: absolute;
             content: "";
@@ -81,17 +90,17 @@
             z-index: 9;
             background-color: $pink-fsmall;
             transform: rotate(45deg);
-            @include breakpoint(tablets){
+            @include breakpoint(tablets) {
                 display: none;
             }
         }
     }
 
-    .pillars p{
+    .pillars p {
         color: black;
     }
 
-    .pillars h2{
+    .pillars h2 {
         text-align: center;
         font-weight: 100;
         max-width: 840px;
@@ -99,8 +108,8 @@
         margin: 30px auto 80px auto;
         @include fontSize(40px);
 
-        @include breakpoint(tablets){
-            @include fontSize(30px)
+        @include breakpoint(tablets) {
+            @include fontSize(30px);
         }
     }
 }
