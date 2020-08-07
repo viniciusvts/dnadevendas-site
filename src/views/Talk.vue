@@ -3,8 +3,8 @@
     <Spotlight v-if="banner">
       <div class="text section">
         <h1 v-html="banner.chamada"></h1>
-        <h2 class="colorDestak">{{banner.subtitulo}}</h2>
-        <button class="btn-grad">
+        <h2 class="colorDestak" v-if="banner">{{banner.subtitulo}}</h2>
+        <button class="btn-grad" v-if="banner">
           <router-link to="/contato">
             {{banner.cta}}
           </router-link>
@@ -23,9 +23,8 @@
       <img v-else class="image" :src="banner.imagem_banner" :alt="banner.chamada">
       
     </Spotlight>
-    <PaginaCarregando v-else/>
 
-    <section class="container-fluid" v-if="video">
+    <section class="container-fluid" v-if="banner">
       <div class="banner-video">
         <h2>Por que escolher <span>nossas palestras?</span></h2>
         <div class="see-more">
@@ -38,14 +37,13 @@
     </section>
     
 
-    <section v-if="objecoes">
+    <section v-if="banner">
       <div v-for="(obj, index) in objecoes" :key="index">
         <CardSlider :objection="obj" :index="index"/>
       </div>
     </section>
-    <PaginaCarregando v-else/>
 
-    <section class="talkers container" v-if="palestrantes">
+    <section class="talkers container" v-if="banner">
       <div class="title">
         <h2><b>Conheça nossos</b> palestrantes</h2>
         <span></span>
@@ -74,9 +72,8 @@
           </div>
         </div>
     </section>
-    <PaginaCarregando v-else/>
 
-    <Metrics v-if="metricas">
+    <Metrics v-if="banner">
       <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
         <img class="lazy" src="@/assets/loading.gif" :data-src="metric.icone.sizes.medium" :alt="metric.metrica">
         <span>{{metric.metrica}}</span>
@@ -84,7 +81,7 @@
       </div>
     </Metrics>
 
-    <section class="themes" v-if="themes">
+    <section class="themes" v-if="banner">
       <div class="title">
         <h2><b>Principais</b> temas</h2>
         <span></span>
@@ -108,9 +105,8 @@
         </div>        
       </div>
     </section>
-    <PaginaCarregando v-else/>
     
-    <SolicitarContato></SolicitarContato>
+    <SolicitarContato v-if="banner"/>
   </div>
 </template>
 
@@ -120,7 +116,6 @@
   import Metrics from '@/components/Metrics.vue';
   import CardPalestrante from '@/components/CardPalestrante.vue';
   import SolicitarContato from '@/components/SolicitarContato.vue';
-  import PaginaCarregando from '@/components/PaginaCarregando.vue';
   import CardSlider from '@/components/CardSlider.vue';
 
   export default {
@@ -128,7 +123,6 @@
     components: {
       Spotlight,
       Metrics,
-      PaginaCarregando,
       SolicitarContato,
       CardSlider,
       'card-palestra': CardPalestrante,

@@ -4,7 +4,7 @@
       <div class="text section">
         <h1 v-html="bannerData.chamada"></h1>
         <h2 v-if="bannerData.subtitulo" v-html="bannerData.subtitulo"></h2>
-        <button class="btn-grad">
+        <button class="btn-grad" v-if="bannerData.imagem">
           <router-link to="/contato">{{bannerData.cta}}</router-link>
         </button>
       </div>
@@ -170,7 +170,7 @@ export default {
           const banner = {};
           banner.chamada = json.acf.chamada;
           banner.cta = json.acf.cta;
-          banner.imagem = json.acf.foto.url;
+          banner.imagem = json.acf.foto.sizes.medium_large;
           banner.subtitulo = json.acf.subtitulo;
           // imagem_banner: json.acf.imagem.sizes.medium_large,
           this.bannerData = banner;
