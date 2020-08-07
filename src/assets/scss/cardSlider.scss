@@ -7,15 +7,16 @@ $gold: #C8AC78;
             font-size: 20px;
             line-height: 40px;
             padding: 0 20px;
+            font-weight: 300;
         }
     }
     .right{
         .title{
             h2{
-                font-weight: normal;
+                font-weight: 600;
                 color: $golden;
                 text-transform: none;
-                font-size: 30px;
+                font-size: 29px;
                 padding: 0 20px;
                 @media (min-width: $fullHdDesktops){
                     font-size: 40px;
@@ -85,7 +86,7 @@ $gold: #C8AC78;
         box-shadow: 3px 3px 10px 0px grey;
     }
     .destaq-text{
-        max-height: 300px;
+        max-height: 250px;
         overflow-y: auto;
         &::-webkit-scrollbar{ // a barra de rolagem inteira.
             width: 20px;

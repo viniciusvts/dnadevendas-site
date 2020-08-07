@@ -1,9 +1,9 @@
-@import '@/assets/scss/variables.scss';  
-@import '@/assets/scss/mixins.scss';
-@import '@/assets/scss/breakpoint.scss';
-@import '@/assets/scss/general.scss';
+@import "@/assets/scss/variables.scss";
+@import "@/assets/scss/mixins.scss";
+@import "@/assets/scss/breakpoint.scss";
+@import "@/assets/scss/general.scss";
 
-header{
+header {
   position: relative;
   display: block;
   width: 100%;
@@ -20,66 +20,66 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 0px 90px;
-    margin: 0 auto;   
+    margin: 0 auto;
     text-transform: uppercase;
 
-    @include breakpoint(largeDesktops){
+    @include breakpoint(largeDesktops) {
       display: block;
       padding: 0px 10px;
-    };  
-    
-    #burgerMenu{
+    }
+
+    #burgerMenu {
       position: absolute;
       top: 10px;
       right: 10px;
       cursor: pointer;
       display: none;
-    
-      @include breakpoint(largeDesktops){
+
+      @include breakpoint(largeDesktops) {
         display: block;
-      };
-    
-      img{
+      }
+
+      img {
         width: 40px;
         height: 40px;
         padding: 10px;
       }
     }
 
-    a{
+    a {
       @include transition();
-      &:hover{            
+      &:hover {
         color: $golden;
         transform: scale(1.1);
         @include transition();
       }
     }
 
-    .router-link-exact-active{
+    .router-link-exact-active {
       color: $golden;
     }
 
-    .menuDesktop{
+    .menuDesktop {
       display: block;
       @include transition();
-      @include breakpoint(largeDesktops){
+      @include breakpoint(largeDesktops) {
         display: none;
-      };
+      }
     }
 
-    .menuMobile{
+    .menuMobile {
       @include transition();
-      @include breakpoint(largeDesktops){
+      @include breakpoint(largeDesktops) {
         display: block;
-      };
+      }
     }
 
-    #menu-fixed{
+    #menu-fixed {
       margin-top: 10px;
     }
 
-    #menuItems{
-      li{
+    #menuItems {
+      li {
         display: inline-block;
         position: relative;
         height: 100%;
@@ -87,51 +87,55 @@ header{
         cursor: pointer;
         @include fontSize(14px);
 
-        span{
+        @include breakpoint(hdDesktops) {
+          font-size: 12px;
+        }
+
+        span {
           font-size: 10px;
           margin-left: 8px;
         }
 
-        @include breakpoint(largeDesktops){
+        @include breakpoint(largeDesktops) {
           display: block;
           margin: 0 auto;
           text-align: center;
           padding: 20px 16px;
-        };
+        }
 
-        &:hover{
-          .submenu{
+        &:hover {
+          .submenu {
             display: block;
           }
         }
       }
     }
-    #searchBtn{
-      @include breakpoint(largeDesktops){    
+    #searchBtn {
+      @include breakpoint(largeDesktops) {
         width: 50px;
         height: 50px;
         padding: 10px;
         top: 10px;
-        right: 55px;      
+        right: 55px;
         margin: 0 auto;
         position: absolute;
 
-        p{
+        p {
           display: none;
         }
       }
 
-      div{
-        display: flex;        
-        cursor: pointer;   
-        img{
+      div {
+        display: flex;
+        cursor: pointer;
+        img {
           width: 20px;
           margin: 0 5px;
           @include breakpoint(fullHdDesktops) {
             width: 25px;
           }
         }
-        p{
+        p {
           @include fontSize(16px);
           @include breakpoint(fullHdDesktops) {
             @include fontSize(20px);
@@ -151,13 +155,13 @@ header{
       @include breakpoint(fullHdDesktops) {
         width: 120px;
       }
-      &:hover{            
+      &:hover {
         transform: scale(1.1);
         @include transition();
       }
     }
 
-    .submenu{
+    .submenu {
       display: none;
       position: absolute;
       background-color: white;
@@ -166,32 +170,32 @@ header{
       box-shadow: 0px 4px 11px #6f6f6f2e;
       border-top: 3px solid $golden;
       top: 40px;
-      margin: 20px auto;
+      margin: 10px auto;
       width: max-content;
       max-width: 250px;
 
-      @include breakpoint(largeDesktops){
+      @include breakpoint(largeDesktops) {
         top: 0;
         position: relative;
         width: 100%;
-      };
+      }
 
-      &:hover{            
+      &:hover {
         display: block;
       }
 
-      li{
+      li {
         display: block !important;
         padding: 20px;
         border-bottom: 1px solid #6f6f6f2e;
-        &:last-child{
+        &:last-child {
           border-bottom: none;
         }
       }
 
-      a{
+      a {
         @include transition();
-        &:hover{            
+        &:hover {
           color: $golden;
           transform: scale(1.1);
           @include transition();
@@ -201,53 +205,53 @@ header{
   }
 }
 
-.darkMenu{
-  background-color: #19223A;
+.darkMenu {
+  background-color: #19223a;
   color: white;
-  a{
+  a {
     color: white;
   }
-  .submenu{
-    a{
+  .submenu {
+    a {
       color: $baseColor;
     }
   }
 }
 
-.defaultMenu{  
+.defaultMenu {
   background-color: white;
   opacity: 1;
   color: grey;
 
-  a{
+  a {
     color: grey;
   }
-  .submenu{
-    a{
+  .submenu {
+    a {
       color: $baseColor;
     }
   }
 
-  img{
+  img {
     filter: grayscale(1);
     opacity: 0.7;
   }
 }
 
-.darkTransparent{  
+.darkTransparent {
   background-color: #15151500;
   color: white;
 
-  a{
+  a {
     color: white;
   }
-  .submenu{
-    a{
+  .submenu {
+    a {
       color: $baseColor;
     }
   }
 
-  .menuMobile{
+  .menuMobile {
     background: $baseColor;
   }
 }

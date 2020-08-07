@@ -1,10 +1,11 @@
+@import "@/assets/scss/variables.scss";
+@import "@/assets/scss/mixins.scss";
+@import "@/assets/scss/breakpoint.scss";
 
-@import '@/assets/scss/variables.scss';
-$form-back-color: rgba(245, 245, 245, 0.657);
-.contact{
-    color: $baseColor;    
+.contact {
+    color: $baseColor;
     padding-top: 150px;
-    h1{
+    h1 {
         text-align: center;
         position: relative;
         padding-top: 5px;
@@ -13,7 +14,7 @@ $form-back-color: rgba(245, 245, 245, 0.657);
         font-weight: bold;
         margin-bottom: 80px;
 
-        &::before{
+        &::before {
             display: block;
             position: absolute;
             content: "";
@@ -27,96 +28,103 @@ $form-back-color: rgba(245, 245, 245, 0.657);
         }
     }
 
-    form{
-        background: $form-back-color;
+    form {
         padding: 60px;
         margin-bottom: 40px;
-        h2.title-message{
+        background-color: rgba(245, 245, 245, 0.657);
+
+        h2.title-message {
             margin-bottom: 50px;
+
+            $base-font-size: 30px;            
+
+            @include breakpoint($hdDesktops) {
+                font-size: proportional-text($base-font-size, $hdDesktops);
+            }
+
+            font-size: proportional-text($base-font-size,1920px);           
         }
-        select option{
+
+        select option {
             color: $baseColor;
         }
-        input, select, textarea{
-            background: $form-back-color;
+
+        input,
+        select,
+        textarea {
             border: none;
             border-bottom: solid 1px $golden;
-            &::placeholder{
+            background-color: transparent;
+            margin-bottom: 50px;
+            &::placeholder {
                 color: $baseColor;
             }
-            &:focus{
+            &:focus {
                 border-bottom: solid 2px $golden;
                 outline: 0;
             }
         }
-        input[type="submit"]{
-            background: linear-gradient(to right, #C8AC78 0%, #B08961 100%);           
+
+        input[type="submit"] {
+            background: linear-gradient(to right, #c8ac78 0%, #b08961 100%);
             width: max-content;
             color: white;
         }
 
-        // &::before{
-        //     display: block;
-        //     position: absolute;
-        //     content: "";
-        //     background-image: url("../assets/svg/cases-vetor-left.svg");
-        //     height: 92px;
-        //     width: 8px;
-        //     left: -30px;
-        //     top: 0;
-        //     z-index: 1;
-        // } 
-    }
-    
-    .flex-wrap{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .local{
-        margin-bottom: 60px;
-        margin-left: 40px;
-        img{
-            height: 35px;
-            margin-right: 15px;
-            margin-left: -40px;        
+        label {
+            margin-bottom: 0px;
+            margin-top: 20px;
         }
     }
 
-    a{
-        color: $golden;
+    .flex-wrap {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .local {
+        margin-bottom: 60px;
+        margin-left: 40px;
+        img {
+            height: 35px;
+            margin-right: 15px;
+            margin-left: -40px;
+        }
     }
 
-    b{
+    a {
+        color: $golden;
+        margin: 10px 0;
+    }
+
+    p {
+        @include breakpoint(hdDesktops) {
+            @include fontSize(16px);
+        }
+    }
+
+    b {
         font-size: 30px;
         margin-bottom: 20px;
+        @include breakpoint(hdDesktops) {
+            @include fontSize(20px);
+        }
     }
 
-    b, a{
+    b,
+    a {
         display: block;
     }
-
-    // &::after{
-    //     display: block;
-    //     position: absolute;
-    //     content: "";
-    //     background-image: url("../assets/svg/cases-vetor-right.svg");
-    //     height: 800px;
-    //     width: 190px;
-    //     right: 0;
-    //     top: 500px;
-    //     z-index: 1;
-    // }
-    .buttons-row{
-        button{
+    .buttons-row {
+        button {
             margin: 30px 10px;
             background: #eee;
             box-shadow: 4px 4px 9px 0px #ccc;
             color: #555;
-            &.active{
+            &.active {
                 background: $golden-dark;
                 color: white;
             }
-            &:focus{
+            &:focus {
                 outline: 0;
             }
             @media (max-width: $desktops) {
@@ -124,10 +132,10 @@ $form-back-color: rgba(245, 245, 245, 0.657);
                 margin-right: auto;
             }
         }
-        button:first-child{
+        button:first-child {
             margin-left: auto;
         }
-        button:last-child{
+        button:last-child {
             margin-right: auto;
         }
     }

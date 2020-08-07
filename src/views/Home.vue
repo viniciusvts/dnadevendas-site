@@ -1,7 +1,7 @@
 <template>
   <div>
     <Spotlight v-if="customFields" class="home">
-      <div class="text white-lg">
+      <div class="text section white-lg">
         <h1 v-html="customFields.acf.chamada"></h1>
         <h2 class="subtitle" v-html="customFields.acf.subtitulo"></h2>
         <router-link to="/contato">

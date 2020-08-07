@@ -105,11 +105,17 @@
             @include breakpoint(fullHdDesktops) {
                 font-size: 20px;
             }
+
+            @include breakpoint(hdDesktops) {
+                font-size: 14px;
+                line-height: 23px;
+                height: 160px;
+            }
         }
 
         h3 {
             text-align: center;
-            @include fontSize(25px);
+            @include fontSize(20px);
             text-transform: uppercase;
             color: $golden;
             font-weight: bold;
@@ -125,5 +131,9 @@
         height: 620px;
         width: 100%;
         @include transition();
+
+        @include breakpoint(hdDesktops) {
+            height: 530px;
+        }
     }
 }

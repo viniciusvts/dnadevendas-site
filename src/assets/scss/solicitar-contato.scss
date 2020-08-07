@@ -41,6 +41,9 @@
 h2.fale-conosco{
     font-weight: normal;
     @include fontSize(50px);
+    @include breakpoint(hdDesktops) {
+        @include fontSize(32px);
+    }
 
     &::before{
         content: "";
