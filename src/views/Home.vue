@@ -4,7 +4,7 @@
       <div class="text section white-lg">
         <h1 v-html="customFields.acf.chamada"></h1>
         <h2 class="subtitle" v-html="customFields.acf.subtitulo"></h2>
-        <router-link to="/contato">
+        <router-link to="/contato" v-if="customFields.acf.video">
           <button class="btn-grad">{{customFields.acf.cta}}</button>
         </router-link>
       </div>
@@ -25,8 +25,9 @@
         :alt="customFields.acf.imagem.sizes.medium_large"
       />
     </Spotlight>
+    <PaginaCarregando v-else/>
 
-    <Pillars>
+    <Pillars v-if="customFields">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-4 col-sm-12 col-tb-12">
@@ -61,6 +62,7 @@
         </div>
       </div>
     </Pillars>
+    <PaginaCarregando v-else/>
 
     <Services v-if="customFields">
       <div class="col-md-3" v-for="(service, index) in customFields.acf.servicos" :key="index">
@@ -77,24 +79,30 @@
           <img
             class="lazy"
             src="@/assets/loading.gif"
-            :data-src="service.imagem.sizes.large"
+            :data-src="service.imagem.sizes.medium_large"
             :alt="service.servico"
           />
         </div>
       </div>
     </Services>
+    <PaginaCarregando v-else/>
 
-    <Methodology />
+    <Methodology v-if="customFields"/>
+    <PaginaCarregando v-else/>
 
-    <Differential />
+    <Differential v-if="customFields"/>
 
-    <Cases />
+    <Cases v-if="customFields"/>
+    <PaginaCarregando v-else/>
 
-    <Clients />
+    <Clients v-if="customFields"/>
+    <PaginaCarregando v-else/>
 
-    <Depoiments color="golden" />
+    <Depoiments color="golden" v-if="customFields"/>
+    <PaginaCarregando v-else/>
 
-    <SolicitarContato />
+    <SolicitarContato v-if="customFields"/>
+    <PaginaCarregando v-else/>
   </div>
 </template>
 

@@ -25,9 +25,7 @@
                     <img :src="client.thumb.medium" :alt="client.thumb.alt">
                 </div>
             </div>
-            <div v-else>
-                <PaginaCarregando/>
-            </div>
+            <PaginaCarregando v-else/>
         </div>
     </section>
 </template>

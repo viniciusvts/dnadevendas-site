@@ -2,7 +2,7 @@
   <section class="materials videos mt-5">
     <div v-if="page" class="container">
       <h1>{{page.title.rendered}}</h1>
-      <p>Assista nossos especialistas apresentando dicas valiosas para melhorar a performance de seu time e aumentar sua produtividade de vendas.</p>
+      <p>Assista nossos especialistas apresentando dicas valiosas para melhorar a performance de seu time <br> e aumentar sua produtividade de vendas.</p>
       
       <ul class="menu row justify-content-center">
           <li class="col-auto">

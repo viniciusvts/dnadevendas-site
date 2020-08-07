@@ -5,7 +5,7 @@
       <p>Aqui você encontrará vídeos, palestras, apresentações e outros materiais gratuitos sobre vendas. Baixe à vontade!</p>
       <div class="row">
         <div v-for="(mat, index) in page.acf.material" :key="index" class="col-12 col-lg-4 mb-4">
-          <a :href="mat.link">
+          <a :href="mat.link" target="_blank">
             <div class="card h-100">
               <div class="row h-100">
                 <div class="col-12">

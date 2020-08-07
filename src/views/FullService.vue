@@ -16,6 +16,7 @@
       </div>
       <img class="image" :src="bannerData.imagem" :alt="bannerData.chamada" />
     </Spotlight>
+    <PaginaCarregando v-else/>
 
     <Pillars v-if="pilares">
       <div class="container-fluid">
@@ -36,6 +37,7 @@
         </div>
       </div>
     </Pillars>
+    <PaginaCarregando v-else/>
 
     <section class="about pt-0">
       <div class="title">
@@ -70,16 +72,19 @@
         </div>
       </div>
     </section>
+    <PaginaCarregando v-else/>
 
     <div v-if="objecoes">
       <div v-for="(obj, index) in objecoes" :key="index">
         <CardSlider :objection="obj" :index="index" />
       </div>
     </div>
+    <PaginaCarregando v-else/>
 
-    <Methodology/>
+    <Methodology v-if="bannerData"/>
+    <PaginaCarregando v-else/>
 
-    <div class="cta-section">
+    <div class="cta-section" v-if="bannerData">
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-12">
@@ -93,6 +98,7 @@
         </div>
       </div>
     </div>
+    <PaginaCarregando v-else/>
 
     <Metrics v-if="metricas">
       <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
@@ -106,8 +112,10 @@
         <h3 v-html="metric.titulo"></h3>
       </div>
     </Metrics>
+    <PaginaCarregando v-else/>
 
-    <SolicitarContato/>
+    <SolicitarContato v-if="bannerData"/>
+    <PaginaCarregando v-else/>
   </div>
 </template>
 
@@ -156,7 +164,7 @@ export default {
           const banner = {};
           banner.chamada = json.acf.chamada;
           banner.cta = json.acf.cta;
-          banner.imagem = json.acf.foto.url;
+          banner.imagem = json.acf.foto.sizes.medium_large;
           banner.subtitulo = json.acf.subtitulo;
           // imagem_banner: json.acf.imagem.sizes.medium_large,
           this.bannerData = banner;

@@ -5,16 +5,26 @@
 
 .materials{
     color: white;
-    
-    h1{
-        font-weight: bold;
+
+    h1{        
+        text-align: center;
+        text-transform: uppercase;
+        color: $golden;
+        font-weight: 600;
+        b{
+            font-weight: 100;
+        }
     }
 
+    h1, p{
+        margin-bottom: 30px;
+    }
+    
     h2{
         font-size: 20px !important;
     }
 
-    h1, p{
+    p{
         text-align: center;
         color: $lightBase;
     }

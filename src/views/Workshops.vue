@@ -4,7 +4,7 @@
       <div class="text section">
         <h1 v-html="bannerData.chamada"></h1>
         <h2 v-if="bannerData.subtitulo">{{bannerData.subtitulo}}</h2>
-        <button class="btn-grad">
+        <button class="btn-grad" v-if="bannerData">
           <router-link to="/contato">
             {{bannerData.cta}}
           </router-link>
@@ -19,14 +19,13 @@
       <img class="image" :src="bannerData.imagem" :alt="bannerData.chamada">
     </Spotlight>
 
-    <section v-if="objecoes">
+    <section v-if="bannerData">
       <div v-for="(obj, index) in objecoes" :key="index">
         <CardSlider :objection="obj" :index="index"/>
       </div>
     </section>
-    <PaginaCarregando v-else/>
     
-    <Metrics v-if="metricas">
+    <Metrics v-if="bannerData">
       <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
         <img class="lazy" src="@/assets/loading.gif" :data-src="metric.icone.sizes.medium" :alt="metric.metrica">
         <span>{{metric.metrica}}</span>
@@ -35,7 +34,7 @@
     </Metrics>
 
     <!-- <fale-conosco></fale-conosco> -->
-    <sec-contact></sec-contact>
+    <sec-contact v-if="bannerData"/>
     
   </div>
 </template>
@@ -79,7 +78,7 @@
           const banner = {};
             banner.chamada = json.acf.chamada;
             banner.cta = json.acf.cta;
-            banner.imagem = json.acf.foto.url;
+            banner.imagem = json.acf.foto.sizes.medium_large;
             // imagem_banner: json.acf.imagem.sizes.medium_large,
           this.bannerData = banner;
           this.$root.meta.title = json.yoast_title;

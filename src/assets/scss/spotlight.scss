@@ -106,6 +106,7 @@
         position: relative;
         animation-name: enterLeft;
         animation-duration: 6s;
+        color: white !important;
 
         @include breakpoint(tablets){
             margin: 40px auto 20px auto;

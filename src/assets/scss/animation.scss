@@ -64,8 +64,8 @@
 
 
 @keyframes enterLeft {
-  0%   { left:-100px; }
-  50%  {left:0;}
+  0%   { left:-100px; color: $baseColor;}
+  50%  {left:0; color: white}
 }
 
 @keyframes enterTop {
