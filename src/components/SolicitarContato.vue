@@ -19,14 +19,12 @@
         </div>
 
         <div class="col-md-6">
-          <input type="text" name="company_name" id="company_name" 
-        :class="detailColorClass" v-model="formData.company_name" placeholder="Sua Empresa" required>
+          <input type="text" name="company_name" id="company_name" :class="detailColorClass" v-model="formData.company_name" placeholder="Sua Empresa" required>
         </div>
-        
+
         <div class="col-md-6">
-          <select type="text" name="qtdfunc" id="qtdfunc" 
-          :class="detailColorClass" v-model="formData.qtdfunc" required>
-            <option value="">N° Funcionários</option>
+          <select type="text" name="qtdfunc" id="qtdfunc" :class="detailColorClass" v-model="formData.qtdfunc" required>
+            <option value>N° de vendedores</option>
             <option value="1-2">1-2</option>
             <option value="3-10">3-10</option>
             <option value="11-15">11-15</option>
