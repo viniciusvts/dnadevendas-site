@@ -66,6 +66,7 @@
               v-model="formData[0].qtdfunc"
               required
             >
+              <!-- <option value>N° de vendedores</option> -->
               <option value>N° de vendedores</option>
               <option value="1-2">1-2</option>
               <option value="3-10">3-10</option>
