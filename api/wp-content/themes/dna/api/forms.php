@@ -15,7 +15,7 @@ function dnaapi_contatoFooter($req){
       ."<br>Email: ".$email;
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $wpmail = wp_mail( $to, $subject, $message, $headers );
-  $url = $_SERVER['HTTP_ORIGIN'] . '/agradecimento';
+  $url = $_SERVER['HTTP_ORIGIN'] . '/agradecemos-seu-cadastro-amp';
   wp_redirect($url);
   exit;
 }
