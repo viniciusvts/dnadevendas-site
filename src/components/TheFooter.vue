@@ -111,22 +111,21 @@
 
           <div class="col-12 col-md-6 col-lg-4">
             <h3>Receba conteúdos exclusivos</h3>
-            <form name="dna_newsletter" action="#" v-on:submit="sendForm">
+            <form name="dna_newsletter"
+            method="POST"
+            :action="$http.baseURL + 'wp-json/dna_theme/v1/contato-footer'">
               <input
                 type="text"
-                v-model="formData.nome"
-                name="Nome"
+                name="nome"
                 placeholder="Insira seu nome*"
                 id="nome"
               />
               <input
                 type="email"
-                v-model="formData.email"
                 placeholder="Seu e-mail*"
-                nome="email"
+                name="email"
                 id="email"
               />
-              <p>{{formMessage}}</p>
               <p>* Campos obrigatórios</p>
               <input type="submit" value="Quero me inscrever" />
             </form>
@@ -209,18 +208,12 @@
 </template>
 
 <script>
-import Api from "@/services/ApiRest.js";
-
 export default {
   name: "TheFooter",
   data() {
     return {
       formMessage: null,
       ultPosts: [],
-      formData: {
-        nome: null,
-        email: null
-      }
     };
   },
   created() {
@@ -230,23 +223,13 @@ export default {
     getFooterPosts() {
       let args = [];
       args["per_page"] = 5;
-      Api.getPosts(args)
+      this.$http.getPosts(args)
         .then(res => {
           if (res.status == 200) return res.json();
           else console.log("Erro ao consultar os posts");
         })
         .then(json => {
           this.ultPosts = json;
-        });
-    },
-    sendForm(evt) {
-      evt.preventDefault();
-      Api.sendToCF7(3795, this.formData)
-        .then(res => {
-          return res.json();
-        })
-        .then(json => {
-          this.formMessage = json.message;
         });
     }
   }

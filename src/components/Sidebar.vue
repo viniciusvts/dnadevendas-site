@@ -44,11 +44,13 @@
         </div>
 
         <div v-if="isBlogRoute" class="newsletter">
-            <form action="">
+            <form name="dna_newsletter"
+            method="POST"
+            :action="$http.baseURL + 'wp-json/dna_theme/v1/contato-footer'">
                 <h3>Assine nossa Newsletter</h3>
                 <p>Cadastre seu e-mail aqui e receba dicas de como vender mais!</p>
                 <input type="text" name="nome" id="nome" placeholder="Seu nome*">
-                <input type="email" name="email" id="" placeholder="E-mail">
+                <input type="email" name="email" id="email" placeholder="E-mail">
                 <p>* Campos obrigatórios</p>
                 <input type="submit" value="Cadastrar">
             </form>

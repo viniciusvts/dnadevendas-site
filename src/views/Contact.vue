@@ -4,28 +4,29 @@
     <section class="container">
       <div class="row align-items-center">
         <div class="col-md-8 col-sm-12 col-tb-12">
-          <form action>
+          <form name="dna_contato"
+          method="POST"
+          :action="$http.baseURL + 'wp-json/dna_theme/v1/pagina-contato'">
             <h2 class="title-message">Vamos conversar?</h2>
             <label for="setor">Nome*</label>
-            <input type="text" name="nome" id="nome" v-model="formData[0].nome" required />
+            <input type="text" name="nome" id="nome" required />
             <label for="email">E-mail*</label>
-            <input type="text" v-model="formData[0].from" name="nome" id required />
+            <input type="email" name="email" id="email" required />
             <label for="setor">Quero falar com</label>
-            <select name="setor" v-model="formData[0].setor" id="setor" required>
+            <select name="setor" id="setor" required>
               <option value="Comercial">Comercial</option>
               <option value="Administrativo">Administrativo</option>
               <option value="Comercial 1">Comercial</option>
             </select>
             <label for="telefone">Telefone*</label>
-            <input type="text" v-model="formData[0].tell" name="telefone" id required />
+            <input type="text" name="telefone" id="telefone" v-on:keyup="execMascara" required />
 
-            <label for="setor">Assunto</label>
-            <input type="text" v-model="formData[0].subject" name="assunto" id required />
+            <label for="assunto">Assunto</label>
+            <input type="text" name="assunto" id="assunto" required />
 
-            <label for="setor">Mensagem</label>
+            <label for="mensagem">Mensagem</label>
             <textarea
               name="mensagem"
-              v-model="formData[0].mensagem"
               id="mensagem"
               cols="90"
               rows="5"
@@ -33,7 +34,7 @@
             ></textarea>
 
             <p>* Campos obrigatórios</p>
-            <button @click.prevent="sendMail">Enviar</button>
+            <button>Enviar</button>
             <!-- <input type="submit" value="Enviar mensagem"> -->
           </form>
         </div>
@@ -116,16 +117,6 @@ export default {
           telefone: "+55 (21) 4042-5440",
         },
       ],
-      formData: [
-        {
-          nome: null,
-          from: null,
-          setor: null,
-          tell: null,
-          subject: null,
-          mensagem: null,
-        },
-      ],
     };
   },
   created() {
@@ -161,6 +152,13 @@ export default {
           this.$root.meta.tags = json[0].yoast_meta;
         });
     },
+    execMascara (evt) {
+      let v = evt.target.value;
+      v=v.replace(/\D/g,""); //Remove tudo o que não é dígito
+      v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+      v=v.replace(/(\d)(\d{4})$/,"$1-$2"); //Coloca - depois dos 4 digitos após ()
+      evt.target.value = v;
+    }
   },
   computed: {
     contactsWithMap: function () {

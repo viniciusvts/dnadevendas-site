@@ -1,29 +1,31 @@
 <template>
   <section class="contact s-contato">
     <h2 class="fale-conosco" :class="detailColorClass">Entenda hoje como podemos fazer sua empresa <span :class="detailColorClass">crescer mais</span></h2>
-    <form name="dna_contato" action="#" v-on:submit.prevent="sendForm">
+    <form name="dna_contato"
+    method="POST"
+    :action="$http.baseURL + 'wp-json/dna_theme/v1/solicitar-contato'">
       <div class="row">
         <div class="col-md-12">
-          <input type="text" name="name" id="name" 
-        :class="detailColorClass" v-model="formData.name" placeholder="Seu nome" required>
+          <input type="text" name="nome" id="nome" 
+        :class="detailColorClass" placeholder="Seu nome" required>
         </div>
 
         <div class="col-md-6">
           <input type="text" name="email" id="email" 
-          :class="detailColorClass" v-model="formData.email" placeholder="Seu e-mail" required>
+          :class="detailColorClass" placeholder="Seu e-mail" required>
         </div>
 
         <div class="col-md-6">
           <input type="text" name="mobile_phone" id="mobile_phone" v-on:keyup="execMascara" 
-          :class="detailColorClass" v-model="formData.mobile_phone" placeholder="Seu telefone" required>
+          :class="detailColorClass" placeholder="Seu telefone" required>
         </div>
 
         <div class="col-md-6">
-          <input type="text" name="company_name" id="company_name" :class="detailColorClass" v-model="formData.company_name" placeholder="Sua Empresa" required>
+          <input type="text" name="company_name" id="company_name" :class="detailColorClass" placeholder="Sua Empresa" required>
         </div>
 
         <div class="col-md-6">
-          <select type="text" name="qtdfunc" id="qtdfunc" :class="detailColorClass" v-model="formData.qtdfunc" required>
+          <select type="text" name="qtdfunc" id="qtdfunc" :class="detailColorClass" required>
             <option value>N° de vendedores</option>
             <option value="1-2">1-2</option>
             <option value="3-10">3-10</option>
@@ -43,14 +45,11 @@
         </div>
       </div>
     </form>
-    <p>{{formMessage}}</p>
   </section>
 </template>
 
 <script>
 // import classBtn from '../services/ClassButton.js';
-import Api from "@/services/ApiRest.js";
-
 export default {
   name: "solicitar-contato",
   // mixins: [classBtn],
@@ -59,29 +58,12 @@ export default {
       detailColorClass: null,
       // classButton: null,
       formMessage: null,
-      formData: {
-          name: '',
-          email: '',
-          mobile_phone: '',
-          company_name: '',
-          qtdfunc: '',
-      },
     };
   },
   mounted() {
     this.detailColorClass = this.$route.name;
   },
   methods: {
-    sendForm () {
-      Api.sendToRD('dna_contato', this.formData)
-      .then(res => {
-        if (res.status ==200) {
-          // redireciona aqui
-        } else {
-          this.formMessage = 'Houve um erro ao enviar, tente novamente mais tarde';
-        }
-      });
-    },
     execMascara (evt) {
       let v = evt.target.value;
       v=v.replace(/\D/g,""); //Remove tudo o que não é dígito
