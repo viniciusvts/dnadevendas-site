@@ -36,8 +36,8 @@ switch ($server_addr) {
         define('DEV_MODE', true);
         define('WP_DEBUG', true);
         define('WP_DEBUG_DISPLAY', true );
-        define('WP_HOME','http://localhost/api/');
-        define('WP_SITEURL','http://localhost/api/');
+        define('WP_HOME','http://dna-de-vendas.localhost/api/');
+        define('WP_SITEURL','http://dna-de-vendas.localhost/api/');
         break;
 
     case '172.31.29.159':
