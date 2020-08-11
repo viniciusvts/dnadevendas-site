@@ -36,6 +36,9 @@
       window.scrollTo(0, 0);
       window.addEventListener("scroll", this.lazyLoad);
       this.scrolltop();
+      let Rdscript = document.createElement('script')
+      Rdscript.setAttribute('src', 'https://d335luupugsy2.cloudfront.net/js/loader-scripts/66bbf119-95bf-48e1-a7e1-3626378a293f-loader.js')
+      document.head.appendChild(Rdscript)
     },
     watch: {
       $route() {
