@@ -46,7 +46,8 @@ function dnaapi_get_postByViews($req) {
   global $wpdb;
   $query = "SELECT * FROM {$wpdb->prefix}postmeta";
   $query .= " WHERE meta_key = '" . POST_META_COUNT . "'";
-  $query .= " ORDER BY meta_value DESC;";
+  $query .= " ORDER BY meta_value DESC";
+  $query .= " LIMIT 0, 10;";
   $orderedMetaKeys = $wpdb->get_results( $query, ARRAY_A );
   //monta resposta
   $resp = array();
