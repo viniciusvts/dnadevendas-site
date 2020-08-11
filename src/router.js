@@ -1,6 +1,7 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import ApiRest from "@/services/ApiRest.js";
 
 const Home = () => import('./views/Home.vue')
 const Blog = () => import('./views/Blog.vue')
@@ -25,6 +26,7 @@ const LeaderPrograms = () => import('./views/LeaderPrograms.vue')
 const InternalMultipliers = () => import('./views/InternalMultipliers.vue')
 
 Vue.use(VueRouter)
+Vue.prototype.$http = ApiRest
 
 const routes = [
   {
