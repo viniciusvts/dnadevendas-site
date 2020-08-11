@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build && cp -r dist/* .",
     "buildtowp": "vue-cli-service build --dest /c/xampp/htdocs/dnadevendas --mode development --watch",
     "lint": "vue-cli-service lint"
   },
