@@ -11,7 +11,7 @@
         </div>
 
         <div class="col-md-6">
-          <input type="text" name="email" id="email" 
+          <input type="email" name="email" id="email" 
           :class="detailColorClass" placeholder="Seu e-mail" required>
         </div>
 
