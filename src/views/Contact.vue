@@ -75,7 +75,6 @@
 
 
 <script>
-// import Api from "@/services/ApiRest.js";
 import send from "../services/Contact.js";
 export default {
   name: "Contact",
@@ -145,7 +144,9 @@ export default {
       this.mapIframe = iframe;
     },
     setMeta() {
-      fetch("https://www.dnadevendas.com.br/wp-json/wp/v2/pages/?slug=contato")
+      let args = []
+      args['slug'] = 'contato'
+      this.$http.getPages(args)
         .then((res) => res.json())
         .then((json) => {
           this.$root.meta.title = json[0].yoast_title;

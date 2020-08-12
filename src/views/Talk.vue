@@ -162,7 +162,7 @@
     },
     methods:{
       getPage(){
-        fetch(`https://www.dnadevendas.com.br/wp-json/wp/v2/pages/${this.pageID}`)
+        this.$http.getPagesById(this.pageID)
         .then(r => r.json())
         .then(r => {
         // this.customFields = r;

@@ -87,6 +87,7 @@ export default {
   data() {
     return {
       pageID: 605,
+      metricasId: 310,
       post: null,
       pilares: null,
       metricas: null,
@@ -98,7 +99,7 @@ export default {
   },
   methods: {
     getAcf() {
-      fetch(`https://www.dnadevendas.com.br/wp-json/wp/v2/pages/${this.pageID}`)
+      this.$http.getPagesById(this.pageID)
         .then((resp) => resp.json())
         .then((json) => {
           this.post = json;
@@ -108,7 +109,7 @@ export default {
         });
     },
     getMetrics() {
-      fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/310/metricas`)
+      this.$http.getPostsAcfData(this.metricasId, 'metricas')
         .then((resp) => resp.json())
         .then((json) => {
           this.metricas = json.metricas;

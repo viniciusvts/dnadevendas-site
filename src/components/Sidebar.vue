@@ -39,7 +39,7 @@
 
         <div class="banner">
             <router-link to="/">
-                <img src="https://www.dnadevendas.com.br/wp-content/uploads/palestras-sales.jpg" alt="">
+                <img :src="$http.baseURL + 'wp-content/uploads/palestras-sales.jpg'" alt="">
             </router-link>
         </div>
 
@@ -59,7 +59,6 @@
 </template>
 
 <script>
-    import Api from "@/services/ApiRest.js";
 
     export default {
         name: 'Sidebar',
@@ -91,7 +90,7 @@
         },
         methods:{
             getPosts() {
-                Api.getPostsByViews()
+                this.$http.getPostsByViews()
                 .then(res=>{
                     if(res.status == 200)
                         return res.json();
@@ -105,7 +104,7 @@
                 });
             },
             getCategories(){
-                Api.getCategories()
+                this.$http.getCategories()
                 .then(res=>{
                     if(res.status == 200)
                         return res.json();

@@ -94,7 +94,7 @@ const apiRest = {
   },
 
   /**
-   * Resgata informações do acf
+   * Resgata informações do acf sobre a página
    * @param {Number} id - id da página
    * @param {String} field - dado do acf que se deseja obter
    * @author Vinicius de Santana

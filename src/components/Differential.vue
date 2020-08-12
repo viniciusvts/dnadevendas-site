@@ -48,7 +48,7 @@ export default {
     },
     methods:{
         getDiferentials(){
-            fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}/diferenciais`)
+            this.$http.getPostsAcfData(this.pageID, 'diferenciais')
             .then(r => r.json())
             .then(r => {
             this.diferentials = r;

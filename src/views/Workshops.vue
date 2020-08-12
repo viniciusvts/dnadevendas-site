@@ -69,7 +69,7 @@
     },
     methods: {
       getAcf(){
-        fetch(`https://www.dnadevendas.com.br/wp-json/wp/v2/pages/${this.pageID}`)
+        this.$http.getPagesById(this.pageID)
         .then(resp => resp.json())
         .then(json => {
           this.post = json;

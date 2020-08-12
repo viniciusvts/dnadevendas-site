@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 col-tb-12 right">
-                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/VÍDEO-LÚCIA-min.jpg" :alt="Clientes">
+                    <img class="lazy" src="@/assets/loading.gif" :data-src="$http.baseURL + 'wp-content/uploads/VÍDEO-LÚCIA-min.jpg'" :alt="Clientes">
                 </div>
             </div>
         </div>
@@ -54,7 +54,7 @@ import pinkText from '../services/TextPink';
         },
         methods:{
             getClients(){
-                fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}/clientes`)
+                this.$http.getPostsAcfData(this.pageID, 'clientes')
                 .then(r => r.json())
                 .then(r => {
                 this.clients = r;

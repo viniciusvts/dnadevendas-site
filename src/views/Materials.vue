@@ -33,7 +33,6 @@
 
 <script>
 import Loading from "@/components/Loading.vue";
-import Api from "@/services/ApiRest.js"; 
 
 export default {
   name: "Materials",
@@ -49,7 +48,7 @@ export default {
   },
   methods:{
     getPage(){
-      Api.getPagesById(this.pageId)
+      this.$http.getPagesById(this.pageId)
       .then(resp => resp.json())
       .then(json => {
         this.page = json;

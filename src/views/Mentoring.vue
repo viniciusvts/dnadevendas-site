@@ -101,7 +101,7 @@
                   </div>
                 </li>
               </ul>
-              <img src="https://www.dnadevendas.com.br/wp-content/uploads/line.png" alt="Linha Divisória">
+              <img :src="$http.baseURL + 'wp-content/uploads/line.png'" alt="Linha Divisória">
               <a :href="plano.link_cta_plano" target="_blank" v-if="plano.link_cta_plano"><button>{{plano.texto_cta_plano}}</button></a>
             </div>
           </div>
@@ -144,6 +144,7 @@ export default {
     return {
       objecoes: null,
       pageID: 9535,
+      palestrantesId: 439,
       bannerData: null,
       metricas: null,
       post: null,
@@ -159,7 +160,7 @@ export default {
   },
   methods: {
     getAcf() {
-      fetch(`https://www.dnadevendas.com.br/wp-json/wp/v2/pages/${this.pageID}`)
+      this.$http.getPagesById(this.pageID)
         .then(resp => resp.json())
         .then(json => {
           this.post = json;
@@ -179,7 +180,7 @@ export default {
         });
     },
     getTalkers() {
-      fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/439/palestrante`)
+      this.$http.getPostsAcfData(this.palestrantesId, 'palestrante')
         .then(r => r.json())
         .then(r => {
           this.mentores = r;

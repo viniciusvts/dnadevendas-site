@@ -72,7 +72,7 @@
                 >DNA For Marketing</a>
               </li>
               <li>
-                <a href="https://www.dnadevendas.com.br/blog/playbook-de-vendas/">Playbook de Vendas</a>
+                <a href="/blog/playbook-de-vendas/">Playbook de Vendas</a>
               </li>
               <li>
                 <a
@@ -90,7 +90,7 @@
               </li>
               <li>
                 <a
-                  href="https://www.dnadevendas.com.br/blog/venda-consultiva/"
+                  href="/blog/venda-consultiva/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >Venda Consultiva</a>

@@ -44,7 +44,6 @@
 <script>
 
   import Sidebar from "@/components/Sidebar.vue";
-  import Api from "@/services/ApiRest.js";
   import SolicitarContato from '@/components/SolicitarContato.vue';
   // import UpMeta from "@/services/UpdateMeta.js";
   
@@ -88,7 +87,7 @@
         if (typeof slug == 'undefined') throw new TypeError("É necessário definir slug");
         let args = [];
         args['slug'] = slug;
-        Api.getPosts(args)
+        this.$http.getPosts(args)
         .then(res=>{
           if(res.status == 200)
             return res.json();
@@ -167,7 +166,7 @@
     },
     watch: {
       'post.id': function(val) {
-        Api.postIterateView(val);
+        this.$http.postIterateView(val);
       },
       'post.yoast_meta': function(val) {
         this.$root.meta.tags = val

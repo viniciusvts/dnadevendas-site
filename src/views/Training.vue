@@ -114,24 +114,24 @@
           <div class="row">
             <div class="col-12">
               <div class="puzzle">
-                <img src="https://www.dnadevendas.com.br/wp-content/uploads/Grupo-10251.png" alt="">
-                <img src="https://www.dnadevendas.com.br/wp-content/uploads/Grupo-10252.png" alt="">
-                <img src="https://www.dnadevendas.com.br/wp-content/uploads/Grupo-10253.png" alt="">
-                <img src="https://www.dnadevendas.com.br/wp-content/uploads/Grupo-10254.png" alt="">
-                <img src="https://www.dnadevendas.com.br/wp-content/uploads/Grupo-10255.png" alt="">
-                <img src="https://www.dnadevendas.com.br/wp-content/uploads/Grupo-10256.png" alt="">
-                <img src="https://www.dnadevendas.com.br/wp-content/uploads/Grupo-10257.png" alt="">
+                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10251.png'" alt="">
+                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10252.png'" alt="">
+                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10253.png'" alt="">
+                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10254.png'" alt="">
+                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10255.png'" alt="">
+                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10256.png'" alt="">
+                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10257.png'" alt="">
 
-                <img src="https://www.dnadevendas.com.br/wp-content/uploads/Grupo-10265.jpg" alt="">
+                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10265.jpg'" alt="">
 
-                <img src="https://www.dnadevendas.com.br/wp-content/uploads/Grupo-10258.png" alt="">
-                <img src="https://www.dnadevendas.com.br/wp-content/uploads/Grupo-10259.png" alt="">
-                <img src="https://www.dnadevendas.com.br/wp-content/uploads/Grupo-10260.png" alt="">
-                <img src="https://www.dnadevendas.com.br/wp-content/uploads/Grupo-10261.png" alt="">
-                <img src="https://www.dnadevendas.com.br/wp-content/uploads/Grupo-10262.png" alt="">
-                <img src="https://www.dnadevendas.com.br/wp-content/uploads/Grupo-10263.png" alt="">
+                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10258.png'" alt="">
+                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10259.png'" alt="">
+                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10260.png'" alt="">
+                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10261.png'" alt="">
+                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10262.png'" alt="">
+                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10263.png'" alt="">
 
-                <img src="https://www.dnadevendas.com.br/wp-content/uploads/Grupo-10264.jpg" alt="">
+                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10264.jpg'" alt="">
 
               </div>
             </div>
@@ -155,7 +155,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-6">
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/shutterstock_1076687258.png" alt="Nossos serviços">
+            <img :src="$http.baseURL + 'wp-content/uploads/shutterstock_1076687258.png'" alt="Nossos serviços">
           </div>
           <div class="col-md-6">
             <p>
@@ -227,6 +227,7 @@ export default {
     return {
       objecoes: null,
       pageID: 310,
+      methodologyId: 39,
       bannerData: null,
       metricas: null,
       pilares: null,
@@ -240,7 +241,7 @@ export default {
   },
   methods: {
     getAcf() {
-      fetch(`https://www.dnadevendas.com.br/wp-json/wp/v2/pages/${this.pageID}`)
+      this.$http.getPagesById(this.pageID)
         .then(resp => resp.json())
         .then(json => {
           this.post = json;
@@ -259,7 +260,7 @@ export default {
         });
     },
     getMethodology(){
-      fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/37`)
+      this.$http.getPostsAcfData(this.methodologyId)
       .then(r => r.json())
       .then(r => {
       this.customFields = r;

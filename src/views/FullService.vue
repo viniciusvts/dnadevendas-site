@@ -141,6 +141,7 @@ export default {
     return {
       objecoes: null,
       pageID: 308,
+      methodologyId: 37,
       bannerData: null,
       metricas: null,
       pilares: null,
@@ -154,7 +155,7 @@ export default {
   },
   methods: {
     getAcf() {
-      fetch(`https://www.dnadevendas.com.br/wp-json/wp/v2/pages/${this.pageID}`)
+      this.$http.getPagesById(this.pageID)
         .then(resp => resp.json())
         .then(json => {
           this.post = json;
@@ -173,7 +174,7 @@ export default {
         });
     },
     getMethodology(){
-      fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/37`)
+      this.$http.getPostsAcfData(this.methodologyId)
       .then(r => r.json())
       .then(r => {
       this.customFields = r;

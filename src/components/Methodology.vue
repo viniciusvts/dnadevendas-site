@@ -39,7 +39,7 @@ export default {
     },
     methods:{
         getMethodology(){
-            fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}`)
+            this.$http.getPostsAcfData(this.pageID)
             .then(r => r.json())
             .then(r => {
             this.methodologys = r;

@@ -118,7 +118,7 @@
         <div class="col-md-4">
           <router-link :to="{name: 'Home'}">
             <img
-              src="https://www.dnadevendas.com.br/wp-content/uploads/Prancheta-1.png"
+              :src="$http.baseURL + 'wp-content/uploads/Prancheta-1.png'"
               alt="Dna de Vendas"
             />
           </router-link>
@@ -126,7 +126,7 @@
         <div class="col-md-4">
           <router-link :to="{name: 'ForSmall'}">
             <img
-              src="https://www.dnadevendas.com.br/wp-content/uploads/Prancheta-1-cópia-2.png"
+              :src="$http.baseURL + 'wp-content/uploads/Prancheta-1-cópia-2.png'"
               alt="Dna de Vendas for Small"
             />
           </router-link>
@@ -134,7 +134,7 @@
         <div class="col-md-4">
           <a href="http://dnaformarketing.com.br/" target="_blank">
             <img
-              src="https://www.dnadevendas.com.br/wp-content/uploads/Prancheta-1-cópia.png"
+              :src="$http.baseURL + 'wp-content/uploads/Prancheta-1-cópia.png'"
               alt="Dna for Marketing"
             />
           </a>
@@ -149,35 +149,35 @@
       <div class="galery">
         <div class="row">
           <div class="col-md-3">
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-7.jpg" alt />
+            <img :src="$http.baseURL + 'wp-content/uploads/nossa-estrutura-7.jpg'" alt />
           </div>
 
           <div class="col-md-3">
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-9.jpg" alt />
+            <img :src="$http.baseURL + 'wp-content/uploads/nossa-estrutura-9.jpg'" alt />
           </div>
 
           <div class="col-md-3">
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-6.jpg" alt />
+            <img :src="$http.baseURL + 'wp-content/uploads/nossa-estrutura-6.jpg'" alt />
           </div>
 
           <div class="col-md-3">
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-5.jpg" alt />
+            <img :src="$http.baseURL + 'wp-content/uploads/nossa-estrutura-5.jpg'" alt />
           </div>
 
           <div class="col-md-3">
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-10.jpg" alt />
+            <img :src="$http.baseURL + 'wp-content/uploads/nossa-estrutura-10.jpg'" alt />
           </div>
 
           <div class="col-md-3">
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-4.jpg" alt />
+            <img :src="$http.baseURL + 'wp-content/uploads/nossa-estrutura-4.jpg'" alt />
           </div>
 
           <div class="col-md-3">
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-2.jpg" alt />
+            <img :src="$http.baseURL + 'wp-content/uploads/nossa-estrutura-2.jpg'" alt />
           </div>
 
           <div class="col-md-3">
-            <img src="https://www.dnadevendas.com.br/wp-content/uploads/nossa-estrutura-1.jpg" alt />
+            <img :src="$http.baseURL + 'wp-content/uploads/nossa-estrutura-1.jpg'" alt />
           </div>
         </div>
       </div>
@@ -186,7 +186,6 @@
 </template>
 
 <script>
-import Api from "@/services/ApiRest.js";
 
 export default {
   name: "About",
@@ -201,7 +200,7 @@ export default {
   },
   methods: {
     getPost() {
-      Api.getPagesById(this.postId)
+      this.$http.getPagesById(this.postId)
         .then(resp => resp.json())
         .then(json => {
           this.post = json;

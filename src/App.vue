@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <link rel="shortcut icon" href="https://www.dnadevendas.com.br/wp-content/uploads/favicon-32x32.png">
+    <link rel="shortcut icon" :href="$http.baseURL + 'wp-content/uploads/favicon-32x32.png'">
     
     <!--
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap" rel="stylesheet">-->

@@ -43,7 +43,7 @@ export default {
     },
     methods:{
         getDepoiments(){
-            fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}/depoimentos`)
+            this.$http.getPostsAcfData(this.pageID, 'depoimentos')
             .then(r => r.json())
             .then(r => {
             this.depoiments = r;

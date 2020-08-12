@@ -75,7 +75,10 @@ export default {
                 this.errors = [];
 
                 setTimeout( () => {
-                    fetch(`https://www.dnadevendas.com.br/wp-json/wp/v2/posts/?search=${this.term}&per_page=10`)
+                    let args = []
+                    args['search'] = this.term
+                    args['per_page'] = 10
+                    this.$http.getPosts(args)
                     .then(r => r.json())
                     .then(r => {
                         this.posts = r;

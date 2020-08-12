@@ -21,7 +21,6 @@
 
 <script>
 import cardCase from './CaseCard.vue';
-import Api from '@/services/ApiRest.js';
 
 export default {
   name: 'cases-sec',
@@ -53,7 +52,7 @@ export default {
   methods: {
     getCases() {
       const ctx = this;
-      Api.getPostsAcfData(this.pageID, 'case')
+      this.$http.getPostsAcfData(this.pageID, 'case')
         .then(r => r.json())
         .then(r => {
           ctx.cases = r;

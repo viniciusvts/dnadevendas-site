@@ -54,7 +54,6 @@
 
 <script>
 import Loading from "@/components/Loading.vue";
-import Api from "@/services/ApiRest.js"; 
 
 export default {
 name: "Videos",
@@ -70,7 +69,7 @@ name: "Videos",
   },
   methods:{
     getPage () {
-      Api.getPagesById(this.pageId)
+      this.$http.getPagesById(this.pageId)
       .then(resp => resp.json())
       .then(json => {
         this.page = json;

@@ -30,7 +30,6 @@
 
 <script>
     import Loading from "@/components/Loading.vue";
-    import Api from "@/services/ApiRest.js";
 
     export default {
         name: "Page",
@@ -55,7 +54,7 @@
                 this.isError = false
                 let args = []
                 args['slug'] = this.slug
-                Api.getPages(args)
+                this.$http.getPages(args)
                 .then(r => {
                     if (r.status == 200){
                         return r.json()

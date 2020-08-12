@@ -125,7 +125,6 @@ import Clients from "@/components/Clients.vue";
 import Methodology from "@/components/Methodology.vue";
 import Depoiments from "@/components/Depoiments.vue";
 import SolicitarContato from "@/components/SolicitarContato.vue";
-import Api from "@/services/ApiRest.js";
 
 export default {
   name: "Home",
@@ -152,16 +151,14 @@ export default {
   },
   methods: {
     getAcf() {
-      fetch(
-        `https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${this.pageID}`
-      )
+      this.$http.getPostsAcfData(this.pageID)
         .then(r => r.json())
         .then(r => {
           this.customFields = r;
         });
     },
     setHomeMeta() {
-      Api.getHomeMeta()
+      this.$http.getHomeMeta()
         .then(res => {
           return res.json();
         })

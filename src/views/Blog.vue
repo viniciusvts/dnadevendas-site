@@ -29,8 +29,7 @@
   import BlogFilter from "@/components/BlogFilter.vue";
   import BlogCard from "@/components/BlogCard.vue";
   import Pagination from "@/components/Pagination.vue"; 
-  import Sidebar from "@/components/Sidebar.vue"; 
-  import Api from "@/services/ApiRest.js"; 
+  import Sidebar from "@/components/Sidebar.vue";
 
   export default {
     name: 'Blog',
@@ -55,7 +54,7 @@
     },
     methods: {
       getPosts(args) {
-        Api.getPosts(args)
+        this.$http.getPosts(args)
         .then(res=>{
           if(res.status == 200)
             return res.json();
@@ -83,7 +82,7 @@
             this.message = 'Carregando Categorias';
             let catArgs = [];
             catArgs['slug'] = this.$route.params.cat;
-            return Api.getCategories(catArgs)
+            return this.$http.getCategories(catArgs)
             .then(resp => resp.json())
             .then(json => {
               this.$route.params.categories = json[0].id;
@@ -94,7 +93,7 @@
         this.getPosts(args);
       },
       getPage(){
-        Api.getPagesById(this.pageId)
+        this.$http.getPagesById(this.pageId)
         .then(resp => resp.json())
         .then( json => {
           this.post = json

@@ -36,7 +36,6 @@
 
 <script>
     import BlogFilter from "@/components/BlogFilter.vue";
-    import Api from "@/services/ApiRest.js";
 
     export default {
         name: 'Feedblog',
@@ -52,7 +51,7 @@
             getPosts(){
                 let args = []
                 args['per_page'] = 3
-                Api.getPosts(args)
+                this.$http.getPosts(args)
                 .then(r => r.json())
                 .then(r => {
                     this.posts = r;

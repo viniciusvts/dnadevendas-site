@@ -70,7 +70,7 @@ export default {
     methods:{
         getPrices() {
             const ctx = this;
-            fetch(`https://www.dnadevendas.com.br/wp-json/acf/v3/pages/${ctx.pageID}/linhas`)
+            this.$http.getPostsAcfData(this.pageID, 'linhas')
             .then(r => r.json())
             .then(r => {
                 ctx.prices = r;

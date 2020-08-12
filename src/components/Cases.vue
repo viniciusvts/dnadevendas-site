@@ -25,13 +25,13 @@
             <h4>Veja outros cases</h4>
             <div class="row justify-content-start">
                 <div class="col-2">
-                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
+                    <img class="lazy" src="@/assets/loading.gif" :data-src="$http.baseURL + 'wp-content/uploads/mrv-logo-novo-500x313.png'" alt="">
                 </div>
                 <div class="col-2">
-                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
+                    <img class="lazy" src="@/assets/loading.gif" :data-src="$http.baseURL + 'wp-content/uploads/mrv-logo-novo-500x313.png'" alt="">
                 </div>
                 <div class="col-2">
-                    <img class="lazy" src="@/assets/loading.gif" data-src="https://www.dnadevendas.com.br/wp-content/uploads/mrv-logo-novo-500x313.png" alt="">
+                    <img class="lazy" src="@/assets/loading.gif" :data-src="$http.baseURL + 'wp-content/uploads/mrv-logo-novo-500x313.png'" alt="">
                 </div>
                 <div class="col-auto">
                     <button>ver todos os cases</button>

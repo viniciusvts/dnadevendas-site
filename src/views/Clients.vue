@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import ApiRest from "@/services/ApiRest.js";
 import PaginaCarregando from '@/components/PaginaCarregando.vue';
 export default {
     name: "Clients",
@@ -61,7 +60,7 @@ export default {
             if (this.clients.length < 1){
                 let args = [];
                 args["post_per_page"] = -1
-                ApiRest.getPortfolio(args)
+                this.$http.getPortfolio(args)
                 .then(res=>{
                     if(res.status == 200)
                         return res.json();
@@ -73,7 +72,7 @@ export default {
         },
         getTaxonomyClients(){
             if (this.clients.length < 1){
-                ApiRest.getTaxonomyPortfolio()
+                this.$http.getTaxonomyPortfolio()
                 .then(res=>{
                     if(res.status == 200)
                         return res.json();

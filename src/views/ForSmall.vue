@@ -69,7 +69,6 @@
 </template>
 
 <script>
-    import Api from "@/services/ApiRest.js";
     import Spotlight from '@/components/Spotlight.vue';
     import Pillars from '@/components/Pillars.vue';
     import Cases from '@/components/CasesForSmall.vue';
@@ -104,7 +103,7 @@
     },
     methods: {
       getPost(){
-        Api.getPagesById(this.postId)
+        this.$http.getPagesById(this.postId)
         .then(resp => resp.json())
         .then( json => {
           this.post = json

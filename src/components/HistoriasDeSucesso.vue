@@ -29,8 +29,6 @@
 </template>
 
 <script>
-import Api from '../services/ApiRest';
-
 export default {
   name: 'hsitorias-de-desucesso',
   data() {
@@ -43,23 +41,8 @@ export default {
     this.getPosts();
   },
   methods: {
-    // getPosts() {
-    //   const ctx = this;
-    //   fetch(`https://www.dnadevendas.com.br/wp-json/wp/v2/posts?categories=${this.postId}`)
-    //     .then(r => r.json())
-    //     .then(r => {
-    //       ctx.posts = r;
-    //       ctx.posts.forEach(element => {
-    //         fetch(`https://www.dnadevendas.com.br/wp-json/wp/v2/media/${element.featured_media}`)
-    //         .then(f => f.json())
-    //         .then(f => {
-    //           element.template = f.guid.rendered;
-    //         });
-    //       });
-    //   })
-    // },
     getPosts(args) {
-        Api.getPosts(args)
+        this.$http.getPosts(args)
         .then(res=>{
           if(res.status == 200)
             return res.json();
