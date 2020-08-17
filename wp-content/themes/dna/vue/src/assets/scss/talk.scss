@@ -939,3 +939,13 @@
     }
   }
 }
+
+.centerize-internal-div{
+  display: flex;
+  > div:first-child{
+      margin-top: auto;
+  }
+  > div:last-child{
+      margin-bottom: auto;
+  }
+}

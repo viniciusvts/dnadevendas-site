@@ -47,7 +47,7 @@
           <div class="col-md-5">
             <img v-if="post.acf.imagem_sobre" :src="post.acf.imagem_sobre" :alt="post.acf.chamada_sobre" />
           </div>
-          <div class="col-md-7">
+          <div class="col-md-7 centerize-internal-div">
             <div v-if="post.acf.texto_sobre" v-html="post.acf.texto_sobre"></div>
           </div>
         </div>

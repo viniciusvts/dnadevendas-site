@@ -59,7 +59,13 @@
             @media (max-width: $hdDesktops) {
                 font-size: 20px;
                 line-height: 40px;
-            }
-        }
+}
+.centerize-internal-div{
+    display: flex;
+    > div:first-child{
+        margin-top: auto;
+    }
+    > div:last-child{
+        margin-bottom: auto;
     }
 }
