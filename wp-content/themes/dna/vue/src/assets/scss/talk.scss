@@ -635,13 +635,9 @@
 .full-service {
   .about p {
     margin-bottom: 30px;
-    font-size: 30px;
-    line-height: 53px;
+    font-size: 20px;
+    line-height: 40px;
     font-weight: 300;
-    @include breakpoint(hdDesktops) {
-      @include fontSize(22px);
-      line-height: 40px;
-    }
   }
 
 
