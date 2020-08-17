@@ -626,7 +626,12 @@
 .scroll {
   margin-bottom: 50px;
 }
-
+// justify text
+.full-service .about, .full-service .pilares{
+  p, li{
+    text-align: justify;
+  }
+}
 .full-service {
   .about p {
     margin-bottom: 30px;
