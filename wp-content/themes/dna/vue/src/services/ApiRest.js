@@ -7,7 +7,7 @@ const apiRest = {
    * define a url base do app
    * @author Vinicius de Santana
   */
-  baseURL: process.env.NODE_ENV === 'production' ? '/api/' : 'https://www.dnadevendas.com.br/',
+  baseURL: process.env.NODE_ENV === 'production' ? '/' : 'https://www.dnadevendas.com.br/',
   /**
    * Resgata todos os usuários do banco se vc é adm, só o seu user se não
    * @author Vinicius de Santana

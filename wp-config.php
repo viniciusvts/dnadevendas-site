@@ -36,8 +36,8 @@ switch ($server_addr) {
         define('DEV_MODE', true);
         define('WP_DEBUG', true);
         define('WP_DEBUG_DISPLAY', true );
-        define('WP_HOME','http://dna-de-vendas.localhost/api/');
-        define('WP_SITEURL','http://dna-de-vendas.localhost/api/');
+        define('WP_HOME','http://dna-de-vendas.localhost/');
+        define('WP_SITEURL','http://dna-de-vendas.localhost/');
         break;
 
     case '172.31.29.159':
@@ -46,8 +46,8 @@ switch ($server_addr) {
         $dbuser_default = 'root';
         $dbpassword_default = 'fZBy8NhelGwQNS';
         define('DEV_MODE', false);
-        define('WP_HOME','https://dnaformarketing.com.br/api/');
-        define('WP_SITEURL','https://dnaformarketing.com.br/api/');
+        define('WP_HOME','https://dnaformarketing.com.br/dna-de-vendas/');
+        define('WP_SITEURL','https://dnaformarketing.com.br/dna-de-vendas/');
         break;
 
     case '198.199.88.130':
@@ -58,8 +58,8 @@ switch ($server_addr) {
         define('DEV_MODE', true);
         // define('WP_DEBUG', true);
         // define('WP_DEBUG_DISPLAY', true );
-        define('WP_HOME','https://novo.dnadevendas.com.br/api/');
-        define('WP_SITEURL','https://novo.dnadevendas.com.br/api/');
+        define('WP_HOME','https://novo.dnadevendas.com.br/');
+        define('WP_SITEURL','https://novo.dnadevendas.com.br/');
         break;
     
     default:
@@ -70,8 +70,8 @@ switch ($server_addr) {
 		define('DEV_MODE', true);
 		// define('WP_DEBUG', true);
 		// define('WP_DEBUG_DISPLAY', true );
-		define('WP_HOME','https://www.dnadevendas.com.br/api/');
-		define('WP_SITEURL','https://www.dnadevendas.com.br/api/');
+		define('WP_HOME','https://www.dnadevendas.com.br/');
+		define('WP_SITEURL','https://www.dnadevendas.com.br/');
 		break;
 }
 

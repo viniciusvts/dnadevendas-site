@@ -1,15 +1,3 @@
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteCond %{REQUEST_URI} !^/api/
-RewriteRule (.*)/amp(.*) /api/$1/amp$2 [R=301,L]
-
-RewriteBase /
-RewriteRule ^index\.html$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.html [L]
-</IfModule>
-
 ## EXPIRES CACHING ##
 <ifmodule mod_expires.c>
    ExpiresActive On
@@ -19,3 +7,17 @@ RewriteRule . /index.html [L]
    </Filesmatch>
 </ifmodule>
 ## EXPIRES CACHING ##
+# BEGIN WordPress
+# As diretrizes (linhas) entre `BEGIN WordPress` e` END WordPress` são
+# geradas dinamicamente e só devem ser modificadas através de filtros do WordPress.
+# Quaisquer alterações nas diretivas entre esses marcadores serão sobrescritas.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
