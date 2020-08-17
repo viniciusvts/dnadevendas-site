@@ -2,7 +2,10 @@
   <section class="about">
     <div class="container">
       <h1>Quem Somos</h1>
-      <p>Uma consultoria que atua com foco exclusivo no desenvolvimento de pessoas, processos e modelos de gestão para o aumento da produtividade em vendas. Contamos com um time multidisciplinar de 30 colaboradores que garantem excelência em todos os nossos projetos e entregas.</p>
+      <p>Uma consultoria que atua com foco exclusivo no desenvolvimento de pessoas,
+        processos e modelos de gestão para o aumento da produtividade em vendas.
+        Contamos com um time multidisciplinar de 40 colaboradores que garantem
+        excelência em todos os nossos projetos e entregas.</p>
 
       <div class="row">
         <div class="col-md-6 left">
