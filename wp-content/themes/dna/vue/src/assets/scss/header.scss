@@ -14,7 +14,9 @@ header {
   animation-duration: 4s;
 
   @include transition();
-
+  &.bg-gray{
+    background-color: #151515;
+  }
   nav {
     display: flex;
     align-items: center;
@@ -102,10 +104,16 @@ header {
           text-align: center;
           padding: 20px 16px;
         }
-
-        &:hover {
+        
+        .submenu {
+          transition: opacity .5s ease-in-out, display .5 step-start;
+          opacity: 0;
+        }
+        &.active {
           .submenu {
-            display: block;
+          transition: opacity .5s ease-in-out, display .5 step-end;
+          display: block;
+            opacity: 1;
           }
         }
       }

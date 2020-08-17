@@ -1,6 +1,7 @@
 <template>
   <div>
-    <header id="menu-fixed" class="fixed-top" :class="menuStyle">
+    <header id="menu-fixed" class="fixed-top"
+    :class="[menuStyle, { 'bg-gray': bgGrayMenu}]">
       <nav>
 
         <div class="logo" v-if="this.$route.name == 'ForSmall'">
@@ -20,7 +21,11 @@
           <img v-else src="@/assets/svg/open-menu.svg" alt="Menu mobile">          
         </div>
         <ul id="menuItems" class="menuDesktop">
-          <li>
+          <li
+            :class="{ 'active': menu.qmSomos}"
+            @mouseenter="menu.qmSomos = true"
+            @mouseleave="menu.qmSomos = false"
+            @click="menu.qmSomos = !menu.qmSomos">
             Quem somos
             <span>&#x25bc;</span>
             <div class="submenu">
@@ -35,7 +40,11 @@
             </div>
           </li>
 
-          <li>
+          <li
+            :class="{ 'active': menu.consultoria}"
+            @mouseenter="menu.consultoria = true"
+            @mouseleave="menu.consultoria = false"
+            @click="menu.consultoria = !menu.consultoria">
             Consultoria
             <span>&#x25bc;</span>
             <div class="submenu">
@@ -53,7 +62,11 @@
             </div>
           </li>
 
-          <li>
+          <li
+            :class="{ 'active': menu.treinamentos}"
+            @mouseenter="menu.treinamentos = true"
+            @mouseleave="menu.treinamentos = false"
+            @click="menu.treinamentos = !menu.treinamentos">
             Treinamentos
             <span>&#x25bc;</span>
             <div class="submenu">
@@ -84,7 +97,11 @@
             </div>
           </li>
 
-          <li>
+          <li
+            :class="{ 'active': menu.palestras}"
+            @mouseenter="menu.palestras = true"
+            @mouseleave="menu.palestras = false"
+            @click="menu.palestras = !menu.palestras">
             Palestras
             <span>&#x25bc;</span>
             <div class="submenu">
@@ -104,7 +121,11 @@
           <router-link :to="{name: 'Mentoring'}">Mentoria</router-link>
           </li>
           
-          <li>
+          <li
+            :class="{ 'active': menu.capOnline}"
+            @mouseenter="menu.capOnline = true"
+            @mouseleave="menu.capOnline = false"
+            @click="menu.capOnline = !menu.capOnline">
             Capacitação Online
             <span>&#x25bc;</span>
             <div class="submenu">
@@ -116,7 +137,11 @@
             </div>
           </li>
 
-          <li>
+          <li
+            :class="{ 'active': menu.conteudo}"
+            @mouseenter="menu.conteudo = true"
+            @mouseleave="menu.conteudo = false"
+            @click="menu.conteudo = !menu.conteudo">
             Conteúdo
             <span>&#x25bc;</span>
             <div class="submenu">
@@ -160,7 +185,16 @@
     data(){
       return {
         menuStyle: null,
-        logoWhite: false
+        logoWhite: false,
+        bgGrayMenu: false,
+        menu: {
+          qmSomos: false,
+          consultoria: false,
+          treinamentos: false,
+          palestras: false,
+          capOnline: false,
+          conteudo: false,
+        }
       }
     },
     components:{
@@ -173,6 +207,7 @@
     mounted(){
       this.expandMenu();
       this.matchRoute();
+      this.startChangeBackgroundMenuOnScroll();
     },
     methods:{
       expandMenu: () => {
@@ -201,8 +236,13 @@
           this.menuStyle = 'defaultMenu'; 
           this.logoWhite = false;
         }
+      },
+      startChangeBackgroundMenuOnScroll ()  {
+        document.addEventListener('scroll', () => {
+          if (scrollY > 500) this.bgGrayMenu = true
+          else this.bgGrayMenu = false
+        })
       }
-      
     },
     computed: {
       slug() {
