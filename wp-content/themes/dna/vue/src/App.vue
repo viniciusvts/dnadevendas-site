@@ -2,9 +2,6 @@
   <div id="app">
     <link rel="shortcut icon" :href="$http.baseURL + 'wp-content/uploads/favicon-32x32.png'">
     
-    <!--
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap" rel="stylesheet">-->
-
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <TheHeader/>
