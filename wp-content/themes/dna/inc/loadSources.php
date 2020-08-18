@@ -43,14 +43,27 @@ function add_css_and_js() {
     $fileVersion = filemtime($internalPath);
     wp_enqueue_style( $archive, $urlPath, array(), $fileVersion, $media );
   }
-  // aqui removo folhas de estilo e os scripts padrão para não alterar nosso front
-  $stylesDeq = ["contact-form-7","wp-block-library", "mpp_gutenberg", "js_composer_front"];
-  $scriptsDeq = ["contact-form-7", "mpp_gutenberg_tabs", "google-recaptcha", "wpcf7-recaptcha"];
-  foreach ($stylesDeq as $style) {
-    wp_dequeue_style($style);
-  }
-  foreach ($scriptsDeq as $script) {
-    wp_dequeue_script($script);
+  if(!is_user_logged_in()){
+    // aqui removo folhas de estilo e os scripts padrão para não alterar nosso front
+    $stylesDeq = [
+      "admin-bar",
+      "contact-form-7",
+      "wp-block-library",
+      "mpp_gutenberg"
+    ];
+    $scriptsDeq = [
+      "admin-bar",
+      "contact-form-7",
+      "mpp_gutenberg_tabs",
+      "google-recaptcha",
+      "wpcf7-recaptcha"
+    ];
+    foreach ($stylesDeq as $style) {
+      wp_dequeue_style($style);
+    }
+    foreach ($scriptsDeq as $script) {
+      wp_dequeue_script($script);
+    }
   }
 }
 //do it
