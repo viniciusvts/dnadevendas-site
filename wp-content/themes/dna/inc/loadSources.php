@@ -56,7 +56,8 @@ function add_css_and_js() {
       "contact-form-7",
       "mpp_gutenberg_tabs",
       "google-recaptcha",
-      "wpcf7-recaptcha"
+      "wpcf7-recaptcha",
+      "jquery"
     ];
     foreach ($stylesDeq as $style) {
       wp_dequeue_style($style);
