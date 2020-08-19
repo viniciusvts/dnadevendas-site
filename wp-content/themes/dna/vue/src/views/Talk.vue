@@ -60,7 +60,7 @@
           </ul>
         </div>
       </div>
-      <card-palestra :dataCase="transferData" :key="componentKey"></card-palestra>
+      <card-palestra :dataCase="transferData"></card-palestra>
       <br>
         <div class="row">
           <div class="col-sm-12 col-sm-12 col-tb-12">
