@@ -98,9 +98,8 @@
 </script>
 
 <style lang="scss">
-  // .section {
-  //   h2 {
-  //     color: white;
-  //   }
-  // }
+// whatsapp rd station
+div#bricks-component-Of5VlrYhER6fLeteZhLo5Q-wrapper.rdstation-popup-position-bottom_right.floating-button.floating-button--close{
+  bottom: 90px!important;
+}
 </style>
