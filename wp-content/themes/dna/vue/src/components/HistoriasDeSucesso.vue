@@ -41,7 +41,9 @@ export default {
     this.getPosts();
   },
   methods: {
-    getPosts(args) {
+    getPosts() {
+      let args = []
+      args['categories'] = this.postId
         this.$http.getPosts(args)
         .then(res=>{
           if(res.status == 200)
