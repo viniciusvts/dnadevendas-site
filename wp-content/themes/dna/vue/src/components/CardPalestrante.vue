@@ -3,8 +3,9 @@
     <div class="col-12 col-lg-6 col-sm-12">
       <div class="row video">
         <div class="col-12">
-          <div class="iframe-palestrante" v-html="obj.video">
+          <div class="iframe-palestrante" v-if="obj.video" v-html="obj.video">
           </div>
+          <img class="iframe-palestrante" v-else :src="obj.imagem.sizes.large" :alt="obj.imagem.alt" />
         </div>
         <!-- <div class="col-12">
           <Pagination/>
