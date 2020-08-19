@@ -33,6 +33,7 @@ switch ($server_addr) {
         $dbname = 'wp_dnadevendas';
         $dbuser_default = 'root';
         $dbpassword_default = 'root';
+        $cache = false;
         define('DEV_MODE', true);
         define('WP_DEBUG', true);
         define('WP_DEBUG_DISPLAY', true );
@@ -45,6 +46,7 @@ switch ($server_addr) {
         $dbname = 'wp_dnadevendas';
         $dbuser_default = 'root';
         $dbpassword_default = 'fZBy8NhelGwQNS';
+        $cache = true;
         define('DEV_MODE', false);
         define('WP_HOME','https://dnaformarketing.com.br/dna-de-vendas/');
         define('WP_SITEURL','https://dnaformarketing.com.br/dna-de-vendas/');
@@ -55,6 +57,7 @@ switch ($server_addr) {
         $dbname = 'wp_dnadevendas';
         $dbuser_default = 'wordpressuser';
         $dbpassword_default = '53kmqydsxob789a'; 
+        $cache = true;
         define('DEV_MODE', true);
         // define('WP_DEBUG', true);
         // define('WP_DEBUG_DISPLAY', true );
@@ -67,6 +70,7 @@ switch ($server_addr) {
 		$dbname = 'wp_dnadevendas';
 		$dbuser_default = 'wordpressuser';
 		$dbpassword_default = '53kmqydsxob789a'; 
+        $cache = true;
 		define('DEV_MODE', true);
 		// define('WP_DEBUG', true);
 		// define('WP_DEBUG_DISPLAY', true );
@@ -83,6 +87,8 @@ define('DB_USER', ($dbuser != '') ? $dbuser : $dbuser_default);
 define('DB_PASSWORD', ($dbpassword != '') ? $dbpassword : $dbpassword_default);
 /** nome do host do MySQL */
 define('DB_HOST', ($dbhost != '') ? $dbhost : $dbhost_default);
+// habilita o uso de cache pelo wordpres
+define('WP_CACHE', $cache);
 /** Conjunto de caracteres do banco de dados a ser usado na criação das tabelas. */
 define('DB_CHARSET', 'utf8mb4');
 /** O tipo de collate do banco de dados. Não altere isso se tiver dúvidas. */
