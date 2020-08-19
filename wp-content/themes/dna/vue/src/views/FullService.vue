@@ -90,9 +90,9 @@
           <div class="col-12">
             <h2>"Vendas é uma ciência"</h2>
             <button>
-              <router-link to="/contato">
+              <a href="#contato-servico">
               Solicite uma proposta
-              </router-link>
+              </a>
             </button>
           </div>
         </div>
