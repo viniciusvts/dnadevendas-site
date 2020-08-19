@@ -10,7 +10,6 @@
         <router-view/>
       </transition>
     </main>
-    <WhatsApp/>
     <TheFooter/>
   </div>
 </template>
@@ -18,14 +17,12 @@
 
 <script>
   import TheHeader from "@/components/TheHeader.vue";
-  import WhatsApp from "@/components/WhatsApp.vue";
   import TheFooter from "@/components/TheFooter.vue";
   // import UpMeta from "@/services/UpdateMeta.js";
 
   export default {
     components: {
       TheHeader,
-      WhatsApp,
       TheFooter
     },
     // mixins: [UpMeta],
