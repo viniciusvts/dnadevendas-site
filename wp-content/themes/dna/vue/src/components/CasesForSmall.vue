@@ -6,10 +6,11 @@
     </div>
     <card-case :dataCase="transferData" :position="position" :key="componentKey"></card-case>
 
+
     <div class="container list-clients">
       <p>Veja outros cases</p>      
       <div class="row justify-content-center align-items-center">
-        <div v-for="item in cases.case_fsmall" :key="item.logo.url" class="list-item col-md-auto" @click.prevent="setActive">
+        <div v-for="item in cases.case" :key="item.logo.url" class="list-item col-md-auto col-6" @click.prevent="setActive">
           <img class="list-clientes" :src="item.logo.url" :alt="item.titulo">
         </div>
       </div>
@@ -22,7 +23,7 @@
 import cardCase from './CaseCard.vue';
 
 export default {
-  name: 'cases-sec',
+  name: 'cases-for-small',
   components: {
     'card-case': cardCase,
   },
@@ -44,14 +45,14 @@ export default {
   },
   watch: {
     position(val) {
-      this.transferData = this.cases.case_fsmall[val];
+      this.transferData = this.cases.case[val];
       this.componentKey = val;
     },
   },
   methods: {
     getCases() {
       const ctx = this;
-      this.$http.getPostsAcfData(this.pageID, 'case_fsmall')
+      this.$http.getPostsAcfData(this.pageID, 'case')
         .then(r => r.json())
         .then(r => {
           ctx.cases = r;
@@ -74,7 +75,7 @@ export default {
               listA[i].setAttribute('pos', i);
               const positionList = listA[i].getAttribute('pos');
               if(positionList == this.componentKey) {
-                listA[i].setAttribute('style', 'filter: grayscale(0);');
+                listA[i].setAttribute('style', 'filter: opacity(1);');
               }
             }
           }, 500);
