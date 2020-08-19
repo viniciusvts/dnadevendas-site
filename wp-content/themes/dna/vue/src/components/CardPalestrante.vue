@@ -3,9 +3,9 @@
     <div class="col-12 col-lg-6 col-sm-12">
       <div class="row video">
         <div class="col-12">
-          <div class="iframe-palestrante" v-if="obj.video" v-html="obj.video">
+          <div class="iframe-palestrante" v-if="dataCase.video" v-html="dataCase.video">
           </div>
-          <img class="iframe-palestrante" v-else :src="obj.imagem.sizes.large" :alt="obj.imagem.alt" />
+          <img class="iframe-palestrante" v-else-if="dataCase.imagem" :src="dataCase.imagem.sizes.large" :alt="dataCase.imagem.alt" />
         </div>
         <!-- <div class="col-12">
           <Pagination/>
@@ -15,8 +15,8 @@
     <div class="col-12 col-lg-6 col-sm-12">
       <div class="row align-items-center right">
         <div class="col-12 bio">
-          <h3>{{obj.nome_palestrante}}</h3>
-          <p v-html="obj.bio"></p>
+          <h3>{{dataCase.nome_palestrante}}</h3>
+          <p v-html="dataCase.bio"></p>
         </div>
       </div>
     </div>
@@ -31,7 +31,7 @@
       </div>
       <div class="empresas">
         <ul>
-          <li v-for="(empresa, index) in obj.onde_palestrou" :key="index">
+          <li v-for="(empresa, index) in dataCase.onde_palestrou" :key="index">
             <img class="lazy images" src="@/assets/loading.gif"  :data-src="empresa.sizes.medium" :alt="empresa.name">
           </li>
         </ul>
@@ -59,12 +59,8 @@
 <script>
 export default {
   name: 'card-palestrante',
-  props: ['dataCase',],
-  data() {
-    return {
-      obj: this.dataCase,
-      dataPos: this.position,
-    };
+  props: {
+    dataCase: Object,
   },
   mounted() {
     setTimeout(() => {
