@@ -1,5 +1,5 @@
 <template>
-  <section class="contact s-contato">
+  <section class="contact s-contato" id="contato-servico">
     <h2 class="fale-conosco" :class="detailColorClass">Entenda hoje como podemos fazer sua empresa <span :class="detailColorClass">crescer mais</span></h2>
     <form name="dna_contato"
     method="POST"
