@@ -2,13 +2,13 @@
     <div class="blogFilter" :class="matchRoute">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-5 col-sm-12 col-tb-12 align-self-center">
+                <div class="col-12 col-md-6 col-lg-4 align-self-center">
                     <div class="title align-self-center">
                         <h2 id="blog-title"><b>Conteúdos<br> direcionados <br> ao seu interesse</b></h2>
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="col-12 col-md-6 col-lg">
                     <div class="title">
                         <h4>Para gestores</h4>
                         <span></span>
@@ -22,7 +22,7 @@
                     </ul>
                 </div> 
 
-                <div class="col">
+                <div class="col-12 col-md-6 col-lg">
                     <div class="title">
                         <h4>Times de Vendas</h4>
                         <span></span>
@@ -36,7 +36,7 @@
                     </ul>
                 </div> 
 
-                <div class="col">
+                <div class="col-12 col-md-6 col-lg">
                     <div class="title">
                         <h4>Times de RH</h4>
                         <span></span>
