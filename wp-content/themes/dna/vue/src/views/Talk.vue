@@ -52,7 +52,7 @@
         <div class="scroll">
           <ul>
             <li class="fotos-palestrantes" v-for="(fotos, index) in palestrantes" :key="index">
-              <div class="overlay-change"></div>
+              <div class="overlay-change" @click="changeCardPalestra(index)"></div>
               <img v-if="fotos.foto.sizes.large" :src="fotos.foto.sizes.large" :alt="fotos.nome_palestrante">
               <p v-if="fotos.nome_palestrante">{{ fotos.nome_palestrante }}</p>
               <!-- <span v-if="fotos.cargo">{{ fotos.cargo }}</span> -->
@@ -147,7 +147,6 @@
     mounted(){
       this.getPage();
       setTimeout(() => {
-        this.setActive();
         if(this.transferData == null) {
           this.transferData = this.palestrantes[0];
           this.componentKey = 0;
@@ -185,16 +184,8 @@
         this.video = r.acf.video
         });
       },
-      setActive() {
-        const ctx = this;
-        const list = document.getElementsByClassName('overlay-change');
-        for(let i = 0; i < list.length; i++) {
-          list[i].setAttribute('pos', i);
-          list[i].addEventListener('click', (el) => {
-            const positionTarget = el.target.getAttribute('pos');
-            ctx.position = parseInt(positionTarget);
-          })
-        }
+      changeCardPalestra(index) {
+        this.position = index;
       },
     },
   }
