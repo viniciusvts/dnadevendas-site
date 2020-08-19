@@ -92,7 +92,6 @@ header {
         @include breakpoint(hdDesktops) {
           font-size: 12px;
         }
-
         span {
           font-size: 10px;
           margin-left: 8px;
@@ -108,6 +107,9 @@ header {
         .submenu {
           transition: opacity .5s ease-in-out, display .5 step-start;
           opacity: 0;
+          a {
+            padding: 20px 0;
+          }
         }
         &.active {
           .submenu {
