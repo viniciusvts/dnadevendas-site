@@ -626,46 +626,35 @@
 .scroll {
   margin-bottom: 50px;
 }
-// justify text
-.full-service .about, .full-service .pilares{
-  p, li{
-    text-align: justify;
-  }
-}
 .full-service {
-  .about p {
-    margin-bottom: 30px;
-    font-size: 20px;
-    line-height: 40px;
-    font-weight: 300;
-  }
-
-
-
-  .about img{
-    margin-bottom: 30px;
-
-    @media (max-width: $hdDesktops) {
-      object-fit: cover;
-      min-height: 340px;
-    }
-  }
-
-  .spotlight {
-    h2 {
-      color: white;
-      margin-top: 30px;
-      @include breakpoint(tablets) {
-        @include fontSize(25px);
-        line-height: 30px;
+  .about{
+    p {
+      margin-bottom: 30px;
+      font-size: 20px;
+      line-height: 40px;
+      font-weight: 300;
+      text-align: justify;
+      @media (min-width: $fullHdDesktops) {
+        font-size: 30px;
+        line-height: 45px;
       }
     }
-    img {
-      min-height: 100vh;
+    li{
+      text-align: justify;
+    }
+    img{
+      margin-bottom: 30px;
+  
+      @media (max-width: $hdDesktops) {
+        object-fit: cover;
+        min-height: 340px;
+      }
     }
   }
-
-  .pilares {
+  .pilares{
+    li{
+      text-align: justify;
+    }
     padding: 0 40px;
     .pilar {
       margin-top: 80px;
@@ -718,12 +707,15 @@
     }
 
     p {
-      @include fontSize(30px);
+      text-align: justify;
+      font-size: 20px;
       line-height: 68px;
       font-weight: 300;
       @include breakpoint(hdDesktops) {
-        @include fontSize(20px);
         line-height: 50px;
+      }
+      @media (min-width: $fullHdDesktops) {
+        font-size: 30px;
       }
       margin-top: 30px;
       margin-bottom: 30px;
@@ -770,10 +762,6 @@
       }
     }
 
-    li {
-      list-style: none;
-    }
-
     li::before {
       content: "\25c6";
       padding-left: 50px;
@@ -788,6 +776,7 @@
       }
     }
     li {
+      list-style: none;
       margin-top: 20px;
       margin-left: 15px;
       font-weight: 300;
@@ -803,6 +792,21 @@
       }
     }
   }
+
+  .spotlight {
+    h2 {
+      color: white;
+      margin-top: 30px;
+      @include breakpoint(tablets) {
+        @include fontSize(25px);
+        line-height: 30px;
+      }
+    }
+    img {
+      min-height: 100vh;
+    }
+  }
+
 }
 
 .cta-section {
