@@ -69,39 +69,21 @@ export default {
   mounted() {
     setTimeout(() => {
       if(screen.width < 800) {
-        this.controllers('mobile')
-      } else if (screen.width > 1919) {
-        this.controllers('fullHdDesktop')
-      } else if(screen.width >= 1119 && screen.width < 1300) {
-        this.controllers('largeDesktop')
-      } else if (screen.width > 800 && screen.width < 1024) {
-        this.controllers('tablet')
+        this.controllers(1)
+      } else if (screen.width < 1024) {
+        this.controllers(3)
+      } else if(screen.width < 1300) {
+        this.controllers(5)
+      } else if(screen.width < 1900) {
+        this.controllers(6)
       } else {
-        this.controllers('desktop')
+        this.controllers(9)
       }
     }, 100);
   },
   methods: {
-    controllers(screen) {
-      var itens = 0;
-      switch (screen) {
-        case 'mobile':
-          itens = 1;
-          break;
-        case 'tablet':
-          itens = 3;
-          break;
-        case 'desktop':
-          itens = 6;
-          break;
-        case 'fullHdDesktop':
-          itens = 9;
-          break;
-        case 'largeDesktop':
-          itens = 5;
-          break;
-      }
-      if(this.obj.onde_palestrou.length > itens) {
+    controllers(itens) {
+      if(this.dataCase.onde_palestrou.length > itens) {
         const images = document.getElementsByClassName('images');
         const next = document.getElementById('next');
         const back = document.getElementById('back');
