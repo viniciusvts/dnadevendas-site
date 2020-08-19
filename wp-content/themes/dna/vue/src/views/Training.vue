@@ -157,13 +157,15 @@
           <div class="col-md-6">
             <img :src="$http.baseURL + 'wp-content/uploads/shutterstock_1076687258.png'" alt="Nossos serviços">
           </div>
-          <div class="col-md-6">
-            <p>
-              Promovemos a educação corporativa através de uma jornada de aprendizagem com múltiplos recursos que conecta negócios, estratégias e pessoas ao incremento de resultados da equipe comercial.
-            </p>
-            <p>
-              Construímos programas de treinamento corporativos personalizados, baseados diretamente nos desafios e estratégias de negócios da sua empresa. Garanta força da liderança a longo prazo e desenvolvimento de equipes de vendas de alta performance.
-            </p>
+          <div class="col-md-6 centerize-internal-div">
+            <div>
+              <p>
+                Promovemos a educação corporativa através de uma jornada de aprendizagem com múltiplos recursos que conecta negócios, estratégias e pessoas ao incremento de resultados da equipe comercial.
+              </p>
+              <p>
+                Construímos programas de treinamento corporativos personalizados, baseados diretamente nos desafios e estratégias de negócios da sua empresa. Garanta força da liderança a longo prazo e desenvolvimento de equipes de vendas de alta performance.
+              </p>
+            </div>
           </div>
         </div>
       </div>
