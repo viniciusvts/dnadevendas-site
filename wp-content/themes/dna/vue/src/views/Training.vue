@@ -92,22 +92,10 @@
             </div>              
           </div>
         </div>
-
         <div v-if="index == 0" class="container-fluid cta-section">
-          <div class="cta-section">
-            <div class="container">
-              <div class="row align-items-center justify-content-center">
-                <div class="col-12">
-                  <h2>"Vendas é uma ciência"</h2>
-                  <button>
-                    <a href="#contato-servico">
-                    Solicite uma proposta
-                    </a>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>    
+          
+          <CTA v-if="bluecta" :title="bluecta.titulo" :button="bluecta.botao" />
+          <PaginaCarregando v-else /> 
         </div>
 
         <div v-if="index == 1" class="container">
@@ -173,22 +161,8 @@
 
     <Methodology/>
 
-    <div class="cta-section">
-      <div class="cta-section">
-        <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-12">
-              <h2>"Vendas é uma ciência"</h2>
-              <button>
-                <a href="#contato-servico">
-                  Solicite uma proposta
-                </a>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>      
-    </div>
+    <CTA v-if="bluecta" :title="bluecta.titulo" :button="bluecta.botao" />
+    <PaginaCarregando v-else />
 
     <Metrics v-if="metricas">
       <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
@@ -212,6 +186,7 @@ import Spotlight from "@/components/Spotlight.vue";
 import Metrics from "@/components/Metrics.vue";
 import CardSlider from "@/components/CardSlider.vue";
 import SolicitarContato from "@/components/SolicitarContato.vue";
+import CTA from "@/components/BlueCta.vue";
 import Pillars from "@/components/Pillars.vue";
 import Methodology from "@/components/Methodology.vue";
 
@@ -222,8 +197,9 @@ export default {
     Metrics,
     SolicitarContato,
     CardSlider,
+    CTA,
     Pillars,
-    Methodology
+    Methodology,
   },
   data() {
     return {
@@ -234,7 +210,8 @@ export default {
       metricas: null,
       pilares: null,
       post: null,
-      customFields: null
+      customFields: null,
+      bluecta: null
     };
   },
   mounted() {
@@ -257,6 +234,7 @@ export default {
           banner.subtitulo = json.acf.subtitulo;
           // imagem_banner: json.acf.imagem.sizes.medium_large,
           this.bannerData = banner;
+          this.bluecta = json.acf.bluecta
           this.$root.meta.title = json.yoast_title;
           this.$root.meta.tags = json.yoast_meta;
         });

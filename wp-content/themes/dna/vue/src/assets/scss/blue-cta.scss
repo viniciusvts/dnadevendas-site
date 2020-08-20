@@ -1,0 +1,23 @@
+div.cta-section {
+  background-image: url("../assets/cta-section.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  display: block;
+
+  .row {
+    height: 400px;
+  }
+
+  h2 {
+    text-align: center;
+    color: white !important;
+    font-weight: bold;
+    font-size: 40px;
+  }
+
+  button {
+    margin: 40px auto;
+    display: block;
+  }
+}

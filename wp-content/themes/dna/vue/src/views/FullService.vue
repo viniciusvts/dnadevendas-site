@@ -84,21 +84,8 @@
     <Methodology v-if="bannerData"/>
     <PaginaCarregando v-else/>
 
-    <div class="cta-section" v-if="bannerData">
-      <div class="container">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-12">
-            <h2>"Vendas é uma ciência"</h2>
-            <button>
-              <a href="#contato-servico">
-              Solicite uma proposta
-              </a>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <PaginaCarregando v-else/>
+    <CTA v-if="bluecta" :title="bluecta.titulo" :button="bluecta.botao" />
+    <PaginaCarregando v-else />
 
     <Metrics v-if="metricas">
       <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
@@ -121,6 +108,7 @@
 
 <script>
 import Spotlight from "@/components/Spotlight.vue";
+import CTA from "@/components/BlueCta.vue";
 import Metrics from "@/components/Metrics.vue";
 import CardSlider from "@/components/CardSlider.vue";
 import SolicitarContato from "@/components/SolicitarContato.vue";
@@ -131,6 +119,7 @@ export default {
   name: "FullService",
   components: {
     Spotlight,
+    CTA,
     Metrics,
     SolicitarContato,
     CardSlider,
@@ -146,7 +135,8 @@ export default {
       metricas: null,
       pilares: null,
       post: null,
-      customFields: null
+      customFields: null,
+      bluecta: null
     };
   },
   mounted() {
@@ -169,6 +159,7 @@ export default {
           banner.subtitulo = json.acf.subtitulo;
           // imagem_banner: json.acf.imagem.sizes.medium_large,
           this.bannerData = banner;
+          this.bluecta = json.acf.bluecta
           this.$root.meta.title = json.yoast_title;
           this.$root.meta.tags = json.yoast_meta;
         });
