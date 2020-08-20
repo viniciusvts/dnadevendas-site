@@ -239,8 +239,17 @@
       },
       startChangeBackgroundMenuOnScroll ()  {
         document.addEventListener('scroll', () => {
-          if (scrollY > 500) this.bgGrayMenu = true
-          else this.bgGrayMenu = false
+          if (scrollY > 500) {
+            this.bgGrayMenu = true
+            if (this.slug === 'Materials') {
+              this.logoWhite = true;
+            }
+          } else {
+            this.bgGrayMenu = false
+            if (this.slug === 'Materials') {
+              this.logoWhite = false;
+            }
+          }
         })
       }
     },
