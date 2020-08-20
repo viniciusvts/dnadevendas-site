@@ -47,6 +47,7 @@
             <form name="dna_newsletter"
             method="POST"
             :action="$http.baseURL + 'wp-json/dna_theme/v1/contato-footer'">
+                <input type="hidden" name="urlOrigem" id="urlOrigem">
                 <h3>Assine nossa Newsletter</h3>
                 <p>Cadastre seu e-mail aqui e receba dicas de como vender mais!</p>
                 <input type="text" name="nome" id="nome" placeholder="Seu nome*">
@@ -68,9 +69,10 @@
                 categories:[]
             }
         },
-        created(){
+        mounted(){
             this.getPosts();
             this.getCategories();
+            document.getElementById('urlOrigem').value = location.href
         },
         computed:{
             isBlogRoute(){

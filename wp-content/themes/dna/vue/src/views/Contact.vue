@@ -7,6 +7,7 @@
           <form name="dna_contato"
           method="POST"
           :action="$http.baseURL + 'wp-json/dna_theme/v1/pagina-contato'">
+            <input type="hidden" name="urlOrigem" id="urlOrigem">
             <h2 class="title-message">Vamos conversar?</h2>
             <label for="setor">Nome*</label>
             <input type="text" name="nome" id="nome" required />
@@ -124,6 +125,7 @@ export default {
   },
   mounted() {
     this.setMapIframe(this.contactsWithMap[0].map);
+    document.getElementById('urlOrigem').value = location.href
   },
   methods: {
     removeActiveButtons(first) {

@@ -8,11 +8,13 @@ function dnaapi_contatoFooter($req){
   // pega os parametros
   $nome = $req->get_param('nome');
   $email = $req->get_param('email');
+  $urlOrigem = $req->get_param('urlOrigem');
   // envia email
   $to = get_option('admin_email');
   $subject = 'DNA de Vendas - Contato';
   $message = "Nome: ".$nome
-      ."<br>Email: ".$email;
+      ."<br>Email: ".$email
+      ."<br>urlOrigem: ".$urlOrigem;
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $wpmail = wp_mail( $to, $subject, $message, $headers );
   $url = $_SERVER['HTTP_ORIGIN'] . '/agradecemos-seu-cadastro-amp';
@@ -31,6 +33,7 @@ function dnaapi_solicitarContato($req){
   $mobile_phone = $req->get_param('mobile_phone');
   $company_name = $req->get_param('company_name');
   $qtdfunc = $req->get_param('qtdfunc');
+  $urlOrigem = $req->get_param('urlOrigem');
   // envia email
   $to = get_option('admin_email');
   $subject = 'DNA de Vendas - Contato';
@@ -38,7 +41,8 @@ function dnaapi_solicitarContato($req){
       ."<br>Email: ".$email
       ."<br>mobile_phone: ".$mobile_phone
       ."<br>company_name: ".$company_name
-      ."<br>qtdfunc: ".$qtdfunc;
+      ."<br>qtdfunc: ".$qtdfunc
+      ."<br>urlOrigem: ".$urlOrigem;
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $wpmail = wp_mail( $to, $subject, $message, $headers );
   $url = $_SERVER['HTTP_ORIGIN'] . '/agradecimento';
@@ -58,6 +62,7 @@ function dnaapi_paginaContato($req){
   $telefone = $req->get_param('telefone');
   $assunto = $req->get_param('assunto');
   $mensagem = $req->get_param('mensagem');
+  $urlOrigem = $req->get_param('urlOrigem');
   // envia email
   $to = get_option('admin_email');
   $subject = 'DNA de Vendas - Contato';
@@ -66,7 +71,8 @@ function dnaapi_paginaContato($req){
       ."<br>setor: ".$setor
       ."<br>telefone: ".$telefone
       ."<br>assunto: ".$assunto
-      ."<br>mensagem: ".$mensagem;
+      ."<br>mensagem: ".$mensagem
+      ."<br>urlOrigem: ".$urlOrigem;
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $wpmail = wp_mail( $to, $subject, $message, $headers );
   $url = $_SERVER['HTTP_ORIGIN'] . '/agradecimento';
