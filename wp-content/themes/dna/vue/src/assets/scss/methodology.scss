@@ -33,6 +33,9 @@
             @include breakpoint(tablet-desktop) {
                 font-size: 22px;
             }
+            @media (min-width: $hdDesktops) {
+                margin-bottom: 22px;
+            }
         }
     }
 
