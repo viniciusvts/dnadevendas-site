@@ -5,7 +5,7 @@
         <h1 v-html="bannerData.chamada"></h1>
         <h2 v-if="bannerData.subtitulo" v-html="bannerData.subtitulo"></h2>
         <button class="btn-grad">
-          <router-link to="/contato">{{bannerData.cta}}</router-link>
+          <a href="#contato-servico">{{bannerData.cta}}</a>
         </button>
       </div>
       <div class="see-more">

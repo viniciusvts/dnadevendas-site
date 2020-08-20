@@ -5,7 +5,7 @@
         <h1 v-html="bannerData.chamada"></h1>
         <h2 v-if="bannerData.subtitulo" v-html="bannerData.subtitulo"></h2>
         <button class="btn-grad" v-if="bannerData.imagem">
-          <router-link to="/contato">{{bannerData.cta}}</router-link>
+          <a href="#contato-servico">{{bannerData.cta}}</a>
         </button>
       </div>
       <img class="image" :src="bannerData.imagem" :alt="bannerData.chamada" />
@@ -102,7 +102,7 @@
                 </li>
               </ul>
               <img :src="$http.baseURL + 'wp-content/uploads/line.png'" alt="Linha Divisória">
-              <a :href="plano.link_cta_plano" target="_blank" v-if="plano.link_cta_plano"><button>{{plano.texto_cta_plano}}</button></a>
+              <a v-if="plano.link_cta_plano" :href="plano.link_cta_plano.url" :target="plano.link_cta_plano.target"><button>{{plano.link_cta_plano.title}}</button></a>
             </div>
           </div>
         </div>

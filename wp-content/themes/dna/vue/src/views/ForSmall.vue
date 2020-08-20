@@ -4,9 +4,9 @@
       <div class="text section">
         <h1 v-html="post.acf.chamada"></h1>
         <button class="fsmall-btn">
-          <router-link to="/contato">
+          <a href="#contato-servico">
             Falar com um consultor
-          </router-link>
+          </a>
         </button>
       </div>
       <div class="see-more">

@@ -5,9 +5,9 @@
         <h1 v-html="banner.chamada"></h1>
         <h2 class="colorDestak" v-if="banner">{{banner.subtitulo}}</h2>
         <button class="btn-grad" v-if="banner">
-          <router-link to="/contato">
+          <a href="#contato-servico">
             {{banner.cta}}
-          </router-link>
+          </a>
         </button>
       </div>
       <div class="see-more">
@@ -65,9 +65,9 @@
         <div class="row">
           <div class="col-sm-12 col-sm-12 col-tb-12">
             <p class="centered">
-              <router-link to="/contato">
+              <a href="#contato-servico">
                 <button>Solicite uma proposta</button>
-              </router-link>
+              </a>
             </p>
           </div>
         </div>
@@ -99,9 +99,9 @@
           </div>
         </div>
         <div class="col-sm-12">
-          <router-link to="/contato">
+          <a href="#contato-servico">
             <button>Solicite uma proposta</button>
-          </router-link>
+          </a>
         </div>        
       </div>
     </section>

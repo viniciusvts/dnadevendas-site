@@ -20,9 +20,9 @@
               <h2>{{objection.objecao}}</h2>
             </div>
             <div class="text destaq-text" v-html="objection.texto"></div>
-            <router-link :to="{name: 'Contact'}">
+            <a href="#contato-servico">
               <button> Solicite uma proposta </button>
-            </router-link>
+            </a>
           </div>
         </div>
       </div>
