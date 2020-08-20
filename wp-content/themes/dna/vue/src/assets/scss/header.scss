@@ -104,20 +104,6 @@ header {
           padding: 20px 16px;
         }
         
-        .submenu {
-          transition: opacity .5s ease-in-out, display .5 step-start;
-          opacity: 0;
-          a {
-            padding: 20px 0;
-          }
-        }
-        &.active {
-          .submenu {
-          transition: opacity .5s ease-in-out, display .5 step-end;
-          display: block;
-            opacity: 1;
-          }
-        }
       }
     }
     #searchBtn {
@@ -170,7 +156,14 @@ header {
         @include transition();
       }
     }
-
+    
+    li.active {
+      .submenu {
+      transition: opacity .5s ease-in-out, display .5 step-end;
+      display: block;
+        opacity: 1;
+      }
+    }
     .submenu {
       display: none;
       position: absolute;
@@ -183,6 +176,8 @@ header {
       margin: 10px auto;
       width: max-content;
       max-width: 250px;
+      transition: opacity .5s ease-in-out, display .5 step-start;
+      opacity: 0;
 
       @include breakpoint(largeDesktops) {
         top: 0;
@@ -201,9 +196,13 @@ header {
         &:last-child {
           border-bottom: none;
         }
+        @media (min-width: $desktops) {
+          min-width: 120px;
+        }
       }
 
       a {
+        padding: 20px 0;
         @include transition();
         &:hover {
           color: $golden;
@@ -235,6 +234,11 @@ header {
 
   a {
     color: grey;
+  }
+  &.bg-gray {
+    .menuDesktop > li,.menuDesktop > li > a {
+      color: whitesmoke;
+    }
   }
   .submenu {
     a {
