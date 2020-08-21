@@ -61,8 +61,8 @@ switch ($server_addr) {
         define('DEV_MODE', true);
         // define('WP_DEBUG', true);
         // define('WP_DEBUG_DISPLAY', true );
-        define('WP_HOME','https://novo.dnadevendas.com.br/');
-        define('WP_SITEURL','https://novo.dnadevendas.com.br/');
+        define('WP_HOME','https://www.dnadevendas.com.br/');
+        define('WP_SITEURL','https://www.dnadevendas.com.br/');
         break;
     
     default:
