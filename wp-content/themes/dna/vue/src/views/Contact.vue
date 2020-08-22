@@ -64,7 +64,7 @@
       </div>
     </section>
     <div v-html="mapIframe"></div>
-    <div class="row buttons-row">
+    <div class="row buttons-row mw100w">
       <button
         v-for="contact in contactsWithMap"
         :key="contact.map"

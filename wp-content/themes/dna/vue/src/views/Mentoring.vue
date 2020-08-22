@@ -49,7 +49,7 @@
         <h2>Objetivos da mentoria</h2>
         <span></span>
       </div>
-      <div class="row justify-content-center">
+      <div class="row justify-content-center mw100w">
         <div class="col-md-4 objective" v-for="(objetivo, indexObjetivo) in post.acf.objetivos" :key="indexObjetivo">
           <img :src="objetivo.icone_objetivo.sizes.medium" :alt="objetivo.titulo_objetivo">
           <p v-html="objetivo.titulo_objetivo"></p>

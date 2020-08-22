@@ -143,10 +143,12 @@
         .title{
             margin-bottom: 80px;
         }
-
+        .mw100w{
+            max-width: 100vw;
+        }
         .objective{
             margin-bottom: 60px;
-
+            max-width: 100vw;
             &::before{
                 display: block;
                 position: absolute;

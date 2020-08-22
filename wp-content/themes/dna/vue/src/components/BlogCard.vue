@@ -3,7 +3,7 @@
   <router-link :to="{ name: 'SingleBlog', params: { slug: post.slug, post: post } }">
     <div class="column">
       <div class="card">
-        <div class="row">
+        <div class="row mw100w">
           <div class="left col-12 col-md-7 col-tb-12">
             <img :src="post.DNA_custom.thumb.large" alt="">
           </div>
