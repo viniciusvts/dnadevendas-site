@@ -213,16 +213,17 @@
       expandMenu: () => {
         let burgerMenu = document.querySelector('#burgerMenu');
         let menuItems = document.querySelector('#menuItems');
-        
-        burgerMenu.onclick = () => {
-          if(menuItems.classList.contains('menuDesktop')){
-            menuItems.classList.remove('menuDesktop');
-            menuItems.classList.add('menuMobile');
-          }else{
-            menuItems.classList.add('menuDesktop');
-            menuItems.classList.remove('menuMobile');
-          }
-        };
+        if (burgerMenu) {
+          burgerMenu.onclick = () => {
+            if(menuItems.classList.contains('menuDesktop')){
+              menuItems.classList.remove('menuDesktop');
+              menuItems.classList.add('menuMobile');
+            }else{
+              menuItems.classList.add('menuDesktop');
+              menuItems.classList.remove('menuMobile');
+            }
+          };
+        }
       },
       matchRoute(){
         if(this.slug === 'Blog' || this.slug === 'SingleBlog' || this.slug === 'Clients' || this.slug === 'About' || this.slug === 'Contact'|| this.slug === 'SalesTraining'|| this.slug === 'InternalMultipliers'|| this.slug === 'LeaderPrograms' || this.slug === 'ContentFabric'){
