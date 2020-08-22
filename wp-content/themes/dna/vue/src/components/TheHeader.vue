@@ -23,7 +23,7 @@
         <ul id="menuItems" class="menuDesktop">
           <li
             :class="{ 'active': menu.qmSomos}"
-            @mouseenter="menu.qmSomos = true"
+            @mouseenter="menu.qmSomos = setMenuOnEnterEvent(true)"
             @mouseleave="menu.qmSomos = false"
             @click="menu.qmSomos = !menu.qmSomos">
             Quem somos
@@ -42,7 +42,7 @@
 
           <li
             :class="{ 'active': menu.consultoria}"
-            @mouseenter="menu.consultoria = true"
+            @mouseenter="menu.consultoria = setMenuOnEnterEvent(true)"
             @mouseleave="menu.consultoria = false"
             @click="menu.consultoria = !menu.consultoria">
             Consultoria
@@ -64,7 +64,7 @@
 
           <li
             :class="{ 'active': menu.treinamentos}"
-            @mouseenter="menu.treinamentos = true"
+            @mouseenter="menu.treinamentos = setMenuOnEnterEvent(true)"
             @mouseleave="menu.treinamentos = false"
             @click="menu.treinamentos = !menu.treinamentos">
             Treinamentos
@@ -99,7 +99,7 @@
 
           <li
             :class="{ 'active': menu.palestras}"
-            @mouseenter="menu.palestras = true"
+            @mouseenter="menu.palestras = setMenuOnEnterEvent(true)"
             @mouseleave="menu.palestras = false"
             @click="menu.palestras = !menu.palestras">
             Palestras
@@ -123,7 +123,7 @@
           
           <li
             :class="{ 'active': menu.capOnline}"
-            @mouseenter="menu.capOnline = true"
+            @mouseenter="menu.capOnline = setMenuOnEnterEvent(true)"
             @mouseleave="menu.capOnline = false"
             @click="menu.capOnline = !menu.capOnline">
             Capacitação Online
@@ -139,7 +139,7 @@
 
           <li
             :class="{ 'active': menu.conteudo}"
-            @mouseenter="menu.conteudo = true"
+            @mouseenter="menu.conteudo = setMenuOnEnterEvent(true)"
             @mouseleave="menu.conteudo = false"
             @click="menu.conteudo = !menu.conteudo">
             Conteúdo
@@ -252,6 +252,10 @@
             }
           }
         })
+      },
+      setMenuOnEnterEvent(flag){
+        if ( window.screen.width >= 1200) return flag
+        else return !flag
       }
     },
     computed: {
