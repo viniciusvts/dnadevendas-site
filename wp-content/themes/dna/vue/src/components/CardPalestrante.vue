@@ -36,21 +36,18 @@
           </li>
         </ul>
       </div>
-
-
-        <div class="controllers">
-          <div class="control" id="next">
-            <div class="svg">
-              <img src="../assets/svg/big-arrow.svg" alt="Avança">
-            </div>
-          </div>
-          <div class="control" id="back">
-            <div class="svg">
-              <img src="../assets/svg/big-arrow.svg" alt="Volta">
-            </div>
+      <div class="controllers">
+        <div class="control" id="next">
+          <div class="svg">
+            <img src="../assets/svg/big-arrow.svg" alt="Avança">
           </div>
         </div>
-
+        <div class="control" id="back">
+          <div class="svg">
+            <img src="../assets/svg/big-arrow.svg" alt="Volta">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
