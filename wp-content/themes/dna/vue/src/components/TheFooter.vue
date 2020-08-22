@@ -119,12 +119,14 @@
                 name="nome"
                 placeholder="Insira seu nome*"
                 id="nome"
+                required
               />
               <input
                 type="email"
                 placeholder="Seu e-mail*"
                 name="email"
                 id="email"
+                required
               />
               <p>* Campos obrigatórios</p>
               <input type="submit" value="Quero me inscrever" />
