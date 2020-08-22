@@ -115,7 +115,6 @@ const Services = () => ({
 
 import Spotlight from "@/components/Spotlight.vue";
 import PaginaCarregando from "../components/PaginaCarregando.vue";
-
 //segunda dobra em diante, carregar com lazyload
 import Pillars from "@/components/Pillars.vue";
 // import Cases from "@/components/Cases.vue";
@@ -130,6 +129,7 @@ export default {
   name: "Home",
   components: {
     Spotlight,
+    PaginaCarregando,
     Pillars,
     Services,
     Cases,
