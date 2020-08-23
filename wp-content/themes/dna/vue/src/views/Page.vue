@@ -63,8 +63,6 @@
                 })
                 .then(r => {
                 this.pageContent = r;
-                this.$root.meta.title = this.pageContent[0].yoast_title;
-                this.$root.meta.tags = this.pageContent[0].yoast_meta;
                 })
                 .catch(() =>{
                     this.isError = true;

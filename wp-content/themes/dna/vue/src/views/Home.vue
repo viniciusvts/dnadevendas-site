@@ -146,7 +146,6 @@ export default {
     };
   },
   created() {
-    this.setHomeMeta();
     this.getAcf();
   },
   methods: {
@@ -157,16 +156,6 @@ export default {
           this.customFields = r;
         });
     },
-    setHomeMeta() {
-      this.$http.getHomeMeta()
-        .then(res => {
-          return res.json();
-        })
-        .then(json => {
-          this.$root.meta.title = json.yoast_title;
-          this.$root.meta.tags = json.yoast_meta;
-        });
-    }
   }
 };
 </script>

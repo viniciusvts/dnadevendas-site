@@ -73,8 +73,6 @@ name: "Videos",
       .then(resp => resp.json())
       .then(json => {
         this.page = json;
-        this.$root.meta.title = this.page.yoast_title;
-        this.$root.meta.tags = this.page.yoast_meta;
       });
     },
     showVideos (evt) {

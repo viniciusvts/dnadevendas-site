@@ -107,8 +107,6 @@
         .then(resp => resp.json())
         .then( json => {
           this.post = json
-          this.$root.meta.title = this.post.yoast_title;
-          this.$root.meta.tags = this.post.yoast_meta;
         })
       }
     }

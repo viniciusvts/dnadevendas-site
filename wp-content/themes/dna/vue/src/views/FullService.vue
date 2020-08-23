@@ -160,8 +160,6 @@ export default {
           // imagem_banner: json.acf.imagem.sizes.medium_large,
           this.bannerData = banner;
           this.bluecta = json.acf.bluecta
-          this.$root.meta.title = json.yoast_title;
-          this.$root.meta.tags = json.yoast_meta;
         });
     },
     getMethodology(){

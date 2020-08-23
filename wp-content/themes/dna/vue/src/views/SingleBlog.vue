@@ -168,12 +168,6 @@
       'post.id': function(val) {
         this.$http.postIterateView(val);
       },
-      'post.yoast_meta': function(val) {
-        this.$root.meta.tags = val
-      },
-      'post.yoast_title': function(val) {
-        this.$root.meta.title = val
-      }
     },
     computed: {
       postInformation () {

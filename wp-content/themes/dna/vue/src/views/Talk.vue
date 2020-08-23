@@ -177,8 +177,6 @@
           bannerData.imagem_banner = r.acf.imagem.sizes.medium_large;
         this.banner = bannerData;
         this.page = r;
-        this.$root.meta.title = this.page.yoast_title;
-        this.$root.meta.tags = this.page.yoast_meta;
         this.transferData = this.palestrantes[0];
         this.componentKey = 0;
         this.video = r.acf.video

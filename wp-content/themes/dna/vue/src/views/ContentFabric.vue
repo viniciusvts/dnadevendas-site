@@ -104,8 +104,6 @@ export default {
         .then((json) => {
           this.post = json;
           this.pilares = json.acf.secao_pilares;
-          this.$root.meta.title = json.yoast_title;
-          this.$root.meta.tags = json.yoast_meta;
         });
     },
     getMetrics() {

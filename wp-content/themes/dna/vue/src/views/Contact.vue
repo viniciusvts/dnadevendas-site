@@ -121,7 +121,6 @@ export default {
   },
   created() {
     console.log(process.env.VUE_USER_LOGIN_CONTACT);
-    this.setMeta();
   },
   mounted() {
     this.setMapIframe(this.contactsWithMap[0].map);
@@ -144,16 +143,6 @@ export default {
         event.target.classList.add("active");
       }
       this.mapIframe = iframe;
-    },
-    setMeta() {
-      let args = []
-      args['slug'] = 'contato'
-      this.$http.getPages(args)
-        .then((res) => res.json())
-        .then((json) => {
-          this.$root.meta.title = json[0].yoast_title;
-          this.$root.meta.tags = json[0].yoast_meta;
-        });
     },
     execMascara (evt) {
       let v = evt.target.value;
