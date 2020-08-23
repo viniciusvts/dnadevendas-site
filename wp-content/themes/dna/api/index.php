@@ -1,6 +1,4 @@
 <?php
-  define('POST_META_COUNT', 'dna_views');
-
   include_once 'forms.php';
   include_once 'validations.php';
   include_once 'wp_head_footer.php';

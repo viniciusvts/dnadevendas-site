@@ -1,4 +1,7 @@
 <?php
+  // constantes
+  define('POST_META_COUNT', 'dna_views');
+  // imports
   include_once 'api/index.php';
   include_once 'inc/index.php';
   // contact form estava marcando como spam qualquer requisição ao endpoind rest api
