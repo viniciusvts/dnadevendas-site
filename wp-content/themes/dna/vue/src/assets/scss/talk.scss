@@ -461,16 +461,15 @@
     background-color: transparent;
   }
   &::-webkit-scrollbar {
-    width: 1px;
     background: transparent;
     height: 10px;
   }
   &::-webkit-scrollbar-thumb {
     background: $golden;
     border-radius: 6px;
-    height: 1px;
   }
   ul {
+    max-width: 100vw;
     display: inline-flex;
     img {
       max-width: unset !important;
@@ -488,7 +487,6 @@
   }
   @include breakpoint(smartphones) {
     overflow-x: visible;
-    max-width: unset;
     margin-bottom: 20px;
   }
   &::after {
