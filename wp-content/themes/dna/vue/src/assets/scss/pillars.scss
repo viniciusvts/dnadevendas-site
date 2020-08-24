@@ -16,11 +16,15 @@
         font-weight: 400;
         color: $baseColor;
         text-align: left;
-        
+
         @include fontSize(32px);
         @include breakpoint(hdDesktops) {
             font-size: 24px;
             line-height: 36px;
+        }
+
+        @include breakpoint(tablets) {
+            text-align: center;
         }
     }
 

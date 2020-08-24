@@ -26,6 +26,10 @@
       font-size: 32px;
     }
 
+    @include breakpoint(tablets){
+      text-align: center;
+    }
+
     span {
       color: $golden;
     }
@@ -638,6 +642,9 @@
         font-size: 30px;
         line-height: 45px;
       }
+      @include breakpoint(tablets){
+        text-align: center;
+      }
     }
     li{
       text-align: justify;
@@ -656,6 +663,9 @@
       text-align: justify;
     }
     padding: 0 40px;
+    @include breakpoint(tablets){
+      padding: 0 10px;
+    }
     .pilar {
       margin-top: 80px;
     }
@@ -703,6 +713,8 @@
 
       @include breakpoint(tablets) {
         text-align: center;
+        font-size: 30px;
+        line-height: 45px;
       }
     }
 
@@ -716,6 +728,11 @@
       }
       @media (min-width: $fullHdDesktops) {
         font-size: 30px;
+      }
+
+      @include breakpoint(tablets){
+        line-height: 35px;
+        text-align: center;
       }
       margin-top: 30px;
       margin-bottom: 30px;
@@ -785,6 +802,9 @@
       @media (min-width: $fullHdDesktops) {
         font-size: 30px;
       }
+      @include breakpoint(tablets){
+        line-height: 35px;
+      }
     }
   }
 
@@ -793,7 +813,7 @@
       color: white;
       margin-top: 30px;
       @include breakpoint(tablets) {
-        @include fontSize(25px);
+        @include fontSize(22px);
         line-height: 30px;
       }
     }
