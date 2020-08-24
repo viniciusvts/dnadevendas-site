@@ -26,6 +26,7 @@ h4 {
 }
 html{
   font-family: 'Open Sans', sans-serif;
+  scroll-behavior: smooth;
 }
 
 #main{
@@ -162,7 +163,7 @@ section, .section{
   display: block;
 
   @include breakpoint(tablets){
-    padding: 60px 10px;
+    padding: 90px 10px;
   }
 }
 

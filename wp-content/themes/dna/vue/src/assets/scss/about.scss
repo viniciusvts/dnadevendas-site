@@ -9,7 +9,7 @@
     .group{
         img{
             max-height: 100px;
-            margin: 0 auto;
+            margin: 20px auto;
         }
     }
 
@@ -36,6 +36,9 @@
     }
     p{
         text-align: justify;
+        @include breakpoint(tablets){
+            text-align: left;
+        }
     }
 
     h2{
@@ -52,6 +55,10 @@
     .left, .right{
         margin-top: 40px;
         padding: 0 40px;
+
+        @include breakpoint(tablets){
+            padding: 0 20px;
+        }
     }
 
     .left{
