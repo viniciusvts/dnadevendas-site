@@ -50,8 +50,8 @@
                 <input type="hidden" name="urlOrigem" id="urlOrigem">
                 <h3>Assine nossa Newsletter</h3>
                 <p>Cadastre seu e-mail aqui e receba dicas de como vender mais!</p>
-                <input type="text" name="nome" id="nome" placeholder="Seu nome*">
-                <input type="email" name="email" id="email" placeholder="E-mail">
+                <input type="text" name="nome" id="nome" placeholder="Seu nome*" required>
+                <input type="email" name="email" id="email" placeholder="E-mail" required>
                 <p>* Campos obrigatórios</p>
                 <input type="submit" value="Cadastrar">
             </form>
