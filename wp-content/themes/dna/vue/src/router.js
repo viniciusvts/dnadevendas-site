@@ -153,6 +153,12 @@ const routes = [
     component: Page,
     props: {default: true, slug: true}
   },
+  {
+    path: '/contato/:slug',
+    name: 'Page',
+    component: Page,
+    props: {default: true, slug: true}
+  },
 ]
 
 const router = new VueRouter({
