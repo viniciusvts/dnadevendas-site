@@ -63,7 +63,7 @@
                 })
                 .then(r => {
                     this.pageContent = r;
-                    document.title = this.pageContent.yoast_title
+                    document.title = this.pageContent[0].yoast_title
                 })
                 .catch(() =>{
                     this.isError = true;
