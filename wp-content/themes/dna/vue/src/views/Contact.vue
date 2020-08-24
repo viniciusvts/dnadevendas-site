@@ -37,7 +37,7 @@
               required
             ></textarea>
 
-            <p>* Campos obrigatórios</p>
+            <p class="aviso">* Campos obrigatórios</p>
             <button>Enviar</button>
             <!-- <input type="submit" value="Enviar mensagem"> -->
           </form>
