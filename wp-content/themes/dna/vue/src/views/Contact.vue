@@ -15,7 +15,7 @@
             <input type="email" name="email" id="email" required />
             <label for="setor">Quero falar com</label>
             <select name="setor" id="setor" required>
-              <option value="" disabled> </option>
+              <option value=""> </option>
               <option value="Comercial">Comercial</option>
               <option value="Administrativo / Financeiro">Administrativo / Financeiro</option>
               <option value="Comercial / Vendas">Comercial / Vendas</option>
