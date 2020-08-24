@@ -81,6 +81,7 @@
             banner.imagem = json.acf.foto.sizes.medium_large;
             // imagem_banner: json.acf.imagem.sizes.medium_large,
           this.bannerData = banner;
+          document.title = this.post.yoast_title
         });
       }
     },

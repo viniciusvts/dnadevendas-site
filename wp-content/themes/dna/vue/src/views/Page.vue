@@ -62,7 +62,8 @@
                     this.is404= true
                 })
                 .then(r => {
-                this.pageContent = r;
+                    this.pageContent = r;
+                    document.title = this.pageContent.yoast_title
                 })
                 .catch(() =>{
                     this.isError = true;

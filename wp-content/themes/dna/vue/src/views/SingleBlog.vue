@@ -168,6 +168,9 @@
       'post.id': function(val) {
         this.$http.postIterateView(val);
       },
+      'post.yoast_title': function(val) {
+        document.title = val
+      }
     },
     computed: {
       postInformation () {

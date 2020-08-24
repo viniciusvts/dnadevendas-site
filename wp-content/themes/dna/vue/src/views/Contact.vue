@@ -120,6 +120,7 @@ export default {
     };
   },
   created() {
+    document.title = 'Contato - DNA de Vendas'
     console.log(process.env.VUE_USER_LOGIN_CONTACT);
   },
   mounted() {

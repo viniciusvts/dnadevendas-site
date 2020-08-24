@@ -180,6 +180,7 @@
         this.transferData = this.palestrantes[0];
         this.componentKey = 0;
         this.video = r.acf.video
+        document.title = this.page.yoast_title
         });
       },
       changeCardPalestra(index) {

@@ -52,6 +52,7 @@ export default {
       .then(resp => resp.json())
       .then(json => {
         this.page = json;
+        document.title = this.page.yoast_title
       });
     },
   }

@@ -42,6 +42,7 @@ export default {
       }
     },
     created(){
+        document.title = 'Clientes - DNA de Vendas'
         this.getClients();
         this.getTaxonomyClients();
     },

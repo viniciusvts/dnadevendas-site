@@ -235,6 +235,7 @@ export default {
           // imagem_banner: json.acf.imagem.sizes.medium_large,
           this.bannerData = banner;
           this.bluecta = json.acf.bluecta
+        document.title = this.post.yoast_title
         });
     },
     getMethodology(){

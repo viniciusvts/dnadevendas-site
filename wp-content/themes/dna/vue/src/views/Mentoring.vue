@@ -175,6 +175,7 @@ export default {
           banner.subtitulo = json.acf.subtitulo;
           // imagem_banner: json.acf.imagem.sizes.medium_large,
           this.bannerData = banner;
+        document.title = this.post.yoast_title
         });
     },
     getTalkers() {

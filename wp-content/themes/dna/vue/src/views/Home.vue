@@ -146,6 +146,7 @@ export default {
     };
   },
   created() {
+    document.title = 'DNA de Vendas - Consultoria de vendas e treinamento de vendas'
     this.getAcf();
   },
   methods: {
