@@ -12,9 +12,9 @@
                         <th class="head-table sm">
                             <span><p>Smart</p></span>
                             <br>
-                            <span class="price">4X de R$ 1.962,00</span>
+                            <span class="price">4X de R$ 3.342,00</span>
                             <br>
-                            <span class="full-price">R$ 7.850</span>
+                            <span class="full-price">R$ 13.370</span>
                         </th>
                         <th class="head-table pro">
                             <span><p>Professional</p></span>
