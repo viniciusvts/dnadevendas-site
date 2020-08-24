@@ -15,9 +15,12 @@
             <input type="email" name="email" id="email" required />
             <label for="setor">Quero falar com</label>
             <select name="setor" id="setor" required>
+              <option value="" disabled> </option>
               <option value="Comercial">Comercial</option>
-              <option value="Administrativo">Administrativo</option>
-              <option value="Comercial 1">Comercial</option>
+              <option value="Administrativo / Financeiro">Administrativo / Financeiro</option>
+              <option value="Comercial / Vendas">Comercial / Vendas</option>
+              <option value="Marketing / Comunicação">Marketing / Comunicação</option>
+              <option value="Recursos Humanos">Recursos Humanos</option>
             </select>
             <label for="telefone">Telefone*</label>
             <input type="text" name="telefone" id="telefone" v-on:keyup="execMascara" required />
