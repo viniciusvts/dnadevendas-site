@@ -38,9 +38,9 @@
         </div>
 
         <div class="banner">
-            <router-link to="/">
+            <a href="https://conteudo.dnadevendas.com.br/palestra-sales-da-estrategia-a-execucao">
                 <img :src="$http.baseURL + 'wp-content/uploads/palestras-sales.jpg'" alt="">
-            </router-link>
+            </a>
         </div>
 
         <div v-if="isBlogRoute" class="newsletter">
