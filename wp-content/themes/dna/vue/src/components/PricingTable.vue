@@ -12,35 +12,35 @@
                         <th class="head-table sm">
                             <span><p>Smart</p></span>
                             <br>
-                            <span class="price">4X de R$ 3.342,00</span>
+                            <span class="price" v-html="data.acf.precos.smart.parcelado"></span>
                             <br>
-                            <span class="full-price">R$ 13.370</span>
+                            <span class="full-price" v-html="data.acf.precos.smart.a_vista"></span>
                         </th>
                         <th class="head-table pro">
                             <span><p>Professional</p></span>
                             <br>
-                            <span class="price">4X DE R$ 5.000,00</span>
+                            <span class="price" v-html="data.acf.precos.professional.parcelado"></span>
                             <br>
-                            <span class="full-price">R$20.000</span>
+                            <span class="full-price" v-html="data.acf.precos.professional.a_vista"></span>
                         </th>
                         <th class="head-table prod">
                             <span><p>Productivity</p></span>
                             <br>
-                            <span class="price">5X DE R$ 7.000,00</span>
+                            <span class="price" v-html="data.acf.precos.productivity.parcelado"></span>
                             <br>
-                            <span class="full-price">R$35.000</span>
+                            <span class="full-price" v-html="data.acf.precos.productivity.a_vista"></span>
                         </th>
                         <th class="head-table str">
                             <span><p>Strategic</p></span>
                             <br>
-                            <span class="price">5X DE R$ 10.000,00</span>
+                            <span class="price" v-html="data.acf.precos.strategic.parcelado"></span>
                             <br>
-                            <span class="full-price">R$50.000</span>
+                            <span class="full-price" v-html="data.acf.precos.strategic.a_vista"></span>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="item in prices.linhas" :key="item.servico" class="row-table-item">
+                    <tr v-for="item in data.acf.linhas" :key="item.servico" class="row-table-item">
                         <td class="title-row">{{ item.servico }}</td>
                         <td v-for="planos in item.planos"
                         :key="planos.index"
@@ -58,7 +58,7 @@ export default {
   data() {
       return {
         pageID: 8113,
-        prices: [],
+        data: [],
         check: null,
       };
   },
@@ -70,12 +70,12 @@ export default {
     methods:{
         getPrices() {
             const ctx = this;
-            this.$http.getPostsAcfData(this.pageID, 'linhas')
+            this.$http.getPostsAcfData(this.pageID)
             .then(r => r.json())
             .then(r => {
-                ctx.prices = r;
+                ctx.data = r;
                 try {
-                    ctx.prices.linhas.forEach(element => {
+                    ctx.data.acf.linhas.forEach(element => {
                         if(element.planos.length == 3) {
                             const list = 'none no';
                             element.planos.splice(0, 0, list);
