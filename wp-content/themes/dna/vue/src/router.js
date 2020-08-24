@@ -24,6 +24,7 @@ import ContentFabric from './views/ContentFabric.vue'
 import SalesTraining from './views/SalesTraining.vue'
 import LeaderPrograms from './views/LeaderPrograms.vue'
 import InternalMultipliers from './views/InternalMultipliers.vue'
+import NaoEncontrado from './views/NaoEncontrado.vue'
 
 Vue.use(VueRouter)
 Vue.prototype.$http = ApiRest
@@ -158,6 +159,11 @@ const routes = [
     name: 'Page',
     component: Page,
     props: {default: true, slug: true}
+  },
+  {
+    path: '*',
+    name: 'NaoEncontrado',
+    component: NaoEncontrado
   },
 ]
 
