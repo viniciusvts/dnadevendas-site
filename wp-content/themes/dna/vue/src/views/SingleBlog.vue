@@ -11,10 +11,10 @@
             </div>
             <div class="row single-information">
               <div class="row col-12 col-lg-6 social-col m-0">
-                <img @click="iniciaSocialButtons" src="@/assets/svg/Facebook_logo.svg" alt="facebook logo" id="facebook">
-                <img @click="iniciaSocialButtons" src="@/assets/svg/Twitter_logo.svg" alt="twitter logo" id="twitter">
-                <img @click="iniciaSocialButtons" src="@/assets/svg/Linkedin_icon.svg" alt="linkedin logo" id="linkedin">
-                <img @click="iniciaSocialButtons" src="@/assets/svg/Pinterest_Shiny_Icon.svg" alt="pinterest logo" id="pinterest">
+                <img src="@/assets/svg/facebook-circle.svg" alt="facebook logo" id="facebook">
+                <img src="@/assets/svg/twitter-circle.svg" alt="twitter logo" id="twitter">
+                <img src="@/assets/svg/linkedin-circle.svg" alt="linkedin logo" id="linkedin">
+                <img src="@/assets/svg/pinterest-circle.svg" alt="pinterest logo" id="pinterest">
               </div>
               <div class="col-12 col-lg-6 m-0">
                 <p>{{postInformation}}</p>
