@@ -146,7 +146,7 @@
 
       <div class="row mt-5">
         <h1>Nossa Estrutura</h1>
-        <p>A DNA de Vendas tem dois escritórios corporativos: um em São Paulo e outro em Lauro de Freitas, na RM de Salvador. Além dos escritórios, a DNA tem sócios-consultores alocados no Rio de Janeiro, Belo Horizonte e Juiz de Fora para melhor atender os clientes desses estados sem necessidade de deslocamentos.</p>
+        <p>O Grupo DNA de Vendas conta com quatro escritórios corporativos: São Paulo, Belo Horizonte, Salvador e Lauro de Freitas. Além de uma base operacional no Rio de Janeiro.</p>
       </div>
 
       <div class="galery">
@@ -160,7 +160,7 @@
           </div>
 
           <div class="col-md-3">
-            <img :src="$http.baseURL + 'wp-content/uploads/nossa-estrutura-6.jpg'" alt />
+            <img :src="$http.baseURL + '/wp-content/uploads/unnamed.jpg'" alt />
           </div>
 
           <div class="col-md-3">
