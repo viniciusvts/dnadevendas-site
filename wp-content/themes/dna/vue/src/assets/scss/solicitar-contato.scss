@@ -1,51 +1,53 @@
-@import 'mixins.scss';
-@import 'variables.scss';
-@import 'breakpoint.scss';
+@import "mixins.scss";
+@import "variables.scss";
+@import "breakpoint.scss";
 
-.s-contato{
+.s-contato {
     &::after {
-        z-index: -1!important;
+        z-index: -1 !important;
     }
-    form{
-        background: inherit!important;
+    form {
+        background: inherit !important;
         width: 100%;
         margin: 0 auto;
         @media (max-width: $desktops) {
             padding: 60px 20px;
         }
-        input, select{
-            background: inherit!important;
-            &::placeholder{
-                color: gray!important;
+        input,
+        select {
+            background: inherit !important;
+            &::placeholder {
+                color: gray !important;
             }
-            &.ForSmall{
+            &.ForSmall {
                 border-bottom: solid 1px $pink-fsmall;
             }
         }
-        select{
+        select {
             margin: 0 0 20px;
             background-color: white;
             color: gray;
         }
-        button{
+        button {
             padding: 20px;
             text-transform: none;
-            img{
+            img {
                 height: 18px;
                 margin: auto 10px;
             }
         }
     }
-} 
+}
 
-h2.fale-conosco{
+h2.fale-conosco {
     font-weight: normal;
     @include fontSize(50px);
+
     @include breakpoint(hdDesktops) {
         @include fontSize(32px);
     }
 
-    &::before{
+    &::before {
         content: "";
         background-image: url("../assets/svg/fale-conosco.svg");
         background-repeat: no-repeat;
@@ -57,24 +59,24 @@ h2.fale-conosco{
         margin-top: -44px;
         background-size: 100px;
     }
-    &.ForSmall::before{
+    &.ForSmall::before {
         background-image: url("../assets/svg/fale-conosco-rosa.svg");
     }
 
-    @media (max-width: $desktops) {
-        @include fontSize(20px);
+    @include breakpoint(tablets) {
+        font-size: 30px;
         text-align: center;
     }
 }
 
-span.ForSmall{
+span.ForSmall {
     color: $pink-fsmall;
 }
 
-span.Home{
+span.Home {
     color: $golden;
 }
 
-button.ForSmall{
+button.ForSmall {
     background-color: $pink-fsmall;
 }

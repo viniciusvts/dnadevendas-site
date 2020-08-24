@@ -14,6 +14,10 @@
         font-weight: bold;
         margin-bottom: 80px;
 
+        @include breakpoint(tablets){
+            margin-bottom: 20px;
+        }
+
         &::before {
             display: block;
             position: absolute;
@@ -36,13 +40,7 @@
         h2.title-message {
             margin-bottom: 50px;
 
-            $base-font-size: 30px;            
-
-            @include breakpoint($hdDesktops) {
-                font-size: proportional-text($base-font-size, $hdDesktops);
-            }
-
-            font-size: proportional-text($base-font-size,1920px);           
+            $base-font-size: 30px;                  
         }
 
         select option {
