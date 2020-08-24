@@ -1,7 +1,7 @@
 <template>
   <section class="contact s-contato" id="contato-servico">
     <h2 class="fale-conosco" :class="detailColorClass">Entenda hoje como podemos fazer sua empresa <span :class="detailColorClass">crescer mais</span></h2>
-    <form name="dna_contato"
+    <form :id="formName"
       method="POST"
       :action="$http.baseURL + 'wp-json/dna_theme/v1/solicitar-contato'">
       <input type="hidden" name="urlOrigem" id="urlOrigem">
@@ -72,6 +72,17 @@ export default {
       v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
       v=v.replace(/(\d)(\d{4})$/,"$1-$2"); //Coloca - depois dos 4 digitos após ()
       evt.target.value = v;
+    }
+  },
+  computed: {
+    formName () {
+      if ( this.$route.name == 'FullService' ||
+          this.$route.name == 'Training') return 'conversion-form-consultoria-full-service-757325c8f0ead83c4fb7'
+      if ( this.$route.name == 'ForSmall') return 'conversion-form-consultoria-form-small-site-b233205a5a8fe1ee8cdc'
+      if ( this.$route.name == 'SalesTraining') return 'conversion-form-treinamento-de-vendas-b2ff848a04b20e6fc3d2'
+      if ( this.$route.name == 'SingleBlog') return 'conversion-form-converse-com-nossos-especialistas'
+      if ( this.$route.name == 'Talk') return 'conversion-form-palestras-de-vendas-e47298a45c8657828a99'
+      return 'dna_contato'
     }
   }
 };
