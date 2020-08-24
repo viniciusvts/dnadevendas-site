@@ -43,7 +43,7 @@
             </a>
         </div>
 
-        <div v-if="isBlogRoute" class="newsletter">
+        <div class="newsletter">
             <form name="dna_newsletter"
             method="POST"
             :action="$http.baseURL + 'wp-json/dna_theme/v1/contato-footer'">
@@ -81,10 +81,6 @@
                 if(rota === 'BlogPage') return true;
                 if(rota === 'BlogCat') return true;
                 return false;
-            },
-            isSingleBlogRoute(){
-                let rota = this.$route.name;
-                return rota === 'SingleBlog';
             },
             hasMostViewedPosts(){
                 return (this.mostViewedPosts.length > 0);
