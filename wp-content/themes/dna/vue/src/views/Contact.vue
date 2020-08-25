@@ -93,52 +93,29 @@ export default {
   mixins: [send],
   data() {
     return {
+      pageID: 7310,
       mapIframe: null,
-      contacts: [
-        {
-          city: "São Paulo",
-          end:
-            "Av. Maj. Sylvio de Magalhães Padilha 5200 America Business Park, Ed. Montreal 8º andar, Morumbi – São Paulo",
-          email: "contato@dnadevendas.com.br",
-          telefone: "+55 (11) 2384-1502",
-          map:
-            '<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29244.614597326214!2d-46.703224!3d-23.619505000000004!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4ae67492de264cb6!2sAmerica%20Business%20Park!5e0!3m2!1sen!2sus!4v1585587519596!5m2!1sen!2sus" width="100%" height="550" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>',
-        },
-        {
-          city: "Belo Horizonte",
-          end: "Rua Canopus 11, Santa Lucia, Belo Horizonte – MG",
-          email: null,
-          telefone: "+55 (31) 4042-0442",
-          map:
-            '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.2813349957087!2d-43.94970308508518!3d-19.954667386589936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa697861f97e149%3A0xffe6369f045869b2!2sR.%20Canopus%2C%2011%20-%20Santa%20L%C3%BAcia%2C%20Belo%20Horizonte%20-%20MG%2C%2030360-112!5e0!3m2!1spt-BR!2sbr!4v1587746473646!5m2!1spt-BR!2sbr" width="100%" height="550" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>',
-        },
-        {
-          city: "Salvador",
-          end:
-            "R. Carlos Alberto Santos, nº7 Ed. Mais Empresarial, 5º Andar Vilas do Atlântico – Lauro de Freitas – BA",
-          email: null,
-          telefone: "+55 (71) 3289-5595",
-          map:
-            '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.582831596932!2d-38.30206118517906!3d-12.87019919092251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7163e16a0d82513%3A0x130e7ebf24ae7c63!2sMais%20Empresarial!5e0!3m2!1spt-BR!2sbr!4v1589816921620!5m2!1spt-BR!2sbr" width="100%" height="550" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>',
-        },
-        {
-          city: "Rio de Janeiro",
-          end: null,
-          email: null,
-          telefone: "+55 (21) 4042-5440",
-        },
-      ],
+      post: null,
+      contacts: null
     };
   },
   created() {
     document.title = 'Contato - DNA de Vendas'
-    console.log(process.env.VUE_USER_LOGIN_CONTACT);
   },
   mounted() {
-    this.setMapIframe(this.contactsWithMap[0].map);
+    this.getAcf();
     document.getElementById('urlOrigem').value = location.href
   },
   methods: {
+    getAcf() {
+      this.$http.getPagesById(this.pageID)
+        .then(resp => resp.json())
+        .then(json => {
+          this.post = json;
+          this.contacts = json.acf.contacts;
+          this.setMapIframe(this.contactsWithMap[0].map);
+        });
+    },
     removeActiveButtons(first) {
       var buttons = document.querySelectorAll(".buttons-row button");
       for (let i = 0; i < buttons.length; i++) {
