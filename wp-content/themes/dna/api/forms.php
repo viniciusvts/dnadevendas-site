@@ -59,6 +59,7 @@ function dnaapi_paginaContato($req){
   $nome = $req->get_param('nome');
   $email = $req->get_param('email');
   $setor = $req->get_param('setor');
+  $nVendedores = $req->get_param('nVendedores');
   $telefone = $req->get_param('telefone');
   $assunto = $req->get_param('assunto');
   $mensagem = $req->get_param('mensagem');
@@ -69,6 +70,7 @@ function dnaapi_paginaContato($req){
   $message = "Nome: ".$nome
       ."<br>Email: ".$email
       ."<br>setor: ".$setor
+      ."<br>nVendedores: ".$nVendedores
       ."<br>telefone: ".$telefone
       ."<br>assunto: ".$assunto
       ."<br>mensagem: ".$mensagem

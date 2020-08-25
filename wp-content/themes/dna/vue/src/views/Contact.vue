@@ -16,11 +16,18 @@
             <label for="setor">Quero falar com</label>
             <select name="setor" id="setor" required>
               <option value=""> </option>
-              <option value="Comercial">Comercial</option>
               <option value="Administrativo / Financeiro">Administrativo / Financeiro</option>
               <option value="Comercial / Vendas">Comercial / Vendas</option>
               <option value="Marketing / Comunicação">Marketing / Comunicação</option>
               <option value="Recursos Humanos">Recursos Humanos</option>
+            </select>
+            <select type="text" name="nVendedores" id="nVendedores" :class="detailColorClass" required>
+              <option value>N° de vendedores</option>
+              <option value="1-2">1-2</option>
+              <option value="3-10">3-10</option>
+              <option value="11-15">11-15</option>
+              <option value="16-50">16-50</option>
+              <option value="51+">51+</option>
             </select>
             <label for="telefone">Telefone*</label>
             <input type="text" name="telefone" id="telefone" v-on:keyup="execMascara" required />
