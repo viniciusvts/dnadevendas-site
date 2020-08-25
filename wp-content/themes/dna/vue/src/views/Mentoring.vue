@@ -122,7 +122,7 @@
       </div>
     </Metrics>
 
-    <SolicitarContato />
+    <SolicitarContato titulo="Entenda hoje mesmo como ampliar o seu potencial de <span>entrega de resultados</span>" />
   </div>
 </template>
 
