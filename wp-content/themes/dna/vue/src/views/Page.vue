@@ -11,14 +11,23 @@
         </div>
 
         <div v-else-if="is404" class="container">
-            404: não encontrado
+            <h1 class="mt-5">Página não encontrada</h1>
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-center">A página solicitada não existe</p>
+                </div>
+            </div>
         </div>
 
         <div v-else-if="isError" class="container">
-            <h1>Ocorreu um erro de rede</h1>
-            <p class="text-center">
-                Ocorreu um erro de rede, recarregue a página e tente novamente mais tarde
-            </p>
+            <h1 class="mt-5">Ocorreu um erro de rede</h1>
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-center">
+                        Ocorreu um erro de rede, recarregue a página e tente novamente mais tarde
+                    </p>
+                </div>
+            </div>
         </div>
 
         <div v-else class="container">
@@ -62,8 +71,12 @@
                     this.is404= true
                 })
                 .then(r => {
-                    this.pageContent = r;
-                    document.title = this.pageContent[0].yoast_title
+                    if (r.lenght > 0) {
+                        this.pageContent = r
+                        document.title = this.pageContent[0].yoast_title
+                    } else {
+                        this.is404 = true
+                    }
                 })
                 .catch(() =>{
                     this.isError = true;
