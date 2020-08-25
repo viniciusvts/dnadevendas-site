@@ -21,10 +21,10 @@
                 <div class="dateAgo">
                   <span>{{daysAgo}}</span>
                 </div>
-                <div class="viewsAgo">
+                <!-- <div class="viewsAgo">
                   <span>{{post.DNA_custom.views}}</span>
                   <img src="@/assets/svg/book.svg" alt="">
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
