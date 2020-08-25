@@ -1,18 +1,18 @@
 <template>
   <section class="about">
     <div class="container">
-      <h1>Quem Somos</h1>
-      <p>Uma consultoria que atua com foco exclusivo no desenvolvimento de pessoas,
-        processos e modelos de gestão para o aumento da produtividade em vendas.
-        Contamos com um time multidisciplinar de 40 colaboradores que garantem
-        excelência em todos os nossos projetos e entregas.</p>
+      <div class="texto-principal">
+        <h1>Quem Somos</h1>
+        <p>Uma consultoria que atua com foco exclusivo no desenvolvimento de pessoas,
+          processos e modelos de gestão para o aumento da produtividade em vendas.
+          Contamos com um time multidisciplinar de 40 colaboradores que garantem
+          excelência em todos os nossos projetos e entregas.</p>
+      </div>
 
       <div class="row">
         <div class="col-md-6 left">
-          <div class="title">
-            <span></span>
-            <h2>Nossa história</h2>
-          </div>
+          <h2>Nossa história</h2>
+          <div class="texto">
           <p>
             A DNA de Vendas nasceu a partir do desenvolvimento de
             um programa de gestão e capacitação da força de Vendas,
@@ -37,13 +37,11 @@
             DNA de Vendas Corporate, DNA de Vendas For Small e a
             DNA For Marketing.
           </p>
+          </div>
         </div>
 
         <div class="col-md-6 right">
-          <div class="title">
-            <h2>Nossos Valores</h2>
-            <span></span>
-          </div>
+          <h2>Nossos Valores</h2>
           <div class="row">
             <div class="col-auto">
               <img src="@/assets/svg/diamond.svg" alt="Integridade" />
