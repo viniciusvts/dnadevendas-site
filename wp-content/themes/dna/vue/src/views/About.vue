@@ -2,183 +2,47 @@
   <section class="about">
     <div class="container">
       <div class="texto-principal">
-        <h1>Quem Somos</h1>
-        <p>Uma consultoria que atua com foco exclusivo no desenvolvimento de pessoas,
-          processos e modelos de gestão para o aumento da produtividade em vendas.
-          Contamos com um time multidisciplinar de 40 colaboradores que garantem
-          excelência em todos os nossos projetos e entregas.</p>
+        <h1 v-html="post.acf.head.titulo"></h1>
+        <div v-html="post.acf.head.texto"></div>
       </div>
 
       <div class="row">
         <div class="col-md-6 left">
-          <h2>Nossa história</h2>
-          <div class="texto">
-          <p>
-            A DNA de Vendas nasceu a partir do desenvolvimento de
-            um programa de gestão e capacitação da força de Vendas,
-            criado por três executivos, em uma das maiores redes de
-            varejo do Brasil. O projeto foi executado e aperfeiçoado
-            e o impacto gerado contribuiu estrategicamente para o
-            crescimento de Vendas e o aumento da rentabilidade.
-          </p>
-
-          <p>
-            Ao longo dos últimos anos a DNA já desenvolveu centenas
-            de programas para aumento da produtividade de Vendas
-            em empresas que atuam com produtos e serviços, nos
-            mais diversos segmentos, tais como: tecnologia, educação,
-            mercado imobiliário, saúde indústria farmacêutica,
-            automobilística, varejo, distribuição em todas as regiões
-            do Brasil.
-          </p>
-
-          <p>
-            O grupo DNA de Vendas é constituído por três negócios:
-            DNA de Vendas Corporate, DNA de Vendas For Small e a
-            DNA For Marketing.
-          </p>
-          </div>
+          <h2 v-html="post.acf.conteudo_esquerdo.titulo"></h2>
+          <div class="texto" v-html="post.acf.conteudo_esquerdo.conteudo"></div>
         </div>
 
         <div class="col-md-6 right">
-          <h2>Nossos Valores</h2>
-          <div class="row">
+          <h2 v-html="post.acf.conteudo_direito.titulo"></h2>
+          <div class="row" v-for="(item, index) in post.acf.conteudo_direito.valores" :key="index">
             <div class="col-auto">
-              <img src="@/assets/svg/diamond.svg" alt="Integridade" />
+              <img :src="item.imagem.sizes.medium" :alt="item.imagem.alt" />
             </div>
             <div class="col">
-              <h3>Integridade</h3>
-              <p>Nossas ações refletem retidão, justiça e caráter</p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-auto">
-              <img src="@/assets/svg/tick.svg" alt="Integridade" />
-            </div>
-            <div class="col">
-              <h3>Compromisso</h3>
-              <p>Fazer mais do que o esperado</p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-auto">
-              <img src="@/assets/svg/discover.svg" alt="Integridade" />
-            </div>
-            <div class="col">
-              <h3>Foco</h3>
-              <p>A concentração em nossas metas determina nossa força de atuação</p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-auto">
-              <img src="@/assets/svg/lamp.svg" alt="Integridade" />
-            </div>
-            <div class="col">
-              <h3>Inovação</h3>
-              <p>Sempre existe uma maneira de fazer melhor</p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-auto">
-              <img src="@/assets/svg/pencil.svg" alt="Integridade" />
-            </div>
-            <div class="col">
-              <h3>Simplicidade</h3>
-              <p>Se não for prático, objetivo e intuitivo, pense numa forma melhor</p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-auto">
-              <img src="@/assets/svg/smile.svg" alt="Integridade" />
-            </div>
-            <div class="col">
-              <h3>Otimismo</h3>
-              <p>O pensamento positivo é a primeira etapa da realização de um sonho</p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-auto">
-              <img src="@/assets/svg/heart.svg" alt="Integridade" />
-            </div>
-            <div class="col">
-              <h3>Intensidade no trabalho</h3>
-              <p>Energia e dedicação intensa diferenciam um resultado mediano do excepcional</p>
+              <h3 v-html="item.titulo"></h3>
+              <p v-html="item.texto"></p>
             </div>
           </div>
         </div>
       </div>
 
       <div class="row mt-5 group">
-        <h1>Grupo Dna</h1>
-        <div class="col-md-4">
-          <router-link :to="{name: 'Home'}">
-            <img
-              :src="$http.baseURL + 'wp-content/uploads/Prancheta-1.png'"
-              alt="Dna de Vendas"
-            />
-          </router-link>
-        </div>
-        <div class="col-md-4">
-          <router-link :to="{name: 'ForSmall'}">
-            <img
-              :src="$http.baseURL + 'wp-content/uploads/Prancheta-1-cópia-2.png'"
-              alt="Dna de Vendas for Small"
-            />
-          </router-link>
-        </div>
-        <div class="col-md-4">
-          <a href="http://dnaformarketing.com.br/" target="_blank">
-            <img
-              :src="$http.baseURL + 'wp-content/uploads/Prancheta-1-cópia.png'"
-              alt="Dna for Marketing"
-            />
+        <h1 v-html="post.acf.grupo_dna.titulo"></h1>
+        <div class="col-md-4" v-for="(item, index) in post.acf.grupo_dna.galeria" :key="index">
+          <a :href="item.link.url" :target="item.link.target">
+            <img :src="item.imagem.sizes.large" :alt="item.imagem.alt" />
           </a>
         </div>
       </div>
 
       <div class="row mt-5">
-        <h1>Nossa Estrutura</h1>
-        <p>O Grupo DNA de Vendas conta com quatro escritórios corporativos: São Paulo, Belo Horizonte, Salvador e Lauro de Freitas. Além de uma base operacional no Rio de Janeiro.</p>
+        <h1 v-html="post.acf.estrutura.titulo"></h1>
+        <div class="texto" v-html="post.acf.estrutura.texto"></div>
       </div>
-
       <div class="galery">
         <div class="row">
-          <div class="col-md-3">
-            <img :src="$http.baseURL + 'wp-content/uploads/nossa-estrutura-7.jpg'" alt />
-          </div>
-
-          <div class="col-md-3">
-            <img :src="$http.baseURL + 'wp-content/uploads/nossa-estrutura-9.jpg'" alt />
-          </div>
-
-          <div class="col-md-3">
-            <img :src="$http.baseURL + '/wp-content/uploads/unnamed.jpg'" alt />
-          </div>
-
-          <div class="col-md-3">
-            <img :src="$http.baseURL + 'wp-content/uploads/nossa-estrutura-5.jpg'" alt />
-          </div>
-
-          <div class="col-md-3">
-            <img :src="$http.baseURL + 'wp-content/uploads/nossa-estrutura-10.jpg'" alt />
-          </div>
-
-          <div class="col-md-3">
-            <img :src="$http.baseURL + 'wp-content/uploads/nossa-estrutura-4.jpg'" alt />
-          </div>
-
-          <div class="col-md-3">
-            <img :src="$http.baseURL + 'wp-content/uploads/nossa-estrutura-2.jpg'" alt />
-          </div>
-
-          <div class="col-md-3">
-            <img :src="$http.baseURL + 'wp-content/uploads/nossa-estrutura-1.jpg'" alt />
+          <div class="col-md-3" v-for="(item, index) in post.acf.estrutura.galeria" :key="index">
+            <img :src="item.sizes.large" :alt="item.alt" />
           </div>
         </div>
       </div>
