@@ -1,6 +1,6 @@
 <template>
   <section class="contact s-contato" id="contato-servico">
-    <h2 class="fale-conosco" :class="detailColorClass">Entenda hoje como podemos fazer sua empresa <span :class="detailColorClass">crescer mais</span></h2>
+    <h2 class="fale-conosco" :class="detailColorClass" v-if="titulo" v-html="titulo"></h2>
     <form :id="formName"
       method="POST"
       :action="$http.baseURL + 'wp-json/dna_theme/v1/solicitar-contato'">
@@ -50,10 +50,14 @@
 </template>
 
 <script>
-// import classBtn from '../services/ClassButton.js';
 export default {
   name: "solicitar-contato",
-  // mixins: [classBtn],
+  props: {
+    titulo: {
+        type: String,
+        default: 'Entenda hoje como podemos fazer sua empresa <span>crescer mais</span>'
+      }
+  },
   data() {
     return {
       detailColorClass: null,
