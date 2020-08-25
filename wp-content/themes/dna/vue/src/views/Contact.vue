@@ -21,8 +21,9 @@
               <option value="Marketing / Comunicação">Marketing / Comunicação</option>
               <option value="Recursos Humanos">Recursos Humanos</option>
             </select>
-            <select type="text" name="nVendedores" id="nVendedores" :class="detailColorClass" required>
-              <option value>N° de vendedores</option>
+            <label for="nVendedores">N° de vendedores</label>
+            <select name="nVendedores" id="nVendedores" required>
+              <option value=""> </option>
               <option value="1-2">1-2</option>
               <option value="3-10">3-10</option>
               <option value="11-15">11-15</option>
