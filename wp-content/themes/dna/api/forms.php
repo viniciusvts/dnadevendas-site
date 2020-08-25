@@ -10,7 +10,7 @@ function dnaapi_contatoFooter($req){
   $email = $req->get_param('email');
   $urlOrigem = $req->get_param('urlOrigem');
   // envia email
-  $to = get_option('admin_email');
+  $to = 'no-reply@dnadevendas.com.br';
   $subject = 'DNA de Vendas - Contato';
   $message = "Nome: ".$nome
       ."<br>Email: ".$email
@@ -35,7 +35,7 @@ function dnaapi_solicitarContato($req){
   $qtdfunc = $req->get_param('qtdfunc');
   $urlOrigem = $req->get_param('urlOrigem');
   // envia email
-  $to = get_option('admin_email');
+  $to = 'no-reply@dnadevendas.com.br';
   $subject = 'DNA de Vendas - Contato';
   $message = "Nome: ".$nome
       ."<br>Email: ".$email
@@ -65,7 +65,7 @@ function dnaapi_paginaContato($req){
   $mensagem = $req->get_param('mensagem');
   $urlOrigem = $req->get_param('urlOrigem');
   // envia email
-  $to = get_option('admin_email');
+  $to = 'site@dnadevendas.com.br';
   $subject = 'DNA de Vendas - Contato';
   $message = "Nome: ".$nome
       ."<br>Email: ".$email
