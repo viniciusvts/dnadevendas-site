@@ -160,6 +160,8 @@ const routes = [
     component: Page,
     props: {default: true, slug: true}
   },
+  /* regra acima pega a maioria das rotas, 
+  no caso de alguma não ser pega, um 404 para garantir: */
   {
     path: '*',
     name: 'NaoEncontrado',
