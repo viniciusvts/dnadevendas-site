@@ -11,7 +11,7 @@
 <script>
 export default {
     name: "Metrics"
-}
+};
 </script>
 
 <style lang="scss">

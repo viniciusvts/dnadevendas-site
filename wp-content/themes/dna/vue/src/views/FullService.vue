@@ -84,9 +84,6 @@
     <Methodology v-if="bannerData"/>
     <PaginaCarregando v-else/>
 
-    <CTA v-if="bluecta" :title="bluecta.titulo" :button="bluecta.botao" />
-    <PaginaCarregando v-else />
-
     <Metrics v-if="metricas">
       <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
         <img
@@ -100,6 +97,9 @@
       </div>
     </Metrics>
     <PaginaCarregando v-else/>
+
+    <CTA v-if="bluecta" :title="bluecta.titulo" :button="bluecta.botao" />
+    <PaginaCarregando v-else />
 
     <SolicitarContato v-if="bannerData"/>
     <PaginaCarregando v-else/>
