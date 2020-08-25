@@ -62,19 +62,17 @@ h2.fale-conosco {
     &.ForSmall::before {
         background-image: url("../assets/svg/fale-conosco-rosa.svg");
     }
+    &.ForSmall span {
+        color: $pink-fsmall;
+    }
+    &.Home span {
+    color: $golden;
+    }
 
     @include breakpoint(tablets) {
         font-size: 30px;
         text-align: center;
     }
-}
-
-span.ForSmall {
-    color: $pink-fsmall;
-}
-
-span.Home {
-    color: $golden;
 }
 
 button.ForSmall {
