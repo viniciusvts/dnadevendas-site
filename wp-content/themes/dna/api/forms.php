@@ -17,7 +17,7 @@ function dnaapi_contatoFooter($req){
       ."<br>urlOrigem: ".$urlOrigem;
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $wpmail = wp_mail( $to, $subject, $message, $headers );
-  $url = $_SERVER['HTTP_ORIGIN'] . '/agradecimento';
+  $url = $_SERVER['HTTP_ORIGIN'] . '/contato/agradecimento/';
   wp_redirect($url);
   exit;
 }
@@ -77,7 +77,7 @@ function dnaapi_paginaContato($req){
       ."<br>urlOrigem: ".$urlOrigem;
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $wpmail = wp_mail( $to, $subject, $message, $headers );
-  $url = $_SERVER['HTTP_ORIGIN'] . '/agradecimento';
+  $url = $_SERVER['HTTP_ORIGIN'] . '/contato/agradecimento/';
   wp_redirect($url);
   exit;
 }
