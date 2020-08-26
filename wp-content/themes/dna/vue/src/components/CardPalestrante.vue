@@ -32,7 +32,7 @@
       <div class="empresas">
         <ul>
           <li v-for="(empresa, index) in dataCase.onde_palestrou" :key="index">
-            <img class="lazy images" :src="empresa.sizes.medium" :alt="alt">
+            <img :src="empresa.sizes.medium" :alt="alt">
           </li>
         </ul>
       </div>
