@@ -26,12 +26,20 @@
               <router-link :to="{ name: 'Blog' }">Blog</router-link> /
               {{post.title.rendered}}
             </p>
-            <article v-html="post.content.rendered"></article>
+            <div class="sumary d-none d-md-block">
+              <h2>Sumário</h2>
+              <ul>
+                <li v-for="sub in listOfTitles" :key="sub">
+                  <a :href="'#'+sub.href" v-html="sub.text"></a>
+                </li>
+              </ul>
+            </div>
+            <article ref="content" v-html="post.content.rendered"></article>
           </div>
 
-          <div v-else class="col-sm-12 col-md-8 content">{{message}}</div>
+          <div v-else class="col-sm-12 col-md-6 content">{{message}}</div>
 
-          <div class="col-md-3 col-sm-12">
+          <div class="col-sm-12 col-md-3">
             <Sidebar/>
           </div>
       </div>
@@ -48,7 +56,7 @@
   // import UpMeta from "@/services/UpdateMeta.js";
   
   export default {
-    name: "Contato",
+    name: "SingleBlog",
     components: {
       SolicitarContato,
       Sidebar
@@ -57,7 +65,8 @@
     data() {
       return {
         post: null,
-        message: 'Carregando'
+        message: 'Carregando',
+        listOfTitles: []
       }
     },
     mounted() {
@@ -66,6 +75,7 @@
         this.getPost(this.$route.params.slug);
       }else{
         this.post = this.$route.params.post;
+        this.$nextTick(this.setTitles)
       }
     },
     methods: {
@@ -96,7 +106,22 @@
         })
         .then(json=>{
           this.post = json[0];
+          this.$nextTick(this.setTitles)
         });
+      },
+      setTitles () {
+        const allH2 = this.$el.querySelectorAll('article h2');
+        for (var i = 0; i < allH2.length; i++) {
+          const newId = 't'+ i
+          // se liga aqui que eu coloco id no elemento anterior, para dar a margem da menubar
+          // caso não tenha elemento anterior (geralmente forms rd e etc) pula
+          if (allH2[i].previousElementSibling) allH2[i].previousElementSibling.id = newId
+          else continue
+          this.listOfTitles.push({
+            text: allH2[i].innerText,
+            href: newId
+          })
+        }
       },
       iniciaSocialButtons(){
         var facebook = document.getElementById('facebook');
@@ -187,7 +212,7 @@
         if (this.post.DNA_custom.views == 1) resp += " visualização";
         else resp += " visualizações";
         return resp;
-      }
+      },
     }
   };
 </script>
