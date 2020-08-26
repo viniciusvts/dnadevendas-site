@@ -75,6 +75,11 @@
             document.getElementById('urlOrigem').value = location.href
         },
         computed:{
+            isSingleBlogRoute(){
+                let rota = this.$route.name;
+                if(rota === 'SingleBlog') return true;
+                return false;
+            },
             isBlogRoute(){
                 let rota = this.$route.name;
                 if(rota === 'Blog') return true;
