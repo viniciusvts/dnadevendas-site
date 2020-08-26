@@ -29,8 +29,7 @@
                 </div>
             </div>
         </div>
-
-        <div v-else class="container">
+        <div v-else class="container loadingPage">
             <Loading />
         </div>
     </section>

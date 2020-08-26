@@ -1,6 +1,6 @@
 <template>
-  <div class="talk">
-    <Spotlight v-if="bannerData">
+  <div class="talk" v-if="bannerData">
+    <Spotlight>
       <div class="text section">
         <h1 v-html="bannerData.chamada"></h1>
         <h2 v-if="bannerData.subtitulo">{{bannerData.subtitulo}}</h2>
@@ -37,10 +37,13 @@
     <sec-contact v-if="bannerData"/>
     
   </div>
+  <div v-else class="container loadingPage">
+      <Loading />
+  </div>
 </template>
 
 <script>
-
+  import Loading from "@/components/Loading.vue";
   import Spotlight from '@/components/Spotlight.vue';
   // import FaleConosco from '@/components/FaleConosco.vue';
   import Metrics from '@/components/Metrics.vue';
@@ -50,6 +53,7 @@
   export default {
     name: "WorkShops",
     components: {
+      Loading,
       Spotlight,
       Metrics,
       'sec-contact': SolicitarContato,

@@ -1,5 +1,5 @@
 <template>
-  <section class="about">
+  <section class="about" v-if="post">
     <div class="container">
       <div class="texto-principal">
         <h1 v-html="post.acf.head.titulo"></h1>
@@ -48,12 +48,16 @@
       </div>
     </div>
   </section>
+  <div v-else class="container loadingPage">
+      <Loading />
+  </div>
 </template>
 
 <script>
-
+import Loading from "@/components/Loading.vue";
 export default {
   name: "About",
+  components:{Loading},
   data() {
     return {
       postId: 312,

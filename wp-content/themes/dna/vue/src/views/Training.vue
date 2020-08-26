@@ -1,6 +1,6 @@
 <template>
-  <div class="talk full-service">
-    <Spotlight v-if="bannerData">
+  <div class="talk full-service" v-if="bannerData">
+    <Spotlight>
       <div class="text section">
         <h1 v-html="bannerData.chamada"></h1>
         <h2 v-if="bannerData.subtitulo" v-html="bannerData.subtitulo"></h2>
@@ -179,9 +179,13 @@
 
     <SolicitarContato/>
   </div>
+  <div v-else class="container loadingPage">
+      <Loading />
+  </div>
 </template>
 
 <script>
+import Loading from "@/components/Loading.vue";
 import Spotlight from "@/components/Spotlight.vue";
 import Metrics from "@/components/Metrics.vue";
 import CardSlider from "@/components/CardSlider.vue";
@@ -193,6 +197,7 @@ import Methodology from "@/components/Methodology.vue";
 export default {
   name: "FullService",
   components: {
+    Loading,
     Spotlight,
     Metrics,
     SolicitarContato,

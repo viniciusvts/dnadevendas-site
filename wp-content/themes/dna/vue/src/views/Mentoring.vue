@@ -1,6 +1,6 @@
 <template>
-  <div class="talk mentoring">
-    <Spotlight v-if="bannerData">
+  <div class="talk mentoring" v-if="bannerData">
+    <Spotlight>
       <div class="text section">
         <h1 v-html="bannerData.chamada"></h1>
         <h2 v-if="bannerData.subtitulo" v-html="bannerData.subtitulo"></h2>
@@ -124,9 +124,13 @@
 
     <SolicitarContato titulo="Entenda hoje mesmo como ampliar o seu potencial de <span>entrega de resultados</span>" />
   </div>
+  <div v-else class="container loadingPage">
+      <Loading />
+  </div>
 </template>
 
 <script>
+import Loading from "@/components/Loading.vue";
 import Pillars from "@/components/Pillars.vue";
 import Spotlight from "@/components/Spotlight.vue";
 import Metrics from "@/components/Metrics.vue";
@@ -135,6 +139,7 @@ import SolicitarContato from "@/components/SolicitarContato.vue";
 export default {
   name: "Mentoring",
   components: {
+    Loading,
     Spotlight,
     Metrics,
     SolicitarContato,

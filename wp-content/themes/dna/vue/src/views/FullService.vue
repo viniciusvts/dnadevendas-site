@@ -1,6 +1,6 @@
 <template>
-  <div class="talk full-service">
-    <Spotlight v-if="bannerData">
+  <div class="talk full-service" v-if="bannerData">
+    <Spotlight >
       <div class="text section">
         <h1 v-html="bannerData.chamada"></h1>
         <h2 v-if="bannerData.subtitulo" v-html="bannerData.subtitulo"></h2>
@@ -16,7 +16,6 @@
       </div>
       <img class="image" :src="bannerData.imagem" :alt="bannerData.chamada" />
     </Spotlight>
-    <PaginaCarregando v-else/>
 
     <Pillars v-if="pilares">
       <div class="container-fluid">
@@ -104,9 +103,13 @@
     <SolicitarContato v-if="bannerData"/>
     <PaginaCarregando v-else/>
   </div>
+  <div v-else class="container loadingPage">
+      <Loading />
+  </div>
 </template>
 
 <script>
+import Loading from "@/components/Loading.vue";
 import Spotlight from "@/components/Spotlight.vue";
 import CTA from "@/components/BlueCta.vue";
 import Metrics from "@/components/Metrics.vue";
@@ -118,6 +121,7 @@ import Methodology from "@/components/Methodology.vue";
 export default {
   name: "FullService",
   components: {
+    Loading,
     Spotlight,
     CTA,
     Metrics,

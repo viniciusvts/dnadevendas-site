@@ -1,5 +1,5 @@
 <template>
-  <div class="contact">
+  <div class="contact" v-if="post">
     <h1>Contato</h1>
     <section class="container">
       <div class="row align-items-center">
@@ -13,7 +13,7 @@
             <input type="text" name="nome" id="nome" required />
             <label for="email">E-mail*</label>
             <input type="email" name="email" id="email" required />
-            <label for="setor">Quero falar com</label>
+            <label for="setor">Quero falar com*</label>
             <select name="setor" id="setor" required>
               <option value=""> </option>
               <option value="Administrativo / Financeiro">Administrativo / Financeiro</option>
@@ -21,7 +21,7 @@
               <option value="Marketing / Comunicação">Marketing / Comunicação</option>
               <option value="Recursos Humanos">Recursos Humanos</option>
             </select>
-            <label for="nVendedores">N° de vendedores</label>
+            <label for="nVendedores">N° de vendedores*</label>
             <select name="nVendedores" id="nVendedores" required>
               <option value=""> </option>
               <option value="1-2">1-2</option>
@@ -33,10 +33,10 @@
             <label for="telefone">Telefone*</label>
             <input type="text" name="telefone" id="telefone" v-on:keyup="execMascara" required />
 
-            <label for="assunto">Assunto</label>
+            <label for="assunto">Assunto*</label>
             <input type="text" name="assunto" id="assunto" required />
 
-            <label for="mensagem">Mensagem</label>
+            <label for="mensagem">Mensagem*</label>
             <textarea
               name="mensagem"
               id="mensagem"
@@ -83,13 +83,17 @@
       >{{contact.city}}</button>
     </div>
   </div>
+  <div v-else class="container loadingPage">
+      <Loading />
+  </div>
 </template>
 
-
 <script>
+import Loading from "@/components/Loading.vue";
 import send from "../services/Contact.js";
 export default {
   name: "Contact",
+  components:{Loading},
   mixins: [send],
   data() {
     return {

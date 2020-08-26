@@ -1,5 +1,5 @@
 <template>
-  <div class="forSmall">
+  <div class="forSmall" v-if="post">
     <Spotlight>
       <div class="text section">
         <h1 v-html="post.acf.chamada"></h1>
@@ -63,12 +63,14 @@
     <Depoiments color="pink"/>
     <pricing-table></pricing-table>
     <SolicitarContato></SolicitarContato>
-
-
+  </div>
+  <div v-else class="container loadingPage">
+      <Loading />
   </div>
 </template>
 
 <script>
+    import Loading from "@/components/Loading.vue";
     import Spotlight from '@/components/Spotlight.vue';
     import Pillars from '@/components/Pillars.vue';
     import Cases from '@/components/CasesForSmall.vue';
@@ -82,6 +84,7 @@
   export default {
     name: "Talk",
     components: {
+      Loading,
       Spotlight,
       Pillars,
       Cases,

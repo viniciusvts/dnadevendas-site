@@ -1,5 +1,5 @@
 <template>
-  <div class="training">
+  <div class="training" v-if="post">
     <section class="about">
       <div class="container-fluid">
         <div class="title" v-if="post.title.rendered">
@@ -70,9 +70,13 @@
 
      <SolicitarContato />
   </div>
+  <div v-else class="container loadingPage">
+      <Loading />
+  </div>
 </template>
 
 <script>
+import Loading from "@/components/Loading.vue";
 import Pillars from "@/components/Pillars.vue";
 import Metrics from "@/components/Metrics.vue";
 import SolicitarContato from "@/components/SolicitarContato.vue";
@@ -80,6 +84,7 @@ import SolicitarContato from "@/components/SolicitarContato.vue";
 export default {
   name: "LeaderPrograms",
   components: {
+    Loading,
     Pillars,
     Metrics,
     SolicitarContato

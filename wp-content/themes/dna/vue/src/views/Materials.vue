@@ -1,6 +1,6 @@
 <template>
-  <section class="materials mt-5">
-    <div v-if="page" class="container container-fhd">
+  <section class="materials mt-5" v-if="page" >
+    <div class="container container-fhd">
       <h1>{{page.title.rendered}}</h1>
       <p>Aqui você encontrará vídeos, palestras, apresentações e outros materiais gratuitos sobre vendas. Baixe à vontade!</p>
       <div class="row">
@@ -24,11 +24,10 @@
         </div>
       </div>
     </div>
-    
-    <div v-else class="container container-fhd">
-      <Loading />
-    </div>
   </section>
+  <div v-else class="container loadingPage">
+      <Loading />
+  </div>
 </template>
 
 <script>

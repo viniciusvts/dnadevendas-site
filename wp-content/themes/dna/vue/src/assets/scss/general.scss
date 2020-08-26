@@ -29,8 +29,13 @@ html{
   scroll-behavior: smooth;
 }
 
-#main{
+.loadingPage{
   min-height: 100vh;
+  display: grid;
+  .loading{
+    margin-top: auto;
+    margin-bottom: auto;
+  }
 }
 
 h1{

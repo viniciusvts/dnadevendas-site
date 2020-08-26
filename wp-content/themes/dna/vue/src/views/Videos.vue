@@ -1,6 +1,6 @@
 <template>
-  <section class="materials videos mt-5">
-    <div v-if="page" class="container">
+  <section class="materials videos mt-5" v-if="page">
+    <div class="container">
       <h1>{{page.title.rendered}}</h1>
       <p>Assista nossos especialistas apresentando dicas valiosas para melhorar a performance de seu time <br> e aumentar sua produtividade de vendas.</p>
       
@@ -45,11 +45,10 @@
         </div>
       </div>
     </div>
-
-    <div v-else class="container">
-      <Loading />
-    </div>
   </section>
+  <div v-else class="container loadingPage">
+      <Loading />
+  </div>
 </template>
 
 <script>

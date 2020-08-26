@@ -1,10 +1,10 @@
 <template>
-  <div class="talk">
-    <Spotlight v-if="banner">
+  <div class="talk" v-if="banner">
+    <Spotlight>
       <div class="text section">
         <h1 v-html="banner.chamada"></h1>
-        <h2 class="colorDestak" v-if="banner">{{banner.subtitulo}}</h2>
-        <button class="btn-grad" v-if="banner">
+        <h2 class="colorDestak" >{{banner.subtitulo}}</h2>
+        <button class="btn-grad" >
           <a href="#contato-servico">
             {{banner.cta}}
           </a>
@@ -24,7 +24,7 @@
       
     </Spotlight>
 
-    <section class="container-fluid" v-if="banner">
+    <section class="container-fluid">
       <div class="banner-video">
         <h2>Por que escolher <span>nossas palestras?</span></h2>
         <div class="see-more">
@@ -37,13 +37,13 @@
     </section>
     
 
-    <section v-if="banner">
+    <section>
       <div v-for="(obj, index) in objecoes" :key="index">
         <CardSlider :objection="obj" :index="index"/>
       </div>
     </section>
 
-    <section class="talkers container" v-if="banner">
+    <section class="talkers container">
       <div class="title">
         <h2><b>Conheça nossos</b> palestrantes</h2>
         <span></span>
@@ -73,7 +73,7 @@
         </div>
     </section>
 
-    <Metrics v-if="banner">
+    <Metrics>
       <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
         <img class="lazy" src="@/assets/loading.gif" :data-src="metric.icone.sizes.medium" :alt="metric.metrica">
         <span>{{metric.metrica}}</span>
@@ -81,7 +81,7 @@
       </div>
     </Metrics>
 
-    <section class="themes" v-if="banner">
+    <section class="themes">
       <div class="title">
         <h2><b>Principais</b> temas</h2>
         <span></span>
@@ -106,12 +106,15 @@
       </div>
     </section>
     
-    <SolicitarContato v-if="banner"/>
+    <SolicitarContato />
+  </div>
+  <div v-else class="container loadingPage">
+      <Loading />
   </div>
 </template>
 
 <script>
-
+  import Loading from "@/components/Loading.vue";
   import Spotlight from '@/components/Spotlight.vue';
   import Metrics from '@/components/Metrics.vue';
   import CardPalestrante from '@/components/CardPalestrante.vue';
@@ -121,6 +124,7 @@
   export default {
     name: "Talk",
     components: {
+      Loading,
       Spotlight,
       Metrics,
       SolicitarContato,
