@@ -50,22 +50,24 @@
             return {
                 pageContent: null,
                 slug: null,
+                parent: null,
                 is404: false,
                 isError: false
             }
         },
         mounted(){
+            if (typeof this.$route.params.parent == 'undefined') this.parent = 0
+            else this.parent = this.$route.params.parent
             this.slug = this.$route.params.slug;
-            this.getPage();
+            if (typeof this.parent == 'string') this.getParent()
+            else this.getPage()
         },
         methods:{
-            getPage(){
-                //reset da página
-                this.pageContent = null
-                this.is404 = false
-                this.isError = false
+            getParent () {
+                this.resetPageParams()
                 let args = []
-                args['slug'] = this.slug
+                args['slug'] = this.parent
+                args['parent'] = 0
                 this.$http.getPages(args)
                 .then(r => {
                     if (r.status == 200){
@@ -74,7 +76,31 @@
                     this.is404= true
                 })
                 .then(r => {
-                    if (r.lenght > 0) {
+                    if (r.length > 0) {
+                        this.parent = r[0].id
+                        this.getPage()
+                    } else {
+                        this.is404 = true
+                    }
+                })
+                .catch(() =>{
+                    this.isError = true;
+                });
+            },
+            getPage(){
+                this.resetPageParams()
+                let args = []
+                args['slug'] = this.slug
+                args['parent'] = this.parent
+                this.$http.getPages(args)
+                .then(r => {
+                    if (r.status == 200){
+                        return r.json()
+                    }
+                    this.is404= true
+                })
+                .then(r => {
+                    if (r.length > 0) {
                         this.pageContent = r
                         document.title = this.pageContent[0].yoast_title
                     } else {
@@ -84,6 +110,12 @@
                 .catch(() =>{
                     this.isError = true;
                 });
+            },
+            resetPageParams () {
+                //reset da página
+                this.pageContent = null
+                this.is404 = false
+                this.isError = false
             }
         },
         watch: {

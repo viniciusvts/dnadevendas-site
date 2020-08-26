@@ -155,10 +155,10 @@ const routes = [
     props: {default: true, slug: true}
   },
   {
-    path: '/contato/:slug',
+    path: '/:parent/:slug',
     name: 'Page',
     component: Page,
-    props: {default: true, slug: true}
+    props: {default: true, parent: true, slug: true}
   },
   /* regra acima pega a maioria das rotas, 
   no caso de alguma não ser pega, um 404 para garantir: */
