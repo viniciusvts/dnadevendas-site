@@ -7,6 +7,10 @@
                 <div class="col-12" v-html="pageContent[0].acf.conteudo">
                 </div>
             </div>
+            <div class="row" v-else-if="pageContent[0].content.rendered">
+                <div class="col-12" v-html="pageContent[0].content.rendered">
+                </div>
+            </div>
             <p class="error" v-else>Esta página não tem conteúdo</p>
         </div>
 
