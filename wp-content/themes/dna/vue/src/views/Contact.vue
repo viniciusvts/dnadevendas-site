@@ -108,7 +108,6 @@ export default {
   },
   mounted() {
     this.getAcf();
-    document.getElementById('urlOrigem').value = location.href
   },
   methods: {
     getAcf() {
@@ -118,6 +117,7 @@ export default {
           this.post = json;
           this.contacts = json.acf.contacts;
           this.setMapIframe(this.contactsWithMap[0].map);
+          setTimeout(()=>{document.getElementById('urlOrigem').value = location.href},1000)
         });
     },
     removeActiveButtons(first) {
