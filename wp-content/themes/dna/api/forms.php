@@ -9,6 +9,9 @@ function dnaapi_contatoFooter($req){
   $nome = $req->get_param('nome');
   $email = $req->get_param('email');
   $urlOrigem = $req->get_param('urlOrigem');
+  //configura e envia para o rd
+  $args = configuraEnviarParaRDNewsletterFooter($nome, $email, $urlOrigem);
+  $statusEnvio = enviaParaRD($args);
   // envia email
   $to = 'no-reply@dnadevendas.com.br';
   $subject = 'DNA de Vendas - Contato';
@@ -34,6 +37,12 @@ function dnaapi_solicitarContato($req){
   $company_name = $req->get_param('company_name');
   $qtdfunc = $req->get_param('qtdfunc');
   $urlOrigem = $req->get_param('urlOrigem');
+  /** Como agora quem envia para o RD é o servidor e esse form tem "name" diferentes para
+   * páginas diferentes, preciso receber o name para enviar corretamente para o rd */
+  $nameOfForm = $req->get_param('nameOfForm');
+  //configura e envia para o rd
+  $args = configuraEnviarParaRDSolicitarContato($nameOfForm, $nome, $email, $mobile_phone, $company_name, $qtdfunc, $urlOrigem);
+  $statusEnvio = enviaParaRD($args);
   // envia email
   $to = 'forsmall-leads@dnadevendas.com.br';
   $subject = 'DNA de Vendas - Contato';
@@ -64,6 +73,9 @@ function dnaapi_paginaContato($req){
   $assunto = $req->get_param('assunto');
   $mensagem = $req->get_param('mensagem');
   $urlOrigem = $req->get_param('urlOrigem');
+  //configura e envia para o rd
+  $args = configuraEnviarParaRDPaginaContato($nome, $email, $setor, $nVendedores, $telefone, $assunto, $mensagem, $urlOrigem);
+  $statusEnvio = enviaParaRD($args);
   // envia email
   $to = array('contato@dnadevendas.com.br>',
       'vinicius@dnadevendas.com.br',
@@ -160,6 +172,63 @@ function dnaapi_register_ccp(){
 
 add_action('rest_api_init', 'dnaapi_register_ccp');
 
+/**
+ * Configura os campos para ir para o rd
+ * 
+ * @param string $nome - campo nome do formulário
+ * @param string $email - campo email do formulário
+ * @param string $mobile_phone - campo mobile_phone do formulário
+ * @param string $company_name - campo company_name do formulário
+ * @param string $qtdfunc - campo qtdfunc do formulário
+ * @param string $urlOrigem - campo urlOrigem do formulário
+ * @return object - objeto preparado para envio
+ * @author Vinicius de Santana
+*/
+function configuraEnviarParaRDNewsletterFooter($nome, $email, $urlOrigem){
+  $args = new stdClass();
+  $args->event_type = "CONVERSION";
+  $args->event_family = "CDP";
+  $args->payload = new stdClass();
+  $args->payload->conversion_identifier = "dna_newsletter";
+  //a partir daqui é o conteúdo do form
+  $args->payload->name = $nome;
+  $args->payload->email = $email;
+  $args->payload->cf_urlorigem = $urlOrigem;
+  return $args;
+}
+
+/**
+ * Configura os campos para ir para o rd
+ * 
+ * @param string $nameOfForm - Esse form existe em várias páginas,  preciso dessa informação para indentificar a conversão
+ * @param string $nome - campo nome do formulário
+ * @param string $email - campo email do formulário
+ * @param string $mobile_phone - campo mobile_phone do formulário
+ * @param string $company_name - campo company_name do formulário
+ * @param string $qtdfunc - campo qtdfunc do formulário
+ * @param string $urlOrigem - campo urlOrigem do formulário
+ * @return object - objeto preparado para envio
+ * @author Vinicius de Santana
+*/
+function configuraEnviarParaRDSolicitarContato($nameOfForm, $nome, $email, $mobile_phone, $company_name, $qtdfunc, $urlOrigem){
+  $args = new stdClass();
+  $args->event_type = "CONVERSION";
+  $args->event_family = "CDP";
+  $args->payload = new stdClass();
+  /** Como agora quem envia para o RD é o servidor e esse form tem "name" diferentes para
+   * páginas diferentes, preciso receber o name para enviar corretamente para o rd */
+  $args->payload->conversion_identifier = $nameOfForm;
+  //a partir daqui é o conteúdo do form
+  $args->payload->name = $nome;
+  $args->payload->email = $email;
+  $args->payload->mobile_phone = $mobile_phone;
+  $args->payload->company_name = $company_name;
+  $args->payload->nVendedores = $qtdfunc;
+  $args->payload->cf_urlorigem = $urlOrigem;
+  return $args;
+}
+
+
 // funções auxiliares da api
 /**
  * Cria a mensagem dá página contato com os parametros passados
@@ -245,3 +314,63 @@ function criaMensagemPáginaDeContato($nome, $email, $setor, $nVendedores, $tele
   // fim mensagem
 }
 
+/**
+ * Configura os campos para ir para o rd
+ * 
+ * @param string $nome - campo nome do formulário
+ * @param string $email - campo email do formulário
+ * @param string $setor - campo setor do formulário
+ * @param string $nVendedores - campo nVendedores do formulário
+ * @param string $telefone - campo telefone do formulário
+ * @param string $assunto - campo assunto do formulário
+ * @param string $mensagem - campo mensagem do formulário
+ * @param string $urlOrigem - campo urlOrigem do formulário
+ * @return object - objeto preparado para envio
+ * @author Vinicius de Santana
+*/
+function configuraEnviarParaRDPaginaContato($nome, $email, $setor, $nVendedores, $telefone, $assunto, $mensagem, $urlOrigem){
+  $args = new stdClass();
+  $args->event_type = "CONVERSION";
+  $args->event_family = "CDP";
+  $args->payload = new stdClass();
+  $args->payload->conversion_identifier = "/contato"."/";
+  //a partir daqui é o conteúdo do form
+  $args->payload->name = $nome;
+  $args->payload->email = $email;
+  $args->payload->cf_setor = $setor;
+  $args->payload->nVendedores = $nVendedores;
+  $args->payload->mobile_phone = $telefone;
+  $args->payload->cf_assunto = $assunto;
+  $args->payload->cf_urlorigem = $urlOrigem;
+  $args->payload->cf_mensagem = $mensagem;
+  return $args;
+}
+
+/**
+ * Configura os campos para ir para o rd
+ * 
+ * @param object $args - campos já formatados para o rd
+ * @return array|boolean - conteúdo ou false em caso de erros
+ * @author Vinicius de Santana
+*/
+function enviaParaRD($args){
+  $url = 'https://api.rd.services/platform/conversions?api_key=a3a5dd520bafab6ff8cc64d58f3f1e83';
+
+  $header = array(
+      'Content-type: application/json'
+  );
+  
+  $json = json_encode($args);
+  
+  $opts = array('http' =>
+      array(
+          'method'  => 'POST',
+          'header'  => $header,
+          'content' => $json
+      )
+  );
+  $context = stream_context_create($opts);
+  $result = @file_get_contents($url, false, $context);
+  if ( $result ) return json_decode($result);
+  return false;
+}

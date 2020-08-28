@@ -5,6 +5,9 @@
       method="POST"
       :action="$http.baseURL + 'wp-json/dna_theme/v1/solicitar-contato'">
       <input type="hidden" name="urlOrigem" id="urlOrigem">
+      <!-- Como agora quem envia para o RD é o servidor e esse form tem "name" diferentes para
+      páginas diferentes, preciso enviar o name para enviar corretamente para o rd  -->
+      <input type="hidden" name="nameOfForm" id="nameOfForm" :value="formName">
       <div class="row">
         <div class="col-md-12">
           <input type="text" name="nome" id="nome" 
