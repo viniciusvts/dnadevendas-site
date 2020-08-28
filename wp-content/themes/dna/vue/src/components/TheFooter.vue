@@ -114,20 +114,9 @@
             <form name="dna_newsletter"
             method="POST"
             :action="$http.baseURL + 'wp-json/dna_theme/v1/contato-footer'">
-              <input
-                type="text"
-                name="nome"
-                placeholder="Insira seu nome*"
-                id="nome"
-                required
-              />
-              <input
-                type="email"
-                placeholder="Seu e-mail*"
-                name="email"
-                id="email"
-                required
-              />
+              <input type="hidden" name="urlOrigem" id="urlOrigem" required />
+              <input type="text" name="nome" placeholder="Insira seu nome*" id="nome" required />
+              <input type="email" placeholder="Seu e-mail*" name="email" id="email" required />
               <p>* Campos obrigatórios</p>
               <input type="submit" value="Quero me inscrever" />
             </form>
@@ -220,6 +209,9 @@ export default {
   },
   created() {
     this.getFooterPosts();
+  },
+  mounted() {
+    document.getElementById('urlOrigem').value = location.href
   },
   methods: {
     getFooterPosts() {
