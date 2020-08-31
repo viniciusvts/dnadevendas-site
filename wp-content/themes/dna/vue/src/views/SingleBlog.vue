@@ -207,10 +207,7 @@
         // monta a string a ser exibida
         let resp = '';
         resp += this.post.DNA_custom.author.name + " • ";
-        resp += dateToString + " • ";
-        resp += this.post.DNA_custom.views;
-        if (this.post.DNA_custom.views == 1) resp += " visualização";
-        else resp += " visualizações";
+        resp += dateToString;
         return resp;
       },
     }
