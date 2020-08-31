@@ -38,7 +38,7 @@
         </div>
 
         <div class="banner">
-            <a href="https://conteudo.dnadevendas.com.br/palestra-sales-da-estrategia-a-execucao">
+            <a href="https://conteudo.dnadevendas.com.br/palestra-sales-da-estrategia-a-execucao" target="_blank">
                 <img :src="$http.baseURL + 'wp-content/uploads/palestras-sales.jpg'" alt="">
             </a>
         </div>
