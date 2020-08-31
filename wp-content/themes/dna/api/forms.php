@@ -223,7 +223,7 @@ function configuraEnviarParaRDSolicitarContato($nameOfForm, $nome, $email, $mobi
   $args->payload->email = $email;
   $args->payload->mobile_phone = $mobile_phone;
   $args->payload->company_name = $company_name;
-  $args->payload->nVendedores = $qtdfunc;
+  $args->payload->cf_vendedores_na_equipe = $qtdfunc;
   $args->payload->cf_urlorigem = $urlOrigem;
   return $args;
 }
@@ -338,7 +338,7 @@ function configuraEnviarParaRDPaginaContato($nome, $email, $setor, $nVendedores,
   $args->payload->name = $nome;
   $args->payload->email = $email;
   $args->payload->cf_setor = $setor;
-  $args->payload->nVendedores = $nVendedores;
+  $args->payload->cf_vendedores_na_equipe = $nVendedores;
   $args->payload->mobile_phone = $telefone;
   $args->payload->cf_assunto = $assunto;
   $args->payload->cf_urlorigem = $urlOrigem;
