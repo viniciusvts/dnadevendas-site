@@ -51,8 +51,7 @@
             padding: 0;
         }
         iframe {
-            width: 100% !important;
-            height: auto !important;
+            max-width: 100%;
         }
         h1{
             padding-top: 10px;
