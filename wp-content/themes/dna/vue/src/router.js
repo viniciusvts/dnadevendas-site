@@ -49,22 +49,23 @@ const routes = [
   {
     path: '/o-melhor-blog-de-vendas/page/:page',
     name: 'BlogPage',
-    alias: ['/blog'],
-    component: Blog,
-    props: {default: true, page: true}
-  },
-  {
-    path: '/page/:page',
-    name: 'BlogPage',
-    alias: ['/blog'],
+    alias: ['/page/:page'],
     component: Blog,
     props: {default: true, page: true}
   },
   {
     path: '/o-melhor-blog-de-vendas/categoria/:cat/page/:page',
+    alias: ['/categorias/:cat/page/:page'],
     name: 'BlogCat',
     component: Blog,
     props: {default: true, cat: true, page: false}
+  },
+  {
+    path: '/o-melhor-blog-de-vendas/categoria/:cat',
+    alias: ['/categorias/:cat'],
+    name: 'BlogCat',
+    component: Blog,
+    props: {default: true, cat: true}
   },
   
   {
