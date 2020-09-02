@@ -1,5 +1,6 @@
 <template>
   <section class="blog">
+    <h1 class="d-none">O melhor blog de vendas do Brasil</h1>
     <div class="container-fluid">
       <BlogFilter/>
       <div class="content">

@@ -74,3 +74,14 @@
         margin-bottom: auto;
     }
 }
+.content-fabric, .leader-training, .sales-training{
+    h1 {
+        text-align: left;
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 32px;
+        color: $baseColor;
+        width: max-content;
+        margin-bottom: 0;
+    }
+}

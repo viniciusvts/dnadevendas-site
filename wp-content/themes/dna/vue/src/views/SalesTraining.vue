@@ -1,9 +1,9 @@
 <template>
-  <div class="training" v-if="post">
+  <div class="training sales-training" v-if="post">
     <section class="about">
       <div class="container-fluid">
         <div class="title" v-if="post.title.rendered">
-          <h2>{{post.title.rendered}}</h2>
+          <h1>{{post.title.rendered}}</h1>
           <span></span>
         </div>
 
