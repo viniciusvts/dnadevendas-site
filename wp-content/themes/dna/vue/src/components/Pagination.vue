@@ -107,16 +107,16 @@
             getPrevPage(){
                 if(typeof this.$route.params.page == 'undefined' || this.$route.params.page == 1)
                     return false
-                return this.$route.params.page - 1;
+                return Number(this.$route.params.page) - 1;
             },
             getNextPage(){
                 if(typeof this.$route.params.page == 'undefined') return 2;
                 if (this.endOfPosts) return false;
-                return this.$route.params.page + 1;
+                return Number(this.$route.params.page) + 1;
             },
             getThisPage(){
                 if(typeof this.$route.params.page == 'undefined') return 1;
-                return this.$route.params.page;
+                return Number(this.$route.params.page);
             },
             matchRoute(){
                 let rota = this.$route.name;
