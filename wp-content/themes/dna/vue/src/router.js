@@ -129,7 +129,7 @@ const routes = [
     component: Mentoring
   },
   {
-    path: '/fabica-de-conteudo',
+    path: '/fabrica-de-conteudo',
     name: 'ContentFabric',
     component: ContentFabric
   },
