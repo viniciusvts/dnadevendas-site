@@ -70,7 +70,7 @@ export default {
   },
   mounted() {
     this.detailColorClass = this.$route.name;
-    document.getElementById('urlOrigem').value = location.href
+    setTimeout(()=>{document.getElementById('urlOrigem').value = location.href}, 2000)
   },
   methods: {
     execMascara (evt) {
