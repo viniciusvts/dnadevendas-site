@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the Themes - Twenty Nineteen package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2019-06-13 00:57:02+0000\n"
+"PO-Revision-Date: 2020-04-01 11:57:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: GlotPress/2.4.0-alpha\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: pt_BR\n"
 "Project-Id-Version: Themes - Twenty Nineteen\n"
 
@@ -19,7 +19,19 @@ msgstr "Nosso design do tema padrão de 2019 foi desenvolvido para mostrar o pod
 msgid "Twenty Nineteen"
 msgstr "Twenty Nineteen"
 
-#. translators: %s: parent post link
+#: classes/class-twentynineteen-walker-comment.php:96
+msgid "Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved."
+msgstr "Seu comentário está aguardando moderação. Esta é uma pré-visualização, seu comentário ficará visível assim que for aprovado."
+
+#: functions.php:153
+msgid "Dark Blue"
+msgstr "Azul escuro"
+
+#: functions.php:148
+msgid "Blue"
+msgstr "Azul"
+
+#. translators: %s: Parent post link.
 #: single.php:31
 msgid "<span class=\"meta-nav\">Published in</span><span class=\"post-title\">%s</span>"
 msgstr "<span class=\"meta-nav\">Publicado em</span><span class=\"post-title\">%s</span>"
@@ -35,15 +47,16 @@ msgctxt "post"
 msgid "Featured"
 msgstr "Em destaque"
 
-#: inc/back-compat.php:39 inc/back-compat.php:53 inc/back-compat.php:73
+#. translators: %s: WordPress version.
+#: inc/back-compat.php:40 inc/back-compat.php:55 inc/back-compat.php:76
 msgid "Twenty Nineteen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
 msgstr "O Twenty Nineteen requer pelo menos a versão 4.7 do WordPress. Você está usando a versão %s. Atualize e tente novamente."
 
-#: inc/template-functions.php:216
+#: inc/template-functions.php:143
 msgid "Back"
 msgstr "Voltar"
 
-#: inc/template-functions.php:209
+#: inc/template-functions.php:136
 msgid "More"
 msgstr "Mais"
 
@@ -65,51 +78,47 @@ msgctxt "primary color"
 msgid "Default"
 msgstr "Padrão"
 
-#: functions.php:166
+#: functions.php:168
 msgid "White"
 msgstr "Branco"
 
-#: functions.php:161
+#: functions.php:163
 msgid "Light Gray"
 msgstr "Cinza claro"
 
-#: functions.php:156
+#: functions.php:158
 msgid "Dark Gray"
 msgstr "Cinza escuro"
 
-#: functions.php:151
-msgid "Secondary"
-msgstr "Secundária"
-
-#: functions.php:134
+#: functions.php:136
 msgid "XL"
 msgstr "GG"
 
-#: functions.php:133
+#: functions.php:135
 msgid "Huge"
 msgstr "Muito grande"
 
-#: functions.php:128
+#: functions.php:130
 msgid "L"
 msgstr "G"
 
-#: functions.php:127
+#: functions.php:129
 msgid "Large"
 msgstr "Grande"
 
-#: functions.php:122
+#: functions.php:124
 msgid "M"
 msgstr "M"
 
-#: functions.php:121
+#: functions.php:123
 msgid "Normal"
 msgstr "Normal"
 
-#: functions.php:115
+#: functions.php:117
 msgid "Small"
 msgstr "Pequeno"
 
-#: functions.php:116
+#: functions.php:118
 msgid "S"
 msgstr "P"
 
@@ -126,11 +135,11 @@ msgstr "Tamanho completo"
 msgid "Page"
 msgstr "Página"
 
-#: functions.php:190
+#: functions.php:192
 msgid "Add widgets here to appear in your footer."
 msgstr "Adicione widgets aqui para aparecerem no rodapé."
 
-#: functions.php:188 template-parts/footer/footer-widgets.php:12
+#: functions.php:190 template-parts/footer/footer-widgets.php:12
 msgid "Footer"
 msgstr "Rodapé"
 
@@ -142,7 +151,7 @@ msgstr "Cor primária"
 msgid "No comments"
 msgstr "Nenhum comentário"
 
-#. translators: %1(X comments)$s
+#. translators: %d: Number of comments.
 #: template-parts/post/discussion-meta.php:16
 msgid "%d Comment"
 msgid_plural "%d Comments"
@@ -153,7 +162,7 @@ msgstr[1] "%d comentários"
 msgid "View more posts"
 msgstr "Ver mais posts"
 
-#. translators: %s: post author
+#. translators: %s: Post author.
 #: template-parts/post/author-bio.php:17
 msgid "Published by %s"
 msgstr "Publicado por %s"
@@ -162,7 +171,7 @@ msgstr "Publicado por %s"
 msgid "Top Menu"
 msgstr "Menu do topo"
 
-#. translators: %s: Name of current post. Only visible to screen readers
+#. translators: %s: Post title. Only visible to screen readers.
 #: template-parts/content/content.php:36
 #: template-parts/content/content-single.php:27
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
@@ -182,7 +191,7 @@ msgstr "Aparentemente não pudemos encontrar o que você está procurando. Talve
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr "Nada foi encontrado com os termos da sua pesquisa. Tente novamente com algumas palavras-chaves diferentes."
 
-#. translators: 1: link to WP admin new post page.
+#. translators: 1: Link to WP admin new post page.
 #: template-parts/content/content-none.php:26
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr "Pronto para publicar seu primeiro post? <a href=\"%1$s\">Comece aqui</a>."
@@ -208,8 +217,8 @@ msgid "Next Post"
 msgstr "Próximo post"
 
 #: search.php:22
-msgid "Search results for:"
-msgstr "Resultados da busca por:"
+msgid "Search results for: "
+msgstr "Resultados da pesquisa por: "
 
 #: inc/template-tags.php:234
 msgid "Older posts"
@@ -227,12 +236,12 @@ msgstr "Tags:"
 msgid "Posted in"
 msgstr "Publicado em"
 
-#. translators: used between list items, there is a space after the comma.
+#. translators: Used between list items, there is a space after the comma.
 #: inc/template-tags.php:86 inc/template-tags.php:98
 msgid ", "
 msgstr ", "
 
-#. translators: %s: Name of current post. Only visible to screen readers.
+#. translators: %s: Post title. Only visible to screen readers.
 #: inc/template-tags.php:63
 msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Deixe um comentário<span class=\"screen-reader-text\"> em %s</span>"
@@ -255,7 +264,7 @@ msgstr "Y"
 msgid "Archives:"
 msgstr "Arquivos:"
 
-#. translators: %s: Taxonomy singular name
+#. translators: %s: Taxonomy singular name.
 #: inc/template-functions.php:90
 msgid "%s Archives:"
 msgstr "Arquivos de %s:"
@@ -288,8 +297,7 @@ msgstr "Arquivos da tag:"
 msgid "Category Archives: "
 msgstr "Arquivos da categoria:"
 
-#. translators: %s: Name of current post. Only visible to screen readers
-#. translators: %s: Name of current post. Only visible to screen readers.
+#. translators: %s: Post title. Only visible to screen readers.
 #: template-parts/content/content-page.php:41
 #: template-parts/header/entry-header.php:32 inc/template-tags.php:120
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
@@ -303,7 +311,7 @@ msgstr "Pular para o conteúdo"
 msgid "Social Links Menu"
 msgstr "Menu de links sociais"
 
-#: functions.php:59 functions.php:146
+#: functions.php:59
 msgid "Primary"
 msgstr "Primário"
 
@@ -328,7 +336,7 @@ msgstr "Anteriores"
 msgid "Comments"
 msgstr "Comentários"
 
-#. translators: 1: number of comments, 2: post title
+#. translators: 1: Number of comments, 2: Post title.
 #: comments.php:44
 msgctxt "comments title"
 msgid "%1$s reply on &ldquo;%2$s&rdquo;"
@@ -336,7 +344,7 @@ msgid_plural "%1$s replies on &ldquo;%2$s&rdquo;"
 msgstr[0] "%1$s resposta em &ldquo;%2$s&rdquo;"
 msgstr[1] "%1$s respostas em &ldquo;%2$s&rdquo;"
 
-#. translators: %s: post title
+#. translators: %s: Post title.
 #: comments.php:40
 msgctxt "comments title"
 msgid "One reply on &ldquo;%s&rdquo;"
@@ -350,20 +358,21 @@ msgstr "Deixe um comentário"
 msgid "Join the Conversation"
 msgstr "Participe da discussão"
 
-#: classes/class-twentynineteen-walker-comment.php:99
+#: classes/class-twentynineteen-walker-comment.php:94
 msgid "Your comment is awaiting moderation."
 msgstr "O seu comentário está aguardando moderação."
 
-#: classes/class-twentynineteen-walker-comment.php:94
+#: classes/class-twentynineteen-walker-comment.php:87
 msgid "Edit"
 msgstr "Editar"
 
-#. translators: 1: comment date, 2: comment time
-#: classes/class-twentynineteen-walker-comment.php:86
+#. translators: 1: Comment date, 2: Comment time.
+#: classes/class-twentynineteen-walker-comment.php:79
 msgid "%1$s at %2$s"
 msgstr "%1$s às %2$s"
 
-#: classes/class-twentynineteen-walker-comment.php:66
+#. translators: %s: Comment author link.
+#: classes/class-twentynineteen-walker-comment.php:59
 msgid "%s <span class=\"screen-reader-text says\">says:</span>"
 msgstr "%s <span class=\"screen-reader-text says\">diz:</span>"
 
