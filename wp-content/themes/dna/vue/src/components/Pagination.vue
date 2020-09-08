@@ -32,8 +32,13 @@
                         </span>
                     </div>
 
+                    <div v-if="(!getNextPage && !getPrevPage)" class="col-auto">
+                        <span class="active">
+                            <img src="@/assets/svg/separator.svg" alt="">
+                        </span>
+                    </div>
                     <router-link 
-                    v-if="(!getPrevPage)"
+                    v-else-if="(!getPrevPage)"
                     :to="{
                         name: (($route.name == 'Blog') ? 'BlogPage' : $route.name),
                         params: { page: getNextPage }
@@ -110,8 +115,8 @@
                 return Number(this.$route.params.page) - 1;
             },
             getNextPage(){
-                if(typeof this.$route.params.page == 'undefined') return 2;
                 if (this.endOfPosts) return false;
+                if(typeof this.$route.params.page == 'undefined') return 2;
                 return Number(this.$route.params.page) + 1;
             },
             getThisPage(){
