@@ -147,6 +147,26 @@ const apiRest = {
   },
 
   /**
+   * Resgata lista de tags padrão do wordpress
+   * @param {[]} args - args do endpoint do wordpress
+   * @author Vinicius de Santana
+   */
+  getTags(args) {
+    let urlArgs = "";
+    if (typeof args != 'undefined'){
+      if (!Array.isArray(args))  throw new TypeError("O parametro precisa ser array");
+      for (const key in args) {
+        urlArgs += key + "=" + args[key] + "&";
+      }
+    }
+    let url = this.baseURL + 'wp-json/wp/v2/tags/';
+    if (urlArgs.length > 0){
+      url += "?" + urlArgs;
+    }
+    return fetch(url);
+  },
+
+  /**
    * Resgata a lista de portfólio com parametros
    * @param {[]} args - args da pagina a ser requisitada
    * @param {number} args.post_per_page - quantos posts por página -1 sem limite
