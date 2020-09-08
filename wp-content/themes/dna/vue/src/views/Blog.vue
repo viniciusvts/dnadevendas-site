@@ -76,6 +76,7 @@
         if (typeof this.$route.params.page != 'undefined') {
           args['page'] = this.$route.params.page;
         }
+        // se não tenho dados de categoria, verifico se tenho que buscar dados da categoria
         if (typeof this.$route.params.categories != 'undefined') {
           args['categories'] = this.$route.params.categories;
         } else {
@@ -87,6 +88,22 @@
             .then(resp => resp.json())
             .then(json => {
               this.$route.params.categories = json[0].id;
+              this.initPosts()
+            });
+          }
+        }
+        // se não tenho dados de tag, verifico se tenho que buscar dados da tag
+        if (typeof this.$route.params.tags != 'undefined') {
+          args['tags'] = this.$route.params.tags;
+        } else {
+          if (typeof this.$route.params.tag != 'undefined') {
+            this.message = 'Carregando Categorias';
+            let tagArgs = [];
+            tagArgs['slug'] = this.$route.params.tag;
+            return this.$http.getTags(tagArgs)
+            .then(resp => resp.json())
+            .then(json => {
+              this.$route.params.tags = json[0].id;
               this.initPosts()
             });
           }
