@@ -67,6 +67,20 @@ const routes = [
     component: Blog,
     props: {default: true, cat: true}
   },
+  {
+    path: '/o-melhor-blog-de-vendas/tags/:tag/page/:page',
+    alias: ['/tags/:tag/page/:page'],
+    name: 'BlogTag',
+    component: Blog,
+    props: {default: true, tag: true, page: false}
+  },
+  {
+    path: '/o-melhor-blog-de-vendas/tags/:tag',
+    alias: ['/tags/:tag'],
+    name: 'BlogTag',
+    component: Blog,
+    props: {default: true, tag: true}
+  },
   
   {
     path: '/busca',
