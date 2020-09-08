@@ -1,4 +1,5 @@
 <?php
+/**add content of wpbakery page builder in rest */
 function dnaapi_get_pages($object) {
   WPBMap::addAllMappedShortcodes(); // This does all the work
   global $post;
