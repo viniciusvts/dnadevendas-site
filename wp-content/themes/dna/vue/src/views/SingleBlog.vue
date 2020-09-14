@@ -23,6 +23,9 @@
                 <a :href="linkPint" target="_blank">
                   <img src="@/assets/svg/pinterest-circle.svg" alt="pinterest logo">
                 </a>
+                <a :href="linkWhats" target="_blank">
+                  <img src="@/assets/whats.png" alt="whatsapp logo">
+                </a>
               </div>
               <div class="col-12 col-lg-6 m-0">
                 <p>{{postInformation}}</p>
@@ -206,6 +209,11 @@
         }
         return link;
       },
+      linkWhats () {
+        var link = "https://api.whatsapp.com/send?text=Visite esse site: "+document.URL;
+        return link;
+      },
+      
     }
   };
 </script>
