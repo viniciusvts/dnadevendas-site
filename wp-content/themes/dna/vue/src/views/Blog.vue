@@ -115,7 +115,7 @@
         .then(resp => resp.json())
         .then( json => {
           this.post = json
-          document.title = this.post.yoast_title
+          document.title = this.post.title.rendered
         })
       }
     },
