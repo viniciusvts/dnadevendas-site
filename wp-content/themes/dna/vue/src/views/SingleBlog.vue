@@ -11,16 +11,16 @@
             </div>
             <div class="row single-information">
               <div class="row col-12 col-lg-6 social-col m-0">
-                <a href="#" id="facebook" target="_blank">
+                <a :href="linkFace" target="_blank">
                   <img src="@/assets/svg/facebook-circle.svg" alt="facebook logo">
                 </a>
-                <a href="#" id="twitter" target="_blank">
+                <a :href="linkTwitter" id="twitter" target="_blank">
                   <img src="@/assets/svg/twitter-circle.svg" alt="twitter logo">
                 </a>
-                <a href="#" id="linkedin" target="_blank">
+                <a :href="linkLinkedin" id="linkedin" target="_blank">
                   <img src="@/assets/svg/linkedin-circle.svg" alt="linkedin logo">
                 </a>
-                <a href="#" id="pinterest" target="_blank">
+                <a :href="linkPint" target="_blank">
                   <img src="@/assets/svg/pinterest-circle.svg" alt="pinterest logo">
                 </a>
               </div>
@@ -83,7 +83,6 @@
       }else{
         this.post = this.$route.params.post;
         this.$nextTick(this.setTitles)
-        this.$nextTick(this.iniciaSocialButtons)
       }
     },
     methods: {
@@ -131,63 +130,6 @@
           })
         }
       },
-      iniciaSocialButtons(){
-        var facebook = document.getElementById('facebook');
-        if(facebook){
-          var linkFace = "https://www.facebook.com/sharer/sharer.php?u="+document.URL;
-          facebook.href = linkFace;
-        }
-
-        var pinterest = document.getElementById('pinterest');
-        if(pinterest){
-          var linkPint = "https://www.pinterest.com/pin/create/button/?url="+document.URL;
-          try{
-              var descriptionP = document.querySelector("meta[name='description']").getAttribute("content");
-          }catch(e){
-              console.log("error", e);
-          }
-          if( descriptionP ){
-              linkPint += "&description="+descriptionP;
-          }
-          pinterest.href = linkPint;
-        }
-
-        var twitter = document.getElementById('twitter');
-        if(twitter){
-          var linkTwitter = "https://twitter.com/intent/tweet?url="+document.URL;
-          try{
-              var tituloTt = document.querySelector("title").innerText;
-          }catch(e){
-              console.log("error", e);
-          }
-          if( tituloTt ){
-              linkTwitter += "&text="+tituloTt;
-          }
-          twitter.href =linkTwitter;
-        }
-
-        var linkedin = document.getElementById('linkedin');
-        if(linkedin){
-          var linkLinkedin = "https://www.linkedin.com/shareArticle?mini=true&url="+document.URL;
-          try{
-              var tituloLI = document.querySelector("title").innerText;
-          }catch(e){
-              console.log("error", e);
-          }
-          if( tituloLI ){
-              linkLinkedin += "&title="+tituloLI;
-          }
-          try{
-              var descriptionL = document.querySelector("meta[name='description']").getAttribute("content");
-          }catch(e){
-              console.log("error", e);
-          }
-          if( descriptionL ){
-              linkLinkedin += "&summary="+descriptionL;
-          }
-          linkedin.href = linkLinkedin;
-        }
-      },
     },
     watch: {
       'post.id': function(val) {
@@ -209,6 +151,54 @@
         resp += this.post.DNA_custom.author.name + " • ";
         resp += dateToString;
         return resp;
+      },
+      linkFace () {
+        var link = "https://www.facebook.com/sharer/sharer.php?u="+document.URL;
+        return link;
+      },
+      linkPint () {
+          var link = "https://www.pinterest.com/pin/create/button/?url="+document.URL;
+          try{
+              var descriptionP = document.querySelector("meta[name='description']").getAttribute("content");
+          }catch(e){
+              console.log("error", e);
+          }
+          if( descriptionP ){
+              link += "&description="+descriptionP;
+          }
+        return link;
+      },
+      linkTwitter () {
+        var link = "https://twitter.com/intent/tweet?url="+document.URL;
+        try{
+            var tituloTt = document.querySelector("title").innerText;
+        }catch(e){
+            console.log("error", e);
+        }
+        if( tituloTt ){
+            link += "&text="+tituloTt;
+        }
+        return link;
+      },
+      linkLinkedin () {
+        var link = "https://www.linkedin.com/shareArticle?mini=true&url="+document.URL;
+        try{
+            var tituloLI = document.querySelector("title").innerText;
+        }catch(e){
+            console.log("error", e);
+        }
+        if( tituloLI ){
+            link += "&title="+tituloLI;
+        }
+        try{
+            var descriptionL = document.querySelector("meta[name='description']").getAttribute("content");
+        }catch(e){
+            console.log("error", e);
+        }
+        if( descriptionL ){
+            link += "&summary="+descriptionL;
+        }
+        return link;
       },
     }
   };
