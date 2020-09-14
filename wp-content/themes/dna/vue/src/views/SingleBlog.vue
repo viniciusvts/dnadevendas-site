@@ -11,10 +11,18 @@
             </div>
             <div class="row single-information">
               <div class="row col-12 col-lg-6 social-col m-0">
-                <img src="@/assets/svg/facebook-circle.svg" alt="facebook logo" id="facebook">
-                <img src="@/assets/svg/twitter-circle.svg" alt="twitter logo" id="twitter">
-                <img src="@/assets/svg/linkedin-circle.svg" alt="linkedin logo" id="linkedin">
-                <img src="@/assets/svg/pinterest-circle.svg" alt="pinterest logo" id="pinterest">
+                <a href="#" id="facebook" target="_blank">
+                  <img src="@/assets/svg/facebook-circle.svg" alt="facebook logo">
+                </a>
+                <a href="#" id="twitter" target="_blank">
+                  <img src="@/assets/svg/twitter-circle.svg" alt="twitter logo">
+                </a>
+                <a href="#" id="linkedin" target="_blank">
+                  <img src="@/assets/svg/linkedin-circle.svg" alt="linkedin logo">
+                </a>
+                <a href="#" id="pinterest" target="_blank">
+                  <img src="@/assets/svg/pinterest-circle.svg" alt="pinterest logo">
+                </a>
               </div>
               <div class="col-12 col-lg-6 m-0">
                 <p>{{postInformation}}</p>
@@ -70,12 +78,12 @@
       }
     },
     mounted() {
-      this.iniciaSocialButtons();
       if(typeof this.$route.params.post == 'undefined'){
         this.getPost(this.$route.params.slug);
       }else{
         this.post = this.$route.params.post;
         this.$nextTick(this.setTitles)
+        this.$nextTick(this.iniciaSocialButtons)
       }
     },
     methods: {
@@ -126,66 +134,58 @@
       iniciaSocialButtons(){
         var facebook = document.getElementById('facebook');
         if(facebook){
-          facebook.addEventListener("click", function(){
-              var link = "https://www.facebook.com/sharer/sharer.php?u="+document.URL;
-              window.open(link);
-          });
+          var linkFace = "https://www.facebook.com/sharer/sharer.php?u="+document.URL;
+          facebook.href = linkFace;
         }
 
         var pinterest = document.getElementById('pinterest');
         if(pinterest){
-          pinterest.addEventListener("click", function(){
-              var link = "https://www.pinterest.com/pin/create/button/?url="+document.URL;
-              try{
-                  var description = document.querySelector("meta[name='description']").getAttribute("content");
-              }catch(e){
-                  console.log("error", e);
-              }
-              if( description ){
-                  link += "&description="+description;
-              }
-              window.open(link);
-          });
+          var linkPint = "https://www.pinterest.com/pin/create/button/?url="+document.URL;
+          try{
+              var descriptionP = document.querySelector("meta[name='description']").getAttribute("content");
+          }catch(e){
+              console.log("error", e);
+          }
+          if( descriptionP ){
+              linkPint += "&description="+descriptionP;
+          }
+          pinterest.href = linkPint;
         }
 
         var twitter = document.getElementById('twitter');
         if(twitter){
-          twitter.addEventListener("click", function(){
-              var link = "https://twitter.com/intent/tweet?url="+document.URL;
-              try{
-                  var titulo = document.querySelector("title").innerText;
-              }catch(e){
-                  console.log("error", e);
-              }
-              if( titulo ){
-                  link += "&text="+titulo;
-              }
-              window.open(link);
-          });
+          var linkTwitter = "https://twitter.com/intent/tweet?url="+document.URL;
+          try{
+              var tituloTt = document.querySelector("title").innerText;
+          }catch(e){
+              console.log("error", e);
+          }
+          if( tituloTt ){
+              linkTwitter += "&text="+tituloTt;
+          }
+          twitter.href =linkTwitter;
         }
 
         var linkedin = document.getElementById('linkedin');
         if(linkedin){
-          linkedin.addEventListener("click", function(){
-              var link = "https://www.linkedin.com/shareArticle?mini=true&url="+document.URL;
-              try{
-                  var titulo = document.querySelector("title").innerText;
-              }catch(e){
-                  console.log("error", e);
-              }
-              if( titulo ){
-                  link += "&title="+titulo;
-              }
-              try{
-                  var description = document.querySelector("meta[name='description']").getAttribute("content");
-              }catch(e){
-                  console.log("error", e);
-              }
-              if( description ){
-                  link += "&summary="+description;
-              }
-              window.open(link);
-          });
+          var linkLinkedin = "https://www.linkedin.com/shareArticle?mini=true&url="+document.URL;
+          try{
+              var tituloLI = document.querySelector("title").innerText;
+          }catch(e){
+              console.log("error", e);
+          }
+          if( tituloLI ){
+              linkLinkedin += "&title="+tituloLI;
+          }
+          try{
+              var descriptionL = document.querySelector("meta[name='description']").getAttribute("content");
+          }catch(e){
+              console.log("error", e);
+          }
+          if( descriptionL ){
+              linkLinkedin += "&summary="+descriptionL;
+          }
+          linkedin.href = linkLinkedin;
         }
       },
     },
