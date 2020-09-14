@@ -158,6 +158,12 @@
       },
       linkPint () {
           var link = "https://www.pinterest.com/pin/create/button/?url="+document.URL;
+          //imagem  
+          var imagemDestaq = this.post.DNA_custom.thumb.full
+          if( imagemDestaq ){
+              link += "&media="+imagemDestaq;
+          }
+          //descrição
           try{
               var descriptionP = document.querySelector("meta[name='description']").getAttribute("content");
           }catch(e){
