@@ -1,7 +1,7 @@
 <template>
   <section class="contact s-contato" id="contato-servico">
     <h2 class="fale-conosco" :class="detailColorClass" v-if="titulo" v-html="titulo"></h2>
-    <form :id="formName"
+    <form id="dna_contato"
       method="POST"
       :action="$http.baseURL + 'wp-json/dna_theme/v1/solicitar-contato'">
       <input type="hidden" name="urlOrigem" id="urlOrigem">
@@ -20,7 +20,7 @@
         </div>
 
         <div class="col-md-6">
-          <input type="text" name="mobile_phone" id="mobile_phone" v-on:keyup="execMascara" 
+          <input type="text" name="mobile_phone" id="mobile_phone" v-on:keyup="execMascaraTel" 
           :class="detailColorClass" placeholder="Seu telefone" required>
         </div>
 
@@ -73,7 +73,7 @@ export default {
     setTimeout(()=>{document.getElementById('urlOrigem').value = location.href}, 2000)
   },
   methods: {
-    execMascara (evt) {
+    execMascaraTel (evt) {
       let v = evt.target.value;
       v=v.replace(/\D/g,""); //Remove tudo o que não é dígito
       v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
@@ -81,17 +81,6 @@ export default {
       evt.target.value = v;
     }
   },
-  computed: {
-    formName () {
-      if ( this.$route.name == 'FullService' ||
-          this.$route.name == 'Training') return 'conversion-form-consultoria-full-service-757325c8f0ead83c4fb7'
-      if ( this.$route.name == 'ForSmall') return 'conversion-form-consultoria-form-small-site-b233205a5a8fe1ee8cdc'
-      if ( this.$route.name == 'SalesTraining') return 'conversion-form-treinamento-de-vendas-b2ff848a04b20e6fc3d2'
-      if ( this.$route.name == 'SingleBlog') return 'conversion-form-converse-com-nossos-especialistas'
-      if ( this.$route.name == 'Talk') return 'conversion-form-palestras-de-vendas-e47298a45c8657828a99'
-      return 'dna_contato'
-    }
-  }
 };
 </script>
 
