@@ -13,7 +13,7 @@
                   </div>
                 </div>
               </div>
-            <Pagination :endOfPosts="endOfPosts"/>
+            <Pagination :XWPTotalPages="XWPTotalPages"/>
           </div>
           <div v-else class="col-12 col-lg-9 col-tb-12">{{message}}</div>
           <div class="col-12 col-lg-3 col-tb-12">
@@ -46,7 +46,7 @@
         message: null,
         pageId: 329,
         page: null,
-        endOfPosts: false
+        XWPTotalPages: null,
       }
     },
     created() {
@@ -57,19 +57,18 @@
       getPosts(args) {
         this.$http.getPosts(args)
         .then(res=>{
-          if(res.status == 200)
+          if(res.status == 200) {
+            this.XWPTotalPages = Number(res.headers.get('X-WP-TotalPages'));
             return res.json();
-          else
+          } else
             this.message = 'Erro ao consultar os posts';
         })
         .then(json=>{
           this.posts = json;
-          if (json.length < 10) this.endOfPosts = true;
         });
       },
       initPosts(){
         this.posts = [];
-        this.endOfPosts = false;
         this.message = 'Carregando Artigos';
         /**argumento para buscar os posts */
         let args = [];
