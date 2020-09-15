@@ -31,7 +31,7 @@
               <option value="51+">51+</option>
             </select>
             <label for="telefone">Telefone*</label>
-            <input type="text" name="telefone" id="telefone" v-on:keyup="execMascara" required />
+            <input type="text" name="telefone" id="telefone" v-on:keyup="execMascaraTel" required />
 
             <label for="assunto">Assunto*</label>
             <input type="text" name="assunto" id="assunto" required />
@@ -137,7 +137,7 @@ export default {
       }
       this.mapIframe = iframe;
     },
-    execMascara (evt) {
+    execMascaraTel (evt) {
       let v = evt.target.value;
       v=v.replace(/\D/g,""); //Remove tudo o que não é dígito
       v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
