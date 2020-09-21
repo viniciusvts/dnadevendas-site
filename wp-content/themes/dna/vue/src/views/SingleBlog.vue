@@ -146,8 +146,10 @@
           const verifyRD = setInterval(()=>{
             if (typeof window.RDStationForms == 'function'){
               clearInterval(verifyRD)
-              new window.RDStationForms('formulario-e-book-o-que-nunca-te-ensinaram-sobre-funil-de-vendas-8a36403330ccaf5699e3', 'UA-25914892-1')
-                .createForm()
+              for (const form of allDivsWithRole) {
+                new window.RDStationForms(form.id, 'UA-25914892-1')
+                  .createForm()
+              }
             }
           }, 200)
         }
