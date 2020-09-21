@@ -133,6 +133,25 @@
           })
         }
       },
+      initRdForms () {
+        /** o atributo "role" é comum dos forms do rd */
+        const allDivsWithRole = this.$refs.content.querySelectorAll('[role="main"]')
+        // se tem alguma div do rd vou adicionar o script do rd e iniciar os forms
+        if (allDivsWithRole.length > 0) {
+          // primeiro adiciona o script do RD
+          const script = document.createElement('script')
+          script.src = 'https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js'
+          document.body.append(script)
+          // após adicionar o script ao dom, esperar o script bbaixar
+          const verifyRD = setInterval(()=>{
+            if (typeof window.RDStationForms == 'function'){
+              clearInterval(verifyRD)
+              new window.RDStationForms('formulario-e-book-o-que-nunca-te-ensinaram-sobre-funil-de-vendas-8a36403330ccaf5699e3', 'UA-25914892-1')
+                .createForm()
+            }
+          }, 200)
+        }
+      }
     },
     watch: {
       'post.id': function(val) {
@@ -140,6 +159,10 @@
       },
       'post.yoast_title': function(val) {
         document.title = val
+      },
+      // ao atualizar o conteúdo do post verificarei se tem div do RD
+      'post.content.rendered': function() {
+        this.$nextTick(this.initRdForms)
       }
     },
     computed: {
