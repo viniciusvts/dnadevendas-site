@@ -246,5 +246,20 @@ const apiRest = {
     });
   },
 
+  /**
+   * Envia formulário para o wordpress
+   * @param {String} url - Id do form que receberá a transação
+   * @param {FormData} data - objeto a ser enviado para o form
+   * @author Vinicius de Santana
+   */
+  sendFormToWP(url, data) {
+    if (typeof url == 'undefined') throw new TypeError("O parametro é obrigatório");
+    if (typeof data == 'undefined') throw new TypeError("O parametro é obrigatório");
+    return fetch(url, {
+      method: "POST",
+      body: data
+    });
+  },
+
 };
 export default apiRest;

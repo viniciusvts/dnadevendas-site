@@ -14,15 +14,36 @@ function dnaapi_contatoFooter($req){
   //configura e envia para o rd
   $args = configuraEnviarParaRDNewsletterFooter($reqData);
   $statusEnvio = enviaParaRD($args);
+  if (!$statusEnvio) {
+    return new WP_Error( "Bad Gateway", 'Erro ao enviar para o rd', array(
+      'status' => 502,
+      'statusRD' => $statusEnvio,
+      'statusMail' => false,
+    ));
+  }
   // envia email
   $to = 'no-reply@dnadevendas.com.br';
   $subject = 'DNA de Vendas - Contato';
   $message = criaMensagemPaginaDeContato($reqData);
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $wpmail = wp_mail( $to, $subject, $message, $headers );
+  if (!$wpmail) {
+    return new WP_Error( "Bad Gateway", 'Erro ao enviar para o rd', array(
+      'status' => 502,
+      'statusRD' => $statusEnvio,
+      'statusMail' => $wpmail,
+    ));
+  }
   $url = $_SERVER['HTTP_ORIGIN'] . '/contato/agradecimento/';
-  wp_redirect($url);
-  exit;
+  return array(
+    'code' => 'Requisição OK',
+    'message' => '',
+    'data' => array(
+      'url' => $url,
+      'statusRD' => $statusEnvio,
+      'statusMail' => $wpmail,
+    )
+  );
 }
 
 /**
@@ -45,15 +66,36 @@ function dnaapi_solicitarContato($req){
   //configura e envia para o rd
   $args = configuraEnviarParaRDSolicitarContato($reqData);
   $statusEnvio = enviaParaRD($args);
+  if (!$statusEnvio) {
+    return new WP_Error( "Bad Gateway", 'Erro ao enviar para o rd', array(
+      'status' => 502,
+      'statusRD' => $statusEnvio,
+      'statusMail' => false,
+    ));
+  }
   // envia email
   $to = 'forsmall-leads@dnadevendas.com.br';
   $subject = 'DNA de Vendas - Contato';
   $message = criaMensagemPaginaDeContato($reqData);
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $wpmail = wp_mail( $to, $subject, $message, $headers );
+  if (!$wpmail) {
+    return new WP_Error( "Bad Gateway", 'Erro ao enviar para o rd', array(
+      'status' => 502,
+      'statusRD' => $statusEnvio,
+      'statusMail' => $wpmail,
+    ));
+  }
   $url = $_SERVER['HTTP_ORIGIN'] . '/contato/agradecimento/';
-  wp_redirect($url);
-  exit;
+  return array(
+    'code' => 'Requisição OK',
+    'message' => '',
+    'data' => array(
+      'url' => $url,
+      'statusRD' => $statusEnvio,
+      'statusMail' => $wpmail,
+    )
+  );
 }
 
 /**
@@ -75,6 +117,13 @@ function dnaapi_paginaContato($req){
   //configura e envia para o rd
   $args = configuraEnviarParaRDPaginaContato($reqData);
   $statusEnvio = enviaParaRD($args);
+  if (!$statusEnvio) {
+    return new WP_Error( "Bad Gateway", 'Erro ao enviar para o rd', array(
+      'status' => 502,
+      'statusRD' => $statusEnvio,
+      'statusMail' => false,
+    ));
+  }
   // envia email
   $to = array('contato@dnadevendas.com.br>',
       'vinicius@dnadevendas.com.br',
@@ -84,10 +133,23 @@ function dnaapi_paginaContato($req){
   $message = criaMensagemPaginaDeContato($reqData);
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $wpmail = wp_mail( $to, $subject, $message, $headers );
-  // redireciona a página
+  if (!$wpmail) {
+    return new WP_Error( "Bad Gateway", 'Erro ao enviar para o rd', array(
+      'status' => 502,
+      'statusRD' => $statusEnvio,
+      'statusMail' => $wpmail,
+    ));
+  }
   $url = $_SERVER['HTTP_ORIGIN'] . '/contato/agradecimento/';
-  wp_redirect($url);
-  exit;
+  return array(
+    'code' => 'Requisição OK',
+    'message' => '',
+    'data' => array(
+      'url' => $url,
+      'statusRD' => $statusEnvio,
+      'statusMail' => $wpmail,
+    )
+  );
 }
 
 /**

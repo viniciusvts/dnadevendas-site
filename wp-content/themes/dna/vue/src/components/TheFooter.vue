@@ -113,7 +113,8 @@
             <h3>Receba conteúdos exclusivos</h3>
             <form name="dna_newsletter"
             method="POST"
-            :action="$http.baseURL + 'wp-json/dna_theme/v1/contato-footer'">
+            :action="$http.baseURL + 'wp-json/dna_theme/v1/contato-footer'"
+            @submit="sendForm">
               <input type="hidden" name="urlOrigem" id="urlOrigem" required />
               <input type="text" name="nome" placeholder="Insira seu nome*" id="nome" required />
               <input type="email" placeholder="Seu e-mail*" name="email" id="email" required />
@@ -225,6 +226,19 @@ export default {
         .then(json => {
           this.ultPosts = json;
         });
+    },
+    sendForm (evt) {
+      evt.preventDefault()
+      const formData = new FormData(evt.target)
+      const url = evt.target.action
+      this.$http.sendFormToWP(url, formData)
+      .then(resp => {
+        if (resp.ok) return resp.json()
+        alert('Houve um erro ao enviar,\nTente novamente.')
+      })
+      .then(json => {
+        location.href = json.data.url
+      })
     }
   }
 };

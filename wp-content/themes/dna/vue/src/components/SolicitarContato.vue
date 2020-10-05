@@ -3,7 +3,8 @@
     <h2 class="fale-conosco" :class="detailColorClass" v-if="titulo" v-html="titulo"></h2>
     <form id="dna_contato"
       method="POST"
-      :action="$http.baseURL + 'wp-json/dna_theme/v1/solicitar-contato'">
+      :action="$http.baseURL + 'wp-json/dna_theme/v1/solicitar-contato'"
+      @submit="sendForm">
       <input type="hidden" name="urlOrigem" id="urlOrigem">
       <!-- Como agora quem envia para o RD é o servidor e esse form tem "name" diferentes para
       páginas diferentes, preciso enviar o name para enviar corretamente para o rd  -->
@@ -73,6 +74,19 @@ export default {
     setTimeout(()=>{document.getElementById('urlOrigem').value = location.href}, 2000)
   },
   methods: {
+    sendForm (evt) {
+      evt.preventDefault()
+      const formData = new FormData(evt.target)
+      const url = evt.target.action
+      this.$http.sendFormToWP(url, formData)
+      .then(resp => {
+        if (resp.ok) return resp.json()
+        alert('Houve um erro ao enviar,\nTente novamente.')
+      })
+      .then(json => {
+        location.href = json.data.url
+      })
+    },
     execMascaraTel (evt) {
       let v = evt.target.value;
       v=v.replace(/\D/g,""); //Remove tudo o que não é dígito

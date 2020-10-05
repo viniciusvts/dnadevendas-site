@@ -6,7 +6,8 @@
         <div class="col-md-8 col-sm-12 col-tb-12">
           <form name="/contato/"
           method="POST"
-          :action="$http.baseURL + 'wp-json/dna_theme/v1/pagina-contato'">
+          :action="$http.baseURL + 'wp-json/dna_theme/v1/pagina-contato'"
+          @submit="sendForm">
             <input type="hidden" name="urlOrigem" id="urlOrigem">
             <h2 class="title-message">Vamos conversar?</h2>
             <label for="nome">Nome*</label>
@@ -136,6 +137,19 @@ export default {
         event.target.classList.add("active");
       }
       this.mapIframe = iframe;
+    },
+    sendForm (evt) {
+      evt.preventDefault()
+      const formData = new FormData(evt.target)
+      const url = evt.target.action
+      this.$http.sendFormToWP(url, formData)
+      .then(resp => {
+        if (resp.ok) return resp.json()
+        alert('Houve um erro ao enviar,\nTente novamente.')
+      })
+      .then(json => {
+        location.href = json.data.url
+      })
     },
     execMascaraTel (evt) {
       let v = evt.target.value;
