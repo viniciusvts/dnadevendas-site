@@ -154,6 +154,7 @@ export default {
     execMascaraTel (evt) {
       let v = evt.target.value;
       v=v.replace(/\D/g,""); //Remove tudo o que não é dígito
+      v=v.replace(/^(\d{11})(\d)/g,"$1"); //Limita a 11 números
       v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
       v=v.replace(/(\d)(\d{4})$/,"$1-$2"); //Coloca - depois dos 4 digitos após ()
       evt.target.value = v;
