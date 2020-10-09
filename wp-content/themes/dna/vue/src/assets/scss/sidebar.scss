@@ -80,6 +80,9 @@
             background-color: $baseColor;
             padding: 20px;
             color: white;
+            input, select, textarea{
+              min-height: 50px;
+            }
         }
         p{
             margin-bottom: 20px;

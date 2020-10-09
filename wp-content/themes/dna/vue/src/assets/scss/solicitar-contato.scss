@@ -15,6 +15,7 @@
         }
         input,
         select {
+            min-height: 50px;
             background: inherit !important;
             &::placeholder {
                 color: gray !important;
