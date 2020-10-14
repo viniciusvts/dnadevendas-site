@@ -14,7 +14,8 @@ function dnaapi_contatoFooter($req){
   //configura e envia para o rd
   $args = configuraEnviarParaRDNewsletterFooter($reqData);
   $statusEnvio = enviaParaRD($args);
-  if (!$statusEnvio) {
+  //event_uuid é o id do evento do rd, se tem id, houve registro
+  if (!$statusEnvio->event_uuid) {
     return new WP_Error( "Bad Gateway", 'Erro ao enviar para o rd', array(
       'status' => 502,
       'statusRD' => $statusEnvio,
@@ -66,7 +67,8 @@ function dnaapi_solicitarContato($req){
   //configura e envia para o rd
   $args = configuraEnviarParaRDSolicitarContato($reqData);
   $statusEnvio = enviaParaRD($args);
-  if (!$statusEnvio) {
+  //event_uuid é o id do evento do rd, se tem id, houve registro
+  if (!$statusEnvio->event_uuid) {
     return new WP_Error( "Bad Gateway", 'Erro ao enviar para o rd', array(
       'status' => 502,
       'statusRD' => $statusEnvio,
@@ -117,7 +119,8 @@ function dnaapi_paginaContato($req){
   //configura e envia para o rd
   $args = configuraEnviarParaRDPaginaContato($reqData);
   $statusEnvio = enviaParaRD($args);
-  if (!$statusEnvio) {
+  //event_uuid é o id do evento do rd, se tem id, houve registro
+  if (!$statusEnvio->event_uuid) {
     return new WP_Error( "Bad Gateway", 'Erro ao enviar para o rd', array(
       'status' => 502,
       'statusRD' => $statusEnvio,
