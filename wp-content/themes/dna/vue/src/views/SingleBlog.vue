@@ -37,7 +37,7 @@
               <router-link :to="{ name: 'Blog' }">Blog</router-link> /
               {{post.title.rendered}}
             </p>
-            <div class="sumary d-none d-md-block">
+            <div class="sumary d-none d-md-block" v-if="createTheSumaryOfThisSlug(this.post.slug)">
               <h2>Sumário</h2>
               <ul>
                 <li v-for="sub in listOfTitles" :key="sub">
@@ -85,7 +85,7 @@
         this.getPost(this.$route.params.slug);
       }else{
         this.post = this.$route.params.post;
-        this.$nextTick(this.setTitles)
+        this.$nextTick(this.makeSummary)
       }
     },
     methods: {
@@ -116,10 +116,14 @@
         })
         .then(json=>{
           this.post = json[0];
-          this.$nextTick(this.setTitles)
+          this.$nextTick(this.makeSummary)
         });
       },
-      setTitles () {
+      /** faz um sumário ná página do blogpost
+       * @author Vinicius de Santana
+       */
+      makeSummary () {
+        if (!this.createTheSumaryOfThisSlug(this.post.slug)) return
         const allH2 = this.$el.querySelectorAll('article h2');
         for (var i = 0; i < allH2.length; i++) {
           const newId = 't'+ i
@@ -132,6 +136,21 @@
             href: newId
           })
         }
+      },
+      /** Cliente tem uma lista de blogposts que não quer o sumário?
+       * Inserir o slug dos blogposts no array que o sumário não aparecerá
+       * @author Vinicius de Santana
+       */
+      createTheSumaryOfThisSlug (slug) {
+        if (typeof slug != 'string')
+          throw new TypeError("É necessário passar uma string como parametro")
+        var titlesIDontWantToSummarize = [
+          'termos-de-vendas-atualizados'
+        ]
+        for (let i = 0; i < titlesIDontWantToSummarize.length; i++) {
+          if (titlesIDontWantToSummarize[i] == slug) return false
+        }
+        return true
       },
       initRdForms () {
         /** o atributo "role" é comum dos forms do rd */
