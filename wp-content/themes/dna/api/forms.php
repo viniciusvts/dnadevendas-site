@@ -12,10 +12,10 @@ function dnaapi_contatoFooter($req){
     'email' => $req->get_param('email')
   );
   //configura e envia para o rd
-  $args = configuraEnviarParaRDNewsletterFooter($reqData);
-  $statusEnvio = enviaParaRD($args);
+  $RDI = new Rdi_wp();
+  $statusEnvio = $RDI->sendConversionEvent('dna_newsletter', $reqData);
   //event_uuid é o id do evento do rd, se tem id, houve registro
-  if (!$statusEnvio->event_uuid) {
+  if (!$statusEnvio) {
     return new WP_Error( "Bad Gateway", 'Erro ao enviar para o rd', array(
       'status' => 502,
       'statusRD' => $statusEnvio,
@@ -35,7 +35,7 @@ function dnaapi_contatoFooter($req){
       'statusMail' => $wpmail,
     ));
   }
-  $url = $_SERVER['HTTP_ORIGIN'] . '/contato/agradecimento/';
+  $url = 'https://www.dnadevendas.com.br/contato/agradecimento/';
   return array(
     'code' => 'Requisição OK',
     'message' => '',
@@ -60,13 +60,10 @@ function dnaapi_solicitarContato($req){
     'telefone' => $req->get_param('mobile_phone'),
     'company_name' => $req->get_param('company_name'),
     'nVendedores' => $req->get_param('qtdfunc'),
-    /** Como agora quem envia para o RD é o servidor e esse form tem "name" diferentes para
-     * páginas diferentes, preciso receber o name para enviar corretamente para o rd */
-    'nameOfForm' => $req->get_param('nameOfForm')
   );
   //configura e envia para o rd
-  $args = configuraEnviarParaRDSolicitarContato($reqData);
-  $statusEnvio = enviaParaRD($args);
+  $RDI = new Rdi_wp();
+  $statusEnvio = $RDI->sendConversionEvent('dna_contato', $reqData);
   //event_uuid é o id do evento do rd, se tem id, houve registro
   if (!$statusEnvio->event_uuid) {
     return new WP_Error( "Bad Gateway", 'Erro ao enviar para o rd', array(
@@ -88,7 +85,7 @@ function dnaapi_solicitarContato($req){
       'statusMail' => $wpmail,
     ));
   }
-  $url = $_SERVER['HTTP_ORIGIN'] . '/contato/agradecimento/';
+  $url = 'https://www.dnadevendas.com.br/contato/agradecimento/';
   return array(
     'code' => 'Requisição OK',
     'message' => '',
@@ -117,8 +114,8 @@ function dnaapi_paginaContato($req){
     'mensagem' => $req->get_param('mensagem')
   );
   //configura e envia para o rd
-  $args = configuraEnviarParaRDPaginaContato($reqData);
-  $statusEnvio = enviaParaRD($args);
+  $RDI = new Rdi_wp();
+  $statusEnvio = $RDI->sendConversionEvent('/contato'.'/', $reqData);
   //event_uuid é o id do evento do rd, se tem id, houve registro
   if (!$statusEnvio->event_uuid) {
     return new WP_Error( "Bad Gateway", 'Erro ao enviar para o rd', array(
@@ -143,7 +140,7 @@ function dnaapi_paginaContato($req){
       'statusMail' => $wpmail,
     ));
   }
-  $url = $_SERVER['HTTP_ORIGIN'] . '/contato/agradecimento/';
+  $url = 'https://www.dnadevendas.com.br/contato/agradecimento/';
   return array(
     'code' => 'Requisição OK',
     'message' => '',
@@ -236,50 +233,7 @@ function dnaapi_register_ccp(){
 
 add_action('rest_api_init', 'dnaapi_register_ccp');
 
-/**
- * Configura os campos para ir para o rd
- * 
- * @param array $data - informações do formulário
- * @return object - objeto preparado para envio
- * @author Vinicius de Santana
-*/
-function configuraEnviarParaRDNewsletterFooter($data){
-  $args = new stdClass();
-  $args->event_type = "CONVERSION";
-  $args->event_family = "CDP";
-  $args->payload = new stdClass();
-  $args->payload->conversion_identifier = "dna_newsletter";
-  //conteúdo do form
-  $args->payload->name = $data['nome'];
-  $args->payload->email = $data['email'];
-  $args->payload->cf_urlorigem = $data['urlOrigem'];
-  return $args;
-}
 
-/**
- * Configura os campos para ir para o rd
- * 
- * @param array $data - informações do formulário
- * @return object - objeto preparado para envio
- * @author Vinicius de Santana
-*/
-function configuraEnviarParaRDSolicitarContato($data){
-  $args = new stdClass();
-  $args->event_type = "CONVERSION";
-  $args->event_family = "CDP";
-  $args->payload = new stdClass();
-  /** Como agora quem envia para o RD é o servidor e esse form tem "name" diferentes para
-   * páginas diferentes, preciso receber o name para enviar corretamente para o rd */
-  $args->payload->conversion_identifier = $data['nameOfForm'];
-  //a partir daqui é o conteúdo do form
-  $args->payload->name = $data['nome'];
-  $args->payload->email = $data['email'];
-  $args->payload->mobile_phone = $data['telefone'];
-  $args->payload->company_name = $data['company_name'];
-  $args->payload->cf_vendedores_na_equipe = $data['nVendedores'];
-  $args->payload->cf_urlorigem = $data['urlOrigem'];
-  return $args;
-}
 
 
 // funções auxiliares da api
@@ -382,58 +336,4 @@ function criaMensagemPaginaDeContato($data){
   $message .= '</div>';
   return $message;
   // fim mensagem
-}
-
-/**
- * Configura os campos para ir para o rd
- * 
- * @param array $data - informações do formulário
- * @return object - objeto preparado para envio
- * @author Vinicius de Santana
-*/
-function configuraEnviarParaRDPaginaContato($data){
-  $args = new stdClass();
-  $args->event_type = "CONVERSION";
-  $args->event_family = "CDP";
-  $args->payload = new stdClass();
-  $args->payload->conversion_identifier = "/contato"."/";
-  //a partir daqui é o conteúdo do form
-  $args->payload->name = $data['nome'];
-  $args->payload->email = $data['email'];
-  $args->payload->cf_setor = $data['setor'];
-  $args->payload->cf_vendedores_na_equipe = $data['nVendedores'];
-  $args->payload->mobile_phone = $data['telefone'];
-  $args->payload->cf_assunto = $data['assunto'];
-  $args->payload->cf_urlorigem = $data['urlOrigem'];
-  $args->payload->cf_mensagem = $data['mensagem'];
-  return $args;
-}
-
-/**
- * Configura os campos para ir para o rd
- * 
- * @param object $args - campos já formatados para o rd
- * @return array|boolean - conteúdo ou false em caso de erros
- * @author Vinicius de Santana
-*/
-function enviaParaRD($args){
-  $url = 'https://api.rd.services/platform/conversions?api_key=a3a5dd520bafab6ff8cc64d58f3f1e83';
-
-  $header = array(
-      'Content-type: application/json'
-  );
-  
-  $json = json_encode($args);
-  
-  $opts = array('http' =>
-      array(
-          'method'  => 'POST',
-          'header'  => $header,
-          'content' => $json
-      )
-  );
-  $context = stream_context_create($opts);
-  $result = @file_get_contents($url, false, $context);
-  if ( $result ) return json_decode($result);
-  return false;
 }
