@@ -46,7 +46,8 @@
         <div class="newsletter">
             <form name="dna_newsletter"
             method="POST"
-            :action="$http.baseURL + 'wp-json/dna_theme/v1/contato-footer'">
+            :action="$http.baseURL + 'wp-json/dna_theme/v1/contato-footer'"
+            @submit="sendForm">
                 <input type="hidden" name="urlOrigem" id="urlOrigem">
                 <h3>Assine nossa Newsletter</h3>
                 <p>Cadastre seu e-mail aqui e receba dicas de como vender mais!</p>
@@ -115,6 +116,19 @@
                 .then(json=>{
                     this.categories = json;
                 });
+            },
+            sendForm (evt) {
+                evt.preventDefault()
+                const formData = new FormData(evt.target)
+                const url = evt.target.action
+                this.$http.sendFormToWP(url, formData)
+                .then(resp => {
+                    if (resp.ok) return resp.json()
+                    alert('Houve um erro ao enviar,\nTente novamente.')
+                })
+                .then(json => {
+                    location.href = json.data.url
+                })
             }
         }
     }
