@@ -7,8 +7,8 @@
 function dnaapi_contatoFooter($req){
   // pega os parametros
   $reqData = array(
-    'urlOrigem' => $req->get_param('urlOrigem'),
-    'nome' => $req->get_param('nome'),
+    'cf_urlorigem' => $req->get_param('urlOrigem'),
+    'name' => $req->get_param('nome'),
     'email' => $req->get_param('email')
   );
   //configura e envia para o rd
@@ -54,12 +54,12 @@ function dnaapi_contatoFooter($req){
 function dnaapi_solicitarContato($req){
   // pega os parametros
   $reqData = array(
-    'urlOrigem' => $req->get_param('urlOrigem'),
-    'nome' => $req->get_param('nome'),
+    'cf_urlorigem' => $req->get_param('urlOrigem'),
+    'name' => $req->get_param('nome'),
     'email' => $req->get_param('email'),
-    'telefone' => $req->get_param('mobile_phone'),
+    'mobile_phone' => $req->get_param('mobile_phone'),
     'company_name' => $req->get_param('company_name'),
-    'nVendedores' => $req->get_param('qtdfunc'),
+    'cf_vendedores_na_equipe' => $req->get_param('qtdfunc'),
   );
   //configura e envia para o rd
   $RDI = new Rdi_wp();
@@ -104,14 +104,14 @@ function dnaapi_solicitarContato($req){
 function dnaapi_paginaContato($req){
   // pega os parametros
   $reqData = array(
-    'urlOrigem' => $req->get_param('urlOrigem'),
-    'nome' => $req->get_param('nome'),
+    'cf_urlorigem' => $req->get_param('urlOrigem'),
+    'name' => $req->get_param('nome'),
     'email' => $req->get_param('email'),
-    'setor' => $req->get_param('setor'),
-    'nVendedores' => $req->get_param('nVendedores'),
-    'telefone' => $req->get_param('telefone'),
-    'assunto' => $req->get_param('assunto'),
-    'mensagem' => $req->get_param('mensagem')
+    'cf_setor' => $req->get_param('setor'),
+    'cf_vendedores_na_equipe' => $req->get_param('nVendedores'),
+    'mobile_phone' => $req->get_param('telefone'),
+    'cf_assunto' => $req->get_param('assunto'),
+    'cf_mensagem' => $req->get_param('mensagem')
   );
   //configura e envia para o rd
   $RDI = new Rdi_wp();
@@ -256,11 +256,11 @@ function criaMensagemPaginaDeContato($data){
   $message .=   '</table>';
   $message .=   '<table style="font-family: Arial, sans-serif;background-color: #eee;margin: 20px 40px 50px 40px;border-radius: 6px;min-width: 450px;">';
   $message .=     '<tbody>';
-  if (isset($data['nome'])){
+  if (isset($data['name'])){
     $message .=     '<tr>';
     $message .=       '<td style="padding: 10px 20px;width: 60px">Nome:</td>';
     $message .=       '<td style="padding: 10px 20px; font-size: 18px;">';
-    $message .=         $data['nome'];
+    $message .=         $data['name'];
     $message .=       '</td>';
     $message .=     '</tr>';
   }
@@ -272,44 +272,44 @@ function criaMensagemPaginaDeContato($data){
     $message .=       '</td>';
     $message .=     '</tr>';
   }
-  if (isset($data['setor'])){
+  if (isset($data['cf_setor'])){
     $message .=     '<tr>';
     $message .=       '<td style="padding: 10px 20px;">Falar com setor:</td>';
     $message .=       '<td style="padding: 10px 20px; font-size: 18px;">';
-    $message .=         $data['setor'];
+    $message .=         $data['cf_setor'];
     $message .=       '</td>';
     $message .=     '</tr>';
   }
-  if (isset($data['nVendedores'])){
+  if (isset($data['cf_vendedores_na_equipe'])){
     $message .=     '<tr>';
     $message .=       '<td style="padding: 10px 20px;">Vendedores:</td>';
     $message .=       '<td style="padding: 10px 20px; font-size: 18px;">';
-    $message .=         $data['nVendedores'];
+    $message .=         $data['cf_vendedores_na_equipe'];
     $message .=       '</td>';
     $message .=     '</tr>';
   }
-  if (isset($data['telefone'])){
+  if (isset($data['mobile_phone'])){
   $message .=     '<tr>';
   $message .=       '<td style="padding: 10px 20px;">Telefone:</td>';
   $message .=       '<td style="padding: 10px 20px; font-size: 18px;">';
-  $message .=         $data['telefone'];
+  $message .=         $data['mobile_phone'];
   $message .=       '</td>';
   $message .=     '</tr>';
   }
-  if (isset($data['assunto'])){
+  if (isset($data['cf_assunto'])){
   $message .=     '<tr>';
   $message .=       '<td style="padding: 10px 20px;">Assunto:</td>';
   $message .=       '<td style="padding: 10px 20px; font-size: 18px;">';
-  $message .=         $data['assunto'];
+  $message .=         $data['cf_assunto'];
   $message .=       '</td>';
   $message .=     '</tr>';
   }
-  if (isset($data['mensagem'])){
+  if (isset($data['cf_mensagem'])){
   $message .=     '<tr>';
   $message .=       '<td style="padding: 10px 20px;" colspan="2">';
 	$message .=         '<p style="padding-bottom: 20px;">Mensagem:</p>';
   $message .=         '<div style="font-size: 18px;">';
-  $message .=            $data['mensagem'];
+  $message .=            $data['cf_mensagem'];
   $message .=          '</div>';
   $message .=       '</td>';
   $message .=     '</tr>';
@@ -322,11 +322,11 @@ function criaMensagemPaginaDeContato($data){
     $message .=       '</td>';
     $message .=     '</tr>';
   }
-  if (isset($data['urlOrigem'])){
+  if (isset($data['cf_urlorigem'])){
     $message .=     '<tr>';
     $message .=       '<td style="padding: 10px 20px;">UrlOrigem:</td>';
     $message .=       '<td style="padding: 10px 20px; font-size: 18px;">';
-    $message .=         $data['urlOrigem']; // obrigatório
+    $message .=         $data['cf_urlorigem']; // obrigatório
     $message .=       '</td>';
     $message .=     '</tr>';
   }
