@@ -261,5 +261,39 @@ const apiRest = {
     });
   },
 
+  //funções que auxiliam a aquisição de dados para envio pela api
+
+  /** https://www.w3schools.com/js/js_cookies.asp */
+  getCookie(cname) {
+    let name = `${cname}=`;
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === " ") {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) === 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  },
+  
+  /**
+   * Pega parametros passados pela uri
+   * @param {String} param - parâmetro que se quer pegar
+   * @author Vinicius de Santana
+   */
+  getUriParam(param) {
+    var params = window.location.search.substr(1).split('&');
+    for (var i = 0; i < params.length; i++) {
+        var par = params[i].split('=');
+        if (par[0] == param) {
+            return decodeURIComponent(par[1]);
+        }
+    }
+    return '';
+  },
 };
 export default apiRest;
