@@ -9,7 +9,12 @@ function dnaapi_contatoFooter($req){
   $reqData = array(
     'cf_urlorigem' => $req->get_param('urlOrigem'),
     'name' => $req->get_param('nome'),
-    'email' => $req->get_param('email')
+    'email' => $req->get_param('email'),
+    // origem rd
+    'traffic_source' => $req->get_param('traffic_source'),
+    'traffic_medium' => $req->get_param('traffic_medium'),
+    'traffic_campaign' => $req->get_param('traffic_campaign'),
+    'traffic_value' => $req->get_param('traffic_value'),
   );
   //configura e envia para o rd
   $RDI = new Rdi_wp();
@@ -60,6 +65,11 @@ function dnaapi_solicitarContato($req){
     'mobile_phone' => $req->get_param('mobile_phone'),
     'company_name' => $req->get_param('company_name'),
     'cf_vendedores_na_equipe' => $req->get_param('qtdfunc'),
+    // origem rd
+    'traffic_source' => $req->get_param('traffic_source'),
+    'traffic_medium' => $req->get_param('traffic_medium'),
+    'traffic_campaign' => $req->get_param('traffic_campaign'),
+    'traffic_value' => $req->get_param('traffic_value'),
   );
   //configura e envia para o rd
   $RDI = new Rdi_wp();
@@ -111,7 +121,12 @@ function dnaapi_paginaContato($req){
     'cf_vendedores_na_equipe' => $req->get_param('nVendedores'),
     'mobile_phone' => $req->get_param('telefone'),
     'cf_assunto' => $req->get_param('assunto'),
-    'cf_mensagem' => $req->get_param('mensagem')
+    'cf_mensagem' => $req->get_param('mensagem'),
+    // origem rd
+    'traffic_source' => $req->get_param('traffic_source'),
+    'traffic_medium' => $req->get_param('traffic_medium'),
+    'traffic_campaign' => $req->get_param('traffic_campaign'),
+    'traffic_value' => $req->get_param('traffic_value'),
   );
   //configura e envia para o rd
   $RDI = new Rdi_wp();
