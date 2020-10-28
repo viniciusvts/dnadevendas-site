@@ -9,6 +9,10 @@
           :action="$http.baseURL + 'wp-json/dna_theme/v1/pagina-contato'"
           @submit="sendForm">
             <input type="hidden" name="urlOrigem" id="urlOrigem">
+            <input type="hidden" name="traffic_source" id="traffic_source">
+            <input type="hidden" name="traffic_medium" id="traffic_medium">
+            <input type="hidden" name="traffic_campaign" id="traffic_campaign">
+            <input type="hidden" name="traffic_value" id="traffic_value">
             <h2 class="title-message">Vamos conversar?</h2>
             <label for="nome">Nome*</label>
             <input type="text" name="nome" id="nome" required />
@@ -109,6 +113,14 @@ export default {
   },
   mounted() {
     this.getAcf();
+    // completa o formulário com alguns dados
+    setTimeout(()=>{
+        document.getElementById('urlOrigem').value = location.href
+        document.getElementById('traffic_source').value = this.$http.getUriParam('utm_source') ? this.$http.getUriParam('utm_source') : this.$http.getCookie('__trf.src')
+        document.getElementById('traffic_medium').value = this.$http.getUriParam('utm_medium')
+        document.getElementById('traffic_campaign').value = this.$http.getUriParam('utm_campaign')
+        document.getElementById('traffic_value').value = this.$http.getUriParam('utm_term')
+    }, 2000)
   },
   methods: {
     getAcf() {
@@ -118,7 +130,6 @@ export default {
           this.post = json;
           this.contacts = json.acf.contacts;
           this.setMapIframe(this.contactsWithMap[0].map);
-          setTimeout(()=>{document.getElementById('urlOrigem').value = location.href},1000)
         });
     },
     removeActiveButtons(first) {

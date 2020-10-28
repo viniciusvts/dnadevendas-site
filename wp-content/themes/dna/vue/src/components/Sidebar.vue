@@ -49,6 +49,10 @@
             :action="$http.baseURL + 'wp-json/dna_theme/v1/contato-footer'"
             @submit="sendForm">
                 <input type="hidden" name="urlOrigem" id="urlOrigem">
+                <input type="hidden" name="traffic_source" id="traffic_source">
+                <input type="hidden" name="traffic_medium" id="traffic_medium">
+                <input type="hidden" name="traffic_campaign" id="traffic_campaign">
+                <input type="hidden" name="traffic_value" id="traffic_value">
                 <h3>Assine nossa Newsletter</h3>
                 <p>Cadastre seu e-mail aqui e receba dicas de como vender mais!</p>
                 <input type="text" name="nome" id="nome" placeholder="Seu nome*" required>
@@ -73,7 +77,14 @@
         mounted(){
             this.getPosts();
             this.getCategories();
-            document.getElementById('urlOrigem').value = location.href
+            // completa o formulário com alguns dados
+            setTimeout(()=>{
+                document.getElementById('urlOrigem').value = location.href
+                document.getElementById('traffic_source').value = this.$http.getUriParam('utm_source') ? this.$http.getUriParam('utm_source') : this.$http.getCookie('__trf.src')
+                document.getElementById('traffic_medium').value = this.$http.getUriParam('utm_medium')
+                document.getElementById('traffic_campaign').value = this.$http.getUriParam('utm_campaign')
+                document.getElementById('traffic_value').value = this.$http.getUriParam('utm_term')
+            }, 2000)
         },
         computed:{
             isSingleBlogRoute(){
