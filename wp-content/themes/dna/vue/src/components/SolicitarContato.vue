@@ -6,9 +6,10 @@
       :action="$http.baseURL + 'wp-json/dna_theme/v1/solicitar-contato'"
       @submit="sendForm">
       <input type="hidden" name="urlOrigem" id="urlOrigem">
-      <!-- Como agora quem envia para o RD é o servidor e esse form tem "name" diferentes para
-      páginas diferentes, preciso enviar o name para enviar corretamente para o rd  -->
-      <input type="hidden" name="nameOfForm" id="nameOfForm" :value="formName">
+      <input type="hidden" name="traffic_source" id="traffic_source">
+      <input type="hidden" name="traffic_medium" id="traffic_medium">
+      <input type="hidden" name="traffic_campaign" id="traffic_campaign">
+      <input type="hidden" name="traffic_value" id="traffic_value">
       <div class="row">
         <div class="col-md-12">
           <input type="text" name="nome" id="nome" 
@@ -71,7 +72,14 @@ export default {
   },
   mounted() {
     this.detailColorClass = this.$route.name;
-    setTimeout(()=>{document.getElementById('urlOrigem').value = location.href}, 2000)
+    // completa o formulário com alguns dados
+    setTimeout(()=>{
+      document.getElementById('urlOrigem').value = location.href
+      document.getElementById('traffic_source').value = this.$http.getUriParam('utm_source') ? this.$http.getUriParam('utm_source') : this.$http.getCookie('__trf.src')
+      document.getElementById('traffic_medium').value = this.$http.getUriParam('utm_medium')
+      document.getElementById('traffic_campaign').value = this.$http.getUriParam('utm_campaign')
+      document.getElementById('traffic_value').value = this.$http.getUriParam('utm_term')
+    }, 2000)
   },
   methods: {
     sendForm (evt) {
