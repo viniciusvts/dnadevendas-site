@@ -122,6 +122,7 @@ function dnaapi_paginaContato($req){
     'mobile_phone' => $req->get_param('telefone'),
     'cf_assunto' => $req->get_param('assunto'),
     'cf_mensagem' => $req->get_param('mensagem'),
+    'company_name' => $req->get_param('company_name'),
     // origem rd
     'traffic_source' => $req->get_param('traffic_source'),
     'traffic_medium' => $req->get_param('traffic_medium'),
