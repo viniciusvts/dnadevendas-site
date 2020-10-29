@@ -18,6 +18,8 @@
             <input type="text" name="nome" id="nome" required />
             <label for="email">E-mail*</label>
             <input type="email" name="email" id="email" required />
+            <label for="company_name">Empresa*</label>
+            <input type="text" name="company_name" id="company_name" required />
             <label for="setor">Quero falar com*</label>
             <select name="setor" id="setor" required>
               <option value=""> </option>
