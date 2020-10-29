@@ -312,6 +312,14 @@ function criaMensagemPaginaDeContato($data){
   $message .=       '</td>';
   $message .=     '</tr>';
   }
+  if (isset($data['company_name'])){
+    $message .=     '<tr>';
+    $message .=       '<td style="padding: 10px 20px;">Nome da Empresa:</td>';
+    $message .=       '<td style="padding: 10px 20px; font-size: 18px;">';
+    $message .=         $data['company_name'];
+    $message .=       '</td>';
+    $message .=     '</tr>';
+  }
   if (isset($data['cf_assunto'])){
   $message .=     '<tr>';
   $message .=       '<td style="padding: 10px 20px;">Assunto:</td>';
@@ -329,14 +337,6 @@ function criaMensagemPaginaDeContato($data){
   $message .=          '</div>';
   $message .=       '</td>';
   $message .=     '</tr>';
-  }
-  if (isset($data['company_name'])){
-    $message .=     '<tr>';
-    $message .=       '<td style="padding: 10px 20px;">Nome da Empresa:</td>';
-    $message .=       '<td style="padding: 10px 20px; font-size: 18px;">';
-    $message .=         $data['company_name'];
-    $message .=       '</td>';
-    $message .=     '</tr>';
   }
   if (isset($data['cf_urlorigem'])){
     $message .=     '<tr>';
