@@ -60,6 +60,8 @@ export default {
             if (this.clients.length < 1){
                 let args = [];
                 args["post_per_page"] = -1
+                args["orderby"] = ''
+                args["order"] = ''
                 this.$http.getPortfolio(args)
                 .then(res=>{
                     if(res.status == 200)
