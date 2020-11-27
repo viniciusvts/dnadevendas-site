@@ -178,14 +178,18 @@
             width: 100%;
             .owl-prev, .owl-next{
                 position: absolute;
-                width: 50px;
-                height: 50px;
+                width: 40px;
+                height: 40px;
                 background-color: #000;
-                background: no-repeat 50%/100% 100%;
                 padding: 0;
                 border-radius: 50%;
-                border: 21px solid #000;
+                border: 10px solid #000;
                 opacity: .5;
+                @media (min-width: $desktops){
+                    width: 70px;
+                    height: 70px;
+                    border: 20px solid #000;
+                }
                 &:hover{
                     opacity: 1;
                 }
