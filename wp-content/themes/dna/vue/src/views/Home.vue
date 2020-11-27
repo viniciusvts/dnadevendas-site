@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Spotlight v-if="customFields" class="home">
+    <SliderHome v-if="customFields" class="home" :data="bannersHome">
       <div class="text section white-lg">
         <h1 v-html="customFields.acf.chamada"></h1>
         <h2 class="subtitle" v-html="customFields.acf.subtitulo"></h2>
@@ -14,7 +14,6 @@
           <img src="@/assets/svg/fast-forward.svg" />
         </div>
       </div>
-
       <video v-if="customFields.acf.video" autoplay loop muted>
         <source type="video/mp4" :src="customFields.acf.video" />
       </video>
@@ -24,7 +23,7 @@
         :src="customFields.acf.chamada"
         :alt="customFields.acf.imagem.sizes.medium_large"
       />
-    </Spotlight>
+    </SliderHome>
     <PaginaCarregando v-else/>
 
     <Pillars v-if="customFields">
@@ -113,7 +112,7 @@ const Services = () => ({
   delay: 500
 });
 
-import Spotlight from "@/components/Spotlight.vue";
+import SliderHome from "@/components/SliderHome.vue";
 import PaginaCarregando from "../components/PaginaCarregando.vue";
 //segunda dobra em diante, carregar com lazyload
 import Pillars from "@/components/Pillars.vue";
@@ -128,7 +127,7 @@ import SolicitarContato from "@/components/SolicitarContato.vue";
 export default {
   name: "Home",
   components: {
-    Spotlight,
+    SliderHome,
     PaginaCarregando,
     Pillars,
     Services,
@@ -142,12 +141,14 @@ export default {
   data() {
     return {
       pageID: 37,
-      customFields: null
+      customFields: null,
+      bannersHome:[]
     };
   },
   created() {
     document.title = 'DNA de Vendas - Consultoria de vendas e treinamento de vendas'
     this.getAcf();
+    this.getBanner();
   },
   methods: {
     getAcf() {
@@ -155,6 +156,13 @@ export default {
         .then(r => r.json())
         .then(r => {
           this.customFields = r;
+        });
+    },
+    getBanner() {
+      this.$http.getBanners()
+        .then(r => r.json())
+        .then(j => {
+          this.bannersHome = j;
         });
     },
   }

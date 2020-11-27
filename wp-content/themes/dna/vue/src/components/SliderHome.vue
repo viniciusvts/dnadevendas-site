@@ -1,0 +1,45 @@
+<template>
+  <div class="spotlight spothome">
+    <carousel :responsive="carrossel">
+      <div class="item" v-for="(banner, index) in data" :key="index">
+        <a :href="banner.acf.link.url" :target="banner.acf.link.target">
+          <img :src="banner.acf.imagem.sizes.large" :alt="banner.acf.imagem.alt">
+        </a>
+      </div>
+      <div class="item">
+        <slot></slot>
+      </div>
+    </carousel>
+  </div>
+</template>
+
+<script>
+import carousel from 'vue-owl-carousel'
+export default {
+  name: 'SliderHome',
+  components: { carousel },
+  props: {
+    data: Object
+  },
+  data () {
+    return {
+      carrossel: {
+        0: {
+          items: 1,
+          dots: false,
+          loop: true,
+          center: true,
+          mouseDrag: true,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          navText: ['',''],
+        }
+      }
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+  @import '@/assets/scss/spotlight.scss';
+</style>
