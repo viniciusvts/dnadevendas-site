@@ -175,8 +175,9 @@
         .owl-nav{
             position: absolute;
             top: 40%;
+            width: 100%;
             .owl-prev, .owl-next{
-                position: fixed;
+                position: absolute;
                 width: 50px;
                 height: 50px;
                 background-color: #000;
