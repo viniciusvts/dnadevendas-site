@@ -3,7 +3,9 @@
     <carousel :responsive="carrossel">
       <div class="item" v-for="(banner, index) in data" :key="index">
         <a :href="banner.acf.link.url" :target="banner.acf.link.target">
-          <img :src="banner.acf.imagem.sizes.large" :alt="banner.acf.imagem.alt">
+          <img v-if="isMobile && banner.acf.imagem_mobile" 
+          :src="banner.acf.imagem_mobile.sizes.large" :alt="banner.acf.imagem_mobile.alt">
+          <img v-else :src="banner.acf.imagem.sizes.large" :alt="banner.acf.imagem.alt">
         </a>
       </div>
       <div class="item">
@@ -35,6 +37,11 @@ export default {
           navText: ['',''],
         }
       }
+    }
+  },
+  methods:{
+    isMobile(){
+      return window.innerWidth < 768
     }
   }
 }
