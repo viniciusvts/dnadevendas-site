@@ -189,6 +189,26 @@ const apiRest = {
   },
 
   /**
+   * Resgata a lista de banners com parametros
+   * @param {[]} args - parametros a ser requisitado
+   * @author Vinicius de Santana
+   */
+  getBanners(args) {
+    let urlArgs = "";
+    if (typeof args != 'undefined'){
+      if (!Array.isArray(args))  throw new TypeError("O parametro precisa ser array");
+      for (const key in args) {
+        urlArgs += key + "=" + args[key] + "&";
+      }
+    }
+    let url = this.baseURL + 'wp-json/wp/v2/banners-home';
+    if (urlArgs.length > 0){
+      url += "?" + urlArgs;
+    }
+    return fetch(url);
+  },
+
+  /**
    * Resgata a lista da taxonomia do portfólio
    * @author Vinicius de Santana
    */
