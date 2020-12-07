@@ -130,7 +130,7 @@
             <span>&#x25bc;</span>
             <div class="submenu">
               <ul>
-                <li><a href="http://insidesalesacademy.com.br/" target="_blank">Vendas Consultivas no Mundo Digital</a></li>
+                <li><a href="https://insidesalesacademy.com.br/inside-sales-academy4/" target="_blank">Vendas Consultivas no Mundo Digital</a></li>
                  <li><a href="https://insidesalesacademy.com.br/hotsite-imob-corretor/" target="_blank">Curso para corretores</a></li>
                   <li><a href="https://insidesalesacademy.com.br/hotsite-imob-gestor/" target="_blank">Curso para Gestores</a></li>
               </ul>
