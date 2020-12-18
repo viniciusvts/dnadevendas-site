@@ -1,6 +1,6 @@
 <template>
   <div class="spotlight spothome">
-    <carousel :responsive="carrossel">
+    <carousel :responsive="carrossel" v-if="data.length > 0">
       <div class="item" v-for="(banner, index) in data" :key="index">
         <a :href="banner.acf.link.url" :target="banner.acf.link.target">
           <img v-if="isMobile && banner.acf.imagem_mobile" 
@@ -12,6 +12,9 @@
         <slot></slot>
       </div>
     </carousel>
+    <div class="item" v-else>
+      <slot></slot>
+    </div>
   </div>
 </template>
 
