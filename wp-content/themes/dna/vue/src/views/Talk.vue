@@ -60,7 +60,7 @@
           </ul>
         </div>
       </div>
-      <CardPalestrante :dataCase="transferData"></CardPalestrante>
+      <CardPalestrante :dataCase="transferData" v-if="transferData.onde_palestrou.length > 0"></CardPalestrante>
       <br>
         <div class="row">
           <div class="col-sm-12 col-sm-12 col-tb-12">

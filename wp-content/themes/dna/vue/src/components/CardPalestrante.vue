@@ -29,7 +29,7 @@
           <hr id="hr-golden">
         </div>
       </div>
-      <div class="empresas" v-if="dataCase.onde_palestrou.length > 0">
+      <div class="empresas">
         <carousel :responsive="carrossel">
           <div class="item" v-for="(empresa, index) in dataCase.onde_palestrou" :key="index">
             <img :src="empresa.sizes.medium" :alt="empresa.alt">
