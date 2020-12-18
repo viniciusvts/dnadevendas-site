@@ -509,45 +509,70 @@
     }
   }
 }
-
-.controllers {
-  position: relative;
-  @include breakpoint(fullHdDesktops) {
-    width: unset;
-    height: 10px;
-  }
-  .control {
+.owl-stage-outer{
+  margin: 0 60px;
+}
+.owl-carousel{
+  /// resolve bug no owl carousel que cria item fora da div do carousel
+  > .item{
     display: none;
-    border-top: 1px solid $baseColor;
-    border-right: 1px solid $baseColor;
-    border-bottom: 1px solid $baseColor;
-    width: 30px;
-    height: 30px;
-    padding: 5px 0px;
+  }
+  .owl-item{
+    height: max-content;
+  }
+  .owl-nav {
+    position: relative;
     @include breakpoint(fullHdDesktops) {
-      width: 50px;
-      height: 50px;
-      padding: 5px 0px;
+      width: unset;
+      height: 10px;
     }
-    cursor: pointer;
-    img {
-      width: 30px;
-      height: 17px;
-      @include breakpoint(fullHdDesktops) {
-        width: 48px;
-        height: 38px;
+    & .owl-prev, & .owl-next {
+      position: absolute;
+      bottom: 100px;
+      background: none!important;
+      @media  (min-width: $tablets) {
+        bottom: 60px;
       }
     }
-    &#next {
-      position: absolute;
-      top: -70px;
-      right: 0;
-    }
-    &#back {
-      position: absolute;
-      top: -70px;
+    & .owl-prev {
       left: 0;
       transform: rotateY(180deg);
+      @media  (min-width: $desktops) {
+        left: -10px;
+      }
+    }
+    & .owl-next {
+      right: 0;
+      @media  (min-width: $desktops) {
+        right: -10px;
+      }
+    }
+    .control {
+      display: block;
+      border-top: 1px solid $baseColor;
+      border-right: 1px solid $baseColor;
+      border-bottom: 1px solid $baseColor;
+      width: 30px;
+      height: 30px;
+      padding: 5px 0px;
+      // background (arrows)
+      background: url("../assets/svg/big-arrow.svg") no-repeat;
+      background-position: center;
+      background-size: 35%;
+      @include breakpoint(fullHdDesktops) {
+        width: 50px;
+        height: 50px;
+        padding: 5px 0px;
+      }
+      cursor: pointer;
+      img {
+        width: 30px;
+        height: 17px;
+        @include breakpoint(fullHdDesktops) {
+          width: 48px;
+          height: 38px;
+        }
+      }
     }
   }
 }
@@ -556,13 +581,7 @@
 }
 .empresas {
   max-width: 100%;
-  overflow-x: hidden;
-  width: 1000px;
-  margin: 0 auto;
-  @include breakpoint(smartphones) {
-    max-width: 200px;
-    margin: auto;
-  }
+  margin: 0 ;
   ul {
     display: inline-flex;
     img {

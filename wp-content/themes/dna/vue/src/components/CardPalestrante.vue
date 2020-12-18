@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-12 portfolio">
+    <div class="col-sm-12 portfolio px-0">
       <div class="row align-items-center">
         <div class="col-auto">
           <h4>Empresas que palestrou</h4>
@@ -29,94 +29,64 @@
           <hr id="hr-golden">
         </div>
       </div>
-      <div class="empresas">
-        <ul>
-          <li v-for="(empresa, index) in dataCase.onde_palestrou" :key="index">
-            <img :src="empresa.sizes.medium" :alt="alt">
-          </li>
-        </ul>
-      </div>
-      <div class="controllers">
-        <div class="control" id="next">
-          <div class="svg">
-            <img src="../assets/svg/big-arrow.svg" alt="Avança">
+      <div class="empresas" v-if="dataCase.onde_palestrou.length > 0">
+        <carousel :responsive="carrossel">
+          <div class="item" v-for="(empresa, index) in dataCase.onde_palestrou" :key="index">
+            <img :src="empresa.sizes.medium" :alt="empresa.alt">
           </div>
-        </div>
-        <div class="control" id="back">
-          <div class="svg">
-            <img src="../assets/svg/big-arrow.svg" alt="Volta">
-          </div>
-        </div>
+        </carousel>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import carousel from 'vue-owl-carousel'
 export default {
   name: 'card-palestrante',
+  components: { carousel },
   props: {
     dataCase: Object,
   },
-  mounted() {
-    setTimeout(() => {
-      if(screen.width < 800) {
-        this.controllers(1)
-      } else if (screen.width < 1024) {
-        this.controllers(3)
-      } else if(screen.width < 1300) {
-        this.controllers(5)
-      } else if(screen.width < 1900) {
-        this.controllers(6)
-      } else {
-        this.controllers(9)
-      }
-    }, 100);
-  },
-  methods: {
-    controllers(itens) {
-      if(this.dataCase.onde_palestrou.length > itens) {
-        const images = document.getElementsByClassName('images');
-        const next = document.getElementById('next');
-        const back = document.getElementById('back');
-        next.setAttribute('style', 'display:block');
-        back.setAttribute('style', 'display:block');
-        images[0].setAttribute('position', '0');
-        const total = images.length;
-        const limit = total - itens;
-        const test = limit * images[0].offsetWidth;
-        let offset = test;
-        var aux = images[0].offsetWidth;
-        next.addEventListener('click', function() {
-          if(aux <= test) {
-            offset = aux + images[0].offsetWidth;
-            for(let i = 0; i < images.length; i++) {
-              images[i].setAttribute('style', `transform:translateX(-${aux}px);`);
-              images[i].setAttribute('position', aux);
-            }
-            aux = offset;
-          } else {
-            aux = 0;
-            for(let i = 0; i < images.length; i++) {
-              images[i].setAttribute('style', `transform:translateX(${aux});`);
-              images[i].setAttribute('position', aux);
-            }
-          }
-        })
-        back.addEventListener('click', function() {
-          if(aux > 0) {
-            offset = aux - images[0].offsetWidth;
-            for(let i = 0; i < images.length; i++) {
-              images[i].setAttribute('style', `transform:translateX(-${aux}px);`);
-            }
-            aux = offset;
-          } else {
-            aux = 0;
-            for(let i = 0; i < images.length; i++) {
-              images[i].setAttribute('style', `transform:translateX(${aux});`);
-            }
-          }
-        })
+  data () {
+    return {
+      carrossel: {
+        0: {
+          items: 1,
+          dots: false,
+          center: false,
+          mouseDrag: true,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          navText: [
+            '<div class="control"></div>',
+            '<div class="control"></div>'
+          ],
+        },
+        600: {
+          items: 3,
+          dots: false,
+          center: false,
+          mouseDrag: true,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          navText: [
+            '<div class="control"></div>',
+            '<div class="control"></div>'
+          ],
+        },
+        900: {
+          items: 5,
+          dots: false,
+          center: false,
+          mouseDrag: true,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          navText: [
+            '<div class="control"></div>',
+            '<div class="control"></div>'
+          ],
+        },
       }
     }
   },

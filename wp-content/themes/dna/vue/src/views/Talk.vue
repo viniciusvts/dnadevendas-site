@@ -60,7 +60,7 @@
           </ul>
         </div>
       </div>
-      <card-palestra :dataCase="transferData"></card-palestra>
+      <CardPalestrante :dataCase="transferData"></CardPalestrante>
       <br>
         <div class="row">
           <div class="col-sm-12 col-sm-12 col-tb-12">
@@ -129,7 +129,7 @@
       Metrics,
       SolicitarContato,
       CardSlider,
-      'card-palestra': CardPalestrante,
+      CardPalestrante,
     },
     data(){
       return {
@@ -150,17 +150,16 @@
     },
     mounted(){
       this.getPage();
-      setTimeout(() => {
-        if(this.transferData == null) {
-          this.transferData = this.palestrantes[0];
-          this.componentKey = 0;
-        }
-      }, 2000);
+      if(this.transferData == null) {
+        this.transferData = this.palestrantes[1];
+      }
     },
     watch: {
       position(val) {
-        this.transferData = this.palestrantes[val];
-        this.componentKey = val;
+        this.transferData = null
+        this.$nextTick(() => {
+          this.transferData = this.palestrantes[val];
+        });
       },
     },
     methods:{
@@ -182,7 +181,6 @@
         this.banner = bannerData;
         this.page = r;
         this.transferData = this.palestrantes[0];
-        this.componentKey = 0;
         this.video = r.acf.video
         document.title = this.page.yoast_title
         });
