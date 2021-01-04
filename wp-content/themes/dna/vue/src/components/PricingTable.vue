@@ -11,31 +11,31 @@
                         <th class="first-header">Nossos planos</th>
                         <th class="head-table sm">
                             <span><p>Smart</p></span>
-                            <br>
-                            <span class="price" v-html="data.acf.precos.smart.parcelado"></span>
-                            <br>
-                            <span class="full-price" v-html="data.acf.precos.smart.a_vista"></span>
+                            <br v-if="data.acf.precos.smart.parcelado">
+                            <span class="price" v-if="data.acf.precos.smart.parcelado" v-html="data.acf.precos.smart.parcelado"></span>
+                            <br v-if="data.acf.precos.smart.a_vista">
+                            <span class="full-price" v-if="data.acf.precos.smart.a_vista" v-html="data.acf.precos.smart.a_vista"></span>
                         </th>
                         <th class="head-table pro">
                             <span><p>Professional</p></span>
-                            <br>
-                            <span class="price" v-html="data.acf.precos.professional.parcelado"></span>
-                            <br>
-                            <span class="full-price" v-html="data.acf.precos.professional.a_vista"></span>
+                            <br v-if="data.acf.precos.professional.parcelado">
+                            <span class="price" v-if="data.acf.precos.professional.parcelado" v-html="data.acf.precos.professional.parcelado"></span>
+                            <br v-if="data.acf.precos.professional.parcelado">
+                            <span class="full-price" v-if="data.acf.precos.professional.a_vista" v-html="data.acf.precos.professional.a_vista"></span>
                         </th>
                         <th class="head-table prod">
                             <span><p>Productivity</p></span>
-                            <br>
-                            <span class="price" v-html="data.acf.precos.productivity.parcelado"></span>
-                            <br>
-                            <span class="full-price" v-html="data.acf.precos.productivity.a_vista"></span>
+                            <br v-if="data.acf.precos.productivity.parcelado">
+                            <span class="price" v-if="data.acf.precos.productivity.parcelado" v-html="data.acf.precos.productivity.parcelado"></span>
+                            <br v-if="data.acf.precos.productivity.a_vista">
+                            <span class="full-price" v-if="data.acf.precos.productivity.a_vista" v-html="data.acf.precos.productivity.a_vista"></span>
                         </th>
                         <th class="head-table str">
                             <span><p>Strategic</p></span>
-                            <br>
-                            <span class="price" v-html="data.acf.precos.strategic.parcelado"></span>
-                            <br>
-                            <span class="full-price" v-html="data.acf.precos.strategic.a_vista"></span>
+                            <br v-if="data.acf.precos.strategic.parcelado">
+                            <span class="price" v-if="data.acf.precos.strategic.parcelado" v-html="data.acf.precos.strategic.parcelado"></span>
+                            <br v-if="data.acf.precos.strategic.a_vista">
+                            <span class="full-price" v-if="data.acf.precos.strategic.a_vista" v-html="data.acf.precos.strategic.a_vista"></span>
                         </th>
                     </tr>
                 </thead>
