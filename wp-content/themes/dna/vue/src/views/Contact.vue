@@ -153,12 +153,12 @@ export default {
     },
     sendForm (evt) {
       evt.preventDefault()
+      const formData = new FormData(evt.target)
+      const url = evt.target.action
       //verifica se telefone é válido #16882
       if(this.$refs.mobile_phone.value.length < 14){
         return alert("Digite um telefone válido")
       }
-      const formData = new FormData(evt.target)
-      const url = evt.target.action
       this.$http.sendFormToWP(url, formData)
       .then(resp => {
         if (resp.ok) return resp.json()
