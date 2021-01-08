@@ -22,7 +22,7 @@
         </div>
 
         <div class="col-md-6">
-          <input type="text" name="mobile_phone" id="mobile_phone" v-on:keyup="execMascaraTel" 
+          <input type="text" name="mobile_phone" id="mobile_phone" ref="mobile_phone" v-on:keyup="execMascaraTel" 
           :class="detailColorClass" placeholder="Seu telefone" required>
         </div>
 
@@ -84,6 +84,10 @@ export default {
   methods: {
     sendForm (evt) {
       evt.preventDefault()
+      //verifica se telefone é válido #16882
+      if(this.$refs.mobile_phone.value.length < 14){
+        return alert("Digite um telefone válido")
+      }
       const formData = new FormData(evt.target)
       const url = evt.target.action
       this.$http.sendFormToWP(url, formData)
@@ -98,6 +102,7 @@ export default {
     execMascaraTel (evt) {
       let v = evt.target.value;
       v=v.replace(/\D/g,""); //Remove tudo o que não é dígito
+      v=v.replace(/^(\d{11})(\d*)/g,"$1"); // remove o excedente de 11 digitos
       v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
       v=v.replace(/(\d)(\d{4})$/,"$1-$2"); //Coloca - depois dos 4 digitos após ()
       evt.target.value = v;
