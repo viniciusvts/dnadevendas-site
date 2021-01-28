@@ -1,0 +1,49 @@
+@import '@/assets/scss/variables.scss';
+.podcastsearch{
+    &.mg-title{
+        margin: 90px 0 70px;
+    }
+    &.titlesearch{
+        display: block;
+        width: 100%;
+        @media (min-width: $smartphones) {
+            display: flex;
+        }
+        .title{
+            & span::after{
+                background-image: url("../assets/svg/line-blue.svg");
+            }
+        }
+        .search{
+            margin-left: auto;
+            border-bottom: solid 2px #171F38;
+            height: 65px;
+            input{
+                width: 250px;
+                height: 57px;
+                border: none;
+                font-size: 25px;
+                line-height: 81px;
+                @media (min-width: $desktops) {
+                    width: 410px;
+                }
+                &::placeholder{
+                    color: #C1C1C1;
+                }
+                &:focus{
+                    outline: none;
+                }
+            }
+            button{
+                width: 50px;
+                height: 50px;
+                background: transparent;
+                border: none;
+                padding: 10px;
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+    }
+}

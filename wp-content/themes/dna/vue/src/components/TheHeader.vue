@@ -150,6 +150,9 @@
                   <router-link :to="{name: 'Blog'}">Blog</router-link>
                 </li>
                 <li>
+                  <router-link :to="{name: 'Podcast'}">Podcast</router-link>
+                </li>
+                <li>
                   <router-link :to="{name: 'Materials'}">Materiais</router-link>
                 </li>
                 <li>
@@ -226,7 +229,17 @@
         }
       },
       matchRoute(){
-        if(this.slug === 'Blog' || this.slug === 'SingleBlog' || this.slug === 'Clients' || this.slug === 'About' || this.slug === 'Contact'|| this.slug === 'SalesTraining'|| this.slug === 'InternalMultipliers'|| this.slug === 'LeaderPrograms' || this.slug === 'ContentFabric'){
+        if(this.slug === 'Blog' ||
+        this.slug === 'SingleBlog' ||
+        this.slug === 'Podcast' ||
+        this.slug === 'PodcastSingle' ||
+        this.slug === 'Clients' ||
+        this.slug === 'About' ||
+        this.slug === 'Contact'||
+        this.slug === 'SalesTraining'||
+        this.slug === 'InternalMultipliers'||
+        this.slug === 'LeaderPrograms' ||
+        this.slug === 'ContentFabric'){
           this.menuStyle = 'darkMenu';
           this.logoWhite = true;
         }else if(this.slug === 'Home' || this.slug === 'Workshops' || this.slug === 'Talk' || this.slug === 'ForSmall' || this.slug === 'Training' || this.slug === 'FullService' || this.slug === 'Mentoring'){

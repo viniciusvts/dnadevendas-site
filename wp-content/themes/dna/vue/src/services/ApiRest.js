@@ -61,6 +61,30 @@ const apiRest = {
   },
 
   /**
+   * Resgata lista de podcasts informando ou não qual página
+   * @param {[]} args - args do endpoint do wordpress
+   * @param {number} args.post_per_page - quantos posts por página -1 sem limite
+   * @param {number} args.page - número da página visitada
+   * @author Vinicius de Santana
+   */
+  getPodcasts(args) {
+    let urlArgs = "";
+    if (typeof args != 'undefined'){
+      if (!Array.isArray(args))  throw new TypeError("O parametro precisa ser array");
+      for (const key in args) {
+        urlArgs += key + "=" + args[key] + "&";
+      }
+      //remove p último &
+      urlArgs = urlArgs.substr(0, urlArgs.length-1);
+    }
+    let url = this.baseURL + 'wp-json/wp/v2/podcast/';
+    if (urlArgs.length > 0){
+      url += "?" + urlArgs;
+    }
+    return fetch(url);
+  },
+
+  /**
    * Resgata uma página pelo seu id
    * @param {number} id - Id da página
    * @author Vinicius de Santana

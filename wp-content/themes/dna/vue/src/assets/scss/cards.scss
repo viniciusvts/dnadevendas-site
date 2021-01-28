@@ -108,4 +108,36 @@
             }
         }
     }
+    &.podcast{
+        .left{
+            &::after{
+                background: linear-gradient(90deg, #000CBB 0%, #1E2134 100%);
+            }
+        }
+        .right{
+            h2{
+                color: #393C65;
+                font-weight: bold;
+            }
+            p{
+                color: #345;
+                font-weight: normal;
+                line-height: 26px;
+            }
+        }
+        .bottom{
+            margin-top: 40px;
+            color: #345;
+            @media (min-width: $fullHdDesktops) {
+                margin-top: 100px;
+            }
+            img.relogio{
+                width: 25px;
+                height: 45px;
+                @media (min-width: $tablets) {
+                    height: 25px;
+                }
+            }
+        }
+    }
 }

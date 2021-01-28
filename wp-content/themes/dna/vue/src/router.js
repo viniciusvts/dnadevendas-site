@@ -24,6 +24,8 @@ import ContentFabric from './views/ContentFabric.vue'
 import SalesTraining from './views/SalesTraining.vue'
 import LeaderPrograms from './views/LeaderPrograms.vue'
 import InternalMultipliers from './views/InternalMultipliers.vue'
+import Podcast from './views/Podcast.vue'
+import PodcastSingle from './views/PodcastSingle.vue'
 import NaoEncontrado from './views/NaoEncontrado.vue'
 
 Vue.use(VueRouter)
@@ -170,6 +172,48 @@ const routes = [
     name: 'InternalMultipliers',
     component: InternalMultipliers
   },
+  {
+    path: '/podcast',
+    name: 'Podcast',
+    component: Podcast
+  },
+  {
+    path: '/podcast/page/:page',
+    name: 'PodcastPage',
+    component: Podcast,
+    props: {default: true, page: true}
+  },
+  {
+    path: '/podcast/categoria/:cat/page/:page',
+    name: 'PodcastCat',
+    component: Podcast,
+    props: {default: true, cat: true, page: false}
+  },
+  {
+    path: '/podcast/categoria/:cat',
+    name: 'PodcastCat',
+    component: Podcast,
+    props: {default: true, cat: true}
+  },
+  {
+    path: '/podcast/tags/:tag/page/:page',
+    name: 'PodcastTag',
+    component: Podcast,
+    props: {default: true, tag: true, page: false}
+  },
+  {
+    path: '/podcast/tags/:tag',
+    name: 'PodcastTag',
+    component: Podcast,
+    props: {default: true, tag: true}
+  },
+  {
+    path: '/podcast/:slug',
+    name: 'PodcastSingle',
+    component: PodcastSingle,
+    props: {default: true, post: true}
+  },
+  /* se não cair nas regras acima é página */
   {
     path: '/:slug',
     name: 'Page',
