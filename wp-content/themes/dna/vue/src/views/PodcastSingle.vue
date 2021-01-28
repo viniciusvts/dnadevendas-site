@@ -10,7 +10,7 @@
               <div class="iframe" v-html="post.acf.embed_spotify">
               </div>
               <div class="info d-none d-lg-block">
-                <p class="top">DnaForCast</p>
+                <p class="top">A Ciência da Venda</p>
                 <h1 v-html="post.acf.titulo_single"></h1>
                 <div class="bottom row mt-date">
                   <span class="col-6">{{post.acf.nome_dos_participantes}}</span>
