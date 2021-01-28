@@ -224,11 +224,12 @@
             height: 80px;
             padding-right: 15px;
             @media (min-width: $tablets) {
-                width: 50%;
+                width: 80%;
                 height: 280px;
                 margin-left: -5%;
             }
-            @media (min-width: $largeDesktops) {
+            @media (min-width: $desktops) {
+                width: 50%;
                 padding-right: 30px;
             }
             iframe{
