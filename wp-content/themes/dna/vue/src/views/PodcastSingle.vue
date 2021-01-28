@@ -18,8 +18,8 @@
                 </div>
               </div>
             </div>
-            <div class="row single-information">
-              <div class="row col-12 col-lg-6 social-col m-0">
+            <div class="row single-information mt-5">
+              <div class="row col-12 col-lg-6 social-col m-0 mt-md-5">
                 <a :href="linkFace" target="_blank">
                   <img src="@/assets/svg/facebook-circle.svg" alt="facebook logo">
                 </a>
