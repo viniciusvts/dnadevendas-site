@@ -66,8 +66,10 @@ h2.fale-conosco {
     &.ForSmall span {
         color: $pink-fsmall;
     }
-    &.Home span {
-    color: $golden;
+    &.Home, &.PodcastSingle, &.Podcast{
+        span {
+            color: $golden;
+        }
     }
 
     @include breakpoint(tablets) {
