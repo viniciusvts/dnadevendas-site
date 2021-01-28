@@ -11,7 +11,7 @@
             <div v-html="getResume()"></div>
             <div class="bottom row">
               <span class="col-6">{{post.acf.nome_dos_participantes}}</span>
-              <span class="col-4 offset-2 ml-auto d-flex">
+              <span class="offset-2 ml-auto d-flex">
                 <img src="@/assets/svg/clock.svg" alt="relogio" class="mr-1 relogio">
                 {{daysAgo}}
               </span>

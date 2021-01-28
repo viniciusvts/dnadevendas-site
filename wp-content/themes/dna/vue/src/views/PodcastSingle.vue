@@ -14,7 +14,7 @@
                 <h1 v-html="post.acf.titulo_single"></h1>
                 <div class="bottom row mt-date">
                   <span class="col-6">{{post.acf.nome_dos_participantes}}</span>
-                  <span class="col-3 offset-3 ml-auto d-flex">{{getOcidentalDate(post.date)}}</span>
+                  <span class="offset-3 ml-auto d-flex">{{getOcidentalDate(post.date)}}</span>
                 </div>
               </div>
             </div>
