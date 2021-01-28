@@ -156,6 +156,7 @@
                 return Number(this.$route.params.page);
             },
             getNextPage(){
+                if (this.XWPTotalPages == 1) return false;
                 if (typeof this.$route.params.page == 'undefined') return 2;
                 if (this.$route.params.page >= this.XWPTotalPages) return false;
                 return Number(this.$route.params.page) + 1;
