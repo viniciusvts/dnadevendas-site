@@ -2,7 +2,7 @@
 function custom_podcast() {
 	$labels = array(
 		'name'                  => _x( 'Podcasts', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Podcasts', 'Post Type Singular Name', 'text_domain' ),
+		'singular_name'         => _x( 'Podcast', 'Post Type Singular Name', 'text_domain' ),
 		'menu_name'             => __( 'Podcasts', 'text_domain' ),
 		'name_admin_bar'        => __( 'Podcasts', 'text_domain' ),
 		'archives'              => __( 'Podcasts Arquivados', 'text_domain' ),
