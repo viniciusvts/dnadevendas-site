@@ -1,7 +1,12 @@
 <template>
   <section class="blog podcast">
     <h1 class="d-none">O mais completo podcast de vendas do Brasil</h1>
-    <img src="@/assets/bannerpodcast.jpg" alt="banner do podcast" class="mt-banner w-100">
+    <picture>
+      <source :srcset="page.acf.banner.sizes.medium" media="(max-width: 400px)" class="mt-banner w-100">
+      <source :srcset="page.acf.banner.sizes.large" media="(max-width: 1200px)" class="mt-banner w-100">
+      <source :srcset="page.acf.banner.sizes.medium_large" media="(min-width: 1200px)" class="mt-banner w-100">
+      <img :src="page.acf.banner.url" :alt="page.acf.banner.alt" class="mt-banner w-100">
+    </picture>
     <PodcastLineSearch title="Episódios" placeholder="Pesquisar episódios" />
     <div class="container-fluid">
       <div class="content">
@@ -117,8 +122,8 @@
         this.$http.getPagesById(this.pageId)
         .then(resp => resp.json())
         .then( json => {
-          this.post = json
-          document.title = this.post.title.rendered
+          this.page = json
+          document.title = this.page.title.rendered
         })
       }
     },
