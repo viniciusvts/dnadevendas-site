@@ -258,6 +258,47 @@
                 }
             }
         }
+        .confiratbm{
+            display: block;
+            @media (min-width: $tablets) {
+                display: flex;
+            }
+            p{
+                display: block;
+                text-align: center;
+                font-size: 25px;
+                line-height: 45px;
+                font-weight: bold;
+                color: #0C1581;
+                margin-right: 13px;
+                @media (min-width: $tablets) {
+                    text-align: left;
+                    display: inline;
+                }
+            }
+            a{
+                display: flex;
+                &:last-child{
+                    margin-bottom: 30px;
+                    @media (min-width: $tablets) {
+                        margin-bottom: 0;
+                    }
+                }
+                img{
+                    height: 20px;
+                    margin: 10px auto;
+                    @media (min-width: $tablets) {
+                        margin: auto 10px;
+                    }
+                    @media (min-width: $largeDesktops) {
+                        margin: auto 20px auto;
+                    }
+                }
+            }
+        }
+        .single-information{
+            margin-top: 100px;
+        }
         .mt-article{
             margin-top: 100px;
         }

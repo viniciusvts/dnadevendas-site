@@ -112,6 +112,16 @@
         .left{
             &::after{
                 background: linear-gradient(90deg, #000CBB 0%, #1E2134 100%);
+                //background: linear-gradient(90deg, #0B0207 0%, #FF178A 100%);
+            }
+            img{
+                height: 200px;
+                @media (min-width: $tablets) {
+                    height: 300px;
+                }
+                @media (min-width: $fullHdDesktops) {
+                    height: 500px;
+                }
             }
         }
         .right{

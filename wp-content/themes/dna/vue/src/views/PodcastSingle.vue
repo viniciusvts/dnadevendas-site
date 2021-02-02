@@ -18,8 +18,20 @@
                 </div>
               </div>
             </div>
-            <div class="row single-information mt-5">
-              <div class="row col-12 col-lg-6 social-col m-0 mt-md-5">
+            <div class="row single-information">
+              <div class="confiratbm col-12 col-lg">
+                <p v-if="post.acf.youtube || post.acf.souncloud || post.acf.deezer">Confira também:</p>
+                <a v-if="post.acf.youtube" :href="post.acf.youtube" target="_blank">
+                  <img src="@/assets/youtube-logo-9.jpg" alt="youtube logo">
+                </a>
+                <a v-if="post.acf.souncloud" :href="post.acf.souncloud" target="_blank">
+                  <img src="@/assets/soudcloudlogo.png" alt="soundclud logo">
+                </a>
+                <a v-if="post.acf.deezer" :href="post.acf.deezer" target="_blank">
+                  <img src="@/assets/deezer.jpg" alt="deezer logo">
+                </a>
+              </div>
+              <div class="row col-12 col-lg-4 social-col m-0 ml-auto">
                 <a :href="linkFace" target="_blank">
                   <img src="@/assets/svg/facebook-circle.svg" alt="facebook logo">
                 </a>
