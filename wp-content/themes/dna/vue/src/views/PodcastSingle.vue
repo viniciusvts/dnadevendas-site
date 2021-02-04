@@ -22,7 +22,9 @@
               <div class="confiratbm col-12 col-lg">
                 <p v-if="post.acf.youtube ||
                 post.acf.souncloud ||
-                post.acf.deezer">
+                post.acf.deezer ||
+                post.acf.applepodcast ||
+                post.acf.googlepodcast">
                   Confira também:
                 </p>
                 <a v-if="post.acf.youtube" :href="post.acf.youtube" target="_blank">
