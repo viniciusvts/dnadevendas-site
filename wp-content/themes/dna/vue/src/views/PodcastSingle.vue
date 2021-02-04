@@ -20,7 +20,11 @@
             </div>
             <div class="row single-information">
               <div class="confiratbm col-12 col-lg">
-                <p v-if="post.acf.youtube || post.acf.souncloud || post.acf.deezer">Confira também:</p>
+                <p v-if="post.acf.youtube ||
+                post.acf.souncloud ||
+                post.acf.deezer">
+                  Confira também:
+                </p>
                 <a v-if="post.acf.youtube" :href="post.acf.youtube" target="_blank">
                   <img src="@/assets/youtube-logo-9.jpg" alt="youtube logo">
                 </a>
@@ -29,6 +33,12 @@
                 </a>
                 <a v-if="post.acf.deezer" :href="post.acf.deezer" target="_blank">
                   <img src="@/assets/deezer.jpg" alt="deezer logo">
+                </a>
+                <a v-if="post.acf.applepodcast" :href="post.acf.applepodcast" target="_blank">
+                  <img src="@/assets/Apple-Podcast.png" alt="applepodcast logo">
+                </a>
+                <a v-if="post.acf.googlepodcast" :href="post.acf.googlepodcast" target="_blank">
+                  <img src="@/assets/Google-Podcasts.png" alt="googlepodcast logo">
                 </a>
               </div>
               <div class="row col-12 col-lg-4 social-col m-0 ml-auto">
