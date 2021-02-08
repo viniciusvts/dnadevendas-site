@@ -78,7 +78,7 @@
                     right: 2%;
                 }
             }
-        }        
+        }
 
         h2, h3, h4, a{
             font-weight: bold;
@@ -182,6 +182,7 @@
     &.podcast{
         padding-top: 240px;
         .content{
+            // HeadSinglePodcastv1
             .thumbnail{
                 &::after{
                     width: 98%;
@@ -189,6 +190,49 @@
                     height: 130%;
                     top: -15%;
                 }
+                .iframe{
+                    width: 380px;
+                    height: 160px;
+                    padding-right: 15px;
+                    @media (min-width: $tablets) {
+                        width: 80%;
+                        height: 280px;
+                        margin-left: -5%;
+                    }
+                    @media (min-width: $desktops) {
+                        width: 50%;
+                        padding-right: 30px;
+                    }
+                    iframe{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .info{
+                    width: 30%;
+                    padding-left: 15px;
+                    color: white;
+                    @media (min-width: $tablets) {
+                        width: 50%;
+                    }
+                    @media (min-width: $largeDesktops) {
+                        width: 50%;
+                        padding-left: 30px;
+                    }
+                    h2{
+                        color: white;
+                    }
+                    .mt-date{
+                        margin-top: 50px;
+                        @media (min-width: $fullHdDesktops) {
+                            margin-top: 90px;
+                        }
+                    }
+                }
+            }
+            //HeadSinglePodcastv2
+            .thumbnailv2{
+                background: linear-gradient(90deg, #000CBB 0%, #1E2134 100%);
             }
             p, h1{
                 font-size: 28px;
@@ -216,45 +260,6 @@
                 @media (min-width: $fullHdDesktops) {
                     font-size: 25px;
                     line-height: 35px;
-                }
-            }
-        }
-        .iframe{
-            width: 380px;
-            height: 160px;
-            padding-right: 15px;
-            @media (min-width: $tablets) {
-                width: 80%;
-                height: 280px;
-                margin-left: -5%;
-            }
-            @media (min-width: $desktops) {
-                width: 50%;
-                padding-right: 30px;
-            }
-            iframe{
-                width: 100%;
-                height: 100%;
-            }
-        }
-        .info{
-            width: 30%;
-            padding-left: 15px;
-            color: white;
-            @media (min-width: $tablets) {
-                width: 50%;
-            }
-            @media (min-width: $largeDesktops) {
-                width: 50%;
-                padding-left: 30px;
-            }
-            h2{
-                color: white;
-            }
-            .mt-date{
-                margin-top: 50px;
-                @media (min-width: $fullHdDesktops) {
-                    margin-top: 90px;
                 }
             }
         }

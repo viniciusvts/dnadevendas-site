@@ -6,18 +6,8 @@
           </div>
 
           <div v-if="post" class="col-sm-12 col-xl-11 content">
-            <div class="d-flex thumbnail">
-              <div class="iframe" v-html="post.acf.embed_spotify">
-              </div>
-              <div class="info d-none d-lg-block">
-                <p class="top">A Ciência da Venda</p>
-                <h1 v-html="post.acf.titulo_single"></h1>
-                <div class="bottom row mt-date">
-                  <span class="col-6">{{post.acf.nome_dos_participantes}}</span>
-                  <span class="offset-3 ml-auto d-flex">{{getOcidentalDate(post.date)}}</span>
-                </div>
-              </div>
-            </div>
+            <!-- use HeadSinglePodcastv1 para o layout só com spotify -->
+            <HeadSinglePodcastv1 :postDataAcf="post.acf" :postDate="post.date" />
             <div class="row single-information">
               <div class="confiratbm col-12 col-lg">
                 <p v-if="post.acf.youtube ||
@@ -103,7 +93,7 @@
   import SolicitarContato from '@/components/SolicitarContato.vue';
   import PodcastCard from '@/components/PodcastCard.vue';
   // import PaginationPodcast from '@/components/PaginationPodcast.vue';
-  // import UpMeta from "@/services/UpdateMeta.js";
+  import HeadSinglePodcastv1 from "@/components/HeadSinglePodcastv1.vue";
   
   export default {
     name: "PodcastSingle",
@@ -111,6 +101,7 @@
       PodcastLineSearch,
       SolicitarContato,
       PodcastCard,
+      HeadSinglePodcastv1,
       // PaginationPodcast,
       // Sidebar
     },
