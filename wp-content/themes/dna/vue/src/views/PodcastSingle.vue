@@ -2,12 +2,9 @@
   <section class="blogSingle podcast section">
     <div class="container-fluid">
       <div class="row">
-          <div class="col-1">
-          </div>
-
-          <div v-if="post" class="col-sm-12 col-xl-11 content">
+          <div v-if="post" class="col-sm-12 content">
             <!-- use HeadSinglePodcastv1 para o layout só com spotify -->
-            <HeadSinglePodcastv1 :postDataAcf="post.acf" :postDate="post.date" />
+            <HeadSinglePodcastv2 :postDataAcf="post.acf" :postDate="post.date" />
             <div class="row single-information">
               <div class="confiratbm col-12 col-lg">
                 <p v-if="post.acf.youtube ||
@@ -33,7 +30,7 @@
                   <img src="@/assets/Google-Podcasts.png" alt="googlepodcast logo">
                 </a>
               </div>
-              <div class="row col-12 col-lg-4 social-col m-0 ml-auto">
+              <div class="row col-12 col-lg-3 col-xl-4 social-col m-0 ml-auto">
                 <a :href="linkFace" target="_blank">
                   <img src="@/assets/svg/facebook-circle.svg" alt="facebook logo">
                 </a>
@@ -93,7 +90,7 @@
   import SolicitarContato from '@/components/SolicitarContato.vue';
   import PodcastCard from '@/components/PodcastCard.vue';
   // import PaginationPodcast from '@/components/PaginationPodcast.vue';
-  import HeadSinglePodcastv1 from "@/components/HeadSinglePodcastv1.vue";
+  import HeadSinglePodcastv2 from "@/components/HeadSinglePodcastv2.vue";
   
   export default {
     name: "PodcastSingle",
@@ -101,7 +98,7 @@
       PodcastLineSearch,
       SolicitarContato,
       PodcastCard,
-      HeadSinglePodcastv1,
+      HeadSinglePodcastv2,
       // PaginationPodcast,
       // Sidebar
     },
