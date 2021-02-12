@@ -188,10 +188,10 @@
             padding-top: 200px;
         }
         .fhd-max-width{
-        @media (min-width: $fullHdDesktops) {
+            @media (min-width: $fullHdDesktops) {
                 max-width: 1186px;
-            margin: 0 auto;
-        }
+                margin: 0 auto;
+            }
         }
         .content{
             padding: 0;
@@ -330,7 +330,6 @@
             p, h1{
                 font-size: 28px;
                 line-height: normal;
-                margin: 10px 0;
                 padding: 0;
                 @media (min-width: $fullHdDesktops) {
                     font-size: 32px;
