@@ -124,10 +124,11 @@
             }
         }
         .right{
+            padding: 0 40px;
             h2{
                 font-size: 28px;
                 line-height: 45px;
-                margin-top: 40px;
+                margin-top: 20px;
                 margin-bottom: 15px;
                 color: #393C65;
                 font-weight: bold;
@@ -148,7 +149,6 @@
         .bottom{
             font-size: 15px;
             color: #345;
-            margin-bottom: 30px;
             @media (min-width: $fullHdDesktops) {
                 margin-bottom: 50px;
             }
