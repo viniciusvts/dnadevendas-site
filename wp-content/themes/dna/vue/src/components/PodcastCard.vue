@@ -40,7 +40,7 @@
         var resume = '';
         // enquanto tamanho do resumo for menor que 360 caracteres
         for (const p of paragrafos) {
-          const maxSize = 200;
+          const maxSize = 130;
           const tamanhoFuturo = resume.length + p.innerText.length;
           if(tamanhoFuturo > maxSize){
             /** quanto falta para completar temanho máximo */
