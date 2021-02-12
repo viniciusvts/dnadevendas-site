@@ -2,7 +2,7 @@
   <section class="blogSingle podcast section">
     <div class="container-fluid">
       <div class="row">
-          <div v-if="post" class="col-sm-12 content">
+          <div v-if="post" class="col-sm-12 content fhd-max-width">
             <!-- use HeadSinglePodcastv1 só com spotify -->
             <!-- use HeadSinglePodcastv2 spotify e yt, com bg gradient -->
             <HeadSinglePodcastv3 :postDataAcf="post.acf" :postDate="post.date" />

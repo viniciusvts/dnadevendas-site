@@ -187,9 +187,11 @@
         @media (min-width: $largeDesktops) {
             padding-top: 200px;
         }
+        .fhd-max-width{
         @media (min-width: $fullHdDesktops) {
-            max-width: 1366px;
+                max-width: 1186px;
             margin: 0 auto;
+        }
         }
         .content{
             padding: 0;
