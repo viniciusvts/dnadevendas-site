@@ -188,9 +188,11 @@
             padding-top: 200px;
         }
         @media (min-width: $fullHdDesktops) {
-            padding-top: 240px;
+            max-width: 1366px;
+            margin: 0 auto;
         }
         .content{
+            padding: 0;
             // HeadSinglePodcastv1
             .thumbnail{
                 &::after{
@@ -271,6 +273,54 @@
                         margin-bottom: 30px;
                         @media (min-width: $desktops) {
                             margin-bottom: unset;
+                        }
+                    }
+                }
+            }
+            //HeadSinglePodcastv3
+            .thumbnailv3{
+                h1{
+                    font-size: 35px;
+                    line-height: 45px;
+                    color: #171F38;
+                    margin: 0 0 20px;
+                    @media (min-width: $largeDesktops) {
+                        margin: 0;
+                    }
+                }
+                p{
+                    &.partic{
+                        font-size: 15px;
+                        color: #171F38;
+                        margin: 0 0 22px;
+                    }
+                    &.cienciavenda{
+                        font-size: 25px;
+                        line-height: 34px;
+                        color: #171F38;
+                    }
+                    &.datehead{
+                        font-size: 15px;
+                        line-height: 23px;
+                        color: #171F38;
+                        @media (min-width: $largeDesktops) {
+                            padding-right: 25px;
+                        }
+                    }
+                }
+                .embeds{
+                    margin-top: 30px;
+                    min-height: 235px;
+                    iframe{
+                        width: 100%;
+                        height: 100%;
+                        margin-bottom: 30px;
+                        @media (min-width: $desktops) {
+                            margin-bottom: unset;
+                            margin-top: 0;
+                        }
+                        .css-znrwoh.e70pa3m0{
+                            background-color: #171717;
                         }
                     }
                 }
@@ -361,10 +411,10 @@
             }
         }
         .single-information{
-            margin-top: 100px;
+            margin-top: 50px;
         }
         .mt-article{
-            margin-top: 100px;
+            margin-top: 50px;
         }
     }
 }

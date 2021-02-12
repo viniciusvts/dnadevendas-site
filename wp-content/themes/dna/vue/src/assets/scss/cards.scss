@@ -111,8 +111,7 @@
     &.podcast{
         .left{
             &::after{
-                background: linear-gradient(90deg, #000CBB 0%, #1E2134 100%);
-                //background: linear-gradient(90deg, #0B0207 0%, #FF178A 100%);
+                display: none;
             }
             img{
                 height: 200px;
@@ -120,26 +119,41 @@
                     height: 300px;
                 }
                 @media (min-width: $fullHdDesktops) {
-                    height: 500px;
+                    height: 400px;
                 }
             }
         }
         .right{
             h2{
+                font-size: 28px;
+                line-height: 45px;
+                margin-top: 40px;
+                margin-bottom: 15px;
                 color: #393C65;
                 font-weight: bold;
+                @media (min-width: $largeDesktops) {
+                    font-size: 35px;
+                }
+            }
+            .resume{
+                margin-bottom: 40px;
             }
             p{
-                color: #345;
+                font-size: 25px;
+                line-height: 30px;
+                color: #444444;
                 font-weight: normal;
-                line-height: 26px;
             }
         }
         .bottom{
-            margin-top: 40px;
+            font-size: 15px;
             color: #345;
+            margin-bottom: 30px;
             @media (min-width: $fullHdDesktops) {
-                margin-top: 100px;
+                margin-bottom: 50px;
+            }
+            .dateago{
+                color: #303452;
             }
             img.relogio{
                 width: 25px;

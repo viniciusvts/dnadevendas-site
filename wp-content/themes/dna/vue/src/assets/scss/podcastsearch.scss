@@ -11,7 +11,19 @@
         }
         .title{
             & span::after{
-                background-image: url("../assets/svg/line-blue.svg");
+                background-image: url("../assets/svg/line-purple.svg");
+            }
+            h2{
+                font-size: 28px;
+                line-height: 51px;
+                font-family: "Open Sans", sans-serif;
+                color: #641864;
+                @media (min-width: $largeDesktops) {
+                    font-size: 38px;
+                }
+                @media (min-width: $fullHdDesktops) {
+                    font-size: 48px;
+                }
             }
         }
         .search{

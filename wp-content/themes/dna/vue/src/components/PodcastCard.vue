@@ -8,10 +8,10 @@
           </div>
           <div class="right col-12 col-md-7 col-tb-12">
             <h2 v-html="post.title.rendered"></h2>
-            <div v-html="getResume()"></div>
-            <div class="bottom row">
-              <span class="col-6">{{post.acf.nome_dos_participantes}}</span>
-              <span class="offset-2 ml-auto d-flex">
+            <div class="resume" v-html="getResume()"></div>
+            <div class="bottom d-flex">
+              <span class="col-6 px-0">com {{post.acf.nome_dos_participantes}}</span>
+              <span class="ml-auto d-flex pr-3 dateago">
                 <img src="@/assets/svg/clock.svg" alt="relogio" class="mr-1 relogio">
                 {{daysAgo}}
               </span>
@@ -55,7 +55,7 @@
               if(lastPtamanhoFuturo > faltaParaMaxSize) break;
               lastP += word + ' ';
             }
-            resume += lastP + '[...]</p>'
+            resume += lastP + '...</p>'
             break;
           } else {
             resume += '<p>' + p.innerHTML + '</p>';

@@ -3,8 +3,9 @@
     <div class="container-fluid">
       <div class="row">
           <div v-if="post" class="col-sm-12 content">
-            <!-- use HeadSinglePodcastv1 para o layout só com spotify -->
-            <HeadSinglePodcastv2 :postDataAcf="post.acf" :postDate="post.date" />
+            <!-- use HeadSinglePodcastv1 só com spotify -->
+            <!-- use HeadSinglePodcastv2 spotify e yt, com bg gradient -->
+            <HeadSinglePodcastv3 :postDataAcf="post.acf" :postDate="post.date" />
             <div class="row single-information">
               <div class="confiratbm col-12 col-lg">
                 <p v-if="post.acf.youtube ||
@@ -90,7 +91,7 @@
   import SolicitarContato from '@/components/SolicitarContato.vue';
   import PodcastCard from '@/components/PodcastCard.vue';
   // import PaginationPodcast from '@/components/PaginationPodcast.vue';
-  import HeadSinglePodcastv2 from "@/components/HeadSinglePodcastv2.vue";
+  import HeadSinglePodcastv3 from "@/components/HeadSinglePodcastv3.vue";
   
   export default {
     name: "PodcastSingle",
@@ -98,7 +99,7 @@
       PodcastLineSearch,
       SolicitarContato,
       PodcastCard,
-      HeadSinglePodcastv2,
+      HeadSinglePodcastv3,
       // PaginationPodcast,
       // Sidebar
     },
