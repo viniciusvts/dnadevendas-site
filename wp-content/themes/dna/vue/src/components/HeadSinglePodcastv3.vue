@@ -11,11 +11,7 @@
       </div>
     </div>
     <div class="row embeds">
-      <div class="col-lg-7">
-        <iframe src="https://open.spotify.com/embed-podcast/episode/1Iko1cGn0ZXGXls6RWzPfH?theme=dark" 
-        width="100%" height="232" frameborder="0" 
-        allowtransparency="true" allow="encrypted-media"></iframe>
-      </div>
+      <div class="col-lg-7" v-html="postDataAcf.embed_spotify"></div>
       <div class="col-lg-5" v-html="postDataAcf.embed_yt"></div>
     </div>
   </div>
