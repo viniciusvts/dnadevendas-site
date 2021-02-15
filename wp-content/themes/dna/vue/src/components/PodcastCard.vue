@@ -3,10 +3,10 @@
     <div class="column">
       <div class="card podcast">
         <div class="row mw100w">
-          <div class="left podcast col-12 col-md-5 col-tb-12">
+          <div class="left podcast col-12 col-md-5 col-tb-12 col-fhd-6">
             <img :src="post.acf.imagem_destaque.sizes.large" :alt="post.acf.imagem_destaque.alt">
           </div>
-          <div class="right col-12 col-md-7 col-tb-12">
+          <div class="right col-12 col-md-7 col-tb-12 col-fhd-6">
             <h2 v-html="post.title.rendered"></h2>
             <div class="resume" v-html="getResume()"></div>
             <div class="bottom d-flex">

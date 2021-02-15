@@ -31,6 +31,12 @@
         max-width: 100vw;
     }
     &.podcast{
+        &.fhd-max-width{
+            @media (min-width: $fullHdDesktops) {
+                max-width: 1500px;
+                margin: 0 auto;
+            }
+        }
         .mt-banner{
             margin-top: 50px;
             @media (min-width: $tablets) {

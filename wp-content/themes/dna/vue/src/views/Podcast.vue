@@ -1,5 +1,5 @@
 <template>
-  <section class="blog podcast">
+  <section class="blog podcast fhd-max-width">
     <h1 class="d-none">O mais completo podcast de vendas do Brasil</h1>
     <picture v-if="page">
       <source :srcset="page.acf.banner.sizes.medium" media="(max-width: 400px)" class="mt-banner w-100">
