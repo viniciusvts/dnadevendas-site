@@ -5,22 +5,26 @@
 
             <ul class="menu row justify-content-center align-items-center">
                 <li class="col-md-auto col-6">
-                    <div v-on:click="showClients" class="tooltip active" id="todos">
-                        Todos
-                        <span class="tooltiptext">{{clients.length}}</span>
-                    </div>                    
+                    <a href="#clientsDiv">
+                        <div v-on:click="showClients" class="tooltip active" id="todos">
+                            Todos
+                            <span class="tooltiptext">{{clients.length}}</span>
+                        </div>                    
+                    </a>
                 </li>
                 <li v-for="tax in taxonomy" :key="tax.term_id" class="col-md-auto col-6">
-                    <div class="tooltip" v-on:click="showClients" :id="tax.slug">
-                        {{tax.name}}
-                        <span class="tooltiptext">{{tax.count}}</span>
-                    </div>
+                    <a href="#clientsDiv">
+                        <div class="tooltip" v-on:click="showClients" :id="tax.slug">
+                            {{tax.name}}
+                            <span class="tooltiptext">{{tax.count}}</span>
+                        </div>
+                    </a>
                 </li>
             </ul>   
 
             <hr>
 
-            <div v-if="clients.length > 0" class="row logos">
+            <div v-if="clients.length > 0" class="row logos" id="clientsDiv">
                 <div v-for="client in clients" :key="client.slug" :class="getPortfolio_category(client.categories.portfolio_category)" class="col-md-2 active logoClient">
                     <img :src="client.thumb.medium" :alt="client.thumb.alt">
                 </div>
