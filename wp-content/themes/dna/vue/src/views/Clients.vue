@@ -5,7 +5,7 @@
 
             <ul class="menu row justify-content-center align-items-center">
                 <li class="col-md-auto col-6">
-                    <a href="#clientsDiv">
+                    <a href="#todos">
                         <div v-on:click="showClients" class="tooltip active" id="todos">
                             Todos
                             <span class="tooltiptext">{{clients.length}}</span>
@@ -13,7 +13,7 @@
                     </a>
                 </li>
                 <li v-for="tax in taxonomy" :key="tax.term_id" class="col-md-auto col-6">
-                    <a href="#clientsDiv">
+                    <a :href="'#'+tax.slug">
                         <div class="tooltip" v-on:click="showClients" :id="tax.slug">
                             {{tax.name}}
                             <span class="tooltiptext">{{tax.count}}</span>
@@ -23,6 +23,11 @@
             </ul>   
 
             <hr>
+            <!-- divs com ids para rolagem -->
+            <div>
+                <div id="todos"></div>
+                <div v-for="tax in taxonomy" :key="tax.term_id"  :id="tax.slug"></div>
+            </div>
 
             <div v-if="clients.length > 0" class="row logos" id="clientsDiv">
                 <div v-for="client in clients" :key="client.slug" :class="getPortfolio_category(client.categories.portfolio_category)" class="col-md-2 active logoClient">
@@ -73,6 +78,9 @@ export default {
                 })
                 .then(json=>{
                     this.clients = json;
+                    this.$nextTick(() => {
+                        this.verifyHash();
+                    });
                 });
             }
         },
@@ -89,9 +97,12 @@ export default {
             }
         },
         showClients(evt){
+            let item = evt.target.getAttribute('id');
+            this.setClients(item);
+        },
+        setClients(item){
             let segments = document.querySelectorAll('.tooltip');
             let logos = document.querySelectorAll('.logoClient');
-            let item = evt.target.getAttribute('id');
             if (logos.length == 0) return; // se não carregou ainda as imagens, faz nada
             for(let seg of segments){
                 if (seg.getAttribute('id') == item) seg.classList.add('active');
@@ -101,6 +112,12 @@ export default {
                 if(logo.classList.contains(item) || item === 'todos') logo.classList.add('active');
                 else logo.classList.remove('active');
             }
+        },
+        /** verifica se há um hash na url e já seleciona os clients da categoria */
+        verifyHash(){
+            const hash = location.hash.substr(1);
+            console.log(location.hash, hash);
+            this.setClients(hash);
         }
     }
 }
