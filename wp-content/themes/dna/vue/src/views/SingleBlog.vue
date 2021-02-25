@@ -9,7 +9,7 @@
             <div class="thumbnail">
               <img :src="post.DNA_custom.thumb.large" alt="">
             </div>
-            <div class="row single-information">
+            <div class="d-lg-flex single-information">
               <div class="row col-12 col-lg-6 social-col m-0">
                 <a :href="linkFace" target="_blank">
                   <img src="@/assets/svg/facebook-circle.svg" alt="facebook logo">
