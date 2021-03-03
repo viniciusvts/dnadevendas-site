@@ -40,7 +40,7 @@ function dnaapi_contatoFooter($req){
       'statusMail' => $wpmail,
     ));
   }
-  $url = 'https://www.dnadevendas.com.br/contato/agradecimento/';
+  $url = 'https://www.dnadevendas.com.br/contato/agradecimento-news/';
   return array(
     'code' => 'Requisição OK',
     'message' => '',
