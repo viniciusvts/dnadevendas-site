@@ -57,7 +57,7 @@
           opacity: 1;
         }
         &::before {
-          content: "35 segmentos";
+          content: "40 segmentos";
           animation: typing 4s cubic-bezier(0.1, 0.25, 0.1, 1) 1s infinite;
         }
       }
@@ -76,54 +76,66 @@
 
 @keyframes typing {
   0% {
-    content: "35 segmentos";
+    content: "40 segmentos";
+  }
+  5% {
+    content: "40 segmento";
   }
   10% {
-    content: "35 segmento";
+    content: "40 segment";
   }
   15% {
-    content: "35 segment";
+    content: "40 segmen";
   }
   20% {
-    content: "35 segmen";
+    content: "40 segme";
   }
   25% {
-    content: "35 segme";
+    content: "40 segm";
   }
   30% {
-    content: "35 segm";
+    content: "40 seg";
   }
   35% {
-    content: "35 seg";
+    content: "40 se";
   }
   40% {
-    content: "35 se";
+    content: "40 s";
   }
   45% {
-    content: "35 s";
+    content: "40";
   }
   50% {
-    content: "35";
+    content: "4";
   }
-  45% {
-    content: "3";
-  }
-  50% {
-    content: "35 ";
+  55% {
+    content: "40 ";
   }
   60% {
-    content: "35 seg";
+    content: "40 s";
+  }
+  65% {
+    content: "40 se";
   }
   70% {
-    content: "35 segment";
+    content: "40 seg";
+  }
+  75% {
+    content: "40 segm";
   }
   80% {
-    content: "35 segmento";
+    content: "40 segme";
+  }
+  85% {
+    content: "40 segmen";
   }
   90% {
-    content: "35 segmentos";
+    content: "40 segment";
+  }
+  95% {
+    content: "40 segmento";
   }
   100% {
-    content: "35 segmentos";
+    content: "40 segmentos";
   }
 }
