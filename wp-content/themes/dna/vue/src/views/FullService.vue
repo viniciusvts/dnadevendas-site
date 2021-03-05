@@ -26,24 +26,23 @@
 
           <div v-for="(pilar, index) in pilares.pilares" :key="index"
             class="col-md-2 col-sm-12 col-tb-12" :class="[index < 3 ? 'pillar' : '']">
-            <img :src="pilar.icone.url" :alt="pilar.pilar" />
+            <img class="lazy" :data-src="pilar.icone.url" :alt="pilar.pilar" />
             <p>{{pilar.pilar}}</p>
           </div>
 
           <div class="col-md-12 col-sm-12 col-tb-12 no-animate">
-            <img src="@/assets/line-svg.svg" alt="Divisória" />
+            <img class="lazy" data-src="@/assets/line-svg.svg" alt="Divisória" />
           </div>
         </div>
       </div>
     </Pillars>
-    <PaginaCarregando v-else/>
 
     <section class="about pt-0">
       <div class="title">
         <h2 v-if="post.acf.chamada_sobre" v-html="post.acf.chamada_sobre"></h2>
         <span></span>
       </div>
-      <img v-if="post.acf.imagem_sobre" :src="post.acf.imagem_sobre" :alt="post.acf.chamada_sobre" />
+      <img class="lazy" v-if="post.acf.imagem_sobre" :data-src="post.acf.imagem_sobre" :alt="post.acf.chamada_sobre" />
       <p v-if="post.acf.texto_sobre" v-html="post.acf.texto_sobre"></p>
     </section>
 
@@ -53,7 +52,7 @@
           <div v-for="(pilar, index) in pilares.pilares" :key="index" class="pilar">
             <div class="row align-items-center">
               <div class="col-md-auto left">
-                <img :src="pilar.icone.url" :alt="pilar.pilar" />
+                <img class="lazy" :data-src="pilar.icone.url" :alt="pilar.pilar" />
               </div>
               <div class="col right">
                 <h2>{{pilar.pilar}}</h2>
@@ -71,23 +70,19 @@
         </div>
       </div>
     </section>
-    <PaginaCarregando v-else/>
 
     <div v-if="objecoes">
       <div v-for="(obj, index) in objecoes" :key="index">
         <CardSlider :objection="obj" :index="index" />
       </div>
     </div>
-    <PaginaCarregando v-else/>
 
     <Methodology v-if="bannerData"/>
-    <PaginaCarregando v-else/>
 
     <Metrics v-if="metricas">
       <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
         <img
           class="lazy"
-          src="@/assets/loading.gif"
           :data-src="metric.icone.sizes.medium"
           :alt="metric.metrica"
         />
@@ -95,21 +90,18 @@
         <h3 v-html="metric.titulo"></h3>
       </div>
     </Metrics>
-    <PaginaCarregando v-else/>
 
     <CTA v-if="bluecta" :title="bluecta.titulo" :button="bluecta.botao" />
-    <PaginaCarregando v-else />
 
     <SolicitarContato v-if="bannerData"/>
-    <PaginaCarregando v-else/>
   </div>
   <div v-else class="container loadingPage">
-      <Loading />
+      <Space />
   </div>
 </template>
 
 <script>
-import Loading from "@/components/Loading.vue";
+import Space from "@/components/Space.vue";
 import Spotlight from "@/components/Spotlight.vue";
 import CTA from "@/components/BlueCta.vue";
 import Metrics from "@/components/Metrics.vue";
@@ -121,7 +113,7 @@ import Methodology from "@/components/Methodology.vue";
 export default {
   name: "FullService",
   components: {
-    Loading,
+    Space,
     Spotlight,
     CTA,
     Metrics,

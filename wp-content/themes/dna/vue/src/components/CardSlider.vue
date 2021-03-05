@@ -6,7 +6,7 @@
         <div class="col-12 col-lg-6">
           <div class="slider" :class="'i-'+index">
             <div v-for="(img, index) in objection.imagem" :key="index" class="slides" :class="{'active':index==0}">
-              <img class="lazy img-slider" src="@/assets/loading.gif"
+              <img class="lazy img-slider"
               :data-src="img.sizes.large" :alt="objection.objecao">
             </div>
           </div>

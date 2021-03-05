@@ -3,7 +3,7 @@
     <div class="row no-gutters align-items-center">          
       <div class="col-auto">
         <span @click="toPrev" class="btn prev" :class="{'disabled':isFirstPage}">
-          <img src="@/assets/svg/big-arrow.svg" alt="Voltar">
+          <img class="lazy" data-src="@/assets/svg/big-arrow.svg" alt="Voltar">
         </span>
       </div>
       <div class="col">
@@ -12,7 +12,7 @@
 
             <div v-for="n in totalPages" :key="n" class="col">
               <span @click="toPage(n)" :class="{'active':(n==page)}">
-                <img src="@/assets/svg/separator.svg" alt="" class="mr-auto ml-auto">
+                <img data-src="@/assets/svg/separator.svg" alt="" class="mr-auto ml-auto lazy">
               </span>
             </div>
 
@@ -21,7 +21,7 @@
       </div>
       <div class="col-auto">
         <span @click="toNext" class="btn next" :class="{'disabled':isLastPage}">
-          <img src="@/assets/svg/big-arrow.svg" alt="Voltar">
+          <img class="lazy" data-src="@/assets/svg/big-arrow.svg" alt="Voltar">
         </span>
       </div>
     </div>
