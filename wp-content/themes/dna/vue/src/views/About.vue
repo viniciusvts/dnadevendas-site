@@ -30,7 +30,7 @@
         <h1 v-html="post.acf.grupo_dna.titulo"></h1>
         <div class="col-md-4" v-for="(item, index) in post.acf.grupo_dna.galeria" :key="index">
           <a :href="item.link.url" :target="item.link.target">
-            <img :src="item.imagem.sizes.large" :alt="item.imagem.alt" />
+            <img class="lazy" :data-src="item.imagem.sizes.large" :alt="item.imagem.alt" />
           </a>
         </div>
       </div>
@@ -42,22 +42,22 @@
       <div class="galery">
         <div class="row">
           <div class="col-md-3" v-for="(item, index) in post.acf.estrutura.galeria" :key="index">
-            <img :src="item.sizes.large" :alt="item.alt" />
+            <img class="lazy" :data-src="item.sizes.large" :alt="item.alt" />
           </div>
         </div>
       </div>
     </div>
   </section>
   <div v-else class="container loadingPage">
-      <Loading />
+      <Space />
   </div>
 </template>
 
 <script>
-import Loading from "@/components/Loading.vue";
+import Space from "@/components/Space.vue";
 export default {
   name: "About",
-  components:{Loading},
+  components:{Space},
   data() {
     return {
       postId: 312,
