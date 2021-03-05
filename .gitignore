@@ -27,6 +27,7 @@ yarn-error.log*
 #servidor 
 .htaccess
 dna_site
+landing-page-for-small
 fix.php
 gulpfile.js
 info.php
