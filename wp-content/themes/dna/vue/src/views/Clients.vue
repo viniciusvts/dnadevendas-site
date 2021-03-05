@@ -30,8 +30,9 @@
             </div>
 
             <div v-if="clients.length > 0" class="row logos" id="clientsDiv">
-                <div v-for="client in clients" :key="client.slug" :class="getPortfolio_category(client.categories.portfolio_category)" class="col-md-2 active logoClient">
-                    <img :src="client.thumb.medium" :alt="client.thumb.alt">
+                <div v-for="(client, index) in clients" :key="client.slug" :class="getPortfolio_category(client.categories.portfolio_category)" class="col-md-2 active logoClient">
+                    <img v-if="(index < 18)" :src="client.thumb.medium" :alt="client.thumb.alt">
+                    <img v-else class="lazy" :data-src="client.thumb.medium" :alt="client.thumb.alt">
                 </div>
             </div>
             <PaginaCarregando v-else/>
