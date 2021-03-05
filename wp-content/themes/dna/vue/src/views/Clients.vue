@@ -117,7 +117,9 @@ export default {
         /** verifica se há um hash na url e já seleciona os clients da categoria */
         verifyHash(){
             const hash = location.hash.substr(1);
-            this.setClients(hash);
+            if (hash){
+                this.setClients(hash);
+            }
         }
     }
 }
