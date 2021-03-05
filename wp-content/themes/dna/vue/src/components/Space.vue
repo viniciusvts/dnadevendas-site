@@ -1,5 +1,5 @@
 <template>
-  <div class="loading">
+  <div class="space">
   </div>
 </template>
 
@@ -9,6 +9,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
-    @import '@/assets/scss/loading.scss';
+<style>
+  .space{
+    height: 100vh;
+  }
 </style>

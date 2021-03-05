@@ -24,6 +24,7 @@
         :alt="customFields.acf.imagem.sizes.medium_large"
       />
     </SliderHome>
+    <PaginaCarregando v-else/>
 
     <Pillars v-if="customFields">
       <div class="container-fluid">
@@ -98,6 +99,7 @@
 
 <script>
 import SliderHome from "@/components/SliderHome.vue";
+import PaginaCarregando from "../components/Space.vue";
 //segunda dobra em diante, carregar com lazyload
 import Pillars from "@/components/Pillars.vue";
 import Services from "@/components/Services.vue";
@@ -112,6 +114,7 @@ export default {
   name: "Home",
   components: {
     SliderHome,
+    PaginaCarregando,
     Pillars,
     Services,
     Cases,
