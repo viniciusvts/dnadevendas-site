@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import PaginaCarregando from '@/components/PaginaCarregando.vue';
+import PaginaCarregando from '@/components/Space.vue';
 export default {
     name: "Clients",
     components:{PaginaCarregando},
