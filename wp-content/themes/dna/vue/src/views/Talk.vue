@@ -45,7 +45,7 @@
 
     <section class="talkers container">
       <div class="title">
-        <h2><b>Conheça nossos</b> palestrantes</h2>
+        <h2><b>Conheça nossos</b> palestrantes de vendas</h2>
         <span></span>
       </div>
       <div class="palestrantes-fotos">
