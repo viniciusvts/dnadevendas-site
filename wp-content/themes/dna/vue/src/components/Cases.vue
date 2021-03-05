@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="video">
-                        <iframe src="https://www.youtube.com/embed/HDgjlOPDFsk" frameborder="0" width="100%"></iframe>
+                        <iframe class="lazy" data-src="https://www.youtube.com/embed/HDgjlOPDFsk" frameborder="0" width="100%"></iframe>
                     </div>
                 </div>
 

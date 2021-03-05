@@ -11,7 +11,7 @@
       <p>Veja outros cases</p>      
       <div class="row justify-content-center align-items-center">
         <div v-for="item in cases.case" :key="item.logo.url" class="list-item col-md-auto col-6" @click.prevent="setActive">
-          <img class="list-clientes" :src="item.logo.url" :alt="item.titulo">
+          <img class="list-clientes lazy" :data-src="item.logo.url" :alt="item.titulo">
         </div>
       </div>
       <!-- <button class="fsmall-btn" id="veja-mais">Veja Mais cases</button> -->

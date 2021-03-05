@@ -9,7 +9,7 @@
       </div>
       <div class="col-md-5">
         <div class="infos">
-          <img :src="obj.logo.url" :alt="obj.titulo"/>
+          <img class="lazy" :data-src="obj.logo.url" :alt="obj.titulo"/>
           <h2 :class="[pink]">
             {{ obj.titulo }}
           </h2>
