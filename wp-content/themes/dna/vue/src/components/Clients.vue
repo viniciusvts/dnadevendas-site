@@ -10,7 +10,7 @@
                 <div class="col-md-6 col-sm-12 col-tb-12 left">
                     <div class="row no-gutters align-items-center justify-content-center logos">
                         <div class="col-md-4" v-for="(client, index) in clients.clientes.slice(0,12)" :key="index">
-                            <img class="lazy" src="@/assets/loading.gif" :data-src="client.sizes.large" alt="">
+                            <img class="lazy" :data-src="client.sizes.large" alt="">
                         </div>
 
                         <div class="col-12 col-sm-12 col-tb-12">
@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 col-tb-12 right">
-                    <img class="lazy" src="@/assets/loading.gif" :data-src="$http.baseURL + 'wp-content/uploads/VÍDEO-LÚCIA-min.jpg'" :alt="Clientes">
+                    <img class="lazy" :data-src="$http.baseURL + 'wp-content/uploads/VÍDEO-LÚCIA-min.jpg'" :alt="Clientes">
                 </div>
             </div>
         </div>

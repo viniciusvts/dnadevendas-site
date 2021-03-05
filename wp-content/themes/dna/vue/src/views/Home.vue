@@ -24,7 +24,6 @@
         :alt="customFields.acf.imagem.sizes.medium_large"
       />
     </SliderHome>
-    <PaginaCarregando v-else/>
 
     <Pillars v-if="customFields">
       <div class="container-fluid">
@@ -61,7 +60,6 @@
         </div>
       </div>
     </Pillars>
-    <PaginaCarregando v-else/>
 
     <Services v-if="customFields">
       <div class="col-md-3" v-for="(service, index) in customFields.acf.servicos" :key="index">
@@ -77,46 +75,32 @@
           </div>
           <img
             class="lazy"
-            src="@/assets/loading.gif"
             :data-src="service.imagem.sizes.medium_large"
             :alt="service.servico"
           />
         </div>
       </div>
     </Services>
-    <PaginaCarregando v-else/>
 
     <Methodology v-if="customFields"/>
-    <PaginaCarregando v-else/>
 
     <Differential v-if="customFields"/>
 
     <Cases v-if="customFields"/>
-    <PaginaCarregando v-else/>
 
     <Clients v-if="customFields"/>
-    <PaginaCarregando v-else/>
 
     <Depoiments color="golden" v-if="customFields"/>
-    <PaginaCarregando v-else/>
 
     <SolicitarContato v-if="customFields"/>
-    <PaginaCarregando v-else/>
   </div>
 </template>
 
 <script>
-const Services = () => ({
-  component: import("@/components/Services.vue"),
-  loading: PaginaCarregando,
-  delay: 500
-});
-
 import SliderHome from "@/components/SliderHome.vue";
-import PaginaCarregando from "../components/PaginaCarregando.vue";
 //segunda dobra em diante, carregar com lazyload
 import Pillars from "@/components/Pillars.vue";
-// import Cases from "@/components/Cases.vue";
+import Services from "@/components/Services.vue";
 import Cases from "@/components/CasesNewLayout.vue";
 import Differential from "@/components/Differential.vue";
 import Clients from "@/components/Clients.vue";
@@ -128,7 +112,6 @@ export default {
   name: "Home",
   components: {
     SliderHome,
-    PaginaCarregando,
     Pillars,
     Services,
     Cases,

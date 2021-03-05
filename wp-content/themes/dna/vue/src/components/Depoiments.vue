@@ -14,7 +14,7 @@
                             <p>{{depoiment.mensagem}}</p>
                         </div>
                         <div :class="['bottom', thisColor + '-bottom']">
-                            <img :src="depoiment.foto" alt="">
+                            <img class="lazy" :data-src="depoiment.foto" alt="">
                             <h3>{{depoiment.nome}}</h3>
                             <h4>{{depoiment.cargo}}</h4>
                             <h5 :class="thisColor">{{depoiment.empresa}}</h5>
