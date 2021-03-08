@@ -28,7 +28,7 @@
             :key="index"
             class="col-md-3 mr-auto ml-auto"
           >
-            <img :src="pilar.icone.url" :alt="pilar.pilar" v-if="pilar.icone.url" />
+            <img class="lazy" :data-src="pilar.icone.url" :alt="pilar.pilar" v-if="pilar.icone.url" />
             <p>{{pilar.pilar}}</p>
           </div>
 
@@ -47,7 +47,7 @@
         </div>
         <div class="row">
           <div class="col-md-6">
-            <img :src="post.acf.imagem_sobre" alt="Nossos serviços" />
+            <img class="lazy" :data-src="post.acf.imagem_sobre" alt="Nossos serviços" />
           </div>
           <div class="col-md-6" v-html="post.acf.texto_sobre"></div>
         </div>
@@ -58,7 +58,6 @@
       <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
         <img
           class="lazy"
-          src="@/assets/loading.gif"
           :data-src="metric.icone.sizes.medium"
           :alt="metric.metrica"
           v-if="metric.icone"
@@ -68,15 +67,15 @@
       </div>
     </Metrics>
 
-     <SolicitarContato />
+    <SolicitarContato />
   </div>
   <div v-else class="container loadingPage">
-      <Loading />
+      <Space />
   </div>
 </template>
 
 <script>
-import Loading from "@/components/Loading.vue";
+import Space from "@/components/Space.vue";
 import Pillars from "@/components/Pillars.vue";
 import Metrics from "@/components/Metrics.vue";
 import SolicitarContato from "@/components/SolicitarContato.vue";
@@ -84,7 +83,7 @@ import SolicitarContato from "@/components/SolicitarContato.vue";
 export default {
   name: "ContentFabric",
   components: {
-    Loading,
+    Space,
     Pillars,
     Metrics,
     SolicitarContato
