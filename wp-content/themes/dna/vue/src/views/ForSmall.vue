@@ -65,12 +65,12 @@
     <SolicitarContato></SolicitarContato>
   </div>
   <div v-else class="container loadingPage">
-      <Loading />
+      <Space />
   </div>
 </template>
 
 <script>
-    import Loading from "@/components/Loading.vue";
+    import Space from "@/components/Space.vue";
     import Spotlight from '@/components/Spotlight.vue';
     import Pillars from '@/components/Pillars.vue';
     import Cases from '@/components/CasesForSmall.vue';
@@ -84,7 +84,7 @@
   export default {
     name: "Talk",
     components: {
-      Loading,
+      Space,
       Spotlight,
       Pillars,
       Cases,

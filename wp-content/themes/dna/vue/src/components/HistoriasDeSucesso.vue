@@ -9,7 +9,7 @@
         <div v-for="item in posts" :key="item.id" class="col-sm-12 col-tb-12 col-md-6">
           <div class="card-historias">
             <router-link :to="{ name: 'SingleBlog', params: { slug: item.slug, post: item } }">
-              <img :src="item.DNA_custom.thumb.large" alt="Img historia">
+              <img class="lazy" :data-src="item.DNA_custom.thumb.large" alt="Img historia">
             </router-link>
             <div class="img-field-h"></div>
             <div class="preenche"></div>
