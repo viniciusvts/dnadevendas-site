@@ -26,7 +26,7 @@
 
           <div v-for="(pilar, index) in pilares.pilares" :key="index"
             class="col-md-3 col-sm-12 col-tb-12" :class="[index < 2 ? 'pillar' : '']">
-            <img :src="pilar.icone.url" :alt="pilar.pilar" />
+            <img class="lazy" :data-src="pilar.icone.url" :alt="pilar.pilar" />
             <p>{{pilar.pilar}}</p>
           </div>
 
@@ -45,7 +45,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-5">
-            <img v-if="post.acf.imagem_sobre" :src="post.acf.imagem_sobre" :alt="post.acf.chamada_sobre" />
+            <img class="lazy" v-if="post.acf.imagem_sobre" :data-src="post.acf.imagem_sobre" :alt="post.acf.chamada_sobre" />
           </div>
           <div class="col-md-7 centerize-internal-div">
             <div v-if="post.acf.texto_sobre" v-html="post.acf.texto_sobre"></div>
@@ -59,7 +59,7 @@
         <div class="container-fluid">
           <div class="row align-items-center">
             <div class="col-md-auto left">
-              <img :src="pilar.icone.url" :alt="pilar.pilar" />
+              <img class="lazy" :data-src="pilar.icone.url" :alt="pilar.pilar" />
             </div>
             <div class="col right">
               <h2>{{pilar.pilar}}</h2>
@@ -77,7 +77,7 @@
           <div v-for="(filho, indexFilho) in pilar.pilar_filho" :key="indexFilho" class="pilar-childs">
             <div class="row align-items-center">
               <div class="col-md-auto left">
-                <img :src="pilar.icone.url" :alt="pilar.pilar" />
+                <img class="lazy" :data-src="pilar.icone.url" :alt="pilar.pilar" />
               </div>
               <div class="col right">
                 <p>{{filho.descricao_filho}}</p>
@@ -93,34 +93,58 @@
           </div>
         </div>
         <div v-if="index == 0" class="container-fluid cta-section">
-          
           <CTA v-if="bluecta" :title="bluecta.titulo" :button="bluecta.botao" />
-          <PaginaCarregando v-else /> 
         </div>
 
         <div v-if="index == 1" class="container">
           <div class="row">
             <div class="col-12">
               <div class="puzzle">
-                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10251.png'" alt="">
-                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10252.png'" alt="">
-                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10253.png'" alt="">
-                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10254.png'" alt="">
-                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10255.png'" alt="">
-                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10256.png'" alt="">
-                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10257.png'" alt="">
-
-                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10265.jpg'" alt="">
-
-                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10258.png'" alt="">
-                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10259.png'" alt="">
-                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10260.png'" alt="">
-                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10261.png'" alt="">
-                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10262.png'" alt="">
-                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10263.png'" alt="">
-
-                <img :src="$http.baseURL + 'wp-content/uploads/Grupo-10264.jpg'" alt="">
-
+                <img class="lazy"
+                  :data-src="$http.baseURL + 'wp-content/uploads/Grupo-10251.png'"
+                  alt="Multiplos recursos aprendizagem dDNA">
+                <img class="lazy"
+                  :data-src="$http.baseURL + 'wp-content/uploads/Grupo-10252.png'"
+                  alt="Multiplos recursos aprendizagem dDNA">
+                <img class="lazy"
+                  :data-src="$http.baseURL + 'wp-content/uploads/Grupo-10253.png'"
+                  alt="Multiplos recursos aprendizagem dDNA">
+                <img class="lazy"
+                  :data-src="$http.baseURL + 'wp-content/uploads/Grupo-10254.png'"
+                  alt="Multiplos recursos aprendizagem dDNA">
+                <img class="lazy"
+                  :data-src="$http.baseURL + 'wp-content/uploads/Grupo-10255.png'"
+                  alt="Multiplos recursos aprendizagem dDNA">
+                <img class="lazy"
+                  :data-src="$http.baseURL + 'wp-content/uploads/Grupo-10256.png'"
+                  alt="Multiplos recursos aprendizagem dDNA">
+                <img class="lazy"
+                  :data-src="$http.baseURL + 'wp-content/uploads/Grupo-10257.png'"
+                  alt="Multiplos recursos aprendizagem dDNA">
+                <img class="lazy"
+                  :data-src="$http.baseURL + 'wp-content/uploads/Grupo-10265.jpg'"
+                  alt="Multiplos recursos aprendizagem dDNA">
+                <img class="lazy"
+                  :data-src="$http.baseURL + 'wp-content/uploads/Grupo-10258.png'"
+                  alt="Multiplos recursos aprendizagem dDNA">
+                <img class="lazy"
+                  :data-src="$http.baseURL + 'wp-content/uploads/Grupo-10259.png'"
+                  alt="Multiplos recursos aprendizagem dDNA">
+                <img class="lazy"
+                  :data-src="$http.baseURL + 'wp-content/uploads/Grupo-10260.png'"
+                  alt="Multiplos recursos aprendizagem dDNA">
+                <img class="lazy"
+                  :data-src="$http.baseURL + 'wp-content/uploads/Grupo-10261.png'"
+                  alt="Multiplos recursos aprendizagem dDNA">
+                <img class="lazy"
+                  :data-src="$http.baseURL + 'wp-content/uploads/Grupo-10262.png'"
+                  alt="Multiplos recursos aprendizagem dDNA">
+                <img class="lazy"
+                  :data-src="$http.baseURL + 'wp-content/uploads/Grupo-10263.png'"
+                  alt="Multiplos recursos aprendizagem dDNA">
+                <img class="lazy"
+                  :data-src="$http.baseURL + 'wp-content/uploads/Grupo-10264.jpg'"
+                  alt="Multiplos recursos aprendizagem dDNA">
               </div>
             </div>
           </div>
@@ -143,7 +167,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-6">
-            <img :src="$http.baseURL + 'wp-content/uploads/shutterstock_1076687258.png'" alt="Nossos serviços">
+            <img class="lazy" :data-src="$http.baseURL + 'wp-content/uploads/shutterstock_1076687258.png'" alt="Nossos serviços">
           </div>
           <div class="col-md-6 centerize-internal-div">
             <div>
@@ -162,7 +186,6 @@
     <Methodology/>
 
     <CTA v-if="bluecta" :title="bluecta.titulo" :button="bluecta.botao" />
-    <PaginaCarregando v-else />
 
     <Metrics v-if="metricas">
       <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
@@ -180,12 +203,12 @@
     <SolicitarContato/>
   </div>
   <div v-else class="container loadingPage">
-      <Loading />
+      <Space />
   </div>
 </template>
 
 <script>
-import Loading from "@/components/Loading.vue";
+import Space from "@/components/Space.vue";
 import Spotlight from "@/components/Spotlight.vue";
 import Metrics from "@/components/Metrics.vue";
 import CardSlider from "@/components/CardSlider.vue";
@@ -197,7 +220,7 @@ import Methodology from "@/components/Methodology.vue";
 export default {
   name: "FullService",
   components: {
-    Loading,
+    Space,
     Spotlight,
     Metrics,
     SolicitarContato,
