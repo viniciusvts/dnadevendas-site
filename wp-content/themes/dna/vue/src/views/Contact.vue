@@ -91,16 +91,16 @@
     </div>
   </div>
   <div v-else class="container loadingPage">
-      <Loading />
+      <Space />
   </div>
 </template>
 
 <script>
-import Loading from "@/components/Loading.vue";
+import Space from "@/components/Space.vue";
 import send from "../services/Contact.js";
 export default {
   name: "Contact",
-  components:{Loading},
+  components:{Space},
   mixins: [send],
   data() {
     return {

@@ -53,7 +53,11 @@
           <ul>
             <li class="fotos-palestrantes" v-for="(fotos, index) in palestrantes" :key="index">
               <div class="overlay-change" @click="changeCardPalestra(index)"></div>
-              <img v-if="fotos.foto.sizes.large" :src="fotos.foto.sizes.large" :alt="fotos.nome_palestrante">
+              <img
+              class="lazy"
+              v-if="fotos.foto.sizes.large"
+              :data-src="fotos.foto.sizes.large"
+              :alt="fotos.nome_palestrante">
               <p v-if="fotos.nome_palestrante">{{ fotos.nome_palestrante }}</p>
               <!-- <span v-if="fotos.cargo">{{ fotos.cargo }}</span> -->
             </li>
@@ -75,7 +79,7 @@
 
     <Metrics>
       <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
-        <img class="lazy" src="@/assets/loading.gif" :data-src="metric.icone.sizes.medium" :alt="metric.metrica">
+        <img class="lazy" :data-src="metric.icone.sizes.medium" :alt="metric.metrica">
         <span>{{metric.metrica}}</span>
         <h3 v-html="metric.titulo"></h3>
       </div>
@@ -94,7 +98,7 @@
                 <p>{{theme.descricao}}</p>
               </div>
             </div>
-            <img class="lazy" src="@/assets/loading.gif" :data-src="theme.imagem.sizes.medium" :alt="theme.tema">
+            <img class="lazy" :data-src="theme.imagem.sizes.medium" :alt="theme.tema">
             <p>{{theme.tema}}</p>
           </div>
         </div>
@@ -109,12 +113,12 @@
     <SolicitarContato />
   </div>
   <div v-else class="container loadingPage">
-      <Loading />
+      <Space />
   </div>
 </template>
 
 <script>
-  import Loading from "@/components/Loading.vue";
+  import Space from "@/components/Space.vue";
   import Spotlight from '@/components/Spotlight.vue';
   import Metrics from '@/components/Metrics.vue';
   import CardPalestrante from '@/components/CardPalestrante.vue';
@@ -124,7 +128,7 @@
   export default {
     name: "Talk",
     components: {
-      Loading,
+      Space,
       Spotlight,
       Metrics,
       SolicitarContato,

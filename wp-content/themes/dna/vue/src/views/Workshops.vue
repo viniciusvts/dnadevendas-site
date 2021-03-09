@@ -27,7 +27,9 @@
     
     <Metrics v-if="bannerData">
       <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
-        <img class="lazy" src="@/assets/loading.gif" :data-src="metric.icone.sizes.medium" :alt="metric.metrica">
+        <img class="lazy"
+        :data-src="metric.icone.sizes.medium"
+        :alt="metric.metrica">
         <span>{{metric.metrica}}</span>
         <h3 v-html="metric.titulo"></h3>
       </div>
@@ -38,12 +40,12 @@
     
   </div>
   <div v-else class="container loadingPage">
-      <Loading />
+      <Space />
   </div>
 </template>
 
 <script>
-  import Loading from "@/components/Loading.vue";
+  import Space from "@/components/Space.vue";
   import Spotlight from '@/components/Spotlight.vue';
   // import FaleConosco from '@/components/FaleConosco.vue';
   import Metrics from '@/components/Metrics.vue';
@@ -53,7 +55,7 @@
   export default {
     name: "WorkShops",
     components: {
-      Loading,
+      Space,
       Spotlight,
       Metrics,
       'sec-contact': SolicitarContato,

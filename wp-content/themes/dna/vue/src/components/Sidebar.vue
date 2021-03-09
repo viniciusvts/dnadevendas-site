@@ -6,11 +6,12 @@
                 <h3>Mais Visitados</h3>
                 <span></span>
             </div>
-            <div v-for="post in mostViewedPosts" :key="post.id" class="post">
+            <div v-for="(post, index) in mostViewedPosts" :key="index" class="post">
                 <router-link :to="{ name: 'SingleBlog', params: { slug: post.post_name } }">
                     <div class="row no-gutters">
                         <div class="left col-auto col-tb-12 image-sidebar">
-                            <img :src="post.DNA_custom.thumb.medium" alt="">
+                            <img v-if="(index < 5)" :src="post.DNA_custom.thumb.medium" :alt="post.DNA_custom.SEOtitle">
+                            <img v-else class="lazy" :data-src="post.DNA_custom.thumb.medium" :alt="post.DNA_custom.SEOtitle">
                         </div>
                         <div class="right col col-tb-12 title-sidebar">{{post.post_title}}
                             <br/>
@@ -39,7 +40,9 @@
 
         <div class="banner">
             <a href="https://conteudo.dnadevendas.com.br/palestra-sales-da-estrategia-a-execucao" target="_blank">
-                <img :src="$http.baseURL + 'wp-content/uploads/palestras-sales.jpg'" alt="">
+                <img class="lazy"
+                :data-src="$http.baseURL + 'wp-content/uploads/palestras-sales.jpg'"
+                alt="banner">
             </a>
         </div>
 

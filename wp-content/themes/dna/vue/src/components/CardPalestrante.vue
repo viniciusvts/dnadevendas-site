@@ -5,7 +5,11 @@
         <div class="col-12">
           <div class="iframe-palestrante" v-if="dataCase.video" v-html="dataCase.video">
           </div>
-          <img class="iframe-palestrante" v-else-if="dataCase.imagem" :src="dataCase.imagem.sizes.large" :alt="dataCase.imagem.alt" />
+          <img
+          class="iframe-palestrante lazy"
+          v-else-if="dataCase.imagem"
+          :data-src="dataCase.imagem.sizes.large"
+          :alt="dataCase.imagem.alt" />
         </div>
         <!-- <div class="col-12">
           <Pagination/>
@@ -32,7 +36,10 @@
       <div class="empresas">
         <carousel :responsive="carrossel">
           <div class="item" v-for="(empresa, index) in dataCase.onde_palestrou" :key="index">
-            <img :src="empresa.sizes.medium" :alt="empresa.alt">
+            <img
+            class="lazy"
+            :data-src="empresa.sizes.medium"
+            :alt="empresa.alt">
           </div>
         </carousel>
       </div>

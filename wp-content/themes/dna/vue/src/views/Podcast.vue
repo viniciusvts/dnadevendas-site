@@ -14,8 +14,8 @@
           <div v-if="posts.length > 0" class="col-12 col-tb-12">
               <div class="cards"> 
                 <div class="row">
-                  <div v-for="post in posts" :key="post.id" class="mb-100px w-100">
-                    <PodcastCard v-bind:post="post"/>
+                  <div v-for="(post, index) in posts" :key="index" class="mb-100px w-100">
+                    <PodcastCard v-bind:post="post" v-bind:index="index"/>
                   </div>
                 </div>
               </div>

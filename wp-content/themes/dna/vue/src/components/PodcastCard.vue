@@ -4,7 +4,12 @@
       <div class="card podcast">
         <div class="row mw100w">
           <div class="left podcast col-12 col-md-5 col-tb-12 col-fhd-6">
-            <img :src="post.acf.imagem_destaque.sizes.large" :alt="post.acf.imagem_destaque.alt">
+            <img v-if="(index < 2) || (typeof index === 'undefined')"
+            :src="post.acf.imagem_destaque.sizes.large"
+            :alt="post.acf.imagem_destaque.alt">
+            <img v-else class="lazy"
+            :data-src="post.acf.imagem_destaque.sizes.large"
+            :alt="post.acf.imagem_destaque.alt">
           </div>
           <div class="right col-12 col-md-7 col-tb-12 col-fhd-6">
             <h2 v-html="post.title.rendered"></h2>
@@ -29,6 +34,7 @@
     name: 'PodcastCard',
     props: {
       post: Object,
+      index: Number,
     },
     methods: {
       getResume(){

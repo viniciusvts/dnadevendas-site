@@ -24,7 +24,7 @@
             class="col-md-2 col-sm-12 col-tb-12"
             :class="[index < 3 ? 'pillar' : '']"
           >
-            <img :src="pilar.icone.url" :alt="pilar.pilar" />
+            <img class="lazy" :data-src="pilar.icone.url" :alt="pilar.pilar" />
             <p>{{pilar.pilar}}</p>
           </div>
 
@@ -40,7 +40,11 @@
         <h2 v-if="post.acf.chamada_sobre" v-html="post.acf.chamada_sobre"></h2>
         <span></span>
       </div>
-      <img v-if="post.acf.imagem_sobre" :src="post.acf.imagem_sobre" :alt="post.acf.chamada_sobre" />
+      <img
+      class="lazy" 
+      v-if="post.acf.imagem_sobre"
+      :data-src="post.acf.imagem_sobre"
+      :alt="post.acf.chamada_sobre" />
       <p v-if="post.acf.texto_sobre" v-html="post.acf.texto_sobre"></p>
     </section>
 
@@ -51,7 +55,9 @@
       </div>
       <div class="row justify-content-center mw100w">
         <div class="col-md-4 objective" v-for="(objetivo, indexObjetivo) in post.acf.objetivos" :key="indexObjetivo">
-          <img :src="objetivo.icone_objetivo.sizes.medium" :alt="objetivo.titulo_objetivo">
+          <img
+          class="lazy"
+          :data-src="objetivo.icone_objetivo.sizes.medium" :alt="objetivo.titulo_objetivo">
           <p v-html="objetivo.titulo_objetivo"></p>
         </div>
       </div>
@@ -65,7 +71,9 @@
       <div class="container-fluid" v-if="post.acf.imagem_pilar_mentor">
         <div class="row">
           <div class="col-md-4">
-            <img :src="post.acf.imagem_pilar_mentor.sizes.medium_large" :alt="post.acf.titulo_pilar_mentor">
+            <img
+            class="lazy" :data-src="post.acf.imagem_pilar_mentor.sizes.medium_large"
+            :alt="post.acf.titulo_pilar_mentor">
           </div>
           <div class="col-md-8">
             <ul>
@@ -87,13 +95,17 @@
         <div class="row">
           <div class="col-md-6" v-for="(plano, index) in post.acf.planos_mentoria" :key="index">
             <div class="plan">
-              <img :src="plano.icone_plano.sizes.medium" :alt="plano.nome_plano">
+              <img
+              class="lazy" :data-src="plano.icone_plano.sizes.medium"
+              :alt="plano.nome_plano">
               <h3>{{plano.nome_plano}}</h3>
               <ul>
                 <li v-for="(itemPlano, indexItem) in plano.itens_plano" :key="indexItem">
                   <div class="row align-items-center justify-content-center">
                     <div class="col-md-auto">
-                      <img :src="itemPlano.icone_item_plano.sizes.medium" :alt="itemPlano.texto_item_plano">
+                      <img
+                      class="lazy" :data-src="itemPlano.icone_item_plano.sizes.medium"
+                      :alt="itemPlano.texto_item_plano">
                     </div>
                     <div class="col-md-auto">
                       {{itemPlano.texto_item_plano}}
@@ -101,7 +113,9 @@
                   </div>
                 </li>
               </ul>
-              <img :src="$http.baseURL + 'wp-content/uploads/line.png'" alt="Linha Divisória">
+              <img
+              class="lazy" :data-src="$http.baseURL + 'wp-content/uploads/line.png'"
+              alt="Linha Divisória">
               <a v-if="plano.link_cta_plano" :href="plano.link_cta_plano.url" :target="plano.link_cta_plano.target"><button>{{plano.link_cta_plano.title}}</button></a>
             </div>
           </div>
@@ -113,7 +127,6 @@
       <div class="col-md-3" v-for="(metric, index) in metricas" :key="index">
         <img
           class="lazy"
-          src="@/assets/loading.gif"
           :data-src="metric.icone.sizes.medium"
           :alt="metric.metrica"
         />
@@ -125,12 +138,12 @@
     <SolicitarContato titulo="Entenda hoje mesmo como ampliar o seu potencial de <span>entrega de resultados</span>" />
   </div>
   <div v-else class="container loadingPage">
-      <Loading />
+      <Space />
   </div>
 </template>
 
 <script>
-import Loading from "@/components/Loading.vue";
+import Space from "@/components/Space.vue";
 import Pillars from "@/components/Pillars.vue";
 import Spotlight from "@/components/Spotlight.vue";
 import Metrics from "@/components/Metrics.vue";
@@ -139,7 +152,7 @@ import SolicitarContato from "@/components/SolicitarContato.vue";
 export default {
   name: "Mentoring",
   components: {
-    Loading,
+    Space,
     Spotlight,
     Metrics,
     SolicitarContato,

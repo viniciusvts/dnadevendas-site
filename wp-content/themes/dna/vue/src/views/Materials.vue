@@ -10,7 +10,8 @@
               <div class="row h-100">
                 <div class="col-12">
                   <div class="left">
-                    <img :src="mat.imagem.sizes.large" :alt="mat.imagem.alt">
+                    <img v-if="index < 6" :src="mat.imagem.sizes.large" :alt="mat.imagem.alt">
+                    <img v-else class="lazy" :data-src="mat.imagem.sizes.large" :alt="mat.imagem.alt">
                   </div>
                 </div>
                 <div class="col-12 h-50">
@@ -26,16 +27,16 @@
     </div>
   </section>
   <div v-else class="container loadingPage">
-      <Loading />
+      <Space />
   </div>
 </template>
 
 <script>
-import Loading from "@/components/Loading.vue";
+import Space from "@/components/Space.vue";
 
 export default {
   name: "Materials",
-  components:{Loading},
+  components:{Space},
   data(){
     return {
       pageId: 2930,

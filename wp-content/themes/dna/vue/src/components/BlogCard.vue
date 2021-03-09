@@ -5,7 +5,8 @@
       <div class="card">
         <div class="row mw100w">
           <div class="left col-12 col-md-7 col-tb-12">
-            <img :src="post.DNA_custom.thumb.large" alt="">
+            <img v-if="(index < 2) || (typeof index === 'undefined')" :src="post.DNA_custom.thumb.large" :alt="post.DNA_custom.SEOtitle">
+            <img v-else class="lazy" :data-src="post.DNA_custom.thumb.large" :alt="post.DNA_custom.SEOtitle">
           </div>
           <div class="right col-12 col-md-5 col-tb-12">
             <div class="categories">
@@ -40,6 +41,7 @@
     name: 'BlogCard',
     props: {
       post: Object,
+      index: Number,
     },
     computed: {
       daysAgo(){
