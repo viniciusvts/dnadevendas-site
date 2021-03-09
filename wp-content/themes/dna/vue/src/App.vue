@@ -45,7 +45,7 @@
     },
     methods: {
       lazyLoad: function () {
-        let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+        let lazyImages = [].slice.call(document.querySelectorAll("img.lazy, iframe.lazy"));
         let active = false;
         if (active === false) {
           active = true;

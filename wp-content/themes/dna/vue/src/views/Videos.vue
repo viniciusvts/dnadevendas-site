@@ -27,11 +27,16 @@
               <div class="col-12">
                 <div class="left">
                   <iframe
-                  width="100%" 
-                  height="220px" 
+                  v-if="index < 6"
+                  width="100%" height="220px" 
                   :src="'//www.youtube.com/embed/'+ getYtId(vid.video)"
-                  frameborder="0"
-                  allowfullscreen="">
+                  frameborder="0" allowfullscreen="">
+                  </iframe>
+                  <iframe
+                  v-else class="lazy"
+                  width="100%" height="220px" 
+                  :data-src="'//www.youtube.com/embed/'+ getYtId(vid.video)"
+                  frameborder="0" allowfullscreen="">
                   </iframe>
                 </div>
               </div>
@@ -47,16 +52,16 @@
     </div>
   </section>
   <div v-else class="container loadingPage">
-      <Loading />
+      <Space />
   </div>
 </template>
 
 <script>
-import Loading from "@/components/Loading.vue";
+import Space from "@/components/Space.vue";
 
 export default {
 name: "Videos",
-  components:{Loading},
+  components:{Space},
   data(){
     return {
       pageId: 906,
