@@ -30,7 +30,7 @@
             </div>
 
             <div v-if="clients.length > 0" class="row logos" id="clientsDiv">
-                <div v-for="(client, index) in clients" :key="client.slug" :class="getPortfolio_category(client.categories.portfolio_category)" class="col-md-2 active logoClient">
+                <div v-for="(client, index) in clientsExibidos" :key="client.slug" :class="getPortfolio_category(client.categories.portfolio_category)" class="col-md-2 active logoClient">
                     <img v-if="(index < 18)" :src="client.thumb.medium" :alt="client.thumb.alt">
                     <img v-else class="lazy" :data-src="client.thumb.medium" :alt="client.thumb.alt">
                 </div>
@@ -48,6 +48,7 @@ export default {
     data() {
       return {
         clients: [],
+        clientsExibidos: [],
         taxonomy: []
       }
     },
@@ -102,16 +103,22 @@ export default {
             this.setClients(item);
         },
         setClients(item){
+            this.clientsExibidos = [];
+            for (const client of this.clients) {
+                for (const category of client.categories.portfolio_category) {
+                    if (category.slug == item || item == 'todos'){
+                        this.clientsExibidos.push(client);
+                    }
+                }
+            }
+            // ativa o botão correto
+            this.setButtonOfTax(item);
+        },
+        setButtonOfTax(item){
             let segments = document.querySelectorAll('.tooltip');
-            let logos = document.querySelectorAll('.logoClient');
-            if (logos.length == 0) return; // se não carregou ainda as imagens, faz nada
             for(let seg of segments){
                 if (seg.getAttribute('id') == item) seg.classList.add('active');
                 else seg.classList.remove('active');
-            }
-            for(let logo of logos){
-                if(logo.classList.contains(item) || item === 'todos') logo.classList.add('active');
-                else logo.classList.remove('active');
             }
         },
         /** verifica se há um hash na url e já seleciona os clients da categoria */
@@ -119,6 +126,8 @@ export default {
             const hash = location.hash.substr(1);
             if (hash){
                 this.setClients(hash);
+            } else {
+                this.setClients('todos');
             }
         }
     }
