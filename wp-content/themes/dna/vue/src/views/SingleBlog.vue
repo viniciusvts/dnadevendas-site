@@ -116,7 +116,7 @@
         })
         .then(json=>{
           this.post = json[0];
-          this.$nextTick(this.makeSummary)
+          this.$nextTick(this.makeSummary);
         });
       },
       /** faz um sumário ná página do blogpost
@@ -126,7 +126,11 @@
         if (!this.createTheSumaryOfThisSlug(this.post.slug)) return
         const allH2 = this.$el.querySelectorAll('article h2');
         for (var i = 0; i < allH2.length; i++) {
-          const newId = 't'+ i
+          let h2content = allH2[i].innerText;
+          h2content = h2content.toLowerCase();
+          h2content = h2content.replaceAll(/[!?"#$%&'()*+,-./:;[\]_`{|}~]/g, '');
+          h2content = h2content.replaceAll(' ', '-');
+          const newId = h2content;
           // se liga aqui que eu coloco id no elemento anterior, para dar a margem da menubar
           // caso não tenha elemento anterior (geralmente forms rd e etc) pula
           if (allH2[i].previousElementSibling) allH2[i].previousElementSibling.id = newId
