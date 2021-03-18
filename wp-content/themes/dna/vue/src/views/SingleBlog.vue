@@ -85,7 +85,7 @@
         this.getPost(this.$route.params.slug);
       }else{
         this.post = this.$route.params.post;
-        this.$nextTick(this.makeSummary)
+        this.$nextTick(this.makeSummary);
       }
     },
     methods: {
@@ -140,6 +140,7 @@
             href: newId
           })
         }
+        this.$nextTick(this.scrollToH2ByHash);
       },
       /** Cliente tem uma lista de blogposts que não quer o sumário?
        * Inserir o slug dos blogposts no array que o sumário não aparecerá
@@ -176,6 +177,24 @@
             }
           }, 200)
         }
+      },
+      /** @deprecated imagens que carregam depois empurram o DOM para baixo */
+      scrollToH2ByHash(){
+        const hash = decodeURI(window.location.hash);
+        console.log('hash=>', hash);
+        if (!hash) return;
+        // const h2 = document.querySelector(hash);
+        // console.log('h2.offsetTop=>', h2.offsetTop);
+        // if (!h2.offsetTop) return;
+        // window.scroll({
+        //   top: h2.offsetTop,
+        //   behavior: 'smooth'
+        // });
+        const selector = "[href='" + hash + "']";
+        const h2 = document.querySelector(selector);
+        h2.click();
+        console.log('selector=>', selector);
+        console.log('h2=>', h2);
       }
     },
     watch: {
