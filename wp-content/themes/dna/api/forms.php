@@ -65,6 +65,7 @@ function dnaapi_solicitarContato($req){
     'mobile_phone' => $req->get_param('mobile_phone'),
     'company_name' => $req->get_param('company_name'),
     'cf_vendedores_na_equipe' => $req->get_param('qtdfunc'),
+    'cf_segmento_de_atuacao_novo' => $req->get_param('cf_segmento_de_atuacao_novo'),
     // origem rd
     'traffic_source' => $req->get_param('traffic_source'),
     'traffic_medium' => $req->get_param('traffic_medium'),
@@ -119,6 +120,7 @@ function dnaapi_paginaContato($req){
     'email' => $req->get_param('email'),
     'cf_setor' => $req->get_param('setor'),
     'cf_vendedores_na_equipe' => $req->get_param('nVendedores'),
+    'cf_segmento_de_atuacao_novo' => $req->get_param('cf_segmento_de_atuacao_novo'),
     'mobile_phone' => $req->get_param('telefone'),
     'cf_assunto' => $req->get_param('assunto'),
     'cf_mensagem' => $req->get_param('mensagem'),

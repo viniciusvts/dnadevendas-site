@@ -37,6 +37,34 @@
               <option value="16-50">16-50</option>
               <option value="51+">51+</option>
             </select>
+
+            <label for="cf_segmento_de_atuacao_novo">Segmento de atuação*</label>
+            <select name="cf_segmento_de_atuacao_novo" id="cf_segmento_de_atuacao_novo" required>
+              <option value=""> </option>
+              <option value="Agência de Marketing e Publicidade">Agência de Marketing e Publicidade</option>
+              <option value="Consultorias e Treinamento">Consultorias e Treinamento</option>
+              <option value="E-commerce">E-commerce</option>
+              <option value="Educação e Ensino">Educação e Ensino</option>
+              <option value="Engenharia">Engenharia</option>
+              <option value="Eventos">Eventos</option>
+              <option value="Financeiro, Jurídico">Financeiro, Jurídico</option>
+              <option value="Governo e Órgãos Públicos">Governo e Órgãos Públicos</option>
+              <option value="Hardware e Eletrônicos">Hardware e Eletrônicos</option>
+              <option value="Imobiliárias">Imobiliárias</option>
+              <option value="Mídia e Comunicação">Mídia e Comunicação</option>
+              <option value="ONGs">ONGs</option>
+              <option value="SaaS">SaaS</option>
+              <option value="Saúde e Estética">Saúde e Estética</option>
+              <option value="Serviços">Serviços</option>
+              <option value="Serviços de RH">Serviços de RH</option>
+              <option value="Software">Software</option>
+              <option value="Telecomunicação">Telecomunicação</option>
+              <option value="Turismo">Turismo</option>
+              <option value="Varejo">Varejo</option>
+              <option value="Construtora/ Incorporadora">Construtora/ Incorporadora</option>
+              <option value="Outros">Outros</option>
+            </select>
+            
             <label for="telefone">Telefone*</label>
             <input type="text" name="telefone" id="telefone" ref="mobile_phone" v-on:keyup="execMascaraTel" required />
 
