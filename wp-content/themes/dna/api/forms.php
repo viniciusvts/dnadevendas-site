@@ -322,6 +322,14 @@ function criaMensagemPaginaDeContato($data){
     $message .=       '</td>';
     $message .=     '</tr>';
   }
+  if (isset($data['cf_segmento_de_atuacao_novo'])){
+    $message .=     '<tr>';
+    $message .=       '<td style="padding: 10px 20px;">Segmento de atuação:</td>';
+    $message .=       '<td style="padding: 10px 20px; font-size: 18px;">';
+    $message .=         $data['cf_segmento_de_atuacao_novo'];
+    $message .=       '</td>';
+    $message .=     '</tr>';
+  }
   if (isset($data['cf_assunto'])){
   $message .=     '<tr>';
   $message .=       '<td style="padding: 10px 20px;">Assunto:</td>';
