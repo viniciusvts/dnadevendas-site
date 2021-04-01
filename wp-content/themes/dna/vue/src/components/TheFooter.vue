@@ -111,7 +111,7 @@
 
           <div class="col-12 col-md-6 col-lg-4">
             <h3>Receba conteúdos exclusivos</h3>
-            <form name="dna_newsletter"
+            <form name="newsletterform"
             method="POST"
             :action="$http.baseURL + 'wp-json/dna_theme/v1/contato-footer'"
             @submit="sendForm">
