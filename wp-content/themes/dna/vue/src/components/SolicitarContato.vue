@@ -1,7 +1,7 @@
 <template>
   <section class="contact s-contato" id="contato-servico">
     <h2 class="fale-conosco" :class="detailColorClass" v-if="titulo" v-html="titulo"></h2>
-    <form id="dna_contato"
+    <form id="solicitarcontatoform"
       method="POST"
       :action="$http.baseURL + 'wp-json/dna_theme/v1/solicitar-contato'"
       @submit="sendForm">

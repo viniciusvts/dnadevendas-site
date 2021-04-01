@@ -4,7 +4,7 @@
     <section class="container">
       <div class="row align-items-center">
         <div class="col-md-8 col-sm-12 col-tb-12">
-          <form name="/contato/"
+          <form name="contatoform"
           method="POST"
           :action="$http.baseURL + 'wp-json/dna_theme/v1/pagina-contato'"
           @submit="sendForm">
