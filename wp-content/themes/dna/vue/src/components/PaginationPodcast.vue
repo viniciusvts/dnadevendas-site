@@ -51,7 +51,7 @@
                         <router-link 
                         v-if="(!getPrevPage && getNextPage)"
                         :to="{
-                            name: $route.name,
+                            name: 'PodcastPage',
                             params: { page: getNextPage }
                         }"
                         rel="next">
