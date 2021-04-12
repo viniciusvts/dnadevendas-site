@@ -58,6 +58,11 @@
                 <li>
                   <router-link :to="{name: 'ForSmall'}">Consultoria de Vendas para pequenas empresas (For Small)</router-link>
                 </li>
+                <li>
+                  <a href="https://conteudo.dnadevendas.com.br/lp-dna-de-vendas-varejo" target="_blank">
+                    Consultoria de Vendas para Pequenos Varejos
+                  </a>
+                </li>
               </ul>
             </div>
           </li>
