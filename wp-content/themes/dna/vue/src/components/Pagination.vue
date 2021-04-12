@@ -51,7 +51,7 @@
                         <router-link 
                         v-if="(!getPrevPage && getNextPage)"
                         :to="{
-                            name: $route.name,
+                            name: 'BlogPage',
                             params: { page: getNextPage }
                         }"
                         rel="next">
@@ -87,7 +87,7 @@
                         <router-link 
                         v-else-if="!getPrevPage && getNextNextPage"
                         :to="{
-                            name: $route.name,
+                            name: 'BlogPage',
                             params: { page: getNextNextPage }
                         }"
                         rel="next">
