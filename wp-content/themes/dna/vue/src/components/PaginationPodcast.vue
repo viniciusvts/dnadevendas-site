@@ -115,7 +115,7 @@
           <div class="col">
                 <router-link 
                 v-if="getNextPage"
-                :to="{ name: (($route.name == 'Blog') ? 'BlogPage' : $route.name), params: { page: getNextPage } }"
+                :to="{ name: (($route.name == 'Podcast') ? 'PodcastPage' : $route.name), params: { page: getNextPage } }"
                 class="btn next"
                 rel="next">
                   <img src="@/assets/svg/big-arrow.svg" alt="Próximo">
