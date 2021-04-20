@@ -19,9 +19,9 @@
             <h2>{{post.title.rendered}}</h2>
             <div class="bottom">
               <div class="signature">
-                <div class="dateAgo">
+                <!-- <div class="dateAgo">
                   <span>{{daysAgo}}</span>
-                </div>
+                </div> -->
                 <!-- <div class="viewsAgo">
                   <span>{{post.DNA_custom.views}}</span>
                   <img src="@/assets/svg/book.svg" alt="">

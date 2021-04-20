@@ -14,8 +14,8 @@
                             <img v-else class="lazy" :data-src="post.DNA_custom.thumb.medium" :alt="post.DNA_custom.SEOtitle">
                         </div>
                         <div class="right col col-tb-12 title-sidebar">{{post.post_title}}
-                            <br/>
-                            <p class="date-grey">{{ post.to_ping }}</p>
+                            <!-- <br/>
+                            <p class="date-grey">{{ post.to_ping }}</p> -->
                         </div>
                     </div>   
                 </router-link>

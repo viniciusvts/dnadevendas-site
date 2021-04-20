@@ -28,7 +28,7 @@
                 </a>
               </div>
               <div class="col-12 col-lg-6 m-0">
-                <p>{{postInformation}}</p>
+                <!-- <p>{{postInformation}}</p> -->
               </div>
             </div>
             <h1>{{post.title.rendered}}</h1>
