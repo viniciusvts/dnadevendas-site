@@ -106,9 +106,13 @@ export default {
             this.clientsExibidos = [];
             this.$nextTick(() => {
                 for (const client of this.clients) {
-                    for (const category of client.categories.portfolio_category) {
-                        if (category.slug == item || item == 'todos'){
-                            this.clientsExibidos.push(client);
+                    if (item == 'todos'){
+                        this.clientsExibidos.push(client);
+                    } else {
+                        for (const category of client.categories.portfolio_category) {
+                            if (category.slug == item){
+                                this.clientsExibidos.push(client);
+                            }
                         }
                     }
                 }
