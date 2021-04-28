@@ -104,13 +104,15 @@ export default {
         },
         setClients(item){
             this.clientsExibidos = [];
-            for (const client of this.clients) {
-                for (const category of client.categories.portfolio_category) {
-                    if (category.slug == item || item == 'todos'){
-                        this.clientsExibidos.push(client);
+            this.$nextTick(() => {
+                for (const client of this.clients) {
+                    for (const category of client.categories.portfolio_category) {
+                        if (category.slug == item || item == 'todos'){
+                            this.clientsExibidos.push(client);
+                        }
                     }
                 }
-            }
+            });
             // ativa o botão correto
             this.setButtonOfTax(item);
         },
