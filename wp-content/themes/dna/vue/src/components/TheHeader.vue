@@ -161,7 +161,7 @@
                   <router-link :to="{name: 'Materials'}">Materiais</router-link>
                 </li>
                 <li>
-                  <router-link :to="{name: 'Videos'}">Videos</router-link>
+                  <router-link :to="{name: 'Videos'}">Vídeos</router-link>
                 </li>
               </ul>
             </div>
