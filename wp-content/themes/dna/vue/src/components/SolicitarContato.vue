@@ -63,8 +63,8 @@
             <option value>N° de vendedores</option>
             <option value="1-2">1-2</option>
             <option value="3-10">3-10</option>
-            <option value="11-15">11-15</option>
-            <option value="16-50">16-50</option>
+            <option value="11-20">11-20</option>
+            <option value="21-50">21-50</option>
             <option value="51+">51+</option>
           </select>
         </div>
