@@ -30,70 +30,12 @@
           <div class="col-12 col-md-6 col-lg-2">
             <h3>Saiba Mais</h3>
             <ul>
-              <li class="af-l-1">
-                <router-link :to="{ name: 'ForSmall' }">Consultoria de Vendas</router-link>
-              </li>
-              <li class="af-l-1">
-                <router-link
-                  :to="{name: 'Page', params: { slug: 'treinamento-de-vendas'}}"
-                >Treinamento de Vendas</router-link>
-              </li>
-              <li class="af-l-1">
-                <router-link :to="{ name: 'Workshops' }">Workshop de Vendas</router-link>
-              </li>
-              <li class="af-l-1">
-                <router-link :to="{ name: 'Talk' }">Palestra de Vendas</router-link>
-              </li>
-              <li class="af-l-1">
-                <router-link
-                  :to="{name: 'SingleBlog', params: { slug: 'produtividade-de-vendas'}}"
-                >Produtividade de Vendas</router-link>
-              </li>
-              <li class="af-l-1">
-                <router-link :to="{ name: 'Materials' }">Materiais de Vendas</router-link>
-              </li>
-              <li class="af-l-1">
-                <router-link
-                  :to="{name: 'SingleBlog', params: { slug: 'processo-de-vendas-o-que-e'}}"
-                >Processo de Vendas</router-link>
-              </li>
-
-              <li class="af-l-1">
-                <router-link :to="{ name: 'Blog' }">Blog de Vendas</router-link>
-              </li>
-              <li class="af-l-1">
-                <router-link :to="{ name: 'ForSmall' }">Consultoria Comercial</router-link>
-              </li>
-              <li>
+              <li v-for="(item, index) in menuSaibaMais" v-bind:key="index">
                 <a
-                  href="http://dnaformarketing.com.br"
-                  target="_blank"
-                  rel="noopener"
-                >DNA For Marketing</a>
-              </li>
-              <li>
-                <a href="/blog/playbook-de-vendas/">Playbook de Vendas</a>
-              </li>
-              <li>
-                <a
-                  href="https://jobs.solides.com/dna"
+                  :href="item.url"
                   target="_blank"
                   rel="noopener noreferrer"
-                >Trabalhe Conosco</a>
-              </li>
-              <li>
-                <a
-                  href="https://insidesalesacademy.com.br/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >Inside Sales Academy</a>
-              </li>
-              <li>
-                <a
-                  href="/blog/venda-consultiva/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >Venda Consultiva</a>
+                >{{item.title}}</a>
               </li>
             </ul>
           </div>
@@ -210,9 +152,11 @@ export default {
     return {
       formMessage: null,
       ultPosts: [],
+      menuSaibaMais: [],
     };
   },
   created() {
+    this.getMenuSaibaMais();
     this.getFooterPosts();
   },
   mounted() {
@@ -250,7 +194,17 @@ export default {
       .then(json => {
         location.href = json.data.url
       })
-    }
+    },
+    getMenuSaibaMais() {
+      this.$http.getMenuItens('footer-saiba-mais')
+        .then(res => {
+          if (res.status == 200) return res.json();
+          else console.log("Erro ao consultar os posts");
+        })
+        .then(json => {
+          this.menuSaibaMais = json;
+        });
+    },
   }
 };
 </script>

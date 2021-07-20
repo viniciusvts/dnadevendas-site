@@ -305,6 +305,15 @@ const apiRest = {
     });
   },
 
+  /**
+   * Pega o conteúdo de um menu pela api rest
+   * @author Vinicius de Santana
+   */
+  getMenuItens(menuLocation) {
+    let url = this.baseURL + 'wp-json/dna_theme/v1/menu?menu-location=' + menuLocation;
+    return fetch(url);
+  },
+
   //funções que auxiliam a aquisição de dados para envio pela api
 
   /** https://www.w3schools.com/js/js_cookies.asp */
