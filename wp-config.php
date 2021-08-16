@@ -25,10 +25,9 @@ $dbhost = ''; /* Deixar em branco para utilizar o padrão (automático) */
 $dbuser = ''; /* Deixar em branco para utilizar o padrão (automático) */
 $dbpassword = ''; /* Deixar em branco para utilizar o padrão (automático) */
 
-$server_addr = $_SERVER['SERVER_ADDR'];
+$server_addr = $_SERVER['HTTP_HOST'];
 switch ($server_addr) {
-    case '::1':
-    case '127.0.0.1':
+    case 'dna-de-vendas.localhost':
         $dbhost_default = 'localhost';
         $dbname = 'wp_dnadevendas';
         $dbuser_default = 'root';
@@ -40,8 +39,19 @@ switch ($server_addr) {
         define('WP_HOME','http://dna-de-vendas.localhost/');
         define('WP_SITEURL','http://dna-de-vendas.localhost/');
         break;
-
-    case '172.31.29.159':
+    case 'www.dnaserver.local':
+        $dbhost_default = 'localhost';
+        $dbname = 'wp_dnadevendas';
+        $dbuser_default = 'root';
+        $dbpassword_default = 'root';
+        $cache = false;
+        define('DEV_MODE', false);
+        define('WP_DEBUG', false);
+        define('WP_DEBUG_DISPLAY', false );
+        define('WP_HOME','http://apis.dnaserver.local/');
+        define('WP_SITEURL','http://www.dnaserver.local/');
+        break;
+    case 'dnaformarketing.com.br':
         $dbhost_default = 'pro-ciapipe.c6kc9wk9fak1.us-west-2.rds.amazonaws.com';
         $dbname = 'wp_dnadevendas';
         $dbuser_default = 'root';
@@ -52,7 +62,7 @@ switch ($server_addr) {
         define('WP_SITEURL','https://dnaformarketing.com.br/dna-de-vendas/');
         break;
 
-    case '198.199.88.130':
+    case 'www.dnadevendas.com.br':
         $dbhost_default = 'ddb-mysql-nyc1-74097-do-user-787860-0.db.ondigitalocean.com:25060';
         $dbname = 'wp_dnadevendas';
         $dbuser_default = 'wordpressuser';

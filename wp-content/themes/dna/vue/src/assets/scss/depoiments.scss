@@ -58,7 +58,7 @@
             padding: 80px 20px 40px 20px;
             min-height: 440px;
             @include breakpoint(fullHdDesktops) {
-                min-height: 530px;
+                min-height: 680px;
             }
 
             @include breakpoint(tablets){
